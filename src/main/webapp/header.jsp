@@ -74,9 +74,9 @@
 					<!-- //menu -->
 					<form id="commonSearchForm" method="post">
 					<div class="util">
-						<a href="/kor/store/rental.do" class="renter" title="임차문의로 이동">로그인</a>					
-						<a href="/kor/story/people/recruit.do" class="recruit" title="인재채용으로 이동">회원가입</a>
-						<a href="/eng/main.do" class="lang" title="영문사이트로 이동">카트</a>
+						<a href="/kor/store/rental.do" class="renter" title="로그인으로 이동">로그인</a>					
+						<a href="/kor/story/people/recruit.do" class="recruit" title="회원가입으로 이동">회원가입</a>
+						<a href="/eng/main.do" class="lang" title="카트로 이동">카트</a>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
 							<fieldset class="srchField">
