@@ -26,7 +26,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
 }
 
 body, input, select, textarea, button, pre {
-	font-family: SpeedeeK, Malgun Gothic, Dotum, Arial, sans-serif;
+	font-family: Malgun Gothic, Dotum, Arial, sans-serif;
 	color: #808080;
 	font-size: 16px;
 	font-weight: 500;
@@ -176,7 +176,7 @@ input {
 /* dimmed */
 .dimmed {
 	display: none;
-	z-index: 8999;
+	z-index: 1;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -1149,7 +1149,7 @@ ul.notiTxt:before {
 	margin: 0 0 0 50px
 }
 /*2021.5.31 ì¶”ê°€*/
-.header .hMenu .util .renter {
+.header .hMenu .util .btn_login {
 	display: inline-block;
 	width: 80px;
 	padding-top: 2px;
@@ -1162,7 +1162,7 @@ ul.notiTxt:before {
 	background: #db0007;
 }
 /*2021.5.31 ì¶”ê°€ ë*/
-.header .hMenu .util .lang {
+.header .hMenu .util .btn_cart {
 	display: inline-block;
 	width: 80px;
 	padding-top: 2px;
@@ -1175,7 +1175,7 @@ ul.notiTxt:before {
 	border-radius: 48px
 }
 
-.header .hMenu .util .recruit {
+.header .hMenu .util .btn_register {
 	display: inline-block;
 	width: 80px;
 	padding-top: 2px;
@@ -1311,6 +1311,191 @@ ul.notiTxt:before {
 	display: block
 }
 
+#login_pop.close {
+	display: none;
+}
+
+#login_pop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+
+#login_pop>.wrapper {
+	width: 960px;
+	top: 10%;
+	overflow: hidden;
+	transition-delay: 0.2s;
+	transition: all 0.5s;
+	position: relative;
+	z-index: 2;
+	margin: 0 auto;
+}
+
+.wrapper.shadow {
+	border-radius: 8px;
+}
+
+.shadow {
+	box-shadow: 0 2px 6px rgb(0 0 0/ 5%);
+}
+
+#login_pop>.wrapper> div:nth-child(1) {
+  	background: #da291c;
+    overflow: hidden;
+    position: relative;
+    margin-left:90px;
+    width:580px;
+}
+
+#login_pop > .wrapper > div {
+    width: 50%;
+    height: 540px;
+    float: left;
+}
+
+#login_pop>.wrapper> div:nth-child(2) {
+	background: #fff;
+	position: relative;
+	width:40%;
+}
+
+#login_pop>.wrapper>div:nth-child(2)>.roboto {
+	padding-top: 60px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+#login_pop>.wrapper>div:nth-child(2)>form {
+	margin-top: 80px;
+}
+
+#login_pop>.wrapper>div:nth-child(2)>form input {
+	display: inline-block;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 48px;
+	padding: 6px 24px 10px;
+	margin-left: 90px;
+	margin-bottom: 12px;
+	transition: all 0.2s;
+	  width: 252px;
+    height:50px;
+     margin-right:65px;
+}
+
+#login_pop>.wrapper>div:nth-child(2)>.btn_x {
+	line-height: 0;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	color: #333;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > .check {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > .check > div {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    background: #f1f1f1;
+    border-radius: 50%;
+    position: relative;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > .check > div > i {
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    font-size: 20px;
+    color: #da291c;
+    display: none;
+    animation: login_check 0.3s;
+    transform-origin: center bottom;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > .check.checked > div {
+  border:1px solid #ffc72c;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > .check.checked > div > i {
+  display:block;
+}
+
+.fa, .fas {
+    font-weight: 900;
+}
+
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+
+.fa-times:before {
+    content: "\f00d";
+}
+#login_pop > .wrapper > div:nth-child(2) > form > .check > p {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 14px;
+    vertical-align: 4px;
+    color: #666;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > div:nth-child(4) {
+    margin-top: 24px;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > div:nth-child(4) > input {
+    display: block;
+    width: 300px;
+    margin-left: 110px;
+    border: 0;
+    border-radius: 50px;
+    padding: 8px;
+    font-size: 16px;
+    background: #ffc72c;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > div:nth-child(5) {
+    margin-top: 24px;
+    text-align: center;
+}
+
+#login_pop > .wrapper > div:nth-child(2) > form > div:nth-child(5) > a {
+    display: inline-block;
+    width: 143px;
+    padding: 6px 0;
+    border: 1px solid #ffc72c;
+    border-radius: 50px;
+    background: #fff;
+    margin-left: 10px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+#login_pop>.bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.75);
+}
 #container {
 	width: 100%;
 }
@@ -1419,7 +1604,7 @@ ul.notiTxt:before {
 	height: 40px;
 	overflow: hidden;
 	text-indent: -9999px;
-	background: url(../images/common/ico_sns.png) 0 0 no-repeat
+	background: url(https://www.mcdonalds.co.kr/kor/images/common/ico_sns.png) 0 0 no-repeat
 }
 
 .footer .fSns a.fb {
