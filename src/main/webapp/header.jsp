@@ -32,7 +32,7 @@
 							<li><!-- li 오버시 on 클래스 추가 -->
 								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a><!-- 현재페이지 메뉴에 current 클래스 추가 -->
 								<ul class="depth2">
-									<li><a href="javascript:gotoMenu(1);" class="dth2">버거</a></li>
+									<li><a href="list.jsp" class="dth2">버거</a></li>
 									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
 									<li><a href="javascript:gotoMenu(3);" class="dth2">맥모닝</a></li>
 									<li><a href="javascript:gotoMenu(15);" role="button">해피 스낵</a></li>
@@ -144,7 +144,50 @@
 		
 <script type="text/javascript">	// 메뉴 마우스오버, 로그인 버튼 클릭시 이벤트
 
-	$(document).ready(function(){
+	$(document).ready(function() {
+		
+		var limit = $(".header").height();
+		var ch = false;
+		$(document).on("scroll", scrollH);	//마우스 스크롤할떄마다 이벤트 발생
+		
+		$('.btnTop').on("click", function() {
+			$('btnTop').removeClass("fixedB");
+			$("body,html").animate({"scrollTop":0},200);
+		});
+		
+		function scrollH(){	
+			if($(".footer").length > 0) {
+			       if($(document).scrollTop()+$(window).height() < $(".footer").offset().top ) {
+                       $(".btnTop").removeClass('fixedB');
+                       $(".aside").removeClass('fixedB');
+                   }else{
+                       if($(document).scrollTop() !== 0){
+                    	   $(".btnTop").addClass('fixedB');
+                    	   $('.aside').addClass('fixedB');
+                       }
+                   }
+			}
+			 if($(document).scrollTop() < limit ){
+				 $(".header").removeClass('fixed');
+                 if(ch) {
+                     ch = false;
+                     $(".header").removeClass('fixed');
+                     return;
+                 }
+             }else{
+                 if(!ch) {
+                     ch = true;
+                     $(".header").addClass('fixed');
+                     $(".header").stop().css({	//현재동작하는 애니메이션을 중지
+                         'margin-top':'-30px'
+                     }).animate({
+                         'margin-top':0
+                     },100,function(){	//animate({'속성명':'속성값'}, 가속도, 가속도함수) - animate로 보여지는 속도값지정
+                     });
+                     return;
+                 }
+             }
+		};
 		
 		$(".menu").on("mouseover", function(e){
 			$(".header").addClass("open");
@@ -174,6 +217,34 @@
 			   $(this).addClass("checked");
 			 }
 		 });
+		 
+		 var utils = {
+			scrollDisabled : function()	{
+				// console.log('idsenabled')
+				$("html , body").css("overflow","hidden");
+			},
+			scrollEnabled : function() {
+				$("html , body").css("overflow","");
+			}
+		};
+		 
+		 var topSearch = $(".topSearch")
+         topSearch.on("click",".srch",function(e) {
+             utils.scrollDisabled();
+             topSearch.addClass("open");
+             e.preventDefault();
+             topSearch.find(".dimmed").remove();
+        	  // $('.dimmed').show();
+             topSearch.append("<div class='dimmed'></div>");
+             // open
+         });
+       	 topSearch.find(".close").on("click",function(e) {
+             utils.scrollEnabled();
+             e.preventDefault();
+             topSearch.removeClass("open");
+         	 // $('.dimmed').hide();
+             topSearch.find(".dimmed").remove()
+         });
 	});
 	
 </script>	
