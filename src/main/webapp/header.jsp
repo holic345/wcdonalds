@@ -9,7 +9,7 @@
 <meta name="description" id="description" content="메뉴, 레스토랑, 프로모션 등 안내"/>
 <meta name="keywords" content="McDonald's, McDrive, McDelivery, McMorning, Happy Meal, Signature Burger, McAllday, McCafe"/>
 <link rel="shortcut icon" type="image/x-icon" href="https://www.mcdonalds.co.kr/kor/images/favicon.ico">
-<link rel="stylesheet" href="resources/css/custom.css?t=2021090901"> 
+<link rel="stylesheet" href="resources/css/main/custom.css?t=2021090901"> 
 <link rel="alternate" href="https://www.mcdonalds.co.kr">
 <script src="/kor/js/libs.js"></script>
 <script src="resources/js/custom.js?t=2021031801"></script>
@@ -25,7 +25,7 @@
 	<div class="wrapper ">
 		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
 			<div class="headArea">
-				<strong class="hLogo"><a href="main.jsp" class="logo" title="메인으로 이동"><img src="https://www.mcdonalds.co.kr/kor/images/common/logo.png" alt="맥도날드"></a></strong>
+				<strong class="hLogo"><a href="main.jsp" class="logo" title="메인으로 이동"><img src="resources/wcdonald.png" alt="맥도날드"></a></strong>
 				<nav class="hMenu">
 					<div class="menu">
 						<ul class="depth1">
