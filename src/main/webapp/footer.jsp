@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 		<footer class="footer">
 			<div class="footArea">
 				<ul class="fUtil">
@@ -27,7 +28,7 @@
 						<li>사업자등록번호: KG아이티뱅크 종로점 402호</li>
 						<li>전화주문: 119</li>
 					</ul>
-					<p class="copy">COPYRIGHT &copy; 2021 ALL RIGHTS RESERVED BY McDonald's.</p>
+					<p class="copy">COPYRIGHT &copy; 2021 ALL RIGHTS RESERVED BY WcDonald's.</p>
 				</div>
 			</div>	
 		</footer>
