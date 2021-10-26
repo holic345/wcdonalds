@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="resources/css/custom.css">
 		<footer class="footer">
 			<div class="footArea">
 				<ul class="fUtil">
