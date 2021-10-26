@@ -29,7 +29,7 @@
 <!-- 	</div> -->
 <!-- </div> -->
 
-<h1 style="padding-top: 30px; padding-left: 180px">CART</h1>
+<h1 class="container" style="padding-top : 40px">CART</h1>
 
 <div class="configurator-body" role="main">
 	<div class="configurator-scroller scroller">
@@ -174,4 +174,3 @@
 		}
 	}
 </script>
-<%@include file="footer.jsp"%>
