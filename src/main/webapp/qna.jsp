@@ -251,6 +251,10 @@
           </div>
           <!-- content area end -->
           </div>
+<<<<<<< HEAD
+          
+=======
+>>>>>>> 5c40de9ec2bacad3afa533f0c72e4e211367a546
           <div style="display:none" id="div2">
           	<!-- visualArea end -->
 	          <div class="contArea">

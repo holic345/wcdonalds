@@ -58,6 +58,93 @@
 						</p>
 					</div>
 				</div>
+<<<<<<< HEAD
+
+
+				<!-- 검색창 -->
+				<div class="faqFind">
+
+
+					<!--               
+			   <fieldset>
+				    <label for="speed">Select a speed</label>
+				    <select name="speed" id="speed">
+				      <option>Slower</option>
+				      <option>Slow</option>
+				      <option selected="selected">Medium</option>
+				      <option>Fast</option>
+				      <option>Faster</option>
+				    </select> 
+			  </fieldset>
+-->
+					<fieldset class="srchBox">
+						<legend>질문 검색</legend>
+						<div class="form">
+							<div class="selectWrap" id="selectWrap"
+								style="z-index: 100000; width: 150px">
+								<select name="category" id="category" 
+									style="display: none; position: absolute; margin-left: -100000px;">
+									<option value="" title="전체">전체</option>
+									<option value="01" title="구매">구매</option>
+									<option value="02" title="매장이용">매장이용</option>
+									<option value="03" title="맥딜리버리">맥딜리버리</option>
+									<option value="04" title="메뉴">메뉴</option>
+									<option value="05" title="채용">채용</option>
+									<option value="07" title="프랜차이즈">프랜차이즈</option>
+									<option value="08" title="기타">기타</option>
+									<option value="09" title="맥도날드앱">맥도날드앱</option>
+								</select>
+								<button tabindex="-1" id="category-button" aria-expanded="false"
+									aria-autocomplete="list" aria-owns="category-menu"
+									aria-haspopup="true"
+									class="ui-selectmenu-button ui-selectmenu-qButton-closed ui-corner-all ui-button ui-widget"
+									style="width: 250px;">
+									<span class="ui-selectmenu-text">구매</span>
+								</button> 
+								<!--select name="category" id="category" style="width:80">
+                      	<option title="전체" value="">전체</option>
+                      	<option title="구매" value="01">구매 </option>
+                      	<option title="매장이용" value="02">매장이용 </option>
+                      	<option title="맥딜리버리" value="03">맥딜리버리 </option>
+                      	<option title="메뉴" value="04">메뉴 </option>
+                      	<option title="채용" value="05">채용 </option>
+                      	<option title="프랜차이즈" value="07">프랜차이즈 </option>
+                      	<option title="기타" value="08">기타 </option>
+                      	<option title="맥도날드앱" value="09">맥도날드앱 </option>
+                      </select-->
+								<!--select
+                          title="검색 항목 선택"
+                          
+                        >
+                          <option value="">전체</option>
+                          <option value="원재료">원재료</option>
+                          <option value="품질관리">품질관리</option>
+                          <option value="매장위생">매장위생</option></select
+                        -->
+								<!--button
+                          tabindex="-1"
+                          id="category-button"
+                          aria-expanded="false"
+                          aria-autocomplete="list"
+                          aria-owns="category-menu"
+                          aria-haspopup="true"
+                          title="검색 항목 선택"
+                          class="ui-selectmenu-qButton ui-selectmenu-qButton-closed ui-corner-all ui-button ui-widget"
+                          style="width: 250px"
+                        >
+                          <span class="ui-selectmenu-text">전체</span>
+                        </button>
+                        <div class="ui-selectmenu-menu ui-front">
+                          <ul
+                            aria-hidden="true"
+                            aria-labelledby="category-button"
+                            id="category-menu"
+                            role="listbox"
+                            tabindex="0"
+                            class="ui-menu ui-corner-bottom ui-widget ui-widget-content"
+                          ></ul>
+                        </div-->
+=======
 				<!-- visualArea end -->
 				<div class="contArea">
 					<!--div class="inner"-->
@@ -127,6 +214,7 @@
 								</span>
 								</label>
 								</span>
+>>>>>>> 5c40de9ec2bacad3afa533f0c72e4e211367a546
 							</div>
 						</div>
 						<!-- 검색창 -->
