@@ -32,7 +32,11 @@
 										<div class="name">
 											<strong class="ko">1955 스모키 더블 베이컨</strong>
 											<em class="en">1955 Smoky Double Bacon</em>
+<<<<<<< HEAD
 											<button class="btnMC">주문하기</button>
+=======
+											<button style="background-color:#ffbc0d; color:white; margin : 8px 0 0 200px; border-radius:25px; width:90px;"><h4>주문하기</h4></button>
+>>>>>>> 5c40de9ec2bacad3afa533f0c72e4e211367a546
 										</div>
 									</a>
 								</li>
