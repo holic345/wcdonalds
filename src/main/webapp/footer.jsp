@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="resources/css/custom.css">
+
 		<footer class="footer">
 			<div class="footArea">
 				<ul class="fUtil">
 					<li class="privacy"><a href="/kor/etc/private.do">개인정보 처리방침</a></li>
 					<li><a href="/kor/etc/location.do">위치정보 이용약관</a></li><!-- 추가 -->
 					<li><a href="/kor/etc/sitemap.do">사이트맵</a></li>
-					<li><a href="https://voc.mcd.co.kr/MC/HOM/faqMain.jsp" target="_blank" title="새창 열림">고객문의</a></li>
+					<li><a href="faq.jsp" target="_blank" title="새창 열림">고객문의</a></li>
 					<!-- <li><a href="javascript:systemCheck('https://voc.mcd.co.kr/MC/HOM/faqMain.jsp')" title="새창 열림">고객문의</a></li> -->					
 				    <li><a href="/kor/story/people/recruit.do">인재채용</a></li> 
 				</ul>
@@ -28,7 +28,7 @@
 						<li>사업자등록번호: KG아이티뱅크 종로점 402호</li>
 						<li>전화주문: 119</li>
 					</ul>
-					<p class="copy">COPYRIGHT &copy; 2021 ALL RIGHTS RESERVED BY McDonald's.</p>
+					<p class="copy">COPYRIGHT &copy; 2021 ALL RIGHTS RESERVED BY WcDonald's.</p>
 				</div>
 			</div>	
 		</footer>
