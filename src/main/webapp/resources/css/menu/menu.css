@@ -5475,12 +5475,12 @@ p {
 	.table-price-charge .total-charge-price, .table-product-detail tr td.tax,
 	.table-product-detail tr td.total, .table-product-detail tr th.total,
 	.text-right {
-	text-align: right
+	text-align: right;
 }
 
 .copyright, .modal-alert .modal-body, .receipt .logo, .receipt .receipt-body h2,
 	.special-instructions .thank-you, .text-center {
-	text-align: center
+	text-align: center;
 }
 
 .text-justify {
@@ -6220,7 +6220,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 input[type=number] {
-	-moz-appearance: textfield
+	border-radius: 0px;
+	height: 35px;
+	padding: 0 22px;
+	
+	
 }
 
 .form-track-order {
@@ -12439,7 +12443,7 @@ body.show-configurator .root {
 
 .table-select-meal .calories-column, .table-select-meal .cost-column,
 	.table-select-meal .tax-column {
-	text-align: right;
+	text-align: left;
 	font-weight: 400
 }
 
@@ -12542,7 +12546,7 @@ body.show-configurator .root {
 }
 
 .quantity-selector input[type=number] {
-	text-align: center
+	text-align: center;
 }
 
 .quantity-selector input[type=number]::-webkit-inner-spin-button,
@@ -13586,7 +13590,7 @@ body.show-configurator .root {
 
 .item-quantity-picker {
 	width: 130px;
-	margin: 0 auto
+	margin: 0;
 }
 
 .item-quantity-picker .form-control {
