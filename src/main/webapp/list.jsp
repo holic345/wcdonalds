@@ -32,6 +32,7 @@
 										<div class="name">
 											<strong class="ko">1955 스모키 더블 베이컨</strong>
 											<em class="en">1955 Smoky Double Bacon</em>
+											<button class="btnMC">주문하기</button>
 										</div>
 									</a>
 								</li>

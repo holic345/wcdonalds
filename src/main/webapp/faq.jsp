@@ -170,8 +170,8 @@
 						<div class="form">
 							<div class="selectWrap" id="selectWrap"
 								style="z-index: 100000; width: 150px">
-								<select name="category" id="category"
-									style="display: block; position: absolute; margin-left: -100000px;">
+								<select name="category" id="category" 
+									style="display: none; position: absolute; margin-left: -100000px;">
 									<option value="" title="전체">전체</option>
 									<option value="01" title="구매">구매</option>
 									<option value="02" title="매장이용">매장이용</option>
@@ -188,7 +188,7 @@
 									class="ui-selectmenu-button ui-selectmenu-qButton-closed ui-corner-all ui-button ui-widget"
 									style="width: 250px;">
 									<span class="ui-selectmenu-text">구매</span>
-								</button>
+								</button> 
 								<!--select name="category" id="category" style="width:80">
                       	<option title="전체" value="">전체</option>
                       	<option title="구매" value="01">구매 </option>

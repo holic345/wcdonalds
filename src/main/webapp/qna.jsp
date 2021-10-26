@@ -254,20 +254,13 @@
           <!-- content area end -->
           </div>
           
-        
-          
-          
           <div style="display:none" id="div2">
           	
           	<!-- visualArea end -->
 	          <div class="contArea">
 	            <ul class="tabType01">
 	              <li data-title="문의" data-desc="문의하기">
-	                <a
-	                  href="javascript:page(1);"
-	                  role="button"
-	                  >문의하기</a
-	                >
+	                <a href="javascript:page(1);" role="button">문의하기</a>
 	              </li>
 	              <!-- 선택 된 태그에 aria-selected="true" 추가 -->
 	              <li>
@@ -352,8 +345,6 @@
               챗봇상담
             </button-->
           </div>
-          
-          
         </div>
       </div>
     </div>
@@ -370,7 +361,7 @@
     
    </form>
 <!-- hidden iframe 시작 --> 
-<iframe name="hdfrm" width="0" height="0"	scrolling="auto" frameborder="0">
+<iframe name="hdfrm" width="0" height="0" scrolling="auto" frameborder="0">
 </iframe> 
 <!-- hidden iframe 끝 --> 
   </body>
