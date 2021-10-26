@@ -21,7 +21,7 @@
 <script type="text/javascript" src="/common/js/customer_common.js"></script>
 </head>
 <body class="bg_customer_new"  scroll="auto" style="overflow-x:hidden">
-  <form name="mainForm" method="post" onsubmit="return false;">
+<form name="mainForm" method="post" onsubmit="return false;">
 	<input type="hidden" name="RECVER_TYPE_CD" value="01">
 	<input type="hidden" name="VOC_CHANNEL_CD" value="02">
 	<input type="hidden" name="ACPT_ID" id="ACPT_ID" value= "">
@@ -247,35 +247,22 @@
               </div>
             </div>
             <!-- submit button -->
-            <button type="button" id="btnInsert" class="btnMC btnM insertBtn" onclick="insert();">
-              문의 등록하기
-            </button>         
+            <button type="button" id="btnInsert" class="btnMC btnM insertBtn" onclick="insert();">문의 등록하기</button>         
           </div>
           <!-- content area end -->
           </div>
-          
-        
-          
-          
           <div style="display:none" id="div2">
-          	
           	<!-- visualArea end -->
 	          <div class="contArea">
 	            <ul class="tabType01">
 	              <li data-title="문의" data-desc="문의하기">
-	                <a
-	                  href="javascript:page(1);"
-	                  role="button"
-	                  >문의하기</a
-	                >
+	                <a href="javascript:page(1);" role="button">문의하기</a>
 	              </li>
 	              <!-- 선택 된 태그에 aria-selected="true" 추가 -->
 	              <li>
 	                <a href="javascript:page(2);" role="button" aria-selected="true">답변보기</a>
 	              </li>
 	            </ul>
-	          
-	          
 	          <!-- 답변보기 page 아래로 이어지는 부분 시작, div클래스 네임 처음 동일 -->
 	          <div class="faq-form-warp">
 	            <div class="reply-check">
@@ -298,7 +285,7 @@
 	          </button>
 	          <!-- 문의조회버튼 클릭 시 하단에 나오는 테이블 영역 -->
 	          <div class="reply-view-area" id="LIST_REPLY_DIV">
-	            <!--table class="reply-view">
+	            <table class="reply-view">
 	              <colgroup>
 	                <col style="width: 144px">
 	                <col style="width: auto">
@@ -332,7 +319,7 @@
 	                  <td colspan="4" class="color-mcdRed">안녕하세요, 고객님! 행복을 전하는 맥도날드 고객센터입니다!<br>문의주신 이번달 맥도날드의 해피밀은 말이죠! 맥도날드 공식 사이트에서 직접 확인할 수 있답니다~~~ 지금 바로 공식 사이트로 방문해보세요! 그럼 또 만나요~</td>
 	                </tr>
 	              </tbody>
-	            </table-->
+	            </table>
 	          </div>
 	          
 	          <div id="LIST_DIV"></div>
@@ -340,25 +327,17 @@
 	
 	          </div>
 	         <!-- content area end -->
-          	
           </div>
-
+          <!--  div2 end -->
           <div class="side-box">
             <span>고객센터</span>
             <strong>080.208.1588</strong>
             <p>평일 09:00 ~ 18:00<br>
-            (점심시간 12:00 ~ 13:00)</p>
-            <!--button type="button">
-              챗봇상담
-            </button-->
+           	 	(점심시간 12:00 ~ 13:00)</p>
           </div>
-          
-          
         </div>
       </div>
     </div>
-    
-    
     <div id="POP_OK" class="inquiry-modal" style="display:none;">    	
 		<!--img src="/common/images/customer/insert_ok.png" width="484" height="387" border="0" usemap="#Map" onclick="javascript:page(3);"/>
 		<map name="Map" id="Map"><area shape="rect" coords="198,600,296,375" href="javascript:page(3);" /></map-->
@@ -367,13 +346,26 @@
 			<button type="button" id="btnInsert" class="btnMC btnM insertBtn" onclick="page(3);">닫기</button>
 		</div>
 	</div>
-    
-   </form>
+</form>
 <!-- hidden iframe 시작 --> 
-<iframe name="hdfrm" width="0" height="0"	scrolling="auto" frameborder="0">
+<iframe name="hdfrm" width="0" height="0" scrolling="auto" frameborder="0">
 </iframe> 
-<!-- hidden iframe 끝 --> 
-  </body>
-</html>
-    
+<!-- hidden iframe 끝 -->
+ 
+<script type="text/javascript">
+	function page(type) {
+		if(type == 1) {
+			document.getElementById("div1").style.display = "block";
+			document.getElementById("div2").style.display = "none";
+		}
+		else if(type==2) {
+			document.getElementById("div1").style.display = "none";
+			document.getElementById("div2").style.display = "block";
+		}
+		else if(type==3) {
+			document.getElementById("POP_OK").style.display = "none";
+			location.href="/MC/HOM/faqMain.jsp";
+		}
+	}
+</script>
 <%@ include file="footer.jsp"%>

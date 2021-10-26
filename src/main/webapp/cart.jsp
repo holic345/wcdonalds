@@ -91,8 +91,7 @@
 				<div id="cost-section" class="clearfix"></div>
 			</div>
 			<div class="media-right text-center">
-				<button
-					class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder">
+				<button class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder">
 					<i class="mcd icon mcd-bag"></i> {{#if isNewOrder}} 메뉴 추가{{else}} 결제 
 					{{/if}}
 				</button>
