@@ -97,9 +97,10 @@
 				<div id="cost-section" class="clearfix"></div>
 			</div>
 			<div class="media-right text-center">
+
 				<button
 					class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder">
-					<i class="mcd icon mcd-bag"></i>결제
+					<i class="mcd icon mcd-bag"></i>결제				
 				</button>
 			</div>
 		</div>
