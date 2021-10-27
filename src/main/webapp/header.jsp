@@ -14,7 +14,7 @@
 <script src="/kor/js/libs.js"></script>
 <script src="resources/js/custom.js?t=2021031801"></script>
 <script src="/kor/js/popup.js"></script>
-<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d2849da01922567115797fadd6e5ca4"></script> -->
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=66de1c95d1d79be93897b045b9aca54a&libraries=services,clusterer,drawing"></script>
 <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-15032749-2"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
