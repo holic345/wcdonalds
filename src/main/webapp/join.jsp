@@ -11,7 +11,7 @@
 <!-- @todo: fill with your company info or remove -->
 <meta name="description" content="">
 <meta name="author" content="Themelize.me">
-
+ 
 <link rel="stylesheet" href="resources/css/main/custom.css?t=2021090901"> 
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
 

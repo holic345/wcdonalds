@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="resources/css/main/custom.css?t=2021090901"> 
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
-
+ 
 <link rel="stylesheet" href="resources/css/join/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/join/custom-style_sh.css">
 <link rel="stylesheet" href="resources/css/join/colour-red_sh.css">
@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="resources/css/join/font-awesome.min.css"> 
 <link rel="stylesheet" href="resources/css/join/theme-style.min.css">
 <link rel="stylesheet" href="resources/css/join/join.css">
-
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Le fav and touch icons - @todo: fill with your icons or remove -->
 <!-- <link rel="shortcut icon" href="/m/appstrap/img/icons/favicon.png"> -->

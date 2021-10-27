@@ -75,7 +75,7 @@
 					<form id="commonSearchForm" method="post">
 					<div class="util">
 						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
-						<a href="/kor/story/people/recruit.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
+						<a href="join.jsp" class="btn_register" title="회원가입으로 이동">회원가입</a>
 						<a href="cart.jsp" class="btn_cart" title="카트로 이동">카트</a>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
