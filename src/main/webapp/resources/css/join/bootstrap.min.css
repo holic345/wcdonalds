@@ -5,6 +5,27 @@
  */
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* #content {
+	position: absolute
+} */
+
+#header {
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+#header_logo {
+	width: 80px;
+	height: 80px;
+	left: 50%;
+	position: absolute;	
+}
+.container {
+	display: inline-block
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, nav, section, summary {
 	display: block
@@ -660,12 +681,12 @@ pre code {
 	overflow-y: scroll
 }
 
-.container {
+/* .container {
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto
-}
+} */
 
 .container:before, .container:after {
 	display: table;
@@ -685,7 +706,7 @@ pre code {
 	clear: both
 }
 
-@media ( min-width :768px) {
+/* @media ( min-width :768px) {
 	.container {
 		width: 750px
 	}
@@ -695,17 +716,17 @@ pre code {
 	.container {
 		width: 970px
 	}
-}
+} */
 
 @media ( min-width :1200px) {
 	.container {
-		width: 1170px
+		width: 100%
 	}
 }
 
 .row {
-	margin-right: -15px;
-	margin-left: -15px
+	margin: auto;
+	width: 100%;
 }
 
 .row:before, .row:after {
@@ -735,6 +756,9 @@ pre code {
 	.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11,
 	.col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
 	{
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
 	min-height: 1px;
 	padding-right: 15px;
@@ -1113,7 +1137,7 @@ pre code {
 @media ( min-width :992px) {
 	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
 		.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-		float: left
+		float: none;
 	}
 	.col-md-12 {
 		width: 100%
@@ -1125,7 +1149,7 @@ pre code {
 		width: 83.33333333333334%
 	}
 	.col-md-9 {
-		width: 75%
+		width: 50%
 	}
 	.col-md-8 {
 		width: 66.66666666666666%

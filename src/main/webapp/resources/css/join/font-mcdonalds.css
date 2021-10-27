@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'mclawsuitregular';
+    src: url('../fonts/mclawsui-webfont.eot');
+    src: url('../fonts/mclawsui-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mclawsui-webfont.woff2') format('woff2'),
+         url('../fonts/mclawsui-webfont.woff') format('woff'),
+         url('../fonts/mclawsui-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
