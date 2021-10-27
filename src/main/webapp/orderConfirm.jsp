@@ -160,40 +160,17 @@
 															class="img-block" alt="" />
 															<div class="controls">
 																<a class="text-gray-light btn-action action-edit"
-																	href="/kr/menu.html#edit/1" title="변경"><i
-																	class="mcd mcd-edit icon"></i></a> <a
-																	class="text-gray-light btn-action action-delete"
+																	href="/kr/menu.html#edit/1" title="변경">
+																	<i class="fas fa-pen"></i>
+																</a> 
+																<a class="text-gray-light btn-action action-delete"
 																	href="/kr/configurator/deletecart.json?cartId=1"
 																	title="삭제"
-																	onclick="onProductRemoveClick({ &#39;name&#39;:&#39;세트 - 1955 스모키 더블 베이컨&#39;,&#39;id&#39;:&#39;2902&#39;,&#39;price&#39;:&#39;8900.000&#39;,&#39;brand&#39;:&#39;McDonalds&#39;,&#39;variant&#39;:&#39;&#39;,&#39;quantity&#39;:&#39;1&#39;})"><i
-																	class="mcd mcd-remove icon"></i></a>
-															</div></td>
-														<td class="product-name">
-															<div>세트 - 1955 스모키 더블 베이컨</div>
-															<ul>
-																<li>단품 - 1955 스모키 더블 베이컨</li>
-																<li>할로윈 코스터 (랜덤, 재고 소진시 제공되지 않습니다.)</li>
-																<li>코카-콜라 - 미디엄</li>
-																<li>후렌치 후라이 - 미디엄</li>
-															</ul>
+																	onclick="onProductRemoveClick({ &#39;name&#39;:&#39;세트 - 1955 스모키 더블 베이컨&#39;,&#39;id&#39;:&#39;2902&#39;,&#39;price&#39;:&#39;8900.000&#39;,&#39;brand&#39;:&#39;McDonalds&#39;,&#39;variant&#39;:&#39;&#39;,&#39;quantity&#39;:&#39;1&#39;})">
+																	<i class="far fa-trash-alt"></i>
+																</a>
+															</div>
 														</td>
-														<td class="cost">₩ 8,900</td>
-													</tr>
-													<tr>
-														<td class="quantity">1</td>
-														<td class="picture-img"><img
-															src="//www.mcdelivery.co.kr/kr//static/1634797870905/assets/82/products/2902.png"
-															class="img-block" alt="" />
-															<div class="controls">
-																<a class="text-gray-light btn-action action-edit"
-																	href="/kr/menu.html#edit/2" title="변경"><i
-																	class="mcd mcd-edit icon"></i></a> <a
-																	class="text-gray-light btn-action action-delete"
-																	href="/kr/configurator/deletecart.json?cartId=2"
-																	title="삭제"
-																	onclick="onProductRemoveClick({ &#39;name&#39;:&#39;세트 - 1955 스모키 더블 베이컨&#39;,&#39;id&#39;:&#39;2902&#39;,&#39;price&#39;:&#39;8900.000&#39;,&#39;brand&#39;:&#39;McDonalds&#39;,&#39;variant&#39;:&#39;&#39;,&#39;quantity&#39;:&#39;1&#39;})"><i
-																	class="mcd mcd-remove icon"></i></a>
-															</div></td>
 														<td class="product-name">
 															<div>세트 - 1955 스모키 더블 베이컨</div>
 															<ul>
