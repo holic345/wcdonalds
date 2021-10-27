@@ -10026,7 +10026,7 @@ rotate
 }
 
 .radio .iradio {
-	margin-right: 10px
+	margin-right: 10px;
 }
 
 .radio .radio-label {
@@ -10070,7 +10070,7 @@ rotate
 .icheckbox, .iradio {
 	margin: 0;
 	padding: 0;
-	background: url(../img/icheck_red2.png) no-repeat;
+	background: url(https://www.mcdelivery.co.kr/kr/static/1634720129356/assets/00/img/icheck_red2.png) no-repeat;
 	border: none;
 	cursor: pointer
 }
@@ -10107,7 +10107,7 @@ rotate
 .iradio {
 	width: 20px;
 	height: 20px;
-	background-position: -200px -9px
+	background-position: -200px -9px;
 }
 
 .iradio.hover {

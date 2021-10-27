@@ -29,7 +29,7 @@
 <!-- 	</div> -->
 <!-- </div> -->
 
-<h1 class="container" style="padding-top : 40px">CART</h1>
+<h1 class="container" style="padding-top: 40px">CART</h1>
 
 <div class="configurator-body" role="main">
 	<div class="configurator-scroller scroller">
@@ -75,7 +75,8 @@
 									</td>
 									<td class="cost-colum">가격</td>
 									<td class="calories-colum">칼로리</td>
-									<td><a href="#" class="calories-colum">변경</a></td>
+									<td><a href="#" data-toggel="modal" class="action-change"
+										data-item-id="1403" data-list-id="10000016">변경</a></td>
 								</tr>
 						</table>
 					</div>
@@ -100,61 +101,94 @@
 
 				<button
 					class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder">
-					<i class="mcd icon mcd-bag"></i>결제				
+					<i class="far fa-money-bill-alt"></i>&nbsp;결제
 				</button>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- 변경 폼 -->
-<div class="modal fade in" aria-hidden="false" style="display: bolck;">
+<div class="modal fade in" aria-hidden="false" style="display: none;">
 	<div class="modal-backdrop fade in" style="height: 968px;"></div>
-		<div class="modal-container">
-			<div class="modal-content">
-				<div class="modal-available-choices">
-					<form action="" accept-charset="utf-8">
-		<div class="modal-dialog columns-{{columnsToDisplay}}">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title text-ucase">항목을 선택하세요</h2>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-						<i class="mcd icon mcd-close"></i>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="media">
-						<div class="pull-left">
-							<img src="http://placehold.it/120x90/" alt="" class="img-block choice-image" />
-						</div>
-						<div class="media-body">
-							<ul class="category-tabs">
-								<li><a data-categoryID="all" href="javascript:void(0);">All</a></li>	
-								<li><a data-categoryID="{{ this.categoryID }}" href="javascript:void(0);">{{ this.categoryName }}</a></li>	
-							</ul>
-							<div class="available-choices-list row">
+	<div class="modal-container">
+		<div class="modal-content">
+			<div class="modal-available-choices">
+				<form action="" accept-charset="utf-8">
+					<div class="modal-dialog columns-{{columnsToDisplay}}">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2 class="modal-title text-ucase">항목을 선택하세요</h2>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									<i class="fas fa-times"></i> 	
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="media">
+									<div class="pull-left">
+										<img
+											src="https://www.mcdelivery.co.kr/kr//static/1635300416887/assets/82/products/1403.png"
+											alt="" class="img-block choice-image" />
+									</div>
+									<div class="media-body">
+<!-- 										<ul class="category-tabs"> -->
+<!-- 											<li><a data-categoryID="all" href="javascript:void(0);">All</a></li> -->
+<!-- 											<li><a data-categoryID="{{ this.categoryID }}" -->
+<!-- 												href="javascript:void(0);"></a></li> -->
+										<div class="available-choices-list row">
+											<div class="choices-column col-xs-12 column-0">
+												<div>
+													<div class="radio" data-categoryid="">
+														<div class="iradio checked">
+															<input type="radio" name="select-choice" id="choice-1403"
+																value="1403" data-cartname="후렌치 후라이 - 라지"
+																style="position: absolute; opacity: 0;"
+																aria-invalid="false">
+														</div>
+														<label for="choice-1403" class="radio-label">후렌치
+															후라이 - 라지 </label>
+													</div>
+												</div>
+												<div>
+													<div class="radio " data-categoryid="">
+														<div class="iradio">
+															<input type="radio" name="select-choice" id="choice-6991"
+																value="6991" data-cartname="골든 모짜렐라 치즈스틱 2조각"
+																style="position: absolute; opacity: 0;"
+																aria-invalid="false">
+														</div>
+														<label for="choice-6991" class="radio-label">골든
+															모짜렐라 치즈스틱 2조각 </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="available-choices-list row"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="modal-footer text-center">
-					<button type="submit" class="btn btn-red btn-lg btn-submit">확인</button>
-				</div>
-				
+					<div class="modal-footer text-center">
+						<button type="submit" id="okbtn"
+							class="btn btn-red btn-lg btn-submit">확인</button>
+					</div>
+					</form>
 			</div>
 		</div>
-	</form>
-				</div>
-			</div>
-	</div>
-</div>
-<div class="step-content">
-	<div id="upsell-items">
-		<div class="colsize-5-row"></div>
 	</div>
 </div>
 <script type="text/javascript">
+	//변경 폼
+	$(document).ready(function() {
+		$(".action-change").click(function() {
+			$(".modal").attr("style", "display:block");
+		});
+		$("#okbtn,.fas").click(function() {
+			$(".modal").attr("style", "display:none");
+		});
+	});
 	//폼값 증가&감소
-
 	function form_btn(n) {
 
 		var text = document.getElementById("text"); // 폼 선택
