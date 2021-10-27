@@ -9076,6 +9076,17 @@ rotate(
 	border-bottom-right-radius: 4px
 }
 
+input[type='text'], input[type='password'], input[type='tel'], input[type='number'],
+	input[type='search'], input[type='email'], input[type='date'] {
+	color: #292929;
+	height: 70px;
+	padding: 0 28 px;
+	line-height: 1;
+	border: 1 px solid #d1d1d1;
+	border-radius: 0;
+	background: #fff;
+}
+
 .input-group-addon-text {
 	background-color: #fff;
 	border-color: #fff
