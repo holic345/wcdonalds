@@ -105,10 +105,10 @@
 				<!-- //storeFind -->
 				<div class="storeResult">
 					<div id="map" class="map"
-						style="height: 600px; position: relative; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);">
+						style="height: 600px; position: relative; overflow: hidden; background: url('https://t1.daumcdn.net/mapjsapi/images/bg_tile.png');">
 						<!-- 지도 마커용 태그, A~Z까지 순차적으로 사용 -->
 						<div
-							style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;">
+							style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico') 7 5, url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico'), default;">
 							<div style="position: absolute;">
 								<div
 									style="position: absolute; z-index: 0; left: 0px; top: 0px;">
@@ -271,7 +271,7 @@
 								</div>
 								<div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);">
 									<div style="position: absolute; margin: -69px 0px 0px -26px; z-index: 0; left: 468px; top: 387px; display: block;">
-										<img draggable="false" src="/kor/images/store/ico_marker.png" alt="" title="한국맥도날드(유)"
+										<img draggable="false" src="https://www.mcdonalds.co.kr/kor/images/store/ico_marker.png" alt="" title="한국맥도날드(유)"
 											style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 54px, 70px, 0px); top: 0px; left: 0px; width: 54px; height: 70px;">
 									</div>
 								</div>
@@ -283,9 +283,7 @@
 								<div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">250m</div>
 							</div>
 							<div style="margin: 0px 4px; float: left;">
-								<a target="_blank" href="http://map.kakao.com/"
-									title="Kakao 지도로 보시려면 클릭하세요."
-									style="float: left; width: 32px; height: 10px;"><img
+								<a target="_blank" href="http://map.kakao.com/"	title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img
 									src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png"
 									alt="Kakao 지도로 이동"
 									style="float: left; width: 32px; height: 10px; border: none;"></a>
@@ -294,33 +292,33 @@
 						</div>
 						<div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;">
 							<div style="width: 32px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 1133px; top: 42px;">
-								<button draggable="false" title="확대" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: none; border-right: none; border-bottom: 1px solid rgb(226, 226, 226); border-left: none; border-image: initial; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px 0px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 3px 3px 0px 0px;"></button>
-								<div style="float: left; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png&quot;) repeat; padding: 7px 0px; transition: height 0s ease 0s, margin 0.1s ease 0s;">
+								<button draggable="false" title="확대" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: none; border-right: none; border-bottom: 1px solid rgb(226, 226, 226); border-left: none; border-image: initial; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -40px 0px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 3px 3px 0px 0px;"></button>
+								<div style="float: left; background: url('https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png') repeat; padding: 7px 0px; transition: height 0s ease 0s, margin 0.1s ease 0s;">
 									<div style="cursor: pointer; position: relative; background-size: 116px 264px; transition: height 0.1s ease 0s; margin: 2px 0px; display: block; width: 32px; height: 104px;">
 										<div style="position: absolute; width: 4px; height: 100%; background-color: rgb(51, 150, 255); left: 50%; margin: 0px 0px 0px -2px;">
-											<div style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -50px -127px/116px 264px;"></div>
-											<div style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -100px/116px 264px;"></div>
+											<div style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -50px -127px/116px 264px;"></div>
+											<div style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -40px -100px/116px 264px;"></div>
 										</div>
 										<div style="position: absolute; background-color: rgb(204, 204, 204); transition: height 0.1s ease 0s; left: 50%; margin: 0px 0px 0px -2px; width: 4px; height: 32px;"></div>
-										<div style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -80px/116px 264px; left: 50%; transition: top 0.1s ease 0s; top: 32px;"></div>
+										<div style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -40px -80px/116px 264px; left: 50%; transition: top 0.1s ease 0s; top: 32px;"></div>
 									</div>
 								</div>
-								<button draggable="false" title="축소" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: 1px solid rgb(226, 226, 226); border-right: none; border-bottom: none; border-left: none; border-image: initial; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -32px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 0px 0px 3px 3px; margin: 0px;"></button>
+								<button draggable="false" title="축소" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: 1px solid rgb(226, 226, 226); border-right: none; border-bottom: none; border-left: none; border-image: initial; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -40px -32px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 0px 0px 3px 3px; margin: 0px;"></button>
 								<div style="position: absolute; margin: 41px 0px 0px -30px; background-size: 116px 264px; width: 30px; height: 104px; display: none;">
-									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -80px/116px 264px; left: 0px; top: 8px;"></div>
-									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -100px/116px 264px; left: 0px; top: 32px;"></div>
-									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -120px/116px 264px; left: 0px; top: 64px;"></div>
-									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -140px/116px 264px; left: 0px; top: 80px;"></div>
-									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -160px/116px 264px; left: 0px; top: 96px;"></div>
+									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') 0px -80px/116px 264px; left: 0px; top: 8px;"></div>
+									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') 0px -100px/116px 264px; left: 0px; top: 32px;"></div>
+									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') 0px -120px/116px 264px; left: 0px; top: 64px;"></div>
+									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') 0px -140px/116px 264px; left: 0px; top: 80px;"></div>
+									<div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') 0px -160px/116px 264px; left: 0px; top: 96px;"></div>
 								</div>
 							</div>
 							<div style="width: 106px; height: 32px; box-sizing: content-box; background-color: rgb(255, 255, 255); padding: 2px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 1055px; top: 3px;">
-								<button draggable="false" title="지도" type="button"style="float: left; cursor: default; width: 43px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -5px -183px/116px 264px no-repeat; color: rgb(255, 255, 255); font-weight: bold;"></button>
-								<button draggable="false" title="스카이뷰" type="button" style="float: left; cursor: pointer; width: 63px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -48px -183px/116px 264px no-repeat; color: rgb(0, 0, 0); font-weight: normal;"></button>
+								<button draggable="false" title="지도" type="button"style="float: left; cursor: default; width: 43px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -5px -183px/116px 264px no-repeat; color: rgb(255, 255, 255); font-weight: bold;"></button>
+								<button draggable="false" title="스카이뷰" type="button" style="float: left; cursor: pointer; width: 63px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url('https://t1.daumcdn.net/mapjsapi/images/control.png') -48px -183px/116px 264px no-repeat; color: rgb(0, 0, 0); font-weight: normal;"></button>
 							</div>
 						</div>
 					</div>
-					<button type="button" class="mc_current" onclick="locate();">
+					<button type="button" class="mc_current">
 						<span>내 위치 중심으로 지도보기</span>
 					</button>
 					<div class="mcStore">
@@ -370,6 +368,224 @@
 	</div>
 	<button type="button" class="btnTop">맨 위로 가기</button>
 </div>
+<script>
+$(document).ready(function () {
 
+	function storeFindBg() {
+		var winWidth = window.innerWidth;
+		var $storeFind = $('.storeFind');
+		var $storeFindBg = $storeFind.find('.storeFind_bg');
+		var storeFindWidth = $storeFind.innerWidth();
+		if (winWidth >= 1168) {
+			$storeFindBg.css({
+				'width' : winWidth,
+				'margin-left' : -(winWidth - storeFindWidth) / 2
+			});
+		} else {
+			$storeFindBg.attr({
+				'style' : ''
+			});
+		}
+	};
+	storeFindBg();
+	
+	$(window).resize(function() {
+		storeFindBg();
+	});
+
+	$("#searchWord").on("keydown", function() {
+		if (event.keyCode == 13) {
+			search();
+		}
+	});
+
+	var mapContainer = document.getElementById('map');
+	var mapOption = {
+		center : new kakao.maps.LatLng(37.570698, 126.983558),
+		level : 3,
+		mapTypeId: kakao.maps.MapTypeId.ROADMAP	//지도 종류
+	};
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+	var clusterer = new kakao.maps.MarkerClusterer({
+        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+        averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+        minLevel: 10 // 클러스터 할 최소 지도 레벨 
+    });
+	
+	var data = [
+		[37.57056001779529, 126.99046810138731,'<div style="padding:5px;">맥도날드 종로3가점 McDonald\'s</div>'],
+		[37.57311655456051, 127.01510539116606,'<div style="padding:5px;">맥도날드 서울동묘역점 McDonald\'s</div>'],
+		[37.56416674801353, 126.9844438972081,'<div style="padding:5px;">맥도날드 명동점 McDonald\'s</div>'],
+		[37.54458425362564, 126.83157622677554,'<div style="padding:5px;">맥도날드 병관점 McDonald\'s</div>'],
+		[37.44656980118255, 126.90116941328256,'<div style="padding:5px;">맥도날드 규리점 McDonald\'s</div>'],
+		[37.59047879273179, 126.67553501143038,'<div style="padding:5px;">맥도날드 도은점 McDonald\'s</div>']
+	];
+	
+	var markers = [];
+	
+	var zoomControl = new kakao.maps.ZoomControl();
+	map.addControl(zoomControl,	kakao.maps.ControlPosition.RIGHT);
+	var mapTypeControl = new kakao.maps.MapTypeControl();
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+	for (var i = 0; i < data.length; i++) {
+
+		// 마커 이미지의 이미지 크기 입니다
+		var imageSize = new kakao.maps.Size(54, 70);
+
+		// 마커 이미지를 생성합니다    
+		var markerImage = new kakao.maps.MarkerImage("https://www.mcdonalds.co.kr/kor/images/store/ico_marker.png", imageSize);
+
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+			map : map, // 마커를 표시할 지도
+			position : new kakao.maps.LatLng(data[i][0], data[i][1]), // 마커를 표시할 위치
+			image : markerImage
+		// 마커 이미지 
+		});
+		marker.setMap(map);
+		
+		var infowindow = new kakao.maps.InfoWindow({
+			//marker에서 위치 저장했기때문에 position 부분은 삭제
+		    content : data[i][2]
+		});
+		
+		markers.push(marker);	//markers라는 변수안에 marker라는 마커를 집어넣음
+		
+
+		kakao.maps.event.addListener(
+				marker, 
+				'mouseover',
+				makeOverListener(map, marker, infowindow)
+		);
+		kakao.maps.event.addListener(
+				marker, 
+				'mouseout',
+				makeOutListener(infowindow)
+		);
+	}
+	// 클러스터러에 마커들을 추가합니다
+	clusterer.addMarkers(markers);
+	
+	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+	function makeOverListener(map, marker, infowindow) {
+	    return function() {
+	        infowindow.open(map, marker);
+	    };
+	}
+	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+	function makeOutListener(infowindow) {
+	    return function() {
+	        infowindow.close();
+	    };
+	}
+	
+	moveMap(37.57056001779529, 126.99046810138731);
+
+	function moveMap(xx, yy) {
+		var po = new kakao.maps.LatLng(xx, yy);
+		map.panTo(po);
+	}
+	$('.mc_current').click(function(){
+		if(confirm("위치정보의 사용시 보안된 페이지에서 위치정보을 요청합니다.\n이동하시겠습니까?")){
+		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		       var lat = position.coords.latitude, // 위도
+		       lon = position.coords.longitude; // 경도
+		       var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		       map.panTo(locPosition);
+		       $("#lat").val(lat);
+			   $("#lng").val(lon);
+			   page(1);
+	     	});
+		}else{
+			if(getCookie("locate_info")=="Y"){
+				if (navigator.geolocation) {
+				    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+				    navigator.geolocation.getCurrentPosition(function(position) {
+				        var lat = position.coords.latitude, // 위도
+				        lon = position.coords.longitude; // 경도
+				       //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				       //map.panTo(locPosition);
+				         $("#lat").val(lat);
+					     $("#lng").val(lon);
+					     page(1);
+			      	});
+				}else{
+					alert("위치정보을 사용할수 없습니다");
+				}
+			}else{
+				if(confirm("[위치정보 사용 동의]\n이 페이지에서\n현재 위치 정보를 사용하고자 합니다.\n동의하시겠습니까?")){
+					setCookie("locate_info","Y",36500);
+					if (navigator.geolocation) {
+				    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+				 	   navigator.geolocation.getCurrentPosition(function(position) {
+				        var lat = position.coords.latitude, // 위도
+				        lon = position.coords.longitude; // 경도
+				        //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				        //map.panTo(locPosition);
+				        $("#lat").val(lat);
+				        $("#lng").val(lon);
+				        page(1);
+				       });
+					}else{
+						alert("위치정보을 사용할수 없습니다");
+					} 
+				}
+			}
+		}
+	});
+		
+	function setCookie( name, value, expiredays ) { 
+		var todayDate = new Date(); 
+		todayDate.setDate( todayDate.getDate() + expiredays ); 
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+	}
+	function getCookie(cname) {
+	    var name = cname + "=";
+	    var decodedCookie = decodeURIComponent(document.cookie);
+	    var ca = decodedCookie.split(';');
+	    for(var i = 0; i <ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0) == ' ') {
+	            c = c.substring(1);
+	        }
+	        if (c.indexOf(name) == 0) {
+	            return c.substring(name.length, c.length);
+	        }
+	    }
+	    return "";
+	}
+	function altEscapeTag(){
+		$("img").each(function (i,ob){
+			$(ob).attr("alt",$(ob).attr("alt").replace(/(<([^>]+)>)/ig,""));
+		});
+	}
+	function search(){
+		$("#page").val(1);
+		$("#lat").val("NO");
+		$("#lng").val("NO");
+		go();
+	}
+	function page(page){
+		$("#page").val(page);
+		go();
+	}
+	function go(){
+	    var search_options= [];
+	    $('.storeFind .srvcFilter .service>span input:checked').each(function(index, item){
+	    	search_options[index] = this.id;
+	    });
+		$("#search_options").val(search_options.join(","));
+		$("#searchForm").attr("action","store.jsp");
+		$("#searchForm").submit();
+	}
+	function gohttps(){
+		$("#searchForm").attr("action","https://www.mcdonalds.co.kr/kor/store/list.do");
+		$("#searchForm").submit();
+	}
+});
+</script>
 <%@ include file="footer.jsp"%>
     
