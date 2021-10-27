@@ -335,8 +335,8 @@
 						<div class="section-menu">
 							<ul class="nav nav-list">
 								<li class="nav-header lnb-header">마이페이지<span>MyPage</span></li>
-								<li class="active"><a href="join.asp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
-								<li class="active"><a href="join.asp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
+								<li class="active"><a href="mypageUpdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
+								<li class="active"><a href="addressBook.jsp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
 								<li class="active"><a href="join.asp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
 								<li class="active"><a href="join.asp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
 							</ul>
@@ -344,6 +344,3 @@
 					</div>
 
 
-							
-</body>
-</html>

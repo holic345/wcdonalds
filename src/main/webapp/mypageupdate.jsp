@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "mypage.jsp"%>
 
-
 					<!-- 테이블 -->
 					<div class="col-md-9">
 					<h3 class="title-divider mt_0"><span>MyPage</span> <small>MyPage</small></h3>
@@ -63,7 +62,31 @@
 																	class="form-control input-lg required number digit-only"
 																	maxlength="11" id="form_accountsetting_contactno"
 																	name="contactNo" placeholder="숫자만 입력"
-																	value="01082655085" />
+																	value="번호 가져오기" />
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="form-group">
+																<label class="field-label"
+																	for="form_accountsetting_contactno">새로운 비밀번호:</label> 
+																<input type="text"
+																	class="form-control input-lg required number digit-only"
+																	maxlength="11" id="form_accountsetting_contactno"
+																	name="contactNo" placeholder="새로운 비밀번호"/>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="form-group">
+																<label class="field-label"
+																	for="form_accountsetting_contactno">새로운 비밀번호 재입력:</label> 
+																<input type="text"
+																	class="form-control input-lg required number digit-only"
+																	maxlength="11" id="form_accountsetting_contactno"
+																	name="contactNo" placeholder="새로운 비밀번호 재입력"/>
 															</div>
 														</div>
 													</div>
@@ -78,10 +101,10 @@
 														<div class="radio">
 															<input type="radio" id="form_notification_channel_email"
 																name="preferredNotificationChannel" checked="checked"
-																value="1-15671994" /> <label
-																for="form_notification_channel_email"
-																class="radio-label"> 이메일: <span
-																id="form_notification_channel_email_mirror">회원이메일 가져오기</span>
+																value="1-15671994" style="padding-bottom: 0px"/>
+															<label for="form_notification_channel_email"
+																class="radio-label"> 이메일: 
+															<span id="form_notification_channel_email_mirror">회원이메일 가져오기</span>
 															</label>
 														</div>
 														<div class="radio">
@@ -109,7 +132,9 @@
 							</div>
 							
 				</div>
-</div></div></div>
+</div>
+</div>
+</div>
 
 
 <%@ include file = "footer.jsp"%>
