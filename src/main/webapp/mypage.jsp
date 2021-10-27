@@ -340,15 +340,10 @@
 								<li class="active"><a href="join.asp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
 								<li class="active"><a href="join.asp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
 							</ul>
-							
-						</div>
-						
-						
-						
+						</div>			
 					</div>
-					<!-- 테이블 -->
-						
-				</div>
-			</div>
-		</div></body>
+
+
+							
+</body>
 </html>
