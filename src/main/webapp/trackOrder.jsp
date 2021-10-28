@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="mypage.jsp"%>
 
@@ -13,6 +14,7 @@ function order_detail_show() {
 	}
 }
 </script>
+
 <div class="col-md-9">
 	<h3 class="title-divider mt_0">
 		<span>주문조회</span><small>Track Order</small>
