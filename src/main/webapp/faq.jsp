@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="keywords" content="맥도날드">
 <meta name="description" content="맥도날드">
@@ -12,7 +12,17 @@
 <meta http-equiv="Cache-Control" content="No-Cache">
 <link rel="stylesheet" href="resources/css/faq/faqCommon.css">
 <link rel="stylesheet" href="resources/css/faq/faq.css">
+<script language="javascript" src="resources/js/faq/faqMain.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
+<script type="text/javascript" src="resources/js/faq/extendedComboBox.js"></script>
+<script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
+<script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
+<!-- <script type="text/javascript" src="/common/js/customer_common.js"></script> -->
 
+<!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
 <title>자주 찾는 질문과 답</title>
 <script type="text/javascript" src="resources/js/faq/jquery-1.7.min.js"></script>
  <script style="text/javascript">
@@ -35,23 +45,6 @@
 		});
 
 </script>
-
-<script language="javascript" src="resources/js/faq/faqMain.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
-<script type="text/javascript" src="resources/js/faq/customer_commonTable.js"></script> <!-- 했더니 팝업창뜸 -->
-<script type="text/javascript" src="resources/js/faq/extendedComboBox.js"></script>
-<script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
-<script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
-<!-- <script type="text/javascript" src="/common/js/customer_common.js"></script> -->
-
-
-
-<!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
-
 </head>
 <body>
 	<div class="wrapper">
@@ -175,13 +168,6 @@
 											<option value="08" title="기타">기타</option>
 											<option value="09" title="맥도날드앱">맥도날드앱</option>
 										</select>
-										<button tabindex="-1" id="category-button" aria-expanded="false"
-											aria-autocomplete="list" aria-owns="category-menu"
-											aria-haspopup="true"
-											class="ui-selectmenu-button ui-selectmenu-qButton-closed ui-corner-all ui-button ui-widget"
-											style="width: 250px;">
-											<span class="ui-selectmenu-text">전체</span>
-										</button>
 									</div>
 									<form NAME="FNAME" class="realForm" method="post"
 										onsubmit="return false;">
