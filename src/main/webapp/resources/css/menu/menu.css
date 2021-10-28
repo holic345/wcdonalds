@@ -1214,7 +1214,6 @@ legend {
 	font-size: 21px;
 	line-height: inherit;
 	color: #333;
-	border-bottom: 1px solid #e5e5e5
 }
 
 label {
@@ -4406,7 +4405,6 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus,
 }
 
 .close {
-	float: right;
 	line-height: 1;
 	color: #000;
 	filter: alpha(opacity = 20)
@@ -12292,7 +12290,7 @@ body.show-configurator .root {
 .configurator-footer {
 	-webkit-box-shadow: 0 -5px 5px rgba(102, 102, 102, .25);
 	box-shadow: 0 -5px 5px rgba(102, 102, 102, .25);
-	z-index: 150;
+	z-index: 10;
 	line-height: 70px;
 	bottom: 0
 }
