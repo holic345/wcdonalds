@@ -97,7 +97,7 @@
 							<legend>매장검색</legend>
 							<div class="form">
 								<input type="text" placeholder="매장명, 동명, 도로명을 검색해 주세요." title="검색어 입력" id="searchWord" name="searchWord" value="">
-								<button type="button" class="btnMC btnM" onclick="search()">검색하기</button>
+								<button type="button" class="btnMC btnM" id="storeSearch">검색하기</button>
 							</div>
 						</fieldset>
 					</div>
@@ -401,7 +401,7 @@ $(document).ready(function () {
 
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
-		center : new kakao.maps.LatLng(37.570698, 126.983558),
+		center : new kakao.maps.LatLng(37.57056001779529,126.99046810138731),
 		level : 3,
 		mapTypeId: kakao.maps.MapTypeId.ROADMAP	//지도 종류
 	};
@@ -413,13 +413,32 @@ $(document).ready(function () {
         minLevel: 10 // 클러스터 할 최소 지도 레벨 
     });
 	
-	var data = [
-		[37.57056001779529, 126.99046810138731,'<div style="padding:5px;">맥도날드 종로3가점 McDonald\'s</div>'],
-		[37.57311655456051, 127.01510539116606,'<div style="padding:5px;">맥도날드 서울동묘역점 McDonald\'s</div>'],
-		[37.56416674801353, 126.9844438972081,'<div style="padding:5px;">맥도날드 명동점 McDonald\'s</div>'],
-		[37.54458425362564, 126.83157622677554,'<div style="padding:5px;">맥도날드 병관점 McDonald\'s</div>'],
-		[37.44656980118255, 126.90116941328256,'<div style="padding:5px;">맥도날드 규리점 McDonald\'s</div>'],
-		[37.59047879273179, 126.67553501143038,'<div style="padding:5px;">맥도날드 도은점 McDonald\'s</div>']
+	var positions = [
+
+		{
+	        title: '윈도날드 종로3가점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.57056001779529,126.99046810138731)
+	    },
+		{
+	        title: '윈도날드 서울동묘역점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.57311655456051,127.01510539116606)
+	    },
+		{
+	        title: '맥도날드 명동점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.56416674801353,126.9844438972081)
+	    },
+		{
+	        title: '맥도날드 병관점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.54458425362564,126.83157622677554)
+	    },
+		{
+	        title: '맥도날드 규리점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.44656980118255,126.90116941328256)
+	    },
+		{
+	        title: '맥도날드 도은점 WcDonald\'s', 
+	        latlng: new kakao.maps.LatLng(37.59047879273179,126.67553501143038)
+	    }
 	];
 	
 	var markers = [];
@@ -429,7 +448,7 @@ $(document).ready(function () {
 	var mapTypeControl = new kakao.maps.MapTypeControl();
 	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 	
-	for (var i = 0; i < data.length; i++) {
+	for (var i = 0; i < positions.length; i++) {
 
 		// 마커 이미지의 이미지 크기 입니다
 		var imageSize = new kakao.maps.Size(54, 70);
@@ -440,46 +459,17 @@ $(document).ready(function () {
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
 			map : map, // 마커를 표시할 지도
-			position : new kakao.maps.LatLng(data[i][0], data[i][1]), // 마커를 표시할 위치
+			position : positions[i].latlng, // 마커를 표시할 위치
+			title : positions[i].title,	//마우스 올리면 제목부분 나옴
 			image : markerImage
 		// 마커 이미지 
 		});
 		marker.setMap(map);
 		
-		var infowindow = new kakao.maps.InfoWindow({
-			//marker에서 위치 저장했기때문에 position 부분은 삭제
-		    content : data[i][2]
-		});
-		
 		markers.push(marker);	//markers라는 변수안에 marker라는 마커를 집어넣음
-		
-
-		kakao.maps.event.addListener(
-				marker, 
-				'mouseover',
-				makeOverListener(map, marker, infowindow)
-		);
-		kakao.maps.event.addListener(
-				marker, 
-				'mouseout',
-				makeOutListener(infowindow)
-		);
 	}
 	// 클러스터러에 마커들을 추가합니다
 	clusterer.addMarkers(markers);
-	
-	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-	function makeOverListener(map, marker, infowindow) {
-	    return function() {
-	        infowindow.open(map, marker);
-	    };
-	}
-	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	function makeOutListener(infowindow) {
-	    return function() {
-	        infowindow.close();
-	    };
-	}
 	
 	moveMap(37.57056001779529, 126.99046810138731);
 
@@ -487,6 +477,7 @@ $(document).ready(function () {
 		var po = new kakao.maps.LatLng(xx, yy);
 		map.panTo(po);
 	}
+	
 	$('.mc_current').click(function(){
 		if(confirm("위치정보의 사용시 보안된 페이지에서 위치정보을 요청합니다.\n이동하시겠습니까?")){
 		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -497,7 +488,6 @@ $(document).ready(function () {
 		       map.panTo(locPosition);
 		       $("#lat").val(lat);
 			   $("#lng").val(lon);
-			   page(1);
 	     	});
 		}else{
 			if(getCookie("locate_info")=="Y"){
@@ -506,8 +496,8 @@ $(document).ready(function () {
 				    navigator.geolocation.getCurrentPosition(function(position) {
 				        var lat = position.coords.latitude, // 위도
 				        lon = position.coords.longitude; // 경도
-				       //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-				       //map.panTo(locPosition);
+				      	 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				      	 map.panTo(locPosition);
 				         $("#lat").val(lat);
 					     $("#lng").val(lon);
 					     page(1);
@@ -523,11 +513,10 @@ $(document).ready(function () {
 				 	   navigator.geolocation.getCurrentPosition(function(position) {
 				        var lat = position.coords.latitude, // 위도
 				        lon = position.coords.longitude; // 경도
-				        //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-				        //map.panTo(locPosition);
+				        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표	시될 위	치를 geolocation으로 얻어온 좌표로 생성합니다
+				        map.panTo(locPosition);
 				        $("#lat").val(lat);
 				        $("#lng").val(lon);
-				        page(1);
 				       });
 					}else{
 						alert("위치정보을 사용할수 없습니다");
@@ -537,7 +526,7 @@ $(document).ready(function () {
 		}
 	});
 		
-	function setCookie( name, value, expiredays ) { 
+	function setCookie( name, value, expiredays) { 
 		var todayDate = new Date(); 
 		todayDate.setDate( todayDate.getDate() + expiredays ); 
 		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
@@ -562,12 +551,14 @@ $(document).ready(function () {
 			$(ob).attr("alt",$(ob).attr("alt").replace(/(<([^>]+)>)/ig,""));
 		});
 	}
-	function search(){
+	
+	$("#storeSearch").click(function(){
 		$("#page").val(1);
 		$("#lat").val("NO");
 		$("#lng").val("NO");
 		go();
-	}
+	});
+		
 	function page(page){
 		$("#page").val(page);
 		go();
