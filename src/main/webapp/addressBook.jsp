@@ -2,24 +2,28 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "mypage.jsp"%>
 <style>
+table{	
+	border-radius: 3px;
+   	box-shadow: inset 0 0 8px #bcbcbc;
+   	width: auto;
+}
 .table-panel td, .table-panel th {
     padding: 15px 24px;
     border: 1;
-    /* width: 0px; */
     border-bottom: 1px solid #bcbcbc;
-   
+    text-align: left;
 }
 th {
     display: table-cell;
     vertical-align: inherit;
     font-weight: bold;
-    text-align: -internal-center;
+    /* text-align: -internal-center; */
+    text-align: center;
 }
 .table-addressbook .address-number {
     font-family: "Din Black",sans-serif;
-    /* font-size: 24px; */
     font-size: 1.5rem;
-    width: 5%;
+
     
 }
 .table-default td, .table-default th {
@@ -28,8 +32,17 @@ th {
 }
 .table-addressbook tfoot .actions, .table-mycards .controls, .table-mycards tfoot .actions {
     text-align: right;
-    width: 100%;
-    border-bottom: 1px solid #bcbcbc;
+    
+  
+}
+#address-number{
+	font-family:"Din Black",sans-serif;
+	font-size:24px;
+	font-size:1.5rem;
+	width:5%
+}
+.address-details,.table-addressbook .special-instructions{
+	width:40%
 }
 
 </style>
@@ -49,14 +62,14 @@ th {
 				<tfoot>
 					<td colspan="4" class="actions">
 						<a class="btn btn-red btn-lg" href="/kr/address.html">새로운 주소 추가</a>		
-						<a class="btn btn-red btn-lg" href="/kr/home.html">메인화면으로 이동</a>
+						<a class="btn btn-red btn-lg" href="main.jsp">메인화면으로 이동</a>
 					</td>
 				</tfoot>
 				<tbody>
 					<tr>
 						<td class="address-number">1</td>
 						<td class="address-details">
-							<div>주소 가져오기</div>
+							<div>인천 서구 당하동 탑스빌아파트 103동 1801호</div>
 							<!-- <div th:text="${addressEntry.street}">Address Line 2</div>
 							<div th:text="${addressEntry.Unit}">Address Line 3</div>
 							<div th:text="${addressEntry.building}">Address Line 4</div>
