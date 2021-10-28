@@ -48,7 +48,7 @@ th {
 </style>
 
 <div class="col-md-9">
-<h3 class="title-divider mt_0"><span>MyPage</span> <small>MyPage</small></h3>
+<h3 class="title-divider mt_0"><span>주소</span> <small>Address</small></h3>
 
 <div class="page-content">
 			<table class="table-default table-panel table-addressbook">
@@ -77,7 +77,7 @@ th {
 						</td>
 						<td class="special-instructions"></td>
 						<td class="controls">
-						 <a class="text-gray-light" href="/kr/address.html?addressType=1" title="주소 변경하기"><i class="fa mcd mcd-edit icon"></i></a>
+						 <a class="text-gray-light" href="/kr/address.html?addressType=1" title="주소 변경하기"><i class="far fa-edit"></i></a>
 						 
 						 </td>
 					</tr>
