@@ -50,7 +50,7 @@
 											<tr>
 												<th>상세주소</th>
 												<td>
-												<ul>
+												<ul id="juso">
 													<!-- 시작: 상세주소 -->
 													<li class="address">
 														<div id="dis_addr_build" name="dis_addr_build">서울특별시 종로구 돈화문로 26</div>
