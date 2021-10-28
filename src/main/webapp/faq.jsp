@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="keywords" content="맥도날드">
 <meta name="description" content="맥도날드">
@@ -12,20 +12,19 @@
 <meta http-equiv="Cache-Control" content="No-Cache">
 <link rel="stylesheet" href="resources/css/faq/faqCommon.css">
 <link rel="stylesheet" href="resources/css/faq/faq.css">
+<script language="javascript" src="resources/js/faq/faqMain.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<title>자주 찾는 질문과 답</title>
-<script type="text/javascript" src="resources/js/faq/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
-<script language="javascript" src="/MC/HOM/faqMain.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
+<script type="text/javascript" src="resources/js/faq/extendedComboBox.js"></script>
+<script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
+<script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
+<!-- <script type="text/javascript" src="/common/js/customer_common.js"></script> -->
+
 <!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
-<script type="text/javascript" src="/common/js/customer_commonTable.js"></script>
-<script type="text/javascript" src="/common/js/extendedComboBox.js"></script>
-<script type="text/javascript" src="/common/js/newUtil.js"></script>
-<script type="text/javascript" src="/common/js/customer_common.js"></script>
-
-
+<title>자주 찾는 질문과 답</title>
+<script type="text/javascript" src="resources/js/faq/jquery-1.7.min.js"></script>
  <script style="text/javascript">
 		var mobile_yn = "No";
 		if("ontouchend" in document){
@@ -42,8 +41,7 @@
 		    	search($("#category option:selected").val(),'C');
 		    	changeColor($("#category option:selected").val());
 		    });
-		    
-		    
+	    
 		});
 
 </script>
@@ -88,8 +86,7 @@
 					<div class="storeFind">
 						<div class="srvcFilter">
 							<div class="service">
-								<span id="04" class="srvc"
-									onclick="javascript:search('04','C');changeColor('04');">
+								<span id="04" class="srvc" onclick="javascript:search('04','C');changeColor('04');teacherCheck();">
 									<input type="checkbox" id="1" value="04" disabled /> 
 									<label for="1"> 메뉴 
 										<span class="icon">
@@ -97,7 +94,7 @@
 										</span>
 									</label>
 								</span> 
-								<span id="01" class="srvc" onclick="javascript:search('01','C');changeColor('01');">
+								<span id="01" class="srvc"  onclick="javascript:search('01','C');changeColor('01');">
 									<input type="checkbox" id="2" value="01" disabled />
 									<label for="2"> 구매 <span class="icon"> 
 										<img src="https://voc.mcd.co.kr/common/images/icon/ic_cart.png" alt="카트" />
@@ -171,13 +168,6 @@
 											<option value="08" title="기타">기타</option>
 											<option value="09" title="맥도날드앱">맥도날드앱</option>
 										</select>
-										<button tabindex="-1" id="category-button" aria-expanded="false"
-											aria-autocomplete="list" aria-owns="category-menu"
-											aria-haspopup="true"
-											class="ui-selectmenu-button ui-selectmenu-qButton-closed ui-corner-all ui-button ui-widget"
-											style="width: 250px;">
-											<span class="ui-selectmenu-text">전체</span>
-										</button>
 									</div>
 									<form NAME="FNAME" class="realForm" method="post"
 										onsubmit="return false;">
@@ -371,467 +361,13 @@
 		</div>
 	</div>
 <script type="text/javascript">
-	function changeColor(obj){
-		//document.getElementById(obj).style.backgroundColor = "#ffbc0d";
-		
-		for(i = 1; i < document.getElementById("category").options.length+1; i++){	// 01 ~ 09
-			// id = 05 는 없다.
-			if(i != 6){
-				document.getElementById("0"+i).style.backgroundColor = "#fff";
-				document.getElementById("0"+i).style.border = "1px solid #d1d1d1";
-			}
-		}
-		document.getElementById(obj).style.backgroundColor = "#ffbc0d"; 
-		document.getElementById(obj).style.border = "3px solid #ffbc0d";
-		
-		// selectbox selected
-		for (i = 0; i < document.getElementById("category").options.length; i++) {
-		    if (document.getElementById("category").options[i].value == obj) {
-		        document.getElementById("category").options[i].selected = "selected";
-		        var span = document.getElementsByClassName("ui-selectmenu-text");
-		        
-		        if(obj == "01"){
-		        	span[0].innerHTML = '구매';
-		        }else if(obj == "02"){
-		        	span[0].innerHTML = '매장이용';
-		        }else if(obj == "03"){
-		        	span[0].innerHTML = '맥딜리버리';
-		        }else if(obj == "04"){
-		        	span[0].innerHTML = '메뉴';
-		        }else if(obj == "05"){
-		        	span[0].innerHTML = '채용';
-		        }else if(obj == "07"){
-		        	span[0].innerHTML = '프랜차이즈';
-		        }else if(obj == "08"){
-		        	span[0].innerHTML = '기타';
-		        }else if(obj == "09"){
-		        	span[0].innerHTML = '맥도날드앱';
-		        }
-		    }
-		}
-	}
+function teacherCheck() {
+
+	alert("교번을 입력하세요");
+
+}
 	
-	function search(type,type2)
-	{	
-		// 더보기 초기화 	
-		doMore = "N";
-		pageStep = 2;
-		totalPageCount = 0;
-		document.getElementById("btnMore").style.display = "block";
-		
-		if(type2 == "C")
-		{
-			//console.log("type2 : C");
-			$("#srchKeyword").val('');
-			$("#FAQ_TYPE_CD2").val(type);		
-		}
-		$("#FAQ_TYPE_CD").val($("#FAQ_TYPE_CD2").val());
-		
-		if(type2 == "A")
-		{
-			$("#srchKeyword").val('');
-			$("#FAQ_TYPE_CD").val('');	
-		}
-		
-		//on off 버튼 경로. 2016.05.03
-		var btnUrl = "/common/images/button/new/";
-		for(var i = 1; i < 9; i++)
-		{
-			var ii = "0"+i;
-			if(ii == type)
-			{
-				$("#btn"+ii).attr("src", btnUrl+"btn_"+ii+"_on.png");
-			}
-			else
-			{
-				$("#btn"+ii).attr("src", btnUrl+"btn_"+ii+"_off.png");
-			}
-		}
-		REQ_PAGE[2] = 1;
-		
-		reqAll();
-	}
-
-	function morePage(type,type2)
-	{	
-		//console.log("type :" + type + " / type2 : " + type2);
-		if(type2 == "C")
-		{
-			//console.log("type2 : C");
-			$("#srchKeyword").val('');
-			$("#FAQ_TYPE_CD2").val(type);		
-		}
-		$("#FAQ_TYPE_CD").val($("#FAQ_TYPE_CD2").val());
-		
-		if(type2 == "A")
-		{
-			$("#srchKeyword").val('');
-			$("#FAQ_TYPE_CD").val('');	
-		}
-		
-		//on off 버튼 경로. 2016.05.03
-		var btnUrl = "/common/images/button/new/";
-		for(var i = 1; i < 9; i++)
-		{
-			var ii = "0"+i;
-			if(ii == type)
-			{
-				$("#btn"+ii).attr("src", btnUrl+"btn_"+ii+"_on.png");
-			}
-			else
-			{
-				$("#btn"+ii).attr("src", btnUrl+"btn_"+ii+"_off.png");
-			}
-		}
-		REQ_PAGE[2] = 1;
-		
-		doMore = "Y";
-		
-		totalPageCount = pageStep + "0";	// 더보기 눌르면 10씩 증가
-		//console.log("totalPageCount : " + totalPageCount);
-		pageStep++;
-		//console.log("pageStep : " + pageStep);
-		
-		reqAll();
-	}
-
-	//자주찾는FAQ 전체 조회
-	function reqAll(maxListCnt, reqPage){	
-		var tbIdx =2;
-		if(maxListCnt == null) maxListCnt = getColInfo(tbIdx, "maxListCnt");
-		if(reqPage == null) reqPage = 1;
-		var params = "event_id=DefaultAction.getListPageAjax";
-		params += "&sql_id=faqMain.all";
-		params += "&curPage="+reqPage;
-		params += "&listCnt="+maxListCnt;
-		params += "&"+getOrderByInfo(tbIdx);
-		
-		new ajax.xhr.ExtRequest('/FrontServlet',params, resAll, 'POST', null, false);
-	}
-
-	function resAll(jsonObj)
-	{
-		allList=jsonObj;
-			
-		var tbNm = "LIST";
-		var reqSortFnNm = "reqAll";
-		var tbIdx = 2;
-		var union = true;	
-		setTableType(0);
-		assistMakeTablePage2(jsonObj, tbNm, reqSortFnNm, tbIdx, union);
-		
-		// 마지막 페이지 인 경우 더보기 버튼 display none 처리 (2021.04.09)	
-		if( jsonObj.listCnt == jsonObj.totCnt ){
-			document.getElementById("btnMore").style.display = "none";
-		}
-		
-		
-	}
-
-
-	//자주찾는FAQ BEST10 조회
-	function reqBest10(maxListCnt, reqPage){	
-		
-		var tbIdx =0;
-		if(maxListCnt == null) maxListCnt = getColInfo(tbIdx, "maxListCnt");
-		if(reqPage == null) reqPage = 1;
-		var params = "event_id=DefaultAction.getListPageAjax";
-		params += "&sql_id=faqMain.getBest10";
-		params += "&curPage="+reqPage;
-		params += "&listCnt="+maxListCnt;
-		params += "&"+getOrderByInfo(tbIdx);
-		new ajax.xhr.ExtRequest('/FrontServlet',params, resBest10, 'POST', null, false);
-	}
-
-	function resBest10(jsonObj) 
-	{
-		best10List=jsonObj;
-		var tbNm = "BEST10LIST";
-		var reqSortFnNm = "reqBest10";
-		var tbIdx = 0;
-		var union = true;		
-		
-		 // newUtil 전역변수.-꼼수.
-		G_USED_DEF_HEADER = false ;
-		setTableType(2);
-		assistMakeTablePage2(jsonObj, tbNm, reqSortFnNm, tbIdx, union);
-	}
-
-	//최근 많이 조회된 건 BEST 10
-	function reqBest102(maxListCnt, reqPage){	
-		var tbIdx =1;
-		if(maxListCnt == null) maxListCnt = getColInfo(tbIdx, "maxListCnt");
-		if(reqPage == null) reqPage = 1;
-		var params = "event_id=DefaultAction.getListPageAjax";
-		params += "&sql_id=faqMain.getBest102";
-		params += "&curPage="+reqPage;
-		params += "&listCnt="+maxListCnt;
-		params += "&"+getOrderByInfo(tbIdx);
-		new ajax.xhr.ExtRequest('/FrontServlet',params, resBest102, 'POST', null, false);
-	}
-
-	function resBest102(jsonObj)
-	{
-		best102List=jsonObj;
-		var tbNm = "BEST10LIST2";
-		var reqSortFnNm = "reqBest102";
-		var tbIdx = 1;
-		var union = true;		
-		
-		 // newUtil 전역변수.-꼼수.
-		G_USED_DEF_HEADER = false ;
-		setTableType(2);
-		assistMakeTablePage2(jsonObj, tbNm, reqSortFnNm, tbIdx, union);
-	}
-
-	function getColInfo(tbIdx, type, rowIdx)
-	{
-		var arrColNm = new Array();
-	    var arrStartOrderBy = new Array();
-	    var arrColSize = new Array();
-	    var arrMaxListCnt = new Array(); 
-	    var arguCnt = arguments.length;//함수에 전달받은 매개변수의 수 
-	    var value =  "";
-	    var a = type;     
-	    var i = rowIdx;	
-
-	    //console.log('aa');
-
-	    TB_TYPE[0] = '1' ;	
-	    arrStartOrderBy[0] = "BEST10_SORT_NO ASC";
-	    arrColSize[0] = "";
-	    arrMaxListCnt[0] = 5;              
-	    arrColNm[0] = ",내용";
-	     
-	    TB_TYPE[1] = '2' ;	
-	    arrStartOrderBy[1] = "BEST10_SORT_NO ASC";
-	    arrColSize[1] = "";
-	    arrMaxListCnt[1] = 5;
-	    arrColNm[1] = ",내용";
-	   
-	    arrStartOrderBy[2] = "FAQ_TYPE_CD ASC";
-	    arrColSize[2] = "7%,20%,80%";
-	    /**
-	     * 페이징 받기
-	     * **/
-	    console.log("doMore : " + doMore);
-	    console.log("pageStep : " + pageStep);
-	    console.log("totalPageCount : " + totalPageCount);
-	    
-	    if(doMore=="Y"){
-	    	arrMaxListCnt[2] = totalPageCount;
-	    }else{
-	    	arrMaxListCnt[2] = 10;        
-	    }
-	    
-	    //arrMaxListCnt[2] = 10;
-	    arrColNm[2] =  "NO,분류,제목";
-	    MAX_PAGE_SET[2] = 10;
-	  
-	    if (arguCnt == 3)
-	    {       	
-	    	var typeLen = a.FAQ_TYPE_NM[i].length;
-	    	var ttlLen = 24 - typeLen;
-	     	
-	    	var bbs_ttl = a.BBS_TITLE[i].length > ttlLen ? a.BBS_TITLE[i].substr(0,ttlLen) + "..." : a.BBS_TITLE[i] ;
-			var cont = "<font color='red'> [" +a.FAQ_TYPE_NM[i] + "]</font> " +bbs_ttl;
-	   
-			if(tbIdx==0){
-	    		var no = i+1;
-	    		var img = "<img src='/common/images/customer/no_0"+no+".gif'>";
-	    		var val = img + cont;
-	    		
-	    		value = ["<span title='"+a.BBS_TITLE[i]+"'>"+val+"</span>"];
-	    	}else if(tbIdx==1){
-	    		var no = i+6;
-	    		if(no == 10){var img2 = "<img src='/common/images/customer/no_"+no+".gif'>";}
-	    		else{var img2 = "<img src='/common/images/customer/no_0"+no+".gif'>";}
-	    		var val2 = img2 + cont;    		
-	    		value = ["<span title='"+a.BBS_TITLE[i]+"'>"+val2+"</span>"];
-	    	}
-	    	else if(tbIdx==2){
-	    		value = [a.FAQ_TYPE_NM[i],a.BBS_TITLE[i]];
-	    	}	
-	    }
-	    else   
-	    {
-	        value = getColDetailInfo(arguCnt, type, tbIdx, arrColNm, arrMaxListCnt, arrStartOrderBy, arrColSize);
-	    }
-	    
-	    return value;
-	}
-
-	function BEST10LIST_MAKE_ARR(i,viewCols, htmlString, jsonObj, divNm, tbIdx)
-	{
-		var viewSet = getColInfo(tbIdx, jsonObj, i);
-		
-		for(j=0; j<(viewCols-1); j++)
-		{
-			if(j==(SELECTED_SORT_IDX[tbIdx]-1)) htmlString += '<td align="center" id="'+divNm+'_sort'+i+'Td'+j+'" style="background-color:'+SORT_TD_OVER_COLOR+'">'+viewSet[j]+'</td>';
-	        else 	htmlString +='<td align="center">'+viewSet[j]+'</td>';		
-		}
-		
-		return htmlString;
-	}
-
-	function BEST10LIST_ON_CLICK(idx)
-	{
-		var x = window.event.clientX;
-		var y = window.event.clientY;
-
-		openBigCont(idx,'1',x,y);
-		 	
-		$("#BBS_ID").val(best10List.BBS_ID[i]);
-		 
-		var params = "event_id=DefaultAction.updateAjax" ;
-		params += "&sql_id=faqMain.updateRead_cnt";
-		new ajax.xhr.ExtRequest('/FrontServlet', params, resReadCntPlus, 'POST', '', false);
-		
-	}
-	function resReadCntPlus(jsonObj){
-	}
-
-	function BEST10LIST2_MAKE_ARR(i,viewCols, htmlString, jsonObj, divNm, tbIdx)
-	{
-		var viewSet = getColInfo(tbIdx, jsonObj, i);
-		
-		for(j=0; j<(viewCols-1); j++)
-		{
-			if(j==(SELECTED_SORT_IDX[tbIdx]-1)) htmlString += '<td align="left" id="'+divNm+'_sort'+i+'Td'+j+'" style="background-color:'+SORT_TD_OVER_COLOR+'">'+viewSet[j]+'</td>';
-	        else 	htmlString +='<td align="left">'+viewSet[j]+'</td>';		
-		}
-		
-		return htmlString;
-	}
-
-	function BEST10LIST2_ON_CLICK(idx)
-	{
-		var x = window.event.clientX;
-		var y = window.event.clientY;
-		
-		openBigCont(idx,'2',x,y);
-		
-		$("#BBS_ID").val(best102List.BBS_ID[i]);
-		  
-		 	var params = "event_id=DefaultAction.updateAjax" ;
-			params += "&sql_id=faqMain.updateRead_cnt";
-			new ajax.xhr.ExtRequest('/FrontServlet', params, resReadCntPlus, 'POST', '', false);
-	}
-
-
-	function LIST_MAKE_ARR(i,viewCols, htmlString, jsonObj, divNm, tbIdx)
-	{
-		var viewSet = getColInfo(tbIdx, jsonObj, i);
-		
-		for(j=0; j<(viewCols-1); j++)
-		{
-			var alignNm = 'center;padding-left:5px';
-			if(j == 0){alignNm = 'center;padding-left:0px';}
-			if(j == 1){alignNm = 'left;padding-left:5px';}
-			
-			if(j==(SELECTED_SORT_IDX[tbIdx]-1))
-	    	{  		
-	    		htmlString += '<td id="'+divNm+'_sort'+i+'Td'+j+'" style="background-color:'+SORT_TD_OVER_COLOR+';text-align:'+alignNm+';">'+viewSet[j]+'</td>';
-	    	}    	
-	        else{ 	
-	        	htmlString += '<td style="text-align:'+alignNm+';">'+viewSet[j]+'</td>';
-	        }
-		}
-		
-		return htmlString;
-	}
-
-	function LIST_ON_CLICK(idx)
-	{
-		 var i = idx-1;
-		 if(document.getElementById("LIST_TR_ID"+idx+"_DT").style.display==""){
-			  document.getElementById("LIST_TR_ID"+idx+"_DT").style.display="none";
-			 }else{
-			  document.getElementById("LIST_TR_ID"+idx+"_DT").style.display=""; 
-			 }
-		
-		 $("#BBS_ID").val(allList.BBS_ID[i]);
-		 
-		var params = "event_id=DefaultAction.updateAjax" ;
-		params += "&sql_id=faqMain.updateRead_cnt";
-		new ajax.xhr.ExtRequest('/FrontServlet', params, resReadCntPlus, 'POST', '', false);
-	}
-
-
-	 /// *** 테이블을 그린다. (중복으로 쓰이는 중간설정부분을 자동설정해서 테이블을 그림  
-
-	function assistMakeTablePage2(jsonObj, tbNm, reqSortFnNm, tbIdx, union, appendTrId)
-	{
-	  	var colSizeStr = getColInfo(tbIdx, "colSize"); 
-	 	var colNmStr = getColInfo(tbIdx);
-		var viewColCnt = getColInfo(tbIdx, "viewColCnt");			
-		var maxListCnt = getColInfo(tbIdx, "maxListCnt"); ;
-		var reqPageFnNm = reqSortFnNm ;
-		makeTable_div(jsonObj, tbNm, tbIdx, union, colNmStr, colSizeStr, viewColCnt ,reqSortFnNm, jsonObj.totCnt, maxListCnt, reqPageFnNm, appendTrId,"BBS_DETAIL");   
-	   		
-		//-- ※ 사용 된 로컬변수 초기화 영역 시작 --//
-	    if(MEMORY_INIT){
-			jsonObj = null ;
-			tbNm = null ;
-			reqSortFnNm = null ;
-			tbIdx = null ;
-			union = null ;
-			colSizeStr = null ;
-			colNmStr = null ;
-			viewColCnt = null ;
-			maxListCnt = null ;
-			reqPageFnNm = null ;
-	    }
-		//-- # 사용 된 로컬변수 초기화 영역 종료 --//	
-	   		
-	}
-
-	//자주찾는 베스트 10 클릭시 크게 보기
-	function openBigCont(i,type,x,y)
-	{
-		var spTitle = "내용보기"; 
-		
-		var strDialogId = "divBigCont" ;
-		
-		var strTitle = [] ;
-		
-		//strTitle.push('<div class="pop_alim">');
-		strTitle.push('<div>');
-		//strTitle.push('<span id="taBigCont" style="width:310px; height:100px; background:#f5f5dc; text-align:left"></span>');
-		strTitle.push('<span id="taBigCont" style="width:310px; height:100px; background:#FFFFFF; text-align:left"></span>');
-		strTitle.push('</div>');		 	
-		
-		$('body').append('<div id="'+strDialogId+'" style="display:none; overflow-y:hidden;" >'+strTitle.join("")+'</div>');
-		
-		if(type=='1'){	$("#taBigCont").html( best10List.BBS_DETAIL[i-1].replace (/\n/g, "<br>") );}
-		else if(type=='2'){	$("#taBigCont").html( best102List.BBS_DETAIL[i-1].replace (/\n/g, "<br>") );}
-	   
-		
-		$('#'+strDialogId).dialog( 
-				{ title: spTitle}
-				,{ width:  350}
-				,{ height: 200}
-				,{ minWidth:  350}
-				,{ minHeight: 100}
-				,{ zIndex: 4000}
-				,{ modal: false}
-				,{ position : [x, y]}
-				,{ resizable: false}
-				
-				//,{ beforeClose: function(event, ui){ $('#'+strDialogId).remove();}} // 닫기 이벤트(ESC포함).
-			);
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	$(document).ready(function(){
+	$(document).ready(function(){ /*??*/
 		selectMenu.init();
 		doc.find('div.selectWrap').each(function()
 		{

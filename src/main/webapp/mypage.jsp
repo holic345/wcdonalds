@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- 아이콘 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>McDonald's Crew</title>
@@ -335,15 +336,12 @@
 						<div class="section-menu">
 							<ul class="nav nav-list">
 								<li class="nav-header lnb-header">마이페이지<span>MyPage</span></li>
-								<li class="active"><a href="join.asp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
-								<li class="active"><a href="join.asp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
-								<li class="active"><a href="join.asp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
-								<li class="active"><a href="join.asp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="mypageupdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
+								<li class="active"><a href="addressBook.jsp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="trackOrder.jsp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="orderHistory.jsp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
 							</ul>
 						</div>			
 					</div>
 
 
-							
-</body>
-</html>
