@@ -381,7 +381,7 @@ function teacherCheck() {
 
 }
 	
-	$(document).ready(function(){
+	$(document).ready(function(){ /*??*/
 		selectMenu.init();
 		doc.find('div.selectWrap').each(function()
 		{
