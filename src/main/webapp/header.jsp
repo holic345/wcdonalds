@@ -20,6 +20,7 @@
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
 <!-- naver login -->
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 	<body>	
@@ -131,7 +132,7 @@
 								<h3 class="tit01 tit_ico lock">간편 로그인</h3>
 								<ul class="list">
 									<li class="naver"><a id="naverIdLogin_loginButton" href="javascript:void(0)"><span>네이버 로그인</span></a></li>
-									<li class="kakao"><a><span>카카오톡 로그인</span></a></li>
+									<li class="kakao" onclick="kakaoLogin();"><a href="javascript:void(0)"><span>카카오톡 로그인</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -327,5 +328,26 @@
 			closePopUp();
 		}, 1000);
 	}
-	
+	/*------카카오 로그인------*/
+	Kakao.init('78b392cdaf1eebab161a60b328e54f3a');
+	console.log(Kakao.isInitialized());
+	//카카오 로그인
+	function kakaoLogin(){
+		Kakao.Auth.login({
+			success: function (response) {
+		        Kakao.API.request({
+		          url: '/v2/user/me',
+		          success: function (response) {
+		        	  console.log(response)
+		          },
+		          fail: function (error) {
+		            console.log(error)
+		          },
+		        })
+		      },
+		      fail: function (error) {
+		        console.log(error)
+		      },
+		    })
+		  }
 </script>	
