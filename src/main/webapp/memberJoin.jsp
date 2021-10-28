@@ -18,7 +18,7 @@
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <script src="resources/js/join/datepicker.js"></script>
  
- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/join/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/join/theme-style.min.css">
 <link rel="stylesheet" href="resources/css/join/custom-style_sh.css">
