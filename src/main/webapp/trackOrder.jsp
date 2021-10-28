@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- 아이콘 -->
+<link rel="stylesheet" href="resources/css/mypage/trackOrder.css">
+<script src="/resources/js/mypage/jquery-3.6.0.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>McDonald's Crew</title>
@@ -335,7 +337,7 @@
 						<div class="section-menu">
 							<ul class="nav nav-list">
 								<li class="nav-header lnb-header">마이페이지<span>MyPage</span></li>
-								<li class=""><a href="mypageUpdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="mypageupdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
 								<li class=""><a href="addressBook.jsp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
 								<li class="active"><a href="trackOrder.jsp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
 								<li class=""><a href="orderHistory.jsp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
@@ -343,13 +345,19 @@
 						</div>			
 					</div>
 
-
-
-
+<script>
+function order_detail_show() {
+	if ($("#order_detail_table").css("display") == "none") {
+		$("#order_detail_table").show();
+	} else {
+		$("#order_detail_table").hide();
+	}
+}
+</script>
 
 <div class="col-md-9">
 	<h3 class="title-divider mt_0">
-		<span>주문조회</span> <small>Track Order</small>
+		<span>주문조회</span><small>Track Order</small>
 	</h3>
 	<div class="page-content">
 		<table class="table-trackorder">
@@ -365,26 +373,64 @@
 			</thead>
 			<tbody class="table_body_trackorder">
 				<tr>
-					<td class="trackorder_td">주문번호</td>
+					<td class="trackorder_td">
+						<a href="javascript:order_detail_show()" id="order_detail" title="주문 상세 내역 보기">주문번호</a>
+					</td>
 					<td class="trackorder_td">예상 배달 시간</td>
 					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/notes.png"></td>
-					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/notes.png"></td>
-					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/notes.png"></td>
-					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/notes.png"></td>
+					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/cook.png"></td>
+					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/delivery-man.png"></td>
+					<td class="trackorder_td_img"><img class="trackorder_receive" src="resources/img/burger.png"></td>
 				</tr>
-				<tr></tr>
 			</tbody>
 			<tfoot class="table_foot_trackorder">
 				<tr class="table_foot_tr">
 					<td colspan="6" class="table_foot_td"><a data-toggle="modal" class="btn btn-red btn-lg" href="list.jsp">새로운 주문하기</a>
 						<p>
 							<a href="#trackOrder" data-toggle="modal" class="action-secondary action-link">
-								<i class="fa fa-caret-right"></i> 주문 조회가 안 되시나요?</a>
+								<i class="fa fa-caret-right"></i> 주문 조회가 안 되시나요?
+							</a>
 						</p>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
+		<div id="order_detail_table">
+			<table>
+				<!-- <thead class="table_head_trackorder">
+					<tr>
+						<td class="table_head_td">주문 상품</td>
+						<td class="table_head_td">총 결제 금액</td>
+					</tr>
+				</thead> -->
+				<tbody class="table_body_trackorder">
+					<tr>
+						<td class="trackorder_td">
+							빅맥<br>
+							<small>라지세트 : 37,650원</small>
+						</td>
+						<td class="trackorder_td_totalprice">37,650원</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>
+							총 주문금액
+						</td>
+					</tr>
+					<tr>
+						<td>
+							배달팁
+						</td>
+					</tr>
+					<tr>
+						<td>
+							총 결제금액
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
 	</div>
 </div>
 <%@ include file="footer.jsp"%>

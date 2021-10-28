@@ -335,7 +335,7 @@
 						<div class="section-menu">
 							<ul class="nav nav-list">
 								<li class="nav-header lnb-header">마이페이지<span>MyPage</span></li>
-								<li class="active"><a href="mypageUpdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
+								<li class="active"><a href="mypageupdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
 								<li class=""><a href="addressBook.jsp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
 								<li class=""><a href="trackOrder.jsp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
 								<li class=""><a href="orderHistory.jsp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
@@ -466,63 +466,12 @@
 										<button type="submit" class="btn btn-red btn-xl btn-submit">수정사항 저장</button>	
 										<button id="deleteaccount" class="btn btn-red btn-xl btn-submit">회원 탈퇴</button>		
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<div class="form-group">
-											<label class="field-label" for="form_accountsetting_gender">성별:</label>
-											<select name="gender" id="form_accountsetting_gender" class="select-lg">
-												<option value=""></option>
-												<option value="Male">남</option>
-												<option selected="selected" value="Female">여</option>
-												<option value="Do Not Specify">선택 안함</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="form-group">
-											<label class="field-label" for="form_accountsetting_contactno">휴대전화 번호:</label> 
-											<input type="text" class="form-control input-lg required number digit-only"
-												maxlength="11" id="form_accountsetting_contactno" name="contactNo" placeholder="숫자만 입력" value="01082655085"/>
-										</div>
-									</div>
-								</div>
-							</fieldset>
-							<!-- START Notification Channel -->
-							<div class="fieldset-heading">
-								<h2 class="fieldset-title">인증방법</h2>
-								<p class="instructions">선택하신 경로를 패스워드를 리셋을 위해 사용됩니다.</p>
-							</div>
-							<fieldset class="fieldset">
-								<div class="form-group">
-									<div class="radio">
-										<input type="radio" id="form_notification_channel_email" name="preferredNotificationChannel" checked="checked" value="1-15671994" /> 
-										<label for="form_notification_channel_email" class="radio-label">
-											이메일: <span id="form_notification_channel_email_mirror">회원이메일 가져오기</span>
-										</label>
-									</div>
-									<div class="radio">
-										<input type="radio" id="form_notification_channel_mobile" name="preferredNotificationChannel" value="2-15671995" /> 
-										<label for="form_notification_channel_mobile" class="radio-label">
-											휴대폰번호 : <span id="form_notification_channel_mobile_mirror">회원번호가져오기</span>
-										</label>
-									</div>
-								</div>
-							</fieldset>
-							<fieldset class="fieldset form-actions">
-								<div class="form-group">
-									<button type="submit" class="btn btn-red btn-xl btn-submit">수정사항 저장</button>
-									<button id="deleteaccount" class="btn btn-red btn-xl btn-submit">회원 탈퇴</button>
-								</div>
 							</fieldset>
 						</form>
 						<!-- END Notification Channel -->
 					</div>
 					<!--  -->
 				</div>
-
 			</div>
 		</div>
 	</div>

@@ -12,6 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="Themelize.me">
  
+<link rel="stylesheet" href="resources/css/mypage/trackOrder.css">
 <link rel="stylesheet" href="resources/css/main/custom.css?t=2021090901"> 
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
 
@@ -52,18 +53,22 @@
 <link rel="apple-touch-icon-precomposed" href="/m/appstrap/img/icons/default.png">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti' rel='stylesheet' type='text/css'>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="resources/js/join/datepicker.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="resources/css/join/orderhistory.css">
+
 <!--Retina.js plugin - @see: http://retinajs.com/-->
 <script src="/m/appstrap/plugins/retina/js/retina-1.1.0.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/js/jquery/ui/themes/base/jquery-ui.css" />
 
 <!-- Scripts --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/m/appstrap/js/jquery.min.js"></script>
 <script src="/m/appstrap/js/jquery-migrate-1.2.1.min.js"></script> <!--Legacy jQuery support for quicksand plugin--> 
 </head>
 <body>
-
 	<div class="skipMenu"><a href="#container">본문 바로가기</a></div>
 	<div class="wrapper ">
 		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
@@ -326,8 +331,6 @@
 	
 </script>
 
-
-
 		<div style="padding: 40px 0px 40px;">
 			<div class="container" id="sub-page-content">
 				<div class="row">
@@ -343,15 +346,6 @@
 						</div>			
 					</div>
 
-
-
-
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<script src="resources/js/join/datepicker.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="resources/css/join/orderhistory.css">
 <script>
 $(function () {
     $('#btn_empty').click( function() {
