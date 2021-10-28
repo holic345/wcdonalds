@@ -24,7 +24,6 @@
                <td class="table_head_td">주문 번호</td>
                <td class="table_head_td">주문 날짜</td>
                <td class="table_head_td">배송지</td>
-               
             </tr>
          </thead>
          <tbody class="table_body_trackorder">
