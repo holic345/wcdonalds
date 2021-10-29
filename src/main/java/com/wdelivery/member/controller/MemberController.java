@@ -26,7 +26,10 @@ public class MemberController {
 	public String addressBook() {
 		return "addressBook";
 	}
-	
+	@GetMapping("/addressupdate.do")
+	public String addressUpdate() {
+		return "addressupdate";
+	}
 	@GetMapping("/cart.do")
 	public String cart() {
 		return "cart";
@@ -63,10 +66,17 @@ public class MemberController {
 	public String store() {
 		return "store";
 	}
-	
+
+	@GetMapping("/memberJoin.do")
+	public String memberJoin() {
+		return "memberJoin";
+	}
 	@GetMapping("/noUserAddress.do")
-	public String noUserAddress() {
+	public String noUserAddrss() {
 		return "noUserAddress";
 	}
-	
+	@GetMapping("/delivery.do")
+	public String delivery() {
+		return "delivery";
+	}
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+   
 <%@ include file="header.jsp"%>
 
 <div id="container">
@@ -130,3 +130,107 @@
 <!-- //container -->
 
 <%@ include file="footer.jsp"%>
+<script>
+var slider = {
+		setup : function( target )
+		{
+			var sTarget = target.find('.swiper');
+			sTarget.addClass('swiper-container');
+			sTarget.find('>ul , >ol').addClass('swiper-wrapper');
+			sTarget.find('>ul>li , >ol>li').addClass('swiper-slide');
+
+			if( target.find('.swiper').data('swipe') )
+			{
+				target.find('.swiper').data('swipe').destroy();
+				target.find('.indicator .bar').stop().css('width','0');
+				// target.find('.slide-invisible-blank').remove();
+			}
+
+			var opt = {};
+			if( target.hasClass('basicSwiper') )
+			{
+				// console.log('-- basic -')
+				var transitionVisible = function()
+				{
+					bar.stop().css('width','0');
+					target.find('.swiper-slide').css('visibility','visible');
+				}
+				var transitionHidden = function()
+				{
+					target.find('.swiper-slide').css('visibility','hidden');
+					if( target.hasClass('swiperType02') ){
+						target.find('.swiper-slide-next').css('visibility','visible');
+					}
+					target.find('.swiper-slide-active').css('visibility','visible');
+				}
+				opt = {
+					delay : 5000 , 
+					loop: true,
+					navigation : {
+						nextEl: target.find('.next'),
+						prevEl: target.find('.prev'),
+					},
+					on : {
+						transitionEnd : function(  )
+						{
+							if( target.find('.indicator button').hasClass('pause') ){
+								nextH();
+							}
+							transitionHidden();
+						},
+						sliderMove 	:	transitionVisible,
+						// slideChange 	:	transitionVisible,
+						transitionStart	:	transitionVisible,
+						// touchStart		:	transitionVisible
+					}
+				}
+				// 다른 타입
+				if( target.hasClass('swiperType02') ){
+					opt.slidesPerView = 2;
+					opt.slidesPerGroup =  2;
+					opt.spaceBetween = 50;
+				}
+
+				var bar			= target.find('.indicator .bar');
+				var inButton	= target.find('.indicator button');
+				inButton.off().addClass('pause')
+
+				inButton.on('click' , function(evt)
+				{
+					evt.preventDefault();
+					if( $(this).hasClass('pause')  ){
+						bar.stop().css('width','0');
+						$(this).removeClass('pause');
+						$(this).text('재생');
+					}else{
+						$(this).addClass('pause');
+						$(this).text('정지');
+						nextH();
+					}
+				});
+
+				inButton.on('keydown',function( evt )
+				{
+					if( !evt.shiftKey ){
+						nextH();
+					}
+					
+				});
+				inButton.on('keyup',function( evt )
+				{
+					if( evt.shiftKey ){
+						transitionVisible();
+						transitionHidden();
+					}
+				});
+
+				target.find('.prev').off().on('keyup',function( evt ){
+					if( evt.shiftKey ){
+						nextH();
+					}else{
+						transitionVisible();
+						transitionHidden();
+					}
+				})
+			}
+</script>
