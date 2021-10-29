@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../WEB-INF/member/header.jsp" %>
+<%@ include file="header.jsp" %>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <!--   
 
@@ -13,9 +13,9 @@
 					<div class="inner">
 						<h1 class="titDep1">맥딜리버리</h1>
 						<ul class="navPath">
-							<li><a href="/kor/main.do">Home</a></li>
-							<li><a href="/kor/store/main.do">Store</a></li>
-							<li><a href="/kor/store/mcdelivery.do">맥딜리버리</a></li>
+							<li><a href="main.do">Home</a></li>
+							<li><a href="store">Store</a></li>
+							<li><a href="mcdelivery.do">맥딜리버리</a></li>
 						</ul>
 					</div>
 				</div>
@@ -217,4 +217,4 @@ function Submit() {
     return;
 }
 </script>
-<%@ include file="../WEB-INF/member/footer.jsp" %>
+<%@ include file="footer.jsp" %>

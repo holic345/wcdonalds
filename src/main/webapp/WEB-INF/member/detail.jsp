@@ -162,16 +162,16 @@ function toggleButton() {
 	}
 	function goDetail(seq) {
 		$("#seq").val(seq);
-		$("#searchForm").attr("action", "/kor/menu/detail.do");
+		$("#searchForm").attr("action", "detail.do");
 		$("#searchForm").submit();
 	}
 	function showSize(seq) {
 		$("#seq").val(seq);
-		$("#searchForm").attr("action", "/kor/menu/size.do");
+		$("#searchForm").attr("action", "size.do");
 		$("#searchForm").submit();
 	}
 	function openMaterial(seq) {
-		$.post("/kor/common/materialPop.do", {
+		$.post("materialPop.do", {
 			seq : seq,
 		}, function(data) {
 			if (data.is_ok == "ok") {
