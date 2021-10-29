@@ -230,9 +230,9 @@ function makeTable3(twoArr, tbNm)
 	
 	
 	//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-    if(MEMORY_INIT){
+   /* if(MEMORY_INIT){
     	htmlString = null ;
-    }
+    }*/
 	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	
 }
 
@@ -675,11 +675,11 @@ function makeTable(jsonObj, tbNm, tbIdx, union, colNmStr, colSizeStr, viewColCnt
 	}
     
 	//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-    if(MEMORY_INIT){
+   /* if(MEMORY_INIT){
 		htmlString = null ;
 		headString = null ;
 		pageString = null ;
-    }
+    }*/
 	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	
 	
   	//alert(htmlString+"\n\n"+pageString) ;
@@ -1131,11 +1131,11 @@ function makeTable_div(jsonObj, tbNm, tbIdx, union, colNmStr, colSizeStr, viewCo
 	}
     
 	//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-    if(MEMORY_INIT){
+    /*if(MEMORY_INIT){
 		htmlString = null ;
 		headString = null ;
 		pageString = null ;
-    }
+    }*/
 	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	
 	
   	//alert(htmlString+"\n\n"+pageString) ;
@@ -1478,7 +1478,7 @@ function fnFixNum( strValue, strType)
  * Request    Function Name : 	setHTML											*
  * Description   : 	���̵� ã�� ���� �ִ´�. (innerHTML)				*
  *========================================================= */
-function setHTML(id, html)
+/*function setHTML(id, html)
 {
 	try{
 	 	document.getElementById(id).innerHTML = html ;
@@ -1492,7 +1492,7 @@ function setHTML(id, html)
 		html = null ;
     }
   	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	  	
-}
+}*/
  /*========================================================= *
  * Request    Function Name : 	setTdText											*
  * Description   : 	TD Text ����.														*
@@ -1895,13 +1895,13 @@ function msgset_list(title, text)
 //	}
 	  	
     //-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-    if(MEMORY_INIT){
+   /* if(MEMORY_INIT){
 		htmlString = null ;
 		img = null ;
 		gubunja = null ;
 		tdWidth = null ;
 		maxLen = null ;
-    }
+    }*/
   	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	  	
 	  	
 }
@@ -1947,10 +1947,10 @@ function getSortColNums(colNmStr)
 	} finally {
 		
 		//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-		if(MEMORY_INIT){
+		/*if(MEMORY_INIT){
 			cnt = null ;
 			value = null ;
-		}
+		}*/
 		//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	      
 	}
 }
@@ -1974,12 +1974,12 @@ function getOrderByInfo(tbIdx)
 	} finally {
 		
 		//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-		if(MEMORY_INIT){
+		/*if(MEMORY_INIT){
 			tbIdx = null ;
 			sortCols = null ;
 			startOderBySql = null ;
 			orderBy = null ;
-		}
+		}*/
 		//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//		
 	}
 	
@@ -2000,7 +2000,7 @@ function assistMakeTablePage(jsonObj, tbNm, reqSortFnNm, tbIdx, union, appendTrI
 	makeTable(jsonObj, tbNm, tbIdx, union, colNmStr, colSizeStr, viewColCnt ,reqSortFnNm, jsonObj.totCnt, maxListCnt, reqPageFnNm, appendTrId);   
    		
 	//-- �� ��� �� ���ú��� �ʱ�ȭ ���� ���� --//
-    if(MEMORY_INIT){
+   /* if(MEMORY_INIT){
 		jsonObj = null ;
 		tbNm = null ;
 		reqSortFnNm = null ;
@@ -2011,7 +2011,7 @@ function assistMakeTablePage(jsonObj, tbNm, reqSortFnNm, tbIdx, union, appendTrI
 		viewColCnt = null ;
 		maxListCnt = null ;
 		reqPageFnNm = null ;
-    }
+    }*/
 	//-- # ��� �� ���ú��� �ʱ�ȭ ���� ���� --//	
    		
 }

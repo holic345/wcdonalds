@@ -10,22 +10,19 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="No-Cache">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/faq/faqCommon.css">
 <link rel="stylesheet" href="resources/css/faq/faq.css">
-<script language="javascript" src="resources/js/faq/faqMain.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="resources/js/faq/faqMain.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
+<!-- <script type="text/javascript" src="resources/js/faq/ajax.js"></script> -->
 <script type="text/javascript" src="resources/js/faq/extendedComboBox.js"></script>
 <script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
 <script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
-<!-- <script type="text/javascript" src="/common/js/customer_common.js"></script> -->
-
-<!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
+<script type="text/javascript" src="resources/js/faq/customer_commonTable.js"></script> 
 <title>자주 찾는 질문과 답</title>
-<script type="text/javascript" src="resources/js/faq/jquery-1.7.min.js"></script>
- <script style="text/javascript">
+<script type="text/javascript">
 		var mobile_yn = "No";
 		if("ontouchend" in document){
 			mobile_yn = "Yes";
@@ -96,57 +93,59 @@
 								</span> 
 								<span id="01" class="srvc"  onclick="javascript:search('01','C');changeColor('01');">
 									<input type="checkbox" id="2" value="01" disabled />
-									<label for="2"> 구매 <span class="icon"> 
-										<img src="https://voc.mcd.co.kr/common/images/icon/ic_cart.png" alt="카트" />
-									</span>
-								</label>
-								</span> <span id="02" class="srvc"
-									onclick="javascript:search('02','C');changeColor('02');">
-									<input type="checkbox" id="3" value="Y" disabled /> <label
-									for="3"> 매장이용 <span class="icon"> <img
-											src="https://voc.mcd.co.kr/common/images/icon/ic_home.png"
-											alt="매장이용" />
-									</span>
-								</label>
-								</span> <span id="03" class="srvc"
-									onclick="javascript:search('03','C');changeColor('03');">
-									<input type="checkbox" id="4" value="Y" disabled /> <label
-									for="4"> 맥딜리버리 <span class="icon"> <img
-											src="https://voc.mcd.co.kr/common/images/icon/ic_drive.png"
-											alt="맥딜리버리" />
-									</span>
-								</label>
-								</span> <span id="05" class="srvc"
-									onclick="javascript:search('05','C');changeColor('05');">
-									<input type="checkbox" id="5" value="Y" disabled /> <label
-									for="5"> 채용 <span class="icon"> <img
-											src="https://voc.mcd.co.kr/common/images/icon/ic_search.png"
-											alt="채용" />
-									</span>
-								</label>
-								</span> <span id="07" class="srvc"
-									onclick="javascript:search('07','C');changeColor('07');">
-									<input type="checkbox" id="6" value="Y" disabled /> <label
-									or="6"> 프랜차이즈 <span class="icon"> <img
-											src="https://voc.mcd.co.kr/common/images/icon/ic_handshake.png"
-											alt="프랜차이즈" />
-									</span>
-								</label>
-								</span> <span id="09" class="srvc"
-									onclick="javascript:search('09','C');changeColor('09');">
-									<input type="checkbox" id="7" value="Y" disabled /> <label
-									for="7"> 맥도날드앱 <span class="icon"> <img
-											src="https://voc.mcd.co.kr/common/images/icon/ic_mcd.png"
-											alt="맥도날드앱" />
-									</span>
-								</label>
+									<label for="2"> 구매 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_cart.png" alt="카트" />
+										</span>
+									</label>
+								</span> 
+								<span id="02" class="srvc" onclick="javascript:search('02','C');changeColor('02');">
+									<input type="checkbox" id="3" value="Y" disabled /> 
+									<label for="3"> 매장이용 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_home.png"	alt="매장이용" />
+										</span>
+									</label>
+								</span> 
+								<span id="03" class="srvc" onclick="javascript:search('03','C');changeColor('03');">
+									<input type="checkbox" id="4" value="Y" disabled /> 
+									<label for="4"> 맥딜리버리 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_drive.png" alt="맥딜리버리" />
+										</span>
+									</label>
+								</span> 
+								<span id="05" class="srvc" onclick="javascript:search('05','C');changeColor('05');">
+									<input type="checkbox" id="5" value="Y" disabled /> 
+									<label for="5"> 채용 
+										<span class="icon">
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_search.png" alt="채용" />
+										</span>
+									</label>
+								</span> 
+								<span id="07" class="srvc" onclick="javascript:search('07','C');changeColor('07');">
+									<input type="checkbox" id="6" value="Y" disabled /> 
+									<label or="6"> 프랜차이즈 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_handshake.png" alt="프랜차이즈" />
+										</span>
+									</label>
+								</span> 
+								<span id="09" class="srvc" onclick="javascript:search('09','C');changeColor('09');">
+									<input type="checkbox" id="7" value="Y" disabled /> 
+									<label for="7"> 맥도날드앱 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_mcd.png" alt="맥도날드앱" />
+										</span>
+									</label>
 								</span> 
 								<span id="08" class="srvc" onclick="javascript:search('08','C');changeColor('08');">
 									<input type="checkbox" id="8" value="Y" disabled /> 
-									<label	for="8"> 기타 <span class="icon"> 
-									<img src="https://voc.mcd.co.kr/common/images/icon/ic_etc.png" alt="기타" />
-								</span>
-								</label>
+									<label	for="8"> 기타 
+										<span class="icon"> 
+											<img src="https://voc.mcd.co.kr/common/images/icon/ic_etc.png" alt="기타" />
+										</span>
+									</label>
 								</span>
 							</div>
 						</div>
@@ -169,15 +168,14 @@
 											<option value="09" title="맥도날드앱">맥도날드앱</option>
 										</select>
 									</div>
-									<form NAME="FNAME" class="realForm" method="post"
-										onsubmit="return false;">
+									<form NAME="FNAME" class="realForm" method="post" onsubmit="return false;">
 										<input type="hidden" name="RG_EMPL_ID" value=""> 
 										<input type="hidden" name="FAQ_TYPE_CD" id="FAQ_TYPE_CD" value="">
 										<input type="hidden" name="BBS_ID" id="BBS_ID" value="">
 										<input type="hidden" name="FAQ_TYPE_CD2" id="FAQ_TYPE_CD2" value=""> 
 										<input type="hidden" name="SELECTED_DATA" id="SELECTED_DATA" value=""> 
 										<input type="text" placeholder="검색어를 입력해주세요." title="검색어 입력" style="width: 720px"
-												name="srchKeyword" id="srchKeyword"	onkeydown="javascript:if (event.keyCode == 13) {search('','S');}"/>
+											name="srchKeyword" id="srchKeyword"	onkeydown="javascript:if (event.keyCode == 13) {search('','S');}"/>
 									</form>
 									<button type="button" class="btnMC btnM" onclick="search('','S');">검색하기</button>
 								</div>
@@ -220,12 +218,10 @@
 															혼합 결제가 가능한가요?</td>
 													</tr>
 													<tr style="display: none" id="LIST_TR_ID1_DT">
-														<td
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<img src="/common/images/customer/A.gif">
 														</td>
-														<td colspan="3"
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td colspan="3" style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<font color="#920000">매장을 직접 방문하신 경우에는 구매금액에 대한 카드와
 																현금의 혼합 결제가 가능하나, 맥딜리버리 서비스, SOK 이용시에는 불가능합니다.</font>
 														</td>
@@ -242,16 +238,15 @@
 															가능하나요?</td>
 													</tr>
 													<tr style="display: none" id="LIST_TR_ID2_DT">
-														<td
-															style="text-align: left; padding-left: 10px; padding-right: 10px;"><img
+														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;"><img
 															src="/common/images/customer/A.gif"></td>
-														<td colspan="3"
-															style="text-align: left; padding-left: 10px; padding-right: 10px;"><font
-															color="#920000">단체 주문의 경우 여러 사정에 따라 가능 여부가 다를 수
+														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;">
+															<font color="#920000">단체 주문의 경우 여러 사정에 따라 가능 여부가 다를 수
 																있습니다.<br>단체 배달 서비스를 원하실 경우 맥딜리버리 주문 콜센터 1600-5252를 통해
 																확인이 가능하며, 가까운 매장에서 방문 구매를 원하실 경우 매장으로 최소 이틀 전 방문 또는 전화 문의
 																주시면 확인이 가능 합니다. (홈페이지 &gt; 매장찾기에서 해당 매장 검색)
-														</font></td>
+															</font>
+														</td>
 													</tr>
 													<tr id="LIST_TR_ID3"
 														onmouseover="javascript:SELECTED_ROW_IDX[2] = 2 ;rOver(this.id, 2, LIST_DIV,2);"
@@ -265,12 +260,10 @@
 															영수증을 발급받지 못했습니다. 어떻게 해야 하나요?</td>
 													</tr>
 													<tr style="display: none" id="LIST_TR_ID3_DT">
-														<td
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<img src="/common/images/customer/A.gif">
 														</td>
-														<td colspan="3"
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td colspan="3" style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<font color="#920000"> 매장에서 제품 구매금액 결제 전 고객님이 따로
 																요청하시지 않은 경우에는 자동으로 현금영수증 자진발급 처리가 되고 있는 점 고객님의 너그러운 양해
 																부탁드립니다. <br>맥도날드에서는 국세청의 자진발급제도에 따라, 거래 당시 현금영수증을
@@ -283,7 +276,7 @@
 																상담원을 통해서도 전환 요청이 가능하오니 이용에 참조 부탁 드립니다. <br>(현금 영수증 발급
 																요청에 대해서는 각 매장 카운터에 위치한 '계산 전 현금영수증 요청'에 대한 안내문을 통해 안내드리고
 																있습니다.)
-														</font>
+															</font>
 														</td>
 													</tr>
 													<tr id="LIST_TR_ID4"
@@ -298,12 +291,10 @@
 															마이비 카드 결제가 가능한가요?</td>
 													</tr>
 													<tr style="display: none;" id="LIST_TR_ID4_DT">
-														<td
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<img src="/common/images/customer/A.gif">
 														</td>
-														<td colspan="3"
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<font color="#920000">티머니 카드의 경우, 일부 매장을 제외하고 결제
 																가능합니다.마이비 카드는 캐시비로 인수되어 신규 마이비 카드의 경우에는 사용이 불가하며 일부 기존 마이비
 																카드(카드 앞면에 마이비 기재)만 사용이 가능합니다.기존 마이비 카드 역시 2018년 7월 21일
@@ -322,12 +313,10 @@
 															판매시간은 어떻게 되나요?</td>
 													</tr>
 													<tr style="display: none" id="LIST_TR_ID5_DT">
-														<td
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<img src="/common/images/customer/A.gif">
 														</td>
-														<td colspan="3"
-															style="text-align: left; padding-left: 10px; padding-right: 10px;">
+														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<font color="#920000">전국적으로 판매되고 있는 맥모닝 세트와 브렉퍼스트
 																메뉴는 보다 맛있고 영양적으로도 우수한 다양한 메뉴를 선보이기 위해 저희 맥도날드가 준비한 아침 메뉴이며
 																오전 4시부터 오전 10시30분까지는 언제나 맛보실 수 있습니다. (맥딜리버리 이용 시 오전3시50분
@@ -360,25 +349,27 @@
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
+	<script type="text/javascript">
 function teacherCheck() {
 
 	alert("교번을 입력하세요");
 
-}
+}	
+	$(function() { /*??*/
 	
-	$(document).ready(function(){ /*??*/
 		selectMenu.init();
-		doc.find('div.selectWrap').each(function()
+		$(document).find('.selectWrap').each(function()
 		{
 			// selectMenu.update( $(this) );
-			selectMenu.update( $(this).find('select') );
-			$(this).css('z-index',100000)
+			selectMenu.update($(this).find('select'));
+			$(this).css('z-index',100000);
 		});
+	});
 		var selectMenu = {
+				
 				init : function( )
 				{
-				//console.log("selectMenu");
+					console.log("selectMenu");
 					$.widget( "custom.customSelect", $.ui.selectmenu, 
 					{
 
@@ -390,7 +381,7 @@ function teacherCheck() {
 							if ( item.disabled ) {
 								li.addClass( "ui-state-disabled" );
 							}
-							// console.log('--render')
+							 console.log('--render')
 							return li.append( wrapper ).appendTo( ul );
 							
 						},
@@ -399,7 +390,7 @@ function teacherCheck() {
 						{
 							var e, i = this, s = this._parseOption(this.element.find("option:selected"), this.element[0].selectedIndex);
 							this.labels = this.element.labels().attr("for", this.ids.button),
-							// console.log('xxx', '',this )
+							 console.log('xxx', '',this )
 
 							this._on(this.labels, {
 								click: function(t) {
@@ -408,7 +399,7 @@ function teacherCheck() {
 								},
 							}),
 							this.element.hide(),
-							this.button = t("<button>", {
+							this.button = $("<button>", {
 								tabindex: this.options.disabled ? -1 : 0,
 								id: this.ids.button,
 								// role: "combobox",
@@ -450,100 +441,92 @@ function teacherCheck() {
 								"class": "ui-selectmenu-text"
 							});
 							this._setText( buttonItem, item.label );
-							// console.log('--xxx')
-							// console.log( this.element.parent() )
-							this.element.parent().find('>button').attr('tabindex','-1');
-							this.element.parent().find('.ui-selectmenu-menu').attr('tabindex','-1');
+							 console.log('--xxx')
+							 console.log( this.element.parent() )
+							this.element.parent().find('button').attr('tabindex','-1');
+							this.element.parent().find('.ui-selectmenu-menu').attr('tabindex','-2');
 							return buttonItem;
 						}
 					});
+				},
+				update : function(target)
+				{
+					 console.log('--00')
+					var select = target;
+					
+					if( select.data('selectBox') ){
+						select.customSelect( "refresh" );
 
-				}
-		},
-		update:function( target )
-		{
-			// console.log('--00')
-			var select = target;
+					}else{
+						var opt = {
+							appendTo : select.parent(),
+							select : function( event, ui ) {
+								 console.log('===')
+								select.trigger('select');
+								var list = select.parent().find('.ui-menu-item');
+								list.find('a').removeAttr('aria-selected');
+								list.eq(ui.item.index).find('a').attr('aria-selected',true);
+							},
+							close : function(){
+								select.trigger('close');
+								$(this).closest('.selectWrap').attr('style','z-index:10 !important');
+							},
+							change : function(event, ui) {
+								select.trigger('change');
+							},
+							open : function(){
+								select.trigger('open');
+								$(this).closest('.selectWrap').attr('style','z-index:11 !important');
+							}
+						}
+					/* 	if( select.attr('style') ){
+							var w = parseInt(select.attr('style').replace('width:','250px'));
+							opt.width = w;
+						} */
 
+						select.customSelect( opt );
+						select.data('selectBox',true);
 
-			if( select.data('selectBox') ){
-				select.customSelect( "refresh" );
+						select.one('close',function()
+						{
+							select.parent().find('.ui-menu-item').eq(select[0].selectedIndex).find('a').attr('aria-selected',true);
+						});
+						// var m = select.customSelect('instance');
+						select.one('open',function()
+						{
+							var a = select.parent().find('.ui-menu-item a');
+							a.removeAttr('tabindex');
+							a.on('click',function()
+							{		
+							}) 
+						})
+						 console.log('xx ',select.parent().find('>button').length)
+						
+						select.css({
+							display:'block',
+							position:'absolute',
+							// top:'100px'
+							'margin-left' : '-100000px'
+						})
+						
+						var parent = select.parent();
+						select.on('focus' , function()
+						{
+							parent.addClass('focusLine')
+						})
+						select.on('focusout' , function()
+						{
+							parent.removeClass('focusLine')
+						})
 
-				// console.log('updatelll')
-			}else{
-				var opt = {
-					appendTo	:	select.parent(),
-					select		:	function( event, ui ) {
-						// console.log('===')
-						select.trigger('select');
-						var list = select.parent().find('.ui-menu-item');
-						list.find('a').removeAttr('aria-selected');
-						list.eq(ui.item.index).find('a').attr('aria-selected',true);
-					},
-					close : function(){
-						select.trigger('close');
-						$(this).closest('.selectWrap').attr('style','z-index:10 !important');
-					},
-					change		:	function( event, ui ) {
-						select.trigger('change');
-					},
-					open : function(){
-						select.trigger('open');
-						$(this).closest('.selectWrap').attr('style','z-index:11 !important');
+						select.on('change',function(){
+							 console.log('xxx')
+							select.customSelect("refresh");
+							
+						})
 					}
 				}
-				if( select.attr('style') ){
-					var w = parseInt(select.attr('style').replace('width:','250px'));
-					opt.width = w;
-				}
-
-				select.customSelect( opt );
-				select.data('selectBox',true);
-
-				select.one('close',function()
-				{
-					select.parent().find('.ui-menu-item').eq(select[0].selectedIndex).find('a').attr('aria-selected',true);
-				});
-				// var m = select.customSelect('instance');
-				select.one('open',function()
-				{
-					var a = select.parent().find('.ui-menu-item a');
-					a.removeAttr('tabindex');
-					a.on('click',function()
-					{		
-					}) 
-				})
-				// console.log('xx ',select.parent().find('>button').length)
-				
-				select.css({
-					display:'block',
-					position:'absolute',
-					// top:'100px'
-					'margin-left' : '-100000px'
-				})
-				
-				var parent = select.parent();
-				select.on('focus' , function()
-				{
-					parent.addClass('focusLine')
-				})
-				select.on('focusout' , function()
-				{
-					parent.removeClass('focusLine')
-				})
-
-				select.on('change',function(){
-					// console.log('xxx')
-					select.customSelect( "refresh" );
-					
-				})
-			}
-		},
-
-	}
-
-	});
-	
+			};
 </script>
 
-<%@ include file="footer.jsp"%>
+	<%@ include file="footer.jsp"%>
