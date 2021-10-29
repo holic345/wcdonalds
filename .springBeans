@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[3.9.15.202012132325-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[3.9.18.202110252306-CI-B2836]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -12,6 +12,7 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/admin-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
