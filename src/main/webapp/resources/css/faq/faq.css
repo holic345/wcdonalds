@@ -541,29 +541,6 @@ legend {
   display: none;
 }
 
-.selectWrap .ui-selectmenu-button {
-  display: inline-block;
-  position: relative;
-  height: 70px;
-  padding: 0 80px 0 40px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 68px;
-  border: 1px solid #d1d1d1;
-  border-radius: 70px;
-  background: #f8f8f8;
-  color: #808080;
-  text-align: left;
-  cursor: pointer;
-}
-
-.selectWrap .ui-selectmenu-menu {
-  display: none;
-  position: absolute;
-  border-top: 1px solid #d1d1d1;
-}
-
 .selectWrap .ui-selectmenu-menu .ui-menu {
   box-sizing: border-box;
 }
