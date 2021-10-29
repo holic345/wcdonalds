@@ -8,6 +8,60 @@ public class MemberController {
 	
 	@GetMapping("/main.do")
 	public String main() {
-		return "main.jsp";
+		return "main";
 	}
+	@GetMapping("/list.do")
+	public String list() {
+		return "list";
+	}
+	@GetMapping("/mypage.do")
+	public String mypage() {
+		return "mypage";
+	}
+	@GetMapping("/mypageupdate.do")
+	public String mypageupdate() {
+		return "mypageupdate";
+	}
+	@GetMapping("/addressBook.do")
+	public String addressBook() {
+		return "addressBook";
+	}
+	
+	@GetMapping("/cart.do")
+	public String cart() {
+		return "cart";
+	}
+	@GetMapping("/detail.do")
+	public String detail() {
+		return "detail";
+	}
+	@GetMapping("/faq.do")
+	public String faq() {
+		return "faq";
+	}
+	@GetMapping("/join.do")
+	public String join() {
+		return "join";
+	}
+	@GetMapping("/orderConfirm.do")
+	public String orderConfirm() {
+		return "orderConfirm";
+	}
+	@GetMapping("/orderHistory.do")
+	public String orderHistory() {
+		return "orderHistory";
+	}
+	@GetMapping("/qna.do")
+	public String qna() {
+		return "qna";
+	}
+	@GetMapping("/trackOrder.do")
+	public String trackOrder() {
+		return "trackOrder";
+	}
+	@GetMapping("/store.do")
+	public String store() {
+		return "store";
+	}
+	
 }
