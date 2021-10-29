@@ -4128,7 +4128,7 @@ p.nutrDesc {
 
 .visualArea.bgStory01 {
 	color: #fff;
-	background: url(/uploadFolder/images/story/bg_visual_story01.jpg) 50%
+	background: url(../../../resources/img/bg_visual_story01.jpg) 50%
 		50% no-repeat
 }
 
