@@ -64,4 +64,9 @@ public class MemberController {
 		return "store";
 	}
 	
+	@GetMapping("/noUserAddress.do")
+	public String noUserAddress() {
+		return "noUserAddress";
+	}
+	
 }
