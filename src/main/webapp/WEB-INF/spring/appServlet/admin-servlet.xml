@@ -11,6 +11,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<context:component-scan base-package="com.wdelivery.admin" />
+	<context:component-scan base-package="com.wdelivery.admin.*" />
 
 </beans>
