@@ -50,27 +50,27 @@
 								<a href="#" class="dth1 ">Store</a>
 								<ul class="depth2">
 									<li><a href="store.do" class="dth2">매장찾기</a></li>
-									<li><a href="/kor/store/mcdelivery.do" class="dth2">맥딜리버리</a></li>
-									<li><a href="/kor/store/mcdrive.do" class="dth2">맥드라이브</a></li>
-									<li><a href="/kor/store/rental.do" class="dth2">임차문의</a></li>
+									<li><a href="mcdelivery.do" class="dth2">맥딜리버리</a></li>
+									<li><a href="mcdrive.do" class="dth2">맥드라이브</a></li>
+									<li><a href="rental.do" class="dth2">임차문의</a></li>
 								</ul>
 							</li>
 							<li>
 								<a href="/kor/promotion/list.do" class="dth1">What’s New</a>
 								<ul class="depth2">
-									<li><a href="/kor/promotion/list.do" class="dth2">프로모션</a></li>
+									<li><a href="list.do" class="dth2">프로모션</a></li>
 									<li><a href="/kor/news/list.do" class="dth2">새로운 소식</a></li>
 									<!--  li><a href="/kor/kitchen.do" class="dth2">주방공개의 날</a></li -->
 								    <li><a href="/kor/happymeal/list.do" class="dth2">이달의 해피밀</a></li> 
 								</ul>
 							</li>
 							<li>
-								<a href="/kor/story/main.do" class="dth1">Story</a>
+								<a href="main.do" class="dth1">Story</a>
 								<ul class="depth2">
-									<li><a href="/kor/story/intro/brandintro.do" class="dth2">브랜드 소개</a></li>
-									<li><a href="/kor/story/society/list.do" class="dth2">사회적 책임과 지원</a></li>
-									<li><a href="/kor/story/competition/farmToRestaurant.do" class="dth2">맥도날드 경쟁력</a></li>
-									<li><a href="/kor/story/people/crew.do" class="dth2">맥도날드 사람들</a></li>
+									<li><a href="brandintro.do" class="dth2">브랜드 소개</a></li>
+									<li><a href="list.do" class="dth2">사회적 책임과 지원</a></li>
+									<li><a href="farmToRestaurant.do" class="dth2">맥도날드 경쟁력</a></li>
+									<li><a href="crew.do" class="dth2">맥도날드 사람들</a></li>
 								</ul>
 							</li>
 						</ul>
