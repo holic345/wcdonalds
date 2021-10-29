@@ -2520,7 +2520,7 @@ ul.notiTxt:before {
 	margin-top: -17px;
 	overflow: hidden;
 	text-indent: -9999px;
-	background: url(../images/menu/bg_arrow.png) 0 0 no-repeat
+	background: url(	https://www.mcdonalds.co.kr/kor/images/menu/bg_arrow.png) 0 0 no-repeat
 }
 
 .menuView .viewTop .info .other .arrow .img {
@@ -2639,7 +2639,7 @@ ul.notiTxt:before {
 	right: 0;
 	width: 27px;
 	height: 27px;
-	background: url(../images/common/btn_toggle.png) 0 0 no-repeat
+	background: url(https://www.mcdonalds.co.kr/kor/images/common/btn_toggle.png) 0 0 no-repeat;
 }
 
 .toggle>button[aria-selected="true"]:before {
