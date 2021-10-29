@@ -438,7 +438,8 @@ textarea {
 	background: #f8f8f8;
 	color: #808080;
 	text-align: left;
-	cursor: pointer
+	cursor: pointer;
+	width : 250px;
 }
 
 .selectWrap .ui-selectmenu-button:after {
@@ -1261,7 +1262,8 @@ ul.notiTxt:before {
 }
 
 .header.fixed .hLogo img {
-	height: 45px
+	height: 45px;
+	margin-bottom : 30px;
 }
 
 .header.fixed .hMenu {
