@@ -49,13 +49,13 @@
 										<tbody>
 											<tr>
 												<th>상세주소</th>
-												<td>
+												<td width="700px" id="sangse">
 												<ul id="juso">
 													<!-- 시작: 상세주소 -->
 													<li class="address">
 														<div id="dis_addr_build" name="dis_addr_build">서울특별시 종로구 돈화문로 26</div>
 													</li>
-													<li>
+													<li id="juso">
 														<span class="add_01">
 															<input type="text" id="address" name="address" class="input_add" placeholder="나머지 주소를 입력해 주세요" onkeypress="doIfEnter(event,codeAddress)">
 														</span>
@@ -71,6 +71,23 @@
 									</table>
 								</div>
 							</form>
+							<table id="sangseAddress">
+								<tbody>
+									<tr>
+										<th>최종 배달주소</th>
+										<td>
+											<div id="delivery_addr" name="delivery_addr" class="cnfm_input">
+												서울특별시 종로구 돈화문로 26 402호 (묘동,종로1.2.3.4가동,단성사) 지번: 56
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>배달 특이사항</th>
+										<td id="remarkTd">
+											<textarea id="remark" name="remark" class="apply_text" placeholder="예) 아이가 있으니 노크해 주세요"></textarea>
+										</td>
+								</tbody>
+							</table>
 						</div>
 					</fieldset>
 					<div id="save_submit_button">
