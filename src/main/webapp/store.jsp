@@ -96,7 +96,7 @@
 						<fieldset class="srchBox">
 							<legend>매장검색</legend>
 							<div class="form">
-								<input type="text" placeholder="매장명, 동명, 도로명을 검색해 주세요." title="검색어 입력" id="searchWord" name="searchWord" value="">
+								<input type="text" placeholder="매장명, 동명, 도로명을 검색해 주세요." title="검색어 입력" id="searchWord" name="searchWord">
 								<button type="button" class="btnMC btnM" id="storeSearch">검색하기</button>
 							</div>
 						</fieldset>
@@ -107,13 +107,10 @@
 					<div id="map" class="map"
 						style="height: 600px; position: relative; overflow: hidden; background: url('https://t1.daumcdn.net/mapjsapi/images/bg_tile.png');">
 						<!-- 지도 마커용 태그, A~Z까지 순차적으로 사용 -->
-						<div
-							style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico') 7 5, url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico'), default;">
+						<div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico') 7 5, url('https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico'), default;">
 							<div style="position: absolute;">
-								<div
-									style="position: absolute; z-index: 0; left: 0px; top: 0px;">
-									<img
-										src="https://map3.daumcdn.net/map_2d/2106wof/L4/1000/443.png"
+								<div style="position: absolute; z-index: 0; left: 0px; top: 0px;">
+									<img src="https://map3.daumcdn.net/map_2d/2106wof/L4/1000/443.png"
 										alt="" draggable="false"
 										style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 36px; top: 346px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;"><img
 										src="https://map0.daumcdn.net/map_2d/2106wof/L4/1000/444.png"
@@ -187,8 +184,7 @@
 										style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 676px; top: -38px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 128px; height: 128px;">
 								</div>
 								<div style="position: absolute; z-index: 1; left: 0px; top: 0px;">
-									<img
-										src="https://map1.daumcdn.net/map_2d/2106wof/L5/499/221.png"
+									<img src="https://map1.daumcdn.net/map_2d/2106wof/L5/499/221.png"
 										alt="" draggable="false"
 										style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -92px; top: 474px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
 										src="https://map2.daumcdn.net/map_2d/2106wof/L5/499/222.png"
@@ -393,12 +389,6 @@ $(document).ready(function () {
 		storeFindBg();
 	});
 
-	$("#searchWord").on("keydown", function() {
-		if (event.keyCode == 13) {
-			search();
-		}
-	});
-
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
 		center : new kakao.maps.LatLng(37.57056001779529,126.99046810138731),
@@ -485,10 +475,15 @@ $(document).ready(function () {
 		       var lat = position.coords.latitude, // 위도
 		       lon = position.coords.longitude; // 경도
 		       var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-		       map.panTo(locPosition);
 		       $("#lat").val(lat);
 			   $("#lng").val(lon);
-	     	});
+			   var marker = new kakao.maps.Marker({  
+			        map: map, 
+			        position: locPosition
+			    }); 
+			   marker.setMap(map);
+		       map.panTo(locPosition);
+		    });
 		}else{
 			if(getCookie("locate_info")=="Y"){
 				if (navigator.geolocation) {
@@ -496,12 +491,17 @@ $(document).ready(function () {
 				    navigator.geolocation.getCurrentPosition(function(position) {
 				        var lat = position.coords.latitude, // 위도
 				        lon = position.coords.longitude; // 경도
-				      	 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-				      	 map.panTo(locPosition);
-				         $("#lat").val(lat);
-					     $("#lng").val(lon);
-					     page(1);
-			      	});
+				      	var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				      	var marker = new kakao.maps.Marker({  
+					        map: map, 
+					        position: locPosition
+					    }); 
+					    marker.setMap(map);
+				        map.panTo(locPosition);
+			            $("#lat").val(lat);
+				        $("#lng").val(lon);
+				        page(1);
+			      	 });
 				}else{
 					alert("위치정보을 사용할수 없습니다");
 				}
@@ -511,12 +511,17 @@ $(document).ready(function () {
 					if (navigator.geolocation) {
 				    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
 				 	   navigator.geolocation.getCurrentPosition(function(position) {
-				        var lat = position.coords.latitude, // 위도
-				        lon = position.coords.longitude; // 경도
-				        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표	시될 위	치를 geolocation으로 얻어온 좌표로 생성합니다
-				        map.panTo(locPosition);
-				        $("#lat").val(lat);
-				        $("#lng").val(lon);
+					       var lat = position.coords.latitude, // 위도
+					       lon = position.coords.longitude; // 경도
+					       var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+					       var marker = new kakao.maps.Marker({  
+						       map: map, 
+						       position: locPosition
+						   }); 
+						   marker.setMap(map);
+					       map.panTo(locPosition);
+				           $("#lat").val(lat);
+					       $("#lng").val(lon);
 				       });
 					}else{
 						alert("위치정보을 사용할수 없습니다");
@@ -552,11 +557,27 @@ $(document).ready(function () {
 		});
 	}
 	
+	$("#searchWord").on("keydown", function(event) {
+		if (event.keyCode == 13) {
+			search();
+		}
+	});
+	
+	function search(){
+		for(var i = 0; i < positions.length; i++) {
+			var searchWord = $("#searchWord").val();
+			if(positions[i].title.indexOf(searchWord) > 0) {
+				map.panTo(positions[i].latlng);
+			}
+		}
+	};
+	
 	$("#storeSearch").click(function(){
-		$("#page").val(1);
+		/* $("#page").val(1);
 		$("#lat").val("NO");
 		$("#lng").val("NO");
-		go();
+		go(); */
+		search();
 	});
 		
 	function page(page){
