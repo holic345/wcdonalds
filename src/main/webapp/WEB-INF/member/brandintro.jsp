@@ -10,9 +10,9 @@
 						<h1 class="titDep1">브랜드 소개</h1>
 						<p class="subCopy">1955년 작은 레스토랑에서부터 지금에 이르기까지 고객이 가장 좋아하는 장소이자,<br>음식을 즐기는 최고의 방법이 되기 위해 맥도날드는 오늘도 노력합니다.</p>
 						<ul class="navPath">
-							<li><a href="/kor/main.do">Home</a></li>
+							<li><a href="main.do">Home</a></li>
 							<li><a href="/kor/story/main.do">Story</a></li>
-							<li><a href="/kor/story/intro/brandintro.do">브랜드 소개</a></li>
+							<li><a href="brandintro.do">브랜드 소개</a></li>
 						</ul>
 					</div>
 				</div>
@@ -44,12 +44,14 @@
 										<span class="thum"><img src="resources/img/img_brand_cont02_02.jpg" alt="맥도날드 압구정점 이미지"></span>
 										<strong>한국 첫 맥도날드 매장, 압구정점 그랜드 오프닝</strong>
 										<p>맥도날드는 가장 트렌디한 장소로 떠오르는 압구정동에 첫 레스토랑을 열었습니다.수백 명의 고객들이 레스토랑 앞에 길게 줄을 늘어서며 맥도날드의<br> 
-										성공적인 시작을 함께 축하했고 이를 통해 맥도날드가 한국 시장에서 지속적으로 성장할 수 있다는<br>잠재력을 보여 주었습니다.</p>
+										성공적인 시작을 함께 축하했고 이를 통해 맥도날드가 한국 시장에서 지속적으로 성장할 수 있다는 잠재력을 보여 주었습니다.</p>
 									</li>
 									<li>
 										<span class="thum"><img src="resources/img/img_brand_cont02_03.jpg" alt="맥도날드의 미래 이미지"></span>
 										<strong>우리는 계속해서 나아갑니다.</strong>
-										<p>맥도날드는 지난 31년 동안 국내 협력 업체와 긴밀하게 일하고, 현재 15,000여명의<br>직원이 근무하는 등 한국 사회의 고용 창출에 기여하고 있습니다. 또한, 30여개 이상의<br>국내외 비즈니스를 지원해 왔습니다. 맥도날드는 좋은 품질의 제품을 합리적인 가격과<br>최상의 서비스 제공을 통해 고객이 가장 선호하는 장소로 거듭나기 위해 지속적으로<br>노력할 것입니다.</p>
+										<p>맥도날드는 지난 31년 동안 국내 협력 업체와 긴밀하게 일하고, 현재 <br>
+										15,000여명의직원이 근무하는 등 한국 사회의 고용 창출에 기여하고 있습니다. 또한, 30여개 이상의국내외 비즈니스를 지원해 왔습니다. 맥도날드는 좋은<br>
+										품질의 제품을 합리적인 가격과최상의 서비스 제공을 통해 고객이 가장<br> 선호하는 장소로 거듭나기 위해 지속적으로 노력할 것입니다.</p>
 									</li>
 								</ul>
 							</div>
@@ -77,14 +79,14 @@
 													<span>제주, 광주 지역 맥딜리버리 바이크를 친환경 전기 바이크로 전면 교체</span>
 													<span>서울시와 전기바이크 교체 업무협약(MOU) 체결</span>
 												</div>
-												<div class="thum"><img src="/kor/images/story/img_histoy_kor_2019.png" alt="전기바이크 이미지"></div>
+												<div class="thum"><img src="resources/img/img_histoy_kor_2019.png" alt="전기바이크 이미지"></div>
 											</div>
 										</li>
 										<li class="year2018">
 											<strong>2018</strong>
 											<div class="yearCont">
 												<div class="txt"><span>2018 평창 동계올림픽 공식 후원</span></div>
-												<div class="thum"><img src="/kor/images/story/img_histoy_kor_2018.png" alt="평창동계올림픽 이미지"></div>
+												<div class="thum"><img src="resources/img/img_histoy_kor_2018.png" alt="평창동계올림픽 이미지"></div>
 											</div>
 										</li>
 										<li class="year2017">
@@ -447,50 +449,6 @@
 			<button type="button" class="btnTop">맨 위로 가기</button>
 		</div>
 		<!-- //container -->
-		<footer class="footer">
-			
-			<div class="footArea">
-				<ul class="fUtil">
-					<li class="privacy"><a href="/kor/etc/private.do">개인정보 처리방침</a></li>
-					<li><a href="/kor/etc/location.do">위치정보 이용약관</a></li><!-- 추가 -->
-					<li><a href="/kor/etc/sitemap.do">사이트맵</a></li>
-					<li><a href="/kor/store/rental.do">임차문의</a></li>
-					<li><a href="https://voc.mcd.co.kr/MC/HOM/faqMain.jsp" target="_blank" title="새창 열림">고객문의</a></li>
-					<!-- <li><a href="javascript:systemCheck('https://voc.mcd.co.kr/MC/HOM/faqMain.jsp')" title="새창 열림">고객문의</a></li> -->					
-				    <li><a href="/kor/story/people/recruit.do">인재채용</a></li> 
-				</ul>
-				<ul class="fSns">
-					<li><a href="https://www.facebook.com/McDonaldsKorea" class="fb" target="_blank" title="새창 열림">맥도날드 페이스북</a></li>
-					<li><a href="https://www.instagram.com/mcdonalds_kr/" class="ig" target="_blank" title="새창 열림">맥도날드 인스타그램</a></li>
-					<li><a href="https://www.youtube.com/user/McDonaldsKor" class="yt" target="_blank" title="새창 열림">맥도날드 유투브</a></li>
-					<li><a href="https://story.kakao.com/ch/mcdonalds/feed" class="ks" target="_blank" title="새창 열림">맥도날드 카카오스토리</a></li>
-					<li class="web_accessibility">
-                       <a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" class="web_accessibility" title="국가 공인 인증기관 : 웹와치" target="_blank">
-                        <img src="/kor/images/common/web_accessibility.png" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)"/>
-                    </a>
-                    </li> 
-				</ul>
-				<div class="fInfo">
-					<ul class="info">
-						<li>한국맥도날드(유)</li> 
-						<li>대표이사: 앤토니 마티네즈</li>
-						<li>사업자등록번호: 101-81-26409</li>
-						<li>전화주문: 1600-5252</li>
-					</ul>
-					<p class="copy">COPYRIGHT &copy; 2019 ALL RIGHTS RESERVED BY McDonald's.</p>
-				</div>
-			</div>	
-		</footer>
-		<!-- //footer -->
-	</div>
-	<!-- //wrapper -->
-	
-
-
-
-
-
-    
      
 	<div class="dimmed"></div>
 	<div id="materialPop" class="popLayer layerS">
