@@ -590,7 +590,7 @@ $(document).ready(function () {
 	    	search_options[index] = this.id;
 	    });
 		$("#search_options").val(search_options.join(","));
-		$("#searchForm").attr("action","store.jsp");
+		$("#searchForm").attr("action","store.do");
 		$("#searchForm").submit();
 	}
 	function gohttps(){

@@ -48,7 +48,7 @@
    		<header class="header">
 	        <div class="headArea">
 	          <strong class="hLogo">
-	            <a href="main.jsp" target="_blank" class="logo" title="메인으로 이동">
+	            <a href="main.do" target="_blank" class="logo" title="메인으로 이동">
 	              <img src="resources/wcdonald.png" alt="맥도날드" />
 	            </a>
 	          </strong>
@@ -58,7 +58,7 @@
 	                <a href="#" class="depth">FAQ</a>
 	              </li>
 	              <li>
-	                <a href="qna.jsp" class="depth">1:1고객문의</a>
+	                <a href="qna.do" class="depth">1:1고객문의</a>
 	              </li>
 	            </ul>
 	          </nav>
