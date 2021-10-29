@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MemberController {
 	
+
 	@GetMapping("/main.do")
 	public String main() {
 		return "main";
@@ -62,6 +63,10 @@ public class MemberController {
 	@GetMapping("/store.do")
 	public String store() {
 		return "store";
+	}
+	@GetMapping("/brandintro.do")
+	public String brandintro() {
+		return "brandintro";
 	}
 	
 }
