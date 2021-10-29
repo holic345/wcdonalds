@@ -413,7 +413,7 @@ function order_detail_show() {
 					</tr>
 				</tbody>
 				<tfoot>
-					<tr>
+					<tr> 
 						<td>
 							총 주문금액
 						</td>
