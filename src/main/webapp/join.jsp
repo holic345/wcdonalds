@@ -183,7 +183,7 @@
 	<div class="section-menu">
 	  <ul class="nav nav-list">
 		<li class="nav-header lnb-header">회원가입<span>Join Us</span></li>
-		<li class="active"><a href="join.jsp" class="first">회원가입<small>Join Us</small><i class="fa fa-angle-right"></i></a></li>
+		<li class="active"><a href="join.do" class="first">회원가입<small>Join Us</small><i class="fa fa-angle-right"></i></a></li>
 	  </ul>
 	</div>
 	 </div>
@@ -191,7 +191,7 @@
       <div class="col-md-9">
 		
 		<h3 class="title-divider mt_0"><span>회원가입</span> <small>Join Us</small></h3>
-		<form name="join_form" method="post" action="memberJoin.jsp">
+		<form name="join_form" method="post" action="memberJoin.do">
 			<h4 class="title">이용약관</h4>
 			<textarea name="textarea" rows="10" class="w100per" readonly title="이용약관">
 제1조. 목적

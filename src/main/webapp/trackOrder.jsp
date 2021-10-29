@@ -70,14 +70,14 @@
 	<div class="wrapper ">
 		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
 			<div class="headArea">
-				<strong class="hLogo"><a href="main.jsp" class="logo" title="메인으로 이동"><img src="resources/wcdonald.png" alt="맥도날드"></a></strong>
+				<strong class="hLogo"><a href="main.do" class="logo" title="메인으로 이동"><img src="resources/wcdonald.png" alt="맥도날드"></a></strong>
 				<nav class="hMenu">
 					<div class="menu">
 						<ul class="depth1">
 							<li><!-- li 오버시 on 클래스 추가 -->
 								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a><!-- 현재페이지 메뉴에 current 클래스 추가 -->
 								<ul class="depth2">
-									<li><a href="list.jsp" class="dth2">버거</a></li>
+									<li><a href="list.do" class="dth2">버거</a></li>
 									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
 									<li><a href="javascript:gotoMenu(3);" class="dth2">맥모닝</a></li>
 									<li><a href="javascript:gotoMenu(15);" role="button">해피 스낵</a></li>
@@ -90,7 +90,7 @@
 							<li>
 								<a href="#" class="dth1 ">Store</a>
 								<ul class="depth2">
-									<li><a href="store.jsp" class="dth2">매장찾기</a></li>
+									<li><a href="store.do" class="dth2">매장찾기</a></li>
 									<li><a href="/kor/store/mcdelivery.do" class="dth2">맥딜리버리</a></li>
 									<li><a href="/kor/store/mcdrive.do" class="dth2">맥드라이브</a></li>
 									<li><a href="/kor/store/rental.do" class="dth2">임차문의</a></li>
@@ -120,8 +120,8 @@
 					<form id="commonSearchForm" method="post">
 					<div class="util">
 						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
-						<a href="join.jsp" class="btn_register" title="회원가입으로 이동">회원가입</a>
-						<a href="cart.jsp" class="btn_cart" title="카트로 이동">카트</a>
+						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
+						<a href="cart.do" class="btn_cart" title="카트로 이동">카트</a>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
 							<fieldset class="srchField">
@@ -337,10 +337,10 @@
 						<div class="section-menu">
 							<ul class="nav nav-list">
 								<li class="nav-header lnb-header">마이페이지<span>MyPage</span></li>
-								<li class=""><a href="mypageupdate.jsp" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
-								<li class=""><a href="addressBook.jsp" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
-								<li class="active"><a href="trackOrder.jsp" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
-								<li class=""><a href="orderHistory.jsp" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="mypageupdate.do" class="first">마이페이지<small>MyPage</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="addressBook.do" class="first">주소<small>Address</small><i class="fa fa-angle-right"></i></a></li>
+								<li class="active"><a href="trackOrder.do" class="first">주문조회<small>Order check</small><i class="fa fa-angle-right"></i></a></li>
+								<li class=""><a href="orderHistory.do" class="first">주문내역<small>Order details</small><i class="fa fa-angle-right"></i></a></li>
 							</ul>
 						</div>			
 					</div>
@@ -385,7 +385,7 @@ function order_detail_show() {
 			</tbody>
 			<tfoot class="table_foot_trackorder">
 				<tr class="table_foot_tr">
-					<td colspan="6" class="table_foot_td"><a data-toggle="modal" class="btn btn-red btn-lg" href="list.jsp">새로운 주문하기</a>
+					<td colspan="6" class="table_foot_td"><a data-toggle="modal" class="btn btn-red btn-lg" href="list.do">새로운 주문하기</a>
 						<p>
 							<a href="#trackOrder" data-toggle="modal" class="action-secondary action-link">
 								<i class="fa fa-caret-right"></i> 주문 조회가 안 되시나요?
