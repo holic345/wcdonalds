@@ -48,7 +48,6 @@ a {
 	height: 700px;
 }
 
-
 a:focus {
 	outline: thin dotted
 }
@@ -110,7 +109,7 @@ sub, sup {
 }
 
 th {
-	width: 80px;
+	width: 121px;
 	background: url(https://www.mdsgisprod.co.kr/mdsgis/resources/old/images/bullet_yellow.gif) no-repeat left center;
 	color: #757575;
 	font-weight: bold;
@@ -119,9 +118,36 @@ th {
 	border-bottom: 1px solid #b7b7b7;
 }
 
+#sangse{
+	padding-left: 35px;
+}
+
+#delivery_addr{
+	padding-left: 30px;
+}
+
+#sangseAddress{
+	margin-left: 20px;
+}
+
+.apply_text{
+	border: 1px solid #959595;
+	width: 92%;
+	height: 64px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 10px;
+	resize: none;
+}
+
+#remarkTd{
+	padding-left: 30px;
+}
+
 td{
 	border-bottom: 1px solid #b7b7b7;
-	padding: 10px 5px;
+	padding: 18px 5px;
 	
 }
 
@@ -519,11 +545,6 @@ cite {
 ul, ol {
 	margin-top: 0;
 	margin-bottom: 10px;
-}
-
-tbody > tr > td > ul{
-	padding-left: 25px;
-	width: 700px;
 }
 
 ul ul, ol ul, ul ol, ol ol {
@@ -2052,9 +2073,9 @@ textarea.input-lg {
 	/* 	-ms-user-select: none; */
 	/* 	-o-user-select: none; */
 	/* 	user-select: none */
-	color: #fff;
+	color: black;
 	font-size: 18px;
-	font-weight: bold;
+/* 	font-weight: none; */
 	background-color: #ffb70d;
 	background-image: linear-gradient(#ffb70d, #f2aa01);
 	border: 1px;

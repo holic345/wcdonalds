@@ -61,8 +61,8 @@ th {
 				</thead>
 				<tfoot>
 					<td colspan="4" class="actions">
-						<a class="btn btn-red btn-lg" href="addressupdate.jsp">새로운 주소 추가</a>		
-						<a class="btn btn-red btn-lg" href="main.jsp">메인화면으로 이동</a>
+						<a class="btn btn-red btn-lg" href="addressupdate.do">새로운 주소 추가</a>		
+						<a class="btn btn-red btn-lg" href="main.do">메인화면으로 이동</a>
 					</td>
 				</tfoot>
 				<tbody>
@@ -77,7 +77,7 @@ th {
 						</td>
 						<td class="special-instructions"></td>
 						<td class="controls">
-						 <a class="text-gray-light" href="addressupdate.jsp" title="주소 변경하기"><i class="far fa-edit"></i></a>
+						 <a class="text-gray-light" href="addressupdate.do" title="주소 변경하기"><i class="far fa-edit"></i></a>
 						 
 						 </td>
 					</tr>

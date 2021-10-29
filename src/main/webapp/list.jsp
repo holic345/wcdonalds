@@ -112,7 +112,7 @@
 <script type="text/javascript">
 	function goDetail(seq) {
 		$('#seq').val(seq);
-		$('#searchForm').attr("action","detail.jsp");
+		$('#searchForm').attr("action","detail.do");
 		$('#searchForm').submit();
 	}
 </script>
