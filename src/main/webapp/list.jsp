@@ -109,5 +109,11 @@
 		</div>
 		<button type="button" class="btnTop">맨 위로 가기</button>
 	</div>
-
+<script type="text/javascript">
+	function goDetail(seq) {
+		$('#seq').val(seq);
+		$('#searchForm').attr("action","detail.jsp");
+		$('#searchForm').submit();
+	}
+</script>
 <%@ include file="footer.jsp" %>
