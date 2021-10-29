@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/member/header.jsp"%>
 
+<script type="text/javascript" src="resources/js/popup.js"></script>
+<script type="text/javascript" src="resources/js/libs.js"></script>
+<script type="text/javascript" src="resources/js/KmcCert.js"></script>
 </head>
 <body>
 	<div class="content">
 		<div class="visualArea bgWhats01">
 			<div class="inner">
-				<h1 class="titDep1" data-title="윈딜리버리  프로모션" data-desc="윈딜리버리 프로모션">윈딜리버리 프로모션</h1>
+				<h1 class="titDep1" data-title="윈딜리버리 프로모션" data-desc="윈딜리버리 프로모션">윈딜리버리 프로모션</h1>
 				<ul class="navPath">
 					<li><a href="/controller/main.do">Home</a></li>
 					<li><a href="/controller/list.do">What's New</a></li>
@@ -39,7 +42,7 @@
 		<!-- //contArea -->
 	</div>
 	<div class="aside">
-		<a href="https://www.mcdelivery.co.kr/kr/" class="goDelivery"
+		<a href="/controller/main.do" class="goDelivery"
 			target="_blank" title="새창 열림">Mcdelivery</a>
 	</div>
 	<form id="searchForm" name="searchForm" method="post">
@@ -189,7 +192,7 @@
 <p class="noResult commingSoon">진행중인 이벤트가 없습니다.</p>
 </script>
 	<div class="aside">
-		<a href="https://www.mcdelivery.co.kr/kr/" class="goDelivery"
+		<a href="/controller/main.do" class="goDelivery"
 			target="_blank" title="새창 열림">Mcdelivery</a>
 	</div>
 	<button type="button" class="btnTop">맨 위로 가기</button>
