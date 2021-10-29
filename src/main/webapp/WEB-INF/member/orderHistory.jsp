@@ -366,6 +366,27 @@ $(function () {
 									<input type="text" name="start_history" id="start_history" maxlength="10" readonly="readonly" /> 
 										&nbsp;	-  &nbsp; 
 									<input type="text" name="end_history" id="end_history" maxlength="10"  readonly="readonly" />
+<<<<<<< HEAD
+					&nbsp;&nbsp;&nbsp;<a href="javascript:historySearch()" class="btn btn-md btn-red" >검색</a>
+					<table class="table-trackorder">
+         <thead class="table_head_trackorder">
+            <tr>
+               <td class="table_head_td">주문 번호</td>
+               <td class="table_head_td">주문 날짜</td>
+               <td class="table_head_td">배송지</td>
+            </tr>
+         </thead>
+         <tbody class="table_body_trackorder">
+            <tr>
+               <td class="table_head_td">주문 번호</td>
+               <td class="table_head_td">주문 날짜</td>
+               <td class="table_head_td">배송지</td>               
+            </tr>
+            <tr></tr>
+         </tbody>       
+      </table>					
+						</div>
+=======
 					&nbsp;&nbsp;&nbsp;<a href="" class="btn btn-md btn-red" >검색</a>
 					     <a href="javascript:historySearch()" id="btn_empty" class="btn btn-md btn-red" >초기화</a>
 				<table class="table_historyorder" id="table_historyorder">
@@ -388,6 +409,7 @@ $(function () {
 			      </table>
 			      
 			</div>
+>>>>>>> master
 			<hr>
 		</form>
       </div>
