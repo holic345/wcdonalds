@@ -9,9 +9,9 @@
 			<div class="inner">
 				<h1 class="titDep1">매장찾기</h1>
 				<ul class="navPath">
-					<li><a href="/kor/main.do">Home</a></li>
-					<li><a href="/kor/store/main.do">Store</a></li>
-					<li><a href="/kor/store/main.do">매장찾기</a></li>
+					<li><a href="main.do">Home</a></li>
+					<li><a href="main.do">Store</a></li>
+					<li><a href="main.do">매장찾기</a></li>
 				</ul>
 			</div>
 		</div>
@@ -19,7 +19,7 @@
 		<div class="contArea">
 			<div class="inner">
 				<ul class="tabType01">
-					<li><a href="/kor/store/main.do" role="button" aria-selected="true">지역별</a></li>
+					<li><a href="main.do" role="button" aria-selected="true">지역별</a></li>
 					<li><a href="/kor/store/event.do" role="button">이벤트매장</a></li>
 				</ul>
 				<form id="searchForm" method="post">
