@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="mypage.jsp"%>
 
@@ -77,15 +76,24 @@ function order_detail_show() {
 						<td>
 							총 주문금액
 						</td>
+						<td class="order_price">
+							37,600원
+						</td>
 					</tr>
 					<tr>
 						<td>
 							배달팁
 						</td>
+						<td class="delivery_price">
+							2,000원
+						</td>
 					</tr>
 					<tr>
 						<td>
 							총 결제금액
+						</td>
+						<td class="total_price">
+							39,600원
 						</td>
 					</tr>
 				</tfoot>
