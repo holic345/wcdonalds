@@ -32,7 +32,10 @@
 										<div class="name">
 											<strong class="ko">1955 스모키 더블 베이컨</strong>
 											<em class="en">1955 Smoky Double Bacon</em>
-											<button style="background-color:#ffbc0d; color:white; margin : 8px 0 0 200px; border-radius:25px; width:90px;"><h4>주문하기</h4></button>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -44,6 +47,10 @@
 										<div class="name">
 											<strong class="ko">슈니언 버거</strong>
 											<em class="en">Shrimp Onion Burger</em>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -55,6 +62,10 @@
 										<div class="name">
 											<strong class="ko">트리플 치즈버거</strong>
 											<em class="en">Triple Cheeseburger</em>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -66,6 +77,10 @@
 										<div class="name">
 											<strong class="ko">빅맥<sub class="reg">®</sub></strong>
 											<em class="en">Big Mac<sub class="reg">®</sub></em>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -77,6 +92,10 @@
 										<div class="name">
 											<strong class="ko">맥스파이시<sub class="reg">®</sub> 상하이 버거</strong>
 											<em class="en">WcSpicy<sub class="reg">®</sub> Shanghai Burger</em>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -88,6 +107,10 @@
 										<div class="name">
 											<strong class="ko">1955<sub>®</sub> 버거</strong>
 											<em class="en">1955<sub>®</sub> Burger</em>
+											<div class="product-cost">
+												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											</div>
+											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 										</div>
 									</a>
 								</li>
@@ -105,7 +128,7 @@
 			</form>
 		</div>
 		<div class="aside">
-			<a href="https://www.mcdelivery.co.kr/kr/" class="goDelivery" target="_blank" title="새창 열림">CART</a>
+			<a href="cart.do" class="goDelivery" target="_blank" title="새창 열림">CART</a>
 		</div>
 		<button type="button" class="btnTop">맨 위로 가기</button>
 	</div>

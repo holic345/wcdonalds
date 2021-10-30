@@ -99,8 +99,7 @@
 			</div>
 			<div class="media-right text-center">
 
-				<button
-					class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder">
+				<button class="btn btn-primary btn-red btn-lg btn-block btn-submit btn-saveorder action-saveorder" id="cashBtn">
 					<i class="far fa-money-bill-alt"></i>&nbsp;결제
 				</button>
 			</div>
@@ -186,6 +185,10 @@
 		});
 		$("#okbtn,.fas").click(function() {
 			$(".modal").attr("style", "display:none");
+		});
+		
+		$('#cashBtn').click(function(){
+			location.href="orderConfirm.do";
 		});
 	});
 	//폼값 증가&감소
