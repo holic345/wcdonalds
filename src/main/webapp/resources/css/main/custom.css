@@ -50,9 +50,9 @@ body, input, select, textarea, button, pre {
 	font-family: "Helvetica Neue", Helvetica,"Speedee", Malgun Gothic, '맑은 고딕', Dotum, '돋움', Arial,
 		sans-serif;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 1.9;
-	/* color: #585858;  *//*글 색 변경*/
+	color: #585858;   /*글 색 변경*/
 }
 
 section, nav, article, aside, hgroup, header, footer, iframe {
@@ -4321,7 +4321,8 @@ p.nutrDesc {
 	text-align: center;
 	font-size: 50px;
 	font-weight: 600;
-	color: #fff
+	color: #fff;
+	padding-bottom: 30px;
 }
 
 .history .historyList li>strong:after {
