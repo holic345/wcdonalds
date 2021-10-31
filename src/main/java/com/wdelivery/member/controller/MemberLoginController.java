@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.wdelivery.member.domain.UserVO;
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.member.vo.UserVO;
 
 @Controller
 public class MemberLoginController {
@@ -16,9 +16,10 @@ public class MemberLoginController {
 	@Autowired
 	private MemberService memberService; 
 	
-	@PostMapping("/login.do")
+	@PostMapping("/memLogin.do")
 	public void memberLogin(UserVO userVO) {
-		//	UserVO finduseVO = memberService.searchId(userVO.getUser_email());
+		UserVO findUserVO = memberService.searchID(userVO.getUser_email());
+				System.out.println(userVO.toString());
 	}
 	
 	
