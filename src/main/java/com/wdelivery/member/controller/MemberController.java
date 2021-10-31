@@ -1,12 +1,10 @@
 package com.wdelivery.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.wdelivery.member.service.MemberService;
-import com.wdelivery.member.service.MemberServiceImpl;
 
 @Controller
 public class MemberController {
