@@ -1,4 +1,4 @@
-package com.wdelivery.member.domain;
+package com.wdelivery.member.vo;
 
 import java.util.Date;
 
@@ -102,6 +102,14 @@ public class UserVO {
 	}
 	public void setOrder_comment(String order_comment) {
 		this.order_comment = order_comment;
+	}
+	@Override
+	public String toString() {
+		return "UserVO [user_email=" + user_email + ", user_password=" + user_password + ", user_name=" + user_name
+				+ ", user_gender=" + user_gender + ", user_phone=" + user_phone + ", user_seq=" + user_seq
+				+ ", user_status=" + user_status + ", user_regdate=" + user_regdate + ", terms_agree=" + terms_agree
+				+ ", user_agreedate=" + user_agreedate + ", sms_agree=" + sms_agree + ", email_agree=" + email_agree
+				+ ", user_birth=" + user_birth + ", order_comment=" + order_comment + "]";
 	}
 	
 }
