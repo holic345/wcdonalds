@@ -13,8 +13,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public UserVO searchID(UserVO userVO) {
-		System.out.println("¼º°ø");
-		UserVO findUserVO = memPersis.findUser(userVO);
-		return findUserVO;
+		return  memPersis.findUser(userVO);
 	}
 }

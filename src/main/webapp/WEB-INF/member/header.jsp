@@ -382,7 +382,18 @@
 		        Kakao.API.request({
 		          url: '/v2/user/me',
 		          success: function (response) {
-		        	  console.log(response)
+			        	   console.log(response);
+			        		  alert(response);
+			        	  $.ajax({
+			        		  type:"POST",
+			        		  url: "kakaoLogin.do",
+			        		  data:JSON.stringify(response),
+			        		  contentType: "application/json",
+			        		  succcess: function(){
+			        			  alert(response);
+			        		  }
+			        	  })
+			        	  
 		          },
 		          fail: function (error) {
 		            console.log(error)
@@ -394,4 +405,5 @@
 		      },
 		    })
 		  }
+
 </script>	
