@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@font-face{
+	font-family: 'Speedee_K_R';
+	src: url('/resources/font/Speedee_K_R.woff')	
+}
+
+body {
+	font-family: 'Speedee_K_R';
+}
+
+.inner {
+	font-family: 'Speedee_K_R';
+}
+
+.visualArea .gbWhats01 {
+	color: #fff;
+	background: url('')
+}

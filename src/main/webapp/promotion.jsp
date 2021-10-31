@@ -4,8 +4,10 @@
 <script type="text/javascript" src="resources/js/popup.js"></script>
 <script type="text/javascript" src="resources/js/libs.js"></script>
 <script type="text/javascript" src="resources/js/KmcCert.js"></script>
-</head>
-<body>
+
+<!-- <link rel="stylesheet" href="resources/css/mypage/trackOrder.css"> -->
+<link rel="stylesheet" href="resources/css/promotion/promotion.css">
+
 	<div class="content">
 		<div class="visualArea bgWhats01">
 			<div class="inner">
@@ -28,7 +30,90 @@
 				</ul>
 				<!-- 행사 있을 경우 종료된 행사일 경우 class값 end 추가-->
 				<ul class="cardBanner" id="promotionList">
-
+					<li>
+						<a href="#" onclick="goDetail(this)" class data="340, 1, N">
+							<div class="tmb">
+								<img src="resources/img/promotion/spicey_mac_and_cheese_burger.png" alt="매콤하고 진한 찐 아메리칸 소울! NEW 스파이시 맥앤치즈 버거">
+							</div>
+							<div class="con">
+								<strong class="tit">
+									매콤하고 진한 찐 아메리칸 소울! 
+									<br>
+									 NEW 스파이시 맥앤치즈 버거
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="goDetail(this)" class data="338, 2, N">
+							<div class="tmb">
+								<img src="resources/img/promotion/churros_promotion.png" alt="달콤! 바삭! 쫄깃! 츄러스 출시 새로운 해피 스낵 가을/겨울 시즌 오픈!">
+							</div>
+							<div class="con">
+								<strong class="tit">
+									달콤! 바삭! 쫄깃! 츄러스 출시  
+									<br>
+									새로운 해피 스낵 가을/겨울 시즌 오픈!
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="goDetail(this)" class data="336, 3, N">
+							<div class="tmb">
+								<img src="resources/img/promotion/chiller_promotion.png" alt="자두 칠러와 제주 한라봉 칠러로 상큼 충전!">
+							</div>
+							<div class="con">
+								<strong class="tit">
+									자두 칠러와 제주 한라봉 칠러로 상큼 충전!
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="goDetail(this)" class="" data="325,4,N">
+							<div class="tmb">
+								<img src="resources/img/promotion/triple_cheese_burger_promotion.png" alt="육즙도 3배! 진한 풍미도 3배! 트리플 치즈버거  컴백!">
+							</div>
+							<div class="con">
+								<strong class="tit">
+									육즙도 3배! 진한 풍미도 3배! 
+									<br>트리플 치즈버거  컴백!
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="goDetail(this)" class="" data="320,5,N">
+							<div class="tmb">
+								<img src="resources/img/promotion/strawberry_icecream_promotion.png" alt="스트로베리 2종 아이스크림 출시!">
+							</div>
+							<div class="con">
+								<strong class="tit">
+								스트로베리 2종 아이스크림 출시!
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="goDetail(this)" class="" data="317,6,N">
+							<div class="tmb">
+								<img src="resources/img/promotion/file_o_fish_promotion.png" alt="신선한 맛 가득 담아 알래스카에서 왔다!필레 오 피쉬 출시!">
+							</div>
+							<div class="con">
+								<strong class="tit">
+								신선한 맛 가득 담아 알래스카에서 왔다!
+								<br>필레 오 피쉬 출시!
+								</strong>
+								<span id="statusSpan"></span>
+							</div>
+						</a>
+					</li>
 				</ul>
 				<div class="btnMore" id="btnMore">
 					<a href="javascript:more();" class="more">더보기</a>
@@ -42,19 +127,18 @@
 		<!-- //contArea -->
 	</div>
 	<div class="aside">
-		<a href="/controller/main.do" class="goDelivery"
-			target="_blank" title="새창 열림">Mcdelivery</a>
+		<a href="/controller/main.do" class="goDelivery" target="_blank" title="새창 열림">Wdelivery</a>
 	</div>
 	<form id="searchForm" name="searchForm" method="post">
-		<input type="hidden" name="page" id="page" value="1"> <input
-			type="hidden" name="seq" id="seq"> <input type="hidden"
-			name="searchStatus" id="searchStatus"> <input type="hidden"
-			name="urlCode" id="urlCode">
+		<input type="hidden" name="page" id="page" value="1"> 
+		<input type="hidden" name="seq" id="seq"> 
+		<input type="hidden" name="searchStatus" id="searchStatus"> 
+		<input type="hidden" name="urlCode" id="urlCode">
 	</form>
 
 	<script type="text/javascript">
 		var init_page =0;
-		var totalPage =0;
+		var totalPage =0;	
 		var page_status = "";
 		
 		var isCertificate = false;
@@ -178,102 +262,6 @@
 	
 	</script>
 
-	<script id="promotion" type="text/template">
-<li>
-	<a href="#" onclick="goDetail(this)" class="{end}" data="{seq},{rnum},{certification}">
-		<div class="tmb"><img src="{pc_kor_image_url}" alt="{pc_kor_alt}"></div>
-		<div class="con">
-			<strong class="tit">{pc_kor_alt}</strong><span id="statusSpan">{end_text}</span>
-		</div>
-	</a>
-</li>
-</script>
-	<script id="promotionNull" type="text/template">
-<p class="noResult commingSoon">진행중인 이벤트가 없습니다.</p>
-</script>
-	<div class="aside">
-		<a href="/controller/main.do" class="goDelivery"
-			target="_blank" title="새창 열림">Mcdelivery</a>
-	</div>
 	<button type="button" class="btnTop">맨 위로 가기</button>
 	<!-- //container -->
 	<%@ include file="WEB-INF/member/footer.jsp" %>
-	<div class="popLayer layerL layerType02" id="storeSearch">
-		<div class="layCont">
-			<div class="scroll storeSch">
-				<div class="schTop">
-					<h2 class="popTit">주방 공개의 날/쿠킹 클래스 운영매장</h2>
-					<fieldset class="schArea">
-						<legend>매장검색</legend>
-						<div class="field01">
-							<div class="formWrap">
-								<label for="store01">시/도</label>
-								<div class="selectWrap">
-									<select title="시/도 선택" id="store01" style="width: 200px"
-										onchange="getGugunJsonp()">
-										<option value="">전체</option>
-										<option value="서울">서울</option>
-										<option value="경기도">경기도</option>
-										<option value="강원도">강원도</option>
-										<option value="광주">광주</option>
-										<option value="경상남도">경상남도</option>
-										<option value="경상북도">경상북도</option>
-										<option value="대전">대전</option>
-										<option value="대구">대구</option>
-										<option value="부산">부산</option>
-										<option value="인천">인천</option>
-										<option value="울산">울산</option>
-										<option value="제주">제주</option>
-										<option value="전라남도">전라남도</option>
-										<option value="전라북도">전라북도</option>
-										<option value="충청남도">충청남도</option>
-										<option value="충청북도">충청북도</option>
-									</select>
-								</div>
-							</div>
-							<div class="formWrap">
-								<label for="store02">시/군/구</label>
-								<div class="selectWrap">
-									<select title="시/군/구 선택" id="store02" style="width: 200px">
-										<option value="">전체</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="field02">
-							<span class="formWrap"> <label for="store03">매장</label> <input
-								type="text" id="store03" placeholder="ex)안양">
-								<button type="button" class="btnMC btnM"
-									onclick="getStoreList()">검색</button>
-							</span>
-						</div>
-					</fieldset>
-					<p class="notiTxt">검색이 되지 않는 매장은 다음 달에 행사 계획이 없는 매장입니다.</p>
-				</div>
-				<div class="schCon">
-					<!-- 지도영역 -->
-					<div id="storePopMap" class="map"></div>
-					<!-- //지도영역 -->
-					<!-- 검색결과 있음-->
-					<div class="result" id="storeS">
-						<ul id="storePopListUl">
-
-						</ul>
-					</div>
-					<!-- //검색결과 있음-->
-					<!-- 검색 결과 없음 -->
-					<p class="noResult" id="storeN" style="display: none;">
-						<b class="color01" id="searchWordShow"></b>에 대한 검색결과가 없습니다.
-					</p>
-					<!-- 검색 결과 없음 -->
-				</div>
-			</div>
-		</div>
-		<!-- //.layCont-->
-		<div class="btnArea">
-			<button type="button" class="btnMC btnM" onclick="selectStorePop()">선택완료</button>
-		</div>
-		<button type="button" class="layClose">닫기</button>
-	</div>
-</body>
-</html>
