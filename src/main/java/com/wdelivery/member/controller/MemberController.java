@@ -104,5 +104,15 @@ public class MemberController {
 	public String delivery() {
 		return "delivery";
 	}
+	
+	@GetMapping("/brandhistory.do")
+	public String brandHistory() {
+		return "brandhistory";
+	}
+	
+	@GetMapping("/promotion.do")
+	public String promotion() {
+		return "promotion";
+	}
 
 }

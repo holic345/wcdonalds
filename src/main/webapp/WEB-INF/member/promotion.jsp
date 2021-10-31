@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/member/header.jsp"%>
+<%@ include file="header.jsp"%>
 
 <script type="text/javascript" src="resources/js/popup.js"></script>
 <script type="text/javascript" src="resources/js/libs.js"></script>
@@ -197,7 +197,7 @@
 	</div>
 	<button type="button" class="btnTop">맨 위로 가기</button>
 	<!-- //container -->
-	<%@ include file="WEB-INF/member/footer.jsp" %>
+	<%@ include file="footer.jsp" %>
 	<div class="popLayer layerL layerType02" id="storeSearch">
 		<div class="layCont">
 			<div class="scroll storeSch">
