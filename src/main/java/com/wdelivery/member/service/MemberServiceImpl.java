@@ -12,10 +12,9 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO memPersis;
 
 	@Override
-	public UserVO searchID(String user_email) {
+	public UserVO searchID(UserVO userVO) {
 		System.out.println("¼º°ø");
-		UserVO findUserVO = memPersis.findUser(user_email);
-		
-		return null;
+		UserVO findUserVO = memPersis.findUser(userVO);
+		return findUserVO;
 	}
 }

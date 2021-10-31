@@ -11,8 +11,8 @@ public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate sqlTemplate;
 
-	public UserVO findUser(String user_email) {
-		return (UserVO)sqlTemplate.selectOne("memDAO.findUser",user_email);
+	public UserVO findUser(UserVO userVO) {
+		return (UserVO)sqlTemplate.selectOne("memDAO.findUser",userVO);
 	}
 	
 }
