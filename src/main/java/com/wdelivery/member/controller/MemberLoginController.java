@@ -18,8 +18,8 @@ public class MemberLoginController {
 	
 	@PostMapping("/memLogin.do")
 	public void memberLogin(UserVO userVO) {
-		UserVO findUserVO = memberService.searchID(userVO.getUser_email());
-				System.out.println(userVO.toString());
+		UserVO findUserVO = memberService.searchID(userVO);
+				System.out.println(findUserVO.toString());
 	}
 	
 	
