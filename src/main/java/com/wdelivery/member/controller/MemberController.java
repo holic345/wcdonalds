@@ -1,15 +1,21 @@
 package com.wdelivery.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.wdelivery.member.service.MemberService;
+
 @Controller
 public class MemberController {
+	
+	/*
+	 * @Autowired private BCryptPasswordEncoder pwdEncoder;
+	 */
+	
 	@Autowired
-	private BCryptPasswordEncoder pwdEncoder;
-
+	private MemberService memberService; 
+	
 	@GetMapping("/main.do")
 	public String main() {
 		return "main";
@@ -103,6 +109,16 @@ public class MemberController {
 	@GetMapping("/delivery.do")
 	public String delivery() {
 		return "delivery";
+	}
+	
+	@GetMapping("/brandhistory.do")
+	public String brandHistory() {
+		return "brandhistory";
+	}
+	
+	@GetMapping("/promotion.do")
+	public String promotion() {
+		return "promotion";
 	}
 
 }

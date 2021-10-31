@@ -11,43 +11,48 @@
 			commonJs.swiperSetup( target ) 함수 실행 타겟은 $('#test1') 아이디나 클래스를 부여해 호출 클래스의 경우 중복인 경우는 순서에 맞춰서 호출해야 하기 때문에
 			id를 부여하거나 commonJs.swiperSetup( $('.class:eq(0)') ) , commonJs.swiperSetup( $('.class:eq(1)') )  개별 호출이 필요
 		 -->
-		<div class="mainEvent basicSwiper">
-			<button type="button" class="ctrl prev">이전</button>
-			<div class="swiper">
-				<ul>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=339&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=1007_1955Smoky">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1633519760853.png" alt="1955 스모키 더블 베이컨 버거 출시"></a>
-					</li>
-					<li><a href="/kor/promotion/detail.do?page=1&seq=306&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=1007_McCafe">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1633519887333.png" alt=""></a>
-					</li>
-					<li>
-						<img src="https://www.mcdonalds.co.kr/upload/main/banner/1633532684256.png"	alt="맥런치 리힛">
-					</li>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=338&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=0923_BA2H">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1631842026946.png" alt="해피스낵 Q3"></a>
-					</li>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=336&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=0902_PlumChiller">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1630301940217.png" alt="자두 칠러"></a>
-					</li>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=325&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=0527_TripleCheeseburger">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1621833457701.png" alt="트리플치즈버거"></a>
-					</li>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=317&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=0401_FOF">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1617176534703.png" alt=""></a>
-					</li>
-					<li>
-						<a href="/kor/promotion/detail.do?page=1&seq=320&utm_medium=Corp_site&utm_source=Main_banner&utm_campaign=0408_Strawberry">
-							<img src="https://www.mcdonalds.co.kr/upload/main/banner/1617838609437.png" alt=""></a>
-					</li>
-				</ul>
+		<!-- 배너 이미지 -->
+		<div class="slideshow-container">
+			<div class="mySliders fade">
+				<div class="numbertext">1 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1633519760853.png" alt="1955 스모키 더블 베이컨 버거 출시">
 			</div>
-			<button type="button" class="ctrl next">다음</button>
+			<div class="mySliders fade">
+				<div class="numbertext">2 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1633519887333.png">
+			</div>
+			<div class="mySliders fade">
+				<div class="numbertext">3 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1633532684256.png"	alt="맥런치 리힛">
+			</div>
+			<div class="mySliders fade">
+				<div class="numbertext">4 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1631842026946.png" alt="해피스낵 Q3">
+			</div>
+			<div class="mySliders fade">
+				<div class="numbertext">5 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1630301940217.png" alt="자두 칠러">
+			</div>
+			<div class="mySliders fade">
+				<div class="numbertext">6 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1621833457701.png" alt="트리플치즈버거">
+			</div>
+			<div class="mySliders fade">
+				<div class="numbertext">7 / 7</div>
+				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1617176534703.png" alt="">
+			</div>
+			<a class="pprev" onclick="plusSlider(-1)">&#10094;</a>
+			<a class="nnext" onclick="plusSlider(1)">&#10095;</a>
+		</div>
+		<br>
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1)"></span> 
+		  <span class="dot" onclick="currentSlide(2)"></span> 
+		  <span class="dot" onclick="currentSlide(3)"></span> 
+		  <span class="dot" onclick="currentSlide(4)"></span> 
+		  <span class="dot" onclick="currentSlide(5)"></span> 
+		  <span class="dot" onclick="currentSlide(6)"></span> 
+		  <span class="dot" onclick="currentSlide(7)"></span> 
 		</div>
 
 		<!-- //mainEvent -->
@@ -128,7 +133,7 @@
 	<button type="button" class="btnTop">맨 위로 가기</button>
 </div>
 <!-- //container -->
-
+<script src="resources/js/commons.js"></script>
 <%@ include file="footer.jsp"%>
 <script>
 var slider = {

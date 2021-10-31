@@ -246,7 +246,7 @@
 										<tr>
 											<th scope="row">내용</th>
 											<td colspan="3">
-												<textarea name="ACPT_DESC" id="ACPT_DESC" class="int w1029"></textarea>
+												<textarea name="ACPT_DESC" id="ACPT_DESC" class="int w1029" style="width: 1010px"></textarea>
 											</td>
 										</tr>
 										<tr>

@@ -944,7 +944,7 @@
 					<div class="inner">
 						<ul class="tabType01">
 							<li><a href="brandintro.do" role="button" aria-selected="true">맥도날드 소개</a></li>
-							<li><a href="brandhistory.jsp" role="button">맥도날드 철학 및 역사</a></li>
+							<li><a href="brandhistory.do" role="button">맥도날드 철학 및 역사</a></li>
 						</ul>
 						<div class="brnadCont01">
 							<div class="img"><img src="resources/img/img_brand_cont01.jpg" alt="1955 맥도날드 매장 이미지"></div>

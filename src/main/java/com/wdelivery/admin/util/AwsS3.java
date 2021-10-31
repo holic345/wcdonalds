@@ -1,4 +1,4 @@
-package com.wdelivery.manager.util;
+package com.wdelivery.admin.util;
 
 import java.io.File;
 import java.io.InputStream;
