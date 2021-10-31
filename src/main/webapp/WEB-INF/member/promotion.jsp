@@ -7,7 +7,7 @@
 
 <!-- <link rel="stylesheet" href="resources/css/mypage/trackOrder.css"> -->
 <link rel="stylesheet" href="resources/css/promotion/promotion.css">
-
+<body>
 	<div class="content">
 		<div class="visualArea bgWhats01">
 			<div class="inner">
@@ -33,7 +33,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class data="340, 1, N">
 							<div class="tmb">
-								<img src="resources/img/promotion/spicey_mac_and_cheese_burger.png" alt="매콤하고 진한 찐 아메리칸 소울! NEW 스파이시 맥앤치즈 버거">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/spicey_mac_and_cheese_burger.png" alt="매콤하고 진한 찐 아메리칸 소울! NEW 스파이시 맥앤치즈 버거">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -48,7 +48,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class data="338, 2, N">
 							<div class="tmb">
-								<img src="resources/img/promotion/churros_promotion.png" alt="달콤! 바삭! 쫄깃! 츄러스 출시 새로운 해피 스낵 가을/겨울 시즌 오픈!">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/churros_promotion.png" alt="달콤! 바삭! 쫄깃! 츄러스 출시 새로운 해피 스낵 가을/겨울 시즌 오픈!">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -63,7 +63,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class data="336, 3, N">
 							<div class="tmb">
-								<img src="resources/img/promotion/chiller_promotion.png" alt="자두 칠러와 제주 한라봉 칠러로 상큼 충전!">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/chiller_promotion.png" alt="자두 칠러와 제주 한라봉 칠러로 상큼 충전!">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -76,7 +76,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class="" data="325,4,N">
 							<div class="tmb">
-								<img src="resources/img/promotion/triple_cheese_burger_promotion.png" alt="육즙도 3배! 진한 풍미도 3배! 트리플 치즈버거  컴백!">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/triple_cheese_burger_promotion.png" alt="육즙도 3배! 진한 풍미도 3배! 트리플 치즈버거  컴백!">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -90,7 +90,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class="" data="320,5,N">
 							<div class="tmb">
-								<img src="resources/img/promotion/strawberry_icecream_promotion.png" alt="스트로베리 2종 아이스크림 출시!">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/strawberry_icecream_promotion.png" alt="스트로베리 2종 아이스크림 출시!">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -103,7 +103,7 @@
 					<li>
 						<a href="#" onclick="goDetail(this)" class="" data="317,6,N">
 							<div class="tmb">
-								<img src="resources/img/promotion/file_o_fish_promotion.png" alt="신선한 맛 가득 담아 알래스카에서 왔다!필레 오 피쉬 출시!">
+								<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/promotion/file_o_fish_promotion.png" alt="신선한 맛 가득 담아 알래스카에서 왔다!필레 오 피쉬 출시!">
 							</div>
 							<div class="con">
 								<strong class="tit">
@@ -264,4 +264,5 @@
 
 	<button type="button" class="btnTop">맨 위로 가기</button>
 	<!-- //container -->
+</body>
 <%@ include file="footer.jsp" %>
