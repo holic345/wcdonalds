@@ -8,6 +8,5 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</typeAliases>
 	<mappers>		
 		<mapper resource="wdonaldmappings/member-mapping.xml"/>
-		<mapper resource="wdonaldmappings/qna-mapping.xml"/>
 	</mappers>
 </configuration>

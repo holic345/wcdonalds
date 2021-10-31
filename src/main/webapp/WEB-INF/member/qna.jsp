@@ -19,16 +19,15 @@
 <script type="text/javascript" src="/common/js/extendedComboBox.js"></script>
 <script type="text/javascript" src="/common/js/newUtil.js"></script>
 <script type="text/javascript" src="/common/js/customer_common.js"></script>
-<!-- <script type="text/javascript" src="resources/js/qna.js"></script> -->
 <!-- smartEditor -->
 <script type="text/javascript" src="Editor/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 
 </head>
 <body class="bg_customer_new" scroll="auto" style="overflow-x: hidden">
-	<form id="qnaForm" name="mainForm" method="post" onsubmit="return false;">
-		<!-- <input type="hidden" name="RECVER_TYPE_CD" value="01"> <input
+	<form name="mainForm" method="post" onsubmit="return false;">
+		<input type="hidden" name="RECVER_TYPE_CD" value="01"> <input
 			type="hidden" name="VOC_CHANNEL_CD" value="02"> <input
-			type="hidden" name="ACPT_ID" id="ACPT_ID" value=""> -->
+			type="hidden" name="ACPT_ID" id="ACPT_ID" value="">
 		<div class="wrapper">
 			<header class="header">
 				<div class="headArea">
@@ -104,15 +103,14 @@
 									<span>위와 같이 개인정보를 처리하는데 동의를 거부할 권리가 있습니다. 그러나 동의를 거부할 경우
 										서비스 제공이 제한될 수 있습니다.</span>
 									<div class="check-agree">
-										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
-										<input type="hidden" name="qa_agree1" id="IS_PERSON_AGREE_YN"> 
-										<label class="check-container" for="agree-y">예 
-											<input type="radio"  id="agree-y" value="1" checked>
+										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> <input type="hidden"
+											name="IS_PERSON_AGREE_YN" id="IS_PERSON_AGREE_YN"> <label
+											class="check-container" for="agree-y">예 <input
+											type="radio" name="radio1" id="agree-y" value="Y" checked>
 											<span class="checkmark"></span>
-										</label> 
-										<label class="check-container" for="agree-n">아니오 
-											<input type="radio id="agree-n" value="2"> 
-											<span class="checkmark"></span>
+										</label> <label class="check-container" for="agree-n">아니오 <input
+											type="radio" name="radio1" id="agree-n" value="N"> <span
+											class="checkmark"></span>
 										</label>
 									</div>
 									<span><strong>2. 개인정보의 제3자 제공에 관한 사항(필수)</strong></span>
@@ -174,16 +172,16 @@
 										에서 확인하실 수 있습니다.<br> 위와 같이 개인정보를 처리하는데 동의를 거부할 권리가 있습니다.
 										그러나 동의를 거부할 경우 서비스 제공이 제한 될 수 있습니다.
 									</p>
-									<input type="hidden" id="IS_THIRD_AGREE_YN"
-										name="qa_agree2"/>
+									<input type="hidden" id="IS_SENSITIVE_AGREE_YN"
+										name="IS_SENSITIVE_AGREE_YN" value="" />
 									<div class="check-agree">
-										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
-											<!-- <input type="hidden" name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN">  -->
-											<label class="check-container" for="agree-y2">예 <input
-											type="radio" id="agree-y2" value="1" checked>
+										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> <input type="hidden"
+											name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN"> <label
+											class="check-container" for="agree-y2">예 <input
+											type="radio" name="radio2" id="agree-y2" value="Y" checked>
 											<span class="checkmark"></span>
 										</label> <label class="check-container" for="agree-n2">아니오 <input
-											type="radio" id="agree-n2" value="2"> <span
+											type="radio" name="radio2" id="agree-n2" value="N"> <span
 											class="checkmark"></span>
 										</label>
 									</div>
@@ -207,7 +205,7 @@
 											<th scope="row">매장명(매장위치)</th>
 											<td colspan="3"><input type="hidden" name="STORE_SEQ"
 												id="STORE_SEQ" value=""> <input type="hidden"
-												name="qa_store" id="STORE_ADDRESS" value=""> <input
+												name="STORE_ADDRESS" id="STORE_ADDRESS" value=""> <input
 												class="int w587" type="text" name="STORE_NM" id="STORE_NM"
 												value="" readonly> &nbsp;&nbsp;&nbsp;
 												<button class="btnMC btnM" onclick="storeSearchPop();">매장검색</button>
@@ -216,17 +214,17 @@
 										<tr>
 											<th scope="row">이름</th>
 											<td><input class="int w432" type="text" class="input"
-												name="qa_name" id="CUST_NM"></td>
+												name="CUST_NM" id="CUST_NM"></td>
 											<th scope="row">연락처</th>
 											<td>
 												<div class="d-flex-row gap-21">
-													<!-- <input type="hidden" name="MOBILE" id="MOBILE">  -->
-													<input class="int w112" type="text" name="qa_phone1" id="MOBILE1"
+													<input type="hidden" name="MOBILE" id="MOBILE"> <input
+														class="int w112" type="text" name="MOBILE1" id="MOBILE1"
 														maxlength="4" onBlur="javascript:isNumAlert('연락처',this);">
 													<span>-</span> <input class="int w112" type="text"
-														name="qa_phone2" id="MOBILE2" maxlength="4"
+														name="MOBILE2" id="MOBILE2" maxlength="4"
 														onBlur="javascript:isNumAlert('연락처',this);"> <span>-</span>
-													<input class="int w112" type="text" name="qa_phone3"
+													<input class="int w112" type="text" name="MOBILE3"
 														id="MOBILE3" maxlength="4"
 														onBlur="javascript:isNumAlert('연락처',this);">
 												</div>
@@ -234,24 +232,24 @@
 										</tr>
 										<tr>
 											<th scope="row">이메일</th>
-											<td><input class="int w432" type="text" name="qa_email"
+											<td><input class="int w432" type="text" name="EMAIL"
 												id="EMAIL"></td>
 											<th scope="row">비밀번호</th>
 											<td><input class="int w432" type="password"
-												name="qa_password" id="CUST_PASSWORD"></td>
+												name="CUST_PASSWORD" id="CUST_PASSWORD"></td>
 										</tr>
 										<tr>
 											<th scope="row">제목</th>
 											<td colspan="3"><input class="int w1029" type="text"
-												name="qa_title" id="ACPT_TITLE"></td>
+												name="ACPT_TITLE" id="ACPT_TITLE"></td>
 										</tr>
 										<tr>
 											<th scope="row">내용</th>
 											<td colspan="3">
-												<textarea name="qa_content" id="ACPT_DESC" class="int w1029" style="width: 1010px"></textarea>
+												<textarea name="ACPT_DESC" id="ACPT_DESC" class="int w1029" style="width: 1010px"></textarea>
 											</td>
 										</tr>
-										<!-- <tr>
+										<tr>
 											<th scope="row">파일첨부</th>
 											<td colspan="3">
 												<input class="int w587" id="filename" type="text"> 
@@ -260,7 +258,7 @@
 														파일선택
 												</label>
 											</td>
-										</tr> -->
+										</tr>
 									</table>
 									<p>
 										파일용량: 10MB까지<br> 첨부 가능 형식 : JPG, JPEG, JPE, JFIF, GIF,
@@ -269,7 +267,7 @@
 								</div>
 							</div>
 							<!-- submit button -->
-							<button type="button" id="btnInsert" class="btnMC btnM insertBtn" >문의 등록하기</button>
+							<button type="button" id="btnInsert" class="btnMC btnM insertBtn" onclick="insert();">문의 등록하기</button>
 						</div>
 						<!-- content area end -->
 					</div>
@@ -416,10 +414,12 @@
 				}
 				
 			});
+			
+		})
 			$("#btnInsert").click(function() { 
 				oEditors.getById["ACPT_DESC"].exec("UPDATE_CONTENTS_FIELD", []); //textarea의 id를 적어줍니다. 
 				var selcatd = $("#selcatd > option:selected").val(); 
-				/* var title = $("#ACPT_TITLE").val(); 
+				var title = $("#title").val(); 
 				var content = document.getElementById("ACPT_DESC").value; 
 				if (selcatd == "") { 
 					alert("카테고리를 선택해주세요."); 
@@ -427,7 +427,7 @@
 				} 
 				if (title == null || title == "") { 
 					alert("제목을 입력해주세요."); 
-					$("#ACPT_TITLE").focus(); 
+					$("#title").focus(); 
 					return; 
 				} 
 				if(content == "" || content == null || content == '&nbsp;' || content == '<br>' || 
@@ -435,23 +435,15 @@
 					alert("본문을 작성해주세요."); 
 					oEditors.getById["ACPT_DESC"].exec("FOCUS"); //포커싱 
 					return; 
-				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.  */
+				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다. 
 			var result = confirm("발행 하시겠습니까?"); 
 				if(result){ 
 					alert("발행 완료!"); 
-					$("#IS_PERSON_AGREE_YN").val($(':radio[name="agree-y"]:checked').val());
-					$("#IS_THIRD_AGREE_YN").val($(':radio[name="agree-y2"]:checked').val());
-					
-					var qnaForm = document.getElementById("qnaForm");
-					qnaForm.action="qnaInsert.do";
-					qnaForm.submit();
-					
+					$("#noticeWriteForm").submit(); 
 				}else{ 
 					return; 
 				} 
 			}); 
-		})
-			
 
 
 		
