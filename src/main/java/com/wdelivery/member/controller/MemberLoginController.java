@@ -22,7 +22,7 @@ public class MemberLoginController {
 	
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO) {
-		UserVO findUserVO = memberService.searchID(userVO);
+		UserVO findUserVO = memberService.findUser(userVO);
 				System.out.println(findUserVO.toString());
 		return "main";
 	}

@@ -9,10 +9,10 @@ import com.wdelivery.member.vo.UserVO;
 @Service
 public class MemberServiceImpl implements MemberService {
 	@Autowired
-	private MemberDAO memPersis;
+	private MemberDAO memberDAO;
 
 	@Override
-	public UserVO searchID(UserVO userVO) {
-		return  memPersis.findUser(userVO);
+	public UserVO findUser(UserVO userVO) {
+		return  memberDAO.findUser(userVO);
 	}
 }

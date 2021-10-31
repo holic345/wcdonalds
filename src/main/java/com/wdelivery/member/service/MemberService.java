@@ -4,6 +4,6 @@ import com.wdelivery.member.vo.UserVO;
 
 public interface MemberService {
 
-	UserVO searchID(UserVO userVO);
+	UserVO findUser(UserVO userVO);
 
 }

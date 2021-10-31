@@ -2,27 +2,33 @@ package com.wdelivery.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wdelivery.member.dao.MemberEmailDAO;
 import com.wdelivery.member.util.EmailHandler;
 import com.wdelivery.member.util.TempKey;
 import com.wdelivery.member.vo.MemberEmailVO;
 
+@Service
+@Transactional	//트랜잭션은 어노테이션으로 걸자!(root-context에 tx:annotation 선언)
 public class MemberEmailServiceImpl implements MemberEmailService {
 
 	//이메일 인증
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	TransactionTemplate transactionTemplate;
-	MemberEmailDAO emailDAO;
+//	@Autowired
+//	TransactionTemplate transactionTemplate;
 	
-	public MemberEmailServiceImpl(PlatformTransactionManager txManager, MemberEmailDAO emailDAO) {
-		this.transactionTemplate = new TransactionTemplate(txManager);
-		this.emailDAO = emailDAO;
-	}
+	@Autowired
+	MemberEmailDAO emailDAO;
+
+//	이부분 뭐지 모르겠음..
+//	public MemberEmailServiceImpl(PlatformTransactionManager txManager, MemberEmailDAO emailDAO) {
+//		this.transactionTemplate = new TransactionTemplate(txManager);
+//		this.emailDAO = emailDAO;
+//	}
 	
 	//회원가입
 	@Override
