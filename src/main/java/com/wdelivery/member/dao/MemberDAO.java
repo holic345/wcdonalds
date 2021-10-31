@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.wdelivery.member.vo.MemberEmailVO;
 import com.wdelivery.member.vo.UserVO;
 
 @Repository

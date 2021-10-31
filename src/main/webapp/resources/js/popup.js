@@ -1,9 +1,9 @@
 function openPopup(url, name, options){
     var form = document.createElement("form");
     form.setAttribute("charset", "UTF-8");
-    form.setAttribute("method", "Post");  //Post 諛⑹떇
-    form.setAttribute("action", url); //�붿껌 蹂대궪 二쇱냼
-    form.setAttribute("target", name); //targetName
+    form.setAttribute("method", "Post"); 
+    form.setAttribute("action", url);
+    form.setAttribute("target", name);
 
     document.body.appendChild(form);
     window.open('', name, options);

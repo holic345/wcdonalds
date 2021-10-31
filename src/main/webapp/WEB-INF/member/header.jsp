@@ -9,7 +9,7 @@
 <meta name="description" id="description" content="메뉴, 레스토랑, 프로모션 등 안내"/>
 <meta name="keywords" content="McDonald's, McDrive, McDelivery, McMorning, Happy Meal, Signature Burger, McAllday, McCafe"/>
 <link rel="shortcut icon" type="image/x-icon" href="https://www.mcdonalds.co.kr/kor/images/favicon.ico">
-<link rel="stylesheet" href="resources/css/main/custom.css?t=2021090901"> 
+<link rel="stylesheet" href="resources/css/main/custom.css?t=20211031"> 
 <link rel="alternate" href="https://www.mcdonalds.co.kr">
 <script src="/kor/js/libs.js"></script>
 <script src="resources/js/custom.js?t=2021031801"></script>

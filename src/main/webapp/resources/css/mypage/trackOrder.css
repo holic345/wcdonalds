@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: "Speedee_K_R";
+	src: url("/resources/font/Speedee_K_R.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: Speede_K_R;
+}
+
 .table_head_trackorder {
     width: 100%;
     border-bottom: 1px solid #c0c0c0;
