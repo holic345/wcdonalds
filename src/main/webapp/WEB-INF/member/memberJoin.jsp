@@ -14,10 +14,10 @@
 
 <script src="https://kit.fontawesome.com/d0b304acae.js" crossorigin="anonymous"></script> <!-- fontawesomeCDN -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <script src="resources/js/join/datepicker.js"></script>
- 
+<script src="resources/js/commons.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/join/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/join/theme-style.min.css">
@@ -148,215 +148,79 @@
 		</header>
 		<!-- //header -->
 		
-<script type="text/javascript">
-
-	$(document).ready(function() {
-		
-		var limit = $(".header").height();	
-		var ch = false;
-		
-		$(document).scroll(scrollH);	//마우스 스크롤할떄마다 이벤트 발생
-		
-		$('.btnTop').click(function() {	//Top 클릭시 이벤트
-			$('btnTop').removeClass("fixedB");
-			$("body,html").animate({"scrollTop":0},200);
-		});
-		
-		function scrollH(){	//마우스 스크롤 이벤트
-			if($(".footer").length > 0) {
-			       if($(document).scrollTop()+$(window).height() < $(".footer").offset().top ) {
-                       $(".btnTop").removeClass('fixedB');
-                       $(".aside").removeClass('fixedB');
-                   }else{
-                       if($(document).scrollTop() !== 0){
-                    	   $(".btnTop").addClass('fixedB');
-                    	   $('.aside').addClass('fixedB');
-                       }
-                   }
-			}
-			 if($(document).scrollTop() < limit ){	
-				 $(".header").removeClass('fixed');
-                 if(ch) {
-                     ch = false;
-                     $(".header").removeClass('fixed');
-                     return;
-                 }
-             }else{
-                 if(!ch) {
-                     ch = true;
-                     $(".header").addClass('fixed');
-                     $(".header").stop().css({	//현재동작하는 애니메이션을 중지
-                         'margin-top':'-30px'
-                     }).animate({
-                         'margin-top':0
-                     },100,function(){	//animate({'속성명':'속성값'}, 가속도, 가속도함수) - animate로 보여지는 속도값지정
-                     });
-                     return;
-                 }
-             }
-		};
-		
-		$(".menu").mouseover(function(e){	//메인 메뉴바에 마우스 오버시 이벤트
-			$(".header").addClass("open");
-		}).mouseout(function(e){			//메인 메뉴바에 마우스 아웃시 이벤트
-			$(".header").removeClass("open");
-		});
-
-		$(".btn_login").click(function(e){	//로그인 버튼 클릭 이벤트
-			e.preventDefault();
-			$("#login_pop").slideDown(200);
-			$("#login_pop").removeClass("close");
-			$(".dimmed").attr("style", "display:block;");
-		});
-		
-		$("#login_pop > .dimmed, #login_pop .btn_x").click(function(e){	//로그인 x버튼 클릭, 바탕 클릭시 이벤트
-	 		e.preventDefault(); 
-	  		e.stopPropagation();
-	 		$("#login_pop").fadeOut(200);
-	 		$("#login_pop").addClass("close");
-	 		$(".dimmed").attr("style", "display:none;");
-		});	
-		
-		 $("#login_pop .check").click(function(){
-			 if($(this).hasClass("checked")){
-			   $(this).removeClass("checked");
-			 }else{
-			   $(this).addClass("checked");
-			 }
-		 });
-		 
-		 var utils = {
-			scrollDisabled : function()	{
-				// console.log('idsenabled')
-				$("html , body").css("overflow","hidden");
-			},
-			scrollEnabled : function() {
-				$("html , body").css("overflow","");
-			}
-		};
-		 
-		 var topSearch = $(".topSearch")
-         $(".srch").click(function(e) {	//검색 돋보기 클릭 이벤트
-             utils.scrollDisabled();
-             topSearch.addClass("open");
-             e.preventDefault();
-             topSearch.find(".dimmed").remove();
-        	  // $('.dimmed').show();
-             topSearch.append("<div class='dimmed'></div>");
-             // open
-         });
-       	 topSearch.find(".close").click(function(e) {	//검색 닫기버튼 클릭 이벤트
-             utils.scrollEnabled();
-             e.preventDefault();
-             topSearch.removeClass("open");
-         	 // $('.dimmed').hide();
-             topSearch.find(".dimmed").remove()
-         });
-       	 
-       	 $(".btn_view01").click(function(){	//눈알 이미지 클릭 이벤트
-       		if($(this).hasClass("on")){
-       			$(this).removeClass("on");
-       			$("#password").attr("type", "password");
-       		} else {
-       			$(this).addClass("on");
-       			$("#password").attr("type", "text");
-       		}
-       	 });
-       	 
-         function clickItem(){	//이용가능한 메뉴 클릭 이벤트
-             $(".storeFind .srvcFilter .service>span input").each(function(){	//각각의 input들을 가져오고 반복문을 돌림(for문과 같음)
-                 $(this).click(function(){	//this = 클릭한input,  input 클릭시 이벤트(each로인해 반복됨(중복처리되는듯))
-                     var chk = $(this).is(":checked");	//is(":checked") = 체크박스 체크여부
-                     var dataOff = $(this).siblings("label").find("img").attr("data-off");	//siblings = this선택자를 제외한 같은 선상에있는 this들
-                     var dataOn = $(this).siblings("label").find("img").attr("data-on");
-                     if(chk){
-                         $(this).prop("checked", true);	//this의 속성(checked)의 값을 true로 줌
-                         $(this).parent("span").addClass("on");
-                         $(this).siblings("label").find("img").attr({"src": dataOn});
-                     }else{
-                         $(this).prop("checked", false);
-                         $(this).parent("span").removeClass("on");
-                         $(this).siblings("label").find("img").attr({"src": dataOff});
-                     }
-                     
-                 });
-             });
-         };
-         clickItem();
-	});
-	
-</script>
 <!--  Header 파일 끝, memberJoin.jsp  -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-/* 
-$(document).on( "click", "#zip_find", function( e ) {
+	/* 
+	 $(document).on( "click", "#zip_find", function( e ) {
 
-    $addressType   = $(this).attr("addressType");
-    $zip           = $(this).attr("zip");
-    $zip1          = $(this).attr("zip1");
-    $zip2          = $(this).attr("zip2");
-    $address       = $(this).attr("address");
-    $address1      = $(this).attr("address1");
-    $address2      = $(this).attr("address2");
-    $addressOption = $(this).attr("addressOption");
-    $focus         = $(this).attr("focus");
+	 $addressType   = $(this).attr("addressType");
+	 $zip           = $(this).attr("zip");
+	 $zip1          = $(this).attr("zip1");
+	 $zip2          = $(this).attr("zip2");
+	 $address       = $(this).attr("address");
+	 $address1      = $(this).attr("address1");
+	 $address2      = $(this).attr("address2");
+	 $addressOption = $(this).attr("addressOption");
+	 $focus         = $(this).attr("focus");
 
-    openDaumPostcode($addressType, $zip, $zip1, $zip2, $address, $address1, $address2, $addressOption, $focus);
-});
+	 openDaumPostcode($addressType, $zip, $zip1, $zip2, $address, $address1, $address2, $addressOption, $focus);
+	 });
 
-});
-addrType, zip, zip1, zip2, addr, addr1, addr2, addrOpt, addrFocus
- */
-function openDaumPostcode() {
-	new daum.Postcode({
-    oncomplete: function(data) {
-        var fullAddr = '';
-        var extraAddr = '';
-
-        if (data.userSelectedType === 'R') {
-            fullAddr = data.roadAddress;
-
-        } else {
-            fullAddr = data.jibunAddress;
-        }
-
-        if(data.userSelectedType === 'R'){
-
-            if(data.bname !== ''){
-                extraAddr += data.bname;
-            }
-
-            if(data.buildingName !== ''){
-                extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-            }
-
-            fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-        }
-
-
-
-        if ( addrType != "" && addrType != undefined ) {
-            document.getElementById(addrType).value = data.userSelectedType;
-        }
-        if ( zip != "" && zip != undefined ) {
-            document.getElementById(zip).value = data.zonecode;
-        }
-        if ( addr != "" && addr != undefined ) {
-            document.getElementById(addr).value = fullAddr;
-        }
-        if ( addr1 != "" && addr1 != undefined ) {
-            document.getElementById(addr1).value = fullAddr;
-        }
-
-        if ( addrFocus != "" && addrFocus != undefined ) {
-            document.getElementById(addrFocus).focus();
-        }
-    }
-}).open();
-}
-</script>	
-	<div id="content">
+	 });
+	 addrType, zip, zip1, zip2, addr, addr1, addr2, addrOpt, addrFocus
+	 */
+	function openDaumPostcode() {
+		new daum.Postcode(
+		{
+			oncomplete : function(data) {
+				var fullAddr = '';
+				var extraAddr = '';
+	
+				if (data.userSelectedType === 'R') {
+					fullAddr = data.roadAddress;
+	
+				} else {
+					fullAddr = data.jibunAddress;
+				}
+	
+				if (data.userSelectedType === 'R') {
+	
+					if (data.bname !== '') {
+						extraAddr += data.bname;
+					}
+	
+					if (data.buildingName !== '') {
+						extraAddr += (extraAddr !== '' ? ', '
+								+ data.buildingName
+								: data.buildingName);
+					}
+	
+					fullAddr += (extraAddr !== '' ? ' ('
+							+ extraAddr + ')' : '');
+				}
+	
+				if (addrType != "" && addrType != undefined) {
+					document.getElementById(addrType).value = data.userSelectedType;
+				}
+				if (zip != "" && zip != undefined) {
+					document.getElementById(zip).value = data.zonecode;
+				}
+				if (addr != "" && addr != undefined) {
+					document.getElementById(addr).value = fullAddr;
+				}
+				if (addr1 != "" && addr1 != undefined) {
+					document.getElementById(addr1).value = fullAddr;
+				}
+	
+				if (addrFocus != "" && addrFocus != undefined) {
+					document.getElementById(addrFocus).focus();
+				}
+			}
+		}).open();
+	}
+</script>
+		<div id="content">
 		<div class="container" id="sub-page-content">
 			<div class="row">
 				<div class="col-md-3 sidebar">
