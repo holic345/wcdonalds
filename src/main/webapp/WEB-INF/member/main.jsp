@@ -41,10 +41,7 @@
 				<div class="numbertext">7 / 7</div>
 				<img style="width:100%" src="https://www.mcdonalds.co.kr/upload/main/banner/1617176534703.png" alt="">
 			</div>
-			<a class="pprev" onclick="plusSlider(-1)">&#10094;</a>
-			<a class="nnext" onclick="plusSlider(1)">&#10095;</a>
 		</div>
-		<br>
 		<div style="text-align:center">
 		  <span class="dot" onclick="currentSlide(1)"></span> 
 		  <span class="dot" onclick="currentSlide(2)"></span> 
