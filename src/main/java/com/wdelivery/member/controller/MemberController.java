@@ -3,8 +3,11 @@ package com.wdelivery.member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.qna.service.QnaService;
+import com.wdelivery.qna.vo.QnaVO;
 
 @Controller
 public class MemberController {
@@ -15,6 +18,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService; 
+	
+	@Autowired
+	private QnaService qnaServie;
 	
 	@GetMapping("/main.do")
 	public String main() {
@@ -119,6 +125,17 @@ public class MemberController {
 	@GetMapping("/promotion.do")
 	public String promotion() {
 		return "promotion";
+	}
+	
+	@PostMapping("/qnaInsert.do")
+	public String qnaInsert(QnaVO qnaVO) {
+		System.out.println("1 = " + qnaVO.getQa_agree1());
+		System.out.println("2 = " + qnaVO.getQa_agree2());
+		
+		
+		qnaServie.qnaInsert(qnaVO);
+		System.out.println("qna controller");
+		return "qna";
 	}
 
 }
