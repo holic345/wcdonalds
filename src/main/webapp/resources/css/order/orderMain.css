@@ -15,7 +15,7 @@ b, label, strong {
 
 a, a:focus, a:hover {
 	text-decoration: none
-}
+}	
 
 .btn-toolbar:after, .colsize-2-row:after, .colsize-3-row:after,
 	.colsize-4-row:after, .colsize-5-row:after, .container-fluid:after,
@@ -10965,7 +10965,7 @@ ul.ui-selectmenu-menu-popup {
 
 .main {
 	position: relative;
-	margin-left:120px;
+	margin-left:350px;
 }
 
 .global-header .header-actions {
