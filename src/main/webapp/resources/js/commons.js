@@ -235,10 +235,14 @@ function kakaoLogin() {
 					$.ajax({
 						type: "POST",
 						url: "kakaoLogin.do",
-						data: JSON.stringify(response),
+						data: JSON.stringify(response.kakao_account),
 						contentType: "application/json",
 						succcess: function() {
-							alert(response);
+							alert(response.kakao_account);
+							/*
+							콜백 수행 부분
+							header.jsp 쪽 로그인-> 로그아웃 / 회원가입 -> 마이페이지 전환 필요	
+							*/
 						}
 					})
 
