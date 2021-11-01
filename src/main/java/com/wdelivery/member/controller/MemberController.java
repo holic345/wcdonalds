@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.qna.service.QnaService;
@@ -83,8 +85,16 @@ public class MemberController {
 		return "orderHistory";
 	}
 
+	@PostMapping("/qna1.do")
+	@ResponseBody
+	public QnaVO qna(QnaVO qnaVO, @RequestParam("qa_email") String qa_email) {
+		System.out.println("controller => " + qa_email);
+		QnaVO vo = qnaServie.qnaSelect(qnaVO);
+		return vo;
+	}
+	
 	@GetMapping("/qna.do")
-	public String qna() {
+	public String qnapage() {
 		return "qna";
 	}
 
@@ -130,12 +140,11 @@ public class MemberController {
 	
 	@PostMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
-		System.out.println("1 = " + qnaVO.getQa_agree1());
-		System.out.println("2 = " + qnaVO.getQa_agree2());
-		
-		
+		//System.out.println("1 = " + qnaVO.getQa_agree1());
+		//System.out.println("2 = " + qnaVO.getQa_agree2());
+	
 		qnaServie.qnaInsert(qnaVO);
-		System.out.println("qna controller");
+		//System.out.println("qna controller");
 		return "qna";
 	}
 

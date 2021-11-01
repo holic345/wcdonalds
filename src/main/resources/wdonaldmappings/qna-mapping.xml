@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.wdelivery.qna.dao.QnaDAO">
 	<insert id="qnaInsert">
 		insert into qa
-		values(default, #{qa_title}, #{qa_content}, #{qa_password}, #{qa_regdate}, #{qa_status}, #{qa_store}, #{qa_name},
+		values(default, #{qa_title}, #{qa_content}, #{qa_password}, now(), #{qa_status}, #{qa_store}, #{qa_name},
 		#{qa_phone1}, #{qa_phone2}, #{qa_phone3}, #{qa_email}, #{qa_agree1}, #{qa_agree2})
 	</insert>
+	
+	<select id="qnaSelect" resultType="com.wdelivery.qna.vo.QnaVO">
+		select * from qa where qa_email = #{qa_email} and qa_password = #{qa_password}
+	</select>
 </mapper>

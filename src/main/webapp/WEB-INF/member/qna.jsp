@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="resources/css/faq/faq.css" />
 <title>1:1 고객문의</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/common/js/ajax.js"></script>
+<!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
 <script type="text/javascript" src="/common/js/commonTable.js"></script>
 <script type="text/javascript" src="/common/js/extendedComboBox.js"></script>
 <script type="text/javascript" src="/common/js/newUtil.js"></script>
@@ -105,13 +105,13 @@
 										서비스 제공이 제한될 수 있습니다.</span>
 									<div class="check-agree">
 										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
-										<input type="hidden" name="qa_agree1" id="IS_PERSON_AGREE_YN"> 
+										<!-- <input type="hidden" name="qa_agree1" id="IS_PERSON_AGREE_YN">  -->
 										<label class="check-container" for="agree-y">예 
-											<input type="radio"  id="agree-y" value="1" checked>
+											<input type="radio" name="qa_agree1" id="agree-y" value="1" checked>
 											<span class="checkmark"></span>
 										</label> 
 										<label class="check-container" for="agree-n">아니오 
-											<input type="radio id="agree-n" value="2"> 
+											<input type="radio" name="qa_agree1" id="agree-n" value="0"> 
 											<span class="checkmark"></span>
 										</label>
 									</div>
@@ -174,18 +174,18 @@
 										에서 확인하실 수 있습니다.<br> 위와 같이 개인정보를 처리하는데 동의를 거부할 권리가 있습니다.
 										그러나 동의를 거부할 경우 서비스 제공이 제한 될 수 있습니다.
 									</p>
-									<input type="hidden" id="IS_THIRD_AGREE_YN"
-										name="qa_agree2"/>
+									<!-- <input type="hidden" id="IS_THIRD_AGREE_YN" name="qa_agree2"/> -->
 									<div class="check-agree">
 										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
-											<!-- <input type="hidden" name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN">  -->
-											<label class="check-container" for="agree-y2">예 <input
-											type="radio" id="agree-y2" value="1" checked>
-											<span class="checkmark"></span>
-										</label> <label class="check-container" for="agree-n2">아니오 <input
-											type="radio" id="agree-n2" value="2"> <span
-											class="checkmark"></span>
-										</label>
+											<!-- <input type="hidden" name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN"> -->
+											<label class="check-container" for="agree-y2">예 
+												<input type="radio" name="qa_agree2" id="agree-y2" value="1" checked>
+												<span class="checkmark"></span>
+											</label> 
+											<label class="check-container" for="agree-n2">아니오
+												<input type="radio" name="qa_agree2" id="agree-n2" value="2"> 
+												<span class="checkmark"></span>
+											</label>
 									</div>
 									<div class="prevent-sentence">
 										<span>1:1 고객 문의 작성 시, 욕설/성희롱 등의 부적절한 표현은 삼가주시기를 부탁
@@ -215,30 +215,28 @@
 										</tr>
 										<tr>
 											<th scope="row">이름</th>
-											<td><input class="int w432" type="text" class="input"
-												name="qa_name" id="CUST_NM"></td>
+											<td>
+												<input class="int w432" type="text" class="input" name="qa_name" id="CUST_NM"></td>
 											<th scope="row">연락처</th>
 											<td>
 												<div class="d-flex-row gap-21">
 													<!-- <input type="hidden" name="MOBILE" id="MOBILE">  -->
-													<input class="int w112" type="text" name="qa_phone1" id="MOBILE1"
-														maxlength="4" onBlur="javascript:isNumAlert('연락처',this);">
-													<span>-</span> <input class="int w112" type="text"
-														name="qa_phone2" id="MOBILE2" maxlength="4"
-														onBlur="javascript:isNumAlert('연락처',this);"> <span>-</span>
-													<input class="int w112" type="text" name="qa_phone3"
-														id="MOBILE3" maxlength="4"
-														onBlur="javascript:isNumAlert('연락처',this);">
+													<input class="int w112" type="text" name="qa_phone1" id="MOBILE1" maxlength="4" onBlur="javascript:isNumAlert('연락처',this);">
+													<span>-</span>
+													<input class="int w112" type="text" name="qa_phone2" id="MOBILE2" maxlength="4" onBlur="javascript:isNumAlert('연락처',this);"> <span>-</span>
+													<input class="int w112" type="text" name="qa_phone3" id="MOBILE3" maxlength="4" onBlur="javascript:isNumAlert('연락처',this);">
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">이메일</th>
-											<td><input class="int w432" type="text" name="qa_email"
-												id="EMAIL"></td>
+											<td>
+												<input class="int w432" type="text" name="qa_email" id="EMAIL">
+											</td>
 											<th scope="row">비밀번호</th>
-											<td><input class="int w432" type="password"
-												name="qa_password" id="CUST_PASSWORD"></td>
+											<td>
+												<input class="int w432" type="password" name="qa_password" id="CUST_PASSWORD">
+											</td>
 										</tr>
 										<tr>
 											<th scope="row">제목</th>
@@ -273,15 +271,19 @@
 						</div>
 						<!-- content area end -->
 					</div>
+					
+					<!-- 문의조회 -->
 					<div style="display: none" id="div2">
 						<!-- visualArea end -->
 						<div class="contArea">
 							<ul class="tabType01">
-								<li data-title="문의" data-desc="문의하기"><a
-									href="javascript:page(1);" role="button">문의하기</a></li>
+								<li data-title="문의" data-desc="문의하기">
+									<a href="javascript:page(1);" role="button">문의하기</a>
+								</li>
 								<!-- 선택 된 태그에 aria-selected="true" 추가 -->
-								<li><a href="javascript:page(2);" role="button"
-									aria-selected="true">답변보기</a></li>
+								<li>
+									<a href="javascript:page(2);" role="button" aria-selected="true">답변보기</a>
+								</li>
 							</ul>
 							<!-- 답변보기 page 아래로 이어지는 부분 시작, div클래스 네임 처음 동일 -->
 							<div class="faq-form-warp">
@@ -289,19 +291,18 @@
 									<strong>문의내용 작성 시 입력하셨던 이메일, 비밀번호를 입력해 주세요.</strong>
 									<div class="reply-form">
 										<div class="d-flex-row">
-											<label for="email">이메일</label> <input type="text"
-												name="EMAIL2" id="EMAIL2" class="int w432">
+											<label for="email">이메일</label> 
+											<input type="text" name="qa_email" id="EMAIL2" class="int w432">
 										</div>
 										<div class="d-flex-row">
-											<label for="password">비밀번호</label> <input type="password"
-												name="CUST_PASSWORD2" id="CUST_PASSWORD2" class="int w432">
+											<label for="password">비밀번호</label> 
+											<input type="password" name="qa_password" id="CUST_PASSWORD2" class="int w432">
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- submit button -->
-							<button type="button" class="btnMC btnM" onclick="search();">
-								문의 조회하기</button>
+							<button type="button" class="btnMC btnM" onclick="search();">문의 조회하기</button>
 							<!-- 문의조회버튼 클릭 시 하단에 나오는 테이블 영역 -->
 							<div class="reply-view-area" id="LIST_REPLY_DIV">
 								<table class="reply-view">
@@ -323,11 +324,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<th scope="row">21V0003101</th>
-											<td>해피밀 이번달 장난감에 대해 알려주세요!</td>
-											<td>은평 이마트</td>
+											<th scope="row">1</th>
+											<td>제목</td>
+											<td>매장</td>
 											<td>2021-01-26</td>
-											<td>완료</td>
+											<td>상태</td>
 										</tr>
 										<tr>
 											<th scope="row">내용</th>
@@ -396,6 +397,51 @@
 		}
 	}
 	/*---smartEditor---*/
+	var VALIDATE_ERROR_MESSAGE = '';
+	var email_re = /^([^@]+)@(.+)$/;								// E-mail 검사용 패턴 (기본)
+	var email_user_re = /^[A-Za-z0-9#._-]+$/;						// E-mail 사용자 아이디 부분 검사용 패턴
+	var email_host_re = /^([A-Za-z0-9._-]+\.)+([A-Za-z]+)\.?$/;		// E-mail 호스트 주소 부분 검사용 패턴
+		
+		//E-mail 유효성 검사 1단계
+		function isValidEmail(email)
+		{
+			VALIDATE_ERROR_MESSAGE = "";
+		
+			var part = email.match(email_re);
+		
+			// @ 가 없는 경우
+			if (part == null)
+			{
+				VALIDATE_ERROR_MESSAGE = 'E-mail 주소 형식이 올바르지 않습니다.';
+				return false;
+			}
+		
+			var user = RegExp.$1;
+			var host = RegExp.$2;
+		
+			return isValidEmail2(user, host);
+		}
+		
+		// E-mail 유효성 검사 2단계
+		function isValidEmail2(user, host)
+		{
+			VALIDATE_ERROR_MESSAGE = "";
+		
+			if (!email_user_re.test(user))
+			{
+				VALIDATE_ERROR_MESSAGE = 'E-mail 주소 형식이 올바르지 않습니다.';
+				return false;
+			}
+		
+			if (!email_host_re.test(host))
+			{
+				VALIDATE_ERROR_MESSAGE = 'E-mail 주소 형식이 올바르지 않습니다.';
+				return false;
+			}
+		
+			return true;
+		}
+			
 	
 		$(function() { 
 			var oEditors =[];
@@ -419,40 +465,105 @@
 			$("#btnInsert").click(function() { 
 				oEditors.getById["ACPT_DESC"].exec("UPDATE_CONTENTS_FIELD", []); //textarea의 id를 적어줍니다. 
 				var selcatd = $("#selcatd > option:selected").val(); 
-				/* var title = $("#ACPT_TITLE").val(); 
+				var title = $("#ACPT_TITLE").val(); 
 				var content = document.getElementById("ACPT_DESC").value; 
 				if (selcatd == "") { 
 					alert("카테고리를 선택해주세요."); 
 					return; 
 				} 
+				if(($("#CUST_NM").val()).trim() == "")
+				{
+					alert("이름을 입력해 주세요.");
+					$('#CUST_NM').focus();
+					return false;
+				}
+				if (($("#MOBILE1").val()).trim() == "" || ($("#MOBILE2").val()).trim() == ""  || ($("#MOBILE3").val()).trim() == "" )
+				{
+					alert("연락처를 입력해 주세요.");
+					$('#MOBILE1').focus();
+					return false;
+				}
+				if (!isValidEmail($("#EMAIL").val()))
+				{
+					alert("이메일 형식 오류입니다.");
+					$('#EMAIL').focus();
+					return false;
+				}
+					
+				if(($("#CUST_PASSWORD").val()).trim() == "")
+				{
+					alert("비밀번호를 입력해 주세요.");
+					$('#CUST_PASSWORD').focus();
+					return false;
+				}
 				if (title == null || title == "") { 
 					alert("제목을 입력해주세요."); 
 					$("#ACPT_TITLE").focus(); 
 					return; 
 				} 
+			/* 	if(($("#ACPT_DESC").val()).trim() == "")
+				{
+					alert("내용을 입력해 주세요.");
+					$('#ACPT_DESC').focus();
+					return false;
+				} */
 				if(content == "" || content == null || content == '&nbsp;' || content == '<br>' || 
 				content == '<br/>' || content == '<p>&nbsp;</p>'){ 
-					alert("본문을 작성해주세요."); 
+					alert("내용을 작성해주세요."); 
 					oEditors.getById["ACPT_DESC"].exec("FOCUS"); //포커싱 
 					return; 
-				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.  */
-			var result = confirm("발행 하시겠습니까?"); 
+				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
+			
+				var result = confirm("문의등록 하시겠습니까?"); 
 				if(result){ 
-					alert("발행 완료!"); 
-					$("#IS_PERSON_AGREE_YN").val($(':radio[name="agree-y"]:checked').val());
-					$("#IS_THIRD_AGREE_YN").val($(':radio[name="agree-y2"]:checked').val());
+					var a = $("input[name='qa_agree1']:checked").val();
+					var b = $("input[name='qa_agree2']:checked").val();
+					//alert("동의 a =" + a);
 					
-					var qnaForm = document.getElementById("qnaForm");
-					qnaForm.action="qnaInsert.do";
-					qnaForm.submit();
+					if(a == 1 && b == 1){
 					
+						alert("등록 완료!"); 
+						//$("#IS_PERSON_AGREE_YN").val($(':radio[name="agree-y"]:checked').val());
+						//$("#IS_THIRD_AGREE_YN").val($(':radio[name="agree-y2"]:checked').val());
+						
+						var qnaForm = document.getElementById("qnaForm");
+						qnaForm.action="qnaInsert.do";
+						qnaForm.submit();
+					}else{
+						alert("동의해주세요.");
+					}
 				}else{ 
 					return; 
 				} 
 			}); 
 		})
+		
+		
+		
+		//문의 조회
+		function search() {
+			alert("문의조회버튼클릭");
 			
-
+		//	  $(document).ready(function(){
+		var qa_email = $("#EMAIL").val();
+					$.ajax({
+						url:"qna1.do",
+						data:{
+							qa_email : qa_email
+						},
+						dataType: "json",  
+						type: "post",
+						success:function(data){
+							alert(data);
+							alert("ajax 성공");
+						},
+						error:function(){
+							alert("ajax 실패");
+						}
+						
+					})
+			//   });
+		}
 
 		
 </script>
