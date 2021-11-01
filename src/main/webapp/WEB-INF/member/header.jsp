@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,8 +79,16 @@
 					<!-- //menu -->
 					<form id="commonSearchForm" method="post">
 					<div class="util">
+					<c:if test="${empty sessionScope.userInfo}">
 						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
 						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
+					</c:if>
+					<c:choose>
+						<c:when test="${not empty sessionScope.userInfo}">
+							<a href="logout.do" class="btn_register" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+					</c:choose>
 						<a href="cart.do" class="btn_cart" title="카트로 이동">카트</a>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
@@ -101,7 +110,7 @@
 							<div>
 								<p class="roboto">Wcdonalds</p>
 								<h3 class="tit01 tit_ico key01">일반 로그인</h3>
-								<form action="memLogin.do" method="post">
+								<form action="memLogin.do" method="post" >
 									<div class="input">
 										<input id="id" type="text" placeholder="아이디를 입력하세요" name="user_email" data-role="textfield">
 									</div>
@@ -116,7 +125,7 @@
 										<p>앞으로도 자동으로 로그인</p>
 									</div>
 									<div>
-										<input type="submit" value="로그인">
+										<input type="submit" id="loginBtn" value="로그인">
 									</div>
 									<div>
 										<a href="javascript:alert('회원가입페이지는 준비중입니다.')">회원가입</a> <a

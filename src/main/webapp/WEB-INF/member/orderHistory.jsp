@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -70,16 +71,16 @@
 <script src="resources/js/commons.js"></script>
 </head>
 <body>
-	<div class="skipMenu"><a href="#container">본문 바로가기</a></div>
+	<!-- <div class="skipMenu"><a href="#container">본문 바로가기</a></div>
 	<div class="wrapper ">
-		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
+		<header class="header">상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가
 			<div class="headArea">
 				<strong class="hLogo"><a href="main.do" class="logo" title="메인으로 이동"><img src="resources/wcdonald.png" alt="맥도날드"></a></strong>
 				<nav class="hMenu">
 					<div class="menu">
 						<ul class="depth1">
-							<li><!-- li 오버시 on 클래스 추가 -->
-								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a><!-- 현재페이지 메뉴에 current 클래스 추가 -->
+							<li>li 오버시 on 클래스 추가
+								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a>현재페이지 메뉴에 current 클래스 추가
 								<ul class="depth2">
 									<li><a href="list.do" class="dth2">버거</a></li>
 									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
@@ -88,7 +89,7 @@
 									<li><a href="javascript:gotoMenu(7);" class="dth2">사이드 &amp; 디저트</a></li>
 									<li><a href="javascript:gotoMenu(9);" class="dth2">맥카페 &amp; 음료</a></li>
 									<li><a href="javascript:gotoMenu(5);" class="dth2">해피밀</a></li>
-									<!-- <li><a href="javascript:gotoMenu(11);" class="dth2">365일 즐거운 혜택</a></li> -->
+									<li><a href="javascript:gotoMenu(11);" class="dth2">365일 즐거운 혜택</a></li>
 								</ul>
 							</li>
 							<li>
@@ -105,7 +106,7 @@
 								<ul class="depth2">
 									<li><a href="/kor/promotion/list.do" class="dth2">프로모션</a></li>
 									<li><a href="/kor/news/list.do" class="dth2">새로운 소식</a></li>
-									<!--  li><a href="/kor/kitchen.do" class="dth2">주방공개의 날</a></li -->
+									 li><a href="/kor/kitchen.do" class="dth2">주방공개의 날</a></li
 								    <li><a href="/kor/happymeal/list.do" class="dth2">이달의 해피밀</a></li> 
 								</ul>
 							</li>
@@ -120,13 +121,13 @@
 							</li>
 						</ul>
 					</div>
-					<!-- //menu -->
+					//menu
 					<form id="commonSearchForm" method="post">
 					<div class="util">
 						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
 						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
 						<a href="cart.do" class="btn_cart" title="카트로 이동">카트</a>
-						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
+						<div class="topSearch">검색 활성화인 경우 open 클래스 추가
 							<button type="button" class="srch">검색 열기</button>
 							<fieldset class="srchField">
 								<legend>통합검색</legend>
@@ -139,8 +140,8 @@
 						</div>
 					</div>
 					</form>
-					<!-- //util -->
-					<!-- 로그인 폼 -->
+					//util
+					로그인 폼
 					<div id="login_pop" class="close">
 						<div class="wrapper shadow clearfix">
 							<div>
@@ -168,8 +169,8 @@
 											href="javascript:alert('비밀번호찾기 페이지는 준비중입니다.')">비밀번호 찾기</a>
 									</div>
 								</form>
-								<!--아이디비번 버튼-->
-							<!--로그인 창-->
+								아이디비번 버튼
+							로그인 창
 							</div>
 							<div class="simple_login">
 								<div class="btn_x">
@@ -182,7 +183,7 @@
 								</ul>
 							</div>
 						</div>
-						<!--//wrapper-->
+						//wrapper
 						<div class="dimmed"></div>
 					</div>
 				</nav>
@@ -191,7 +192,7 @@
 				<input type="hidden" name="sub_category_seq" id="gotoform_sub_category_seq">
 			</form>
 		</header>
-		<!-- //header -->
+		//header -->
 		<div style="padding: 40px 0px 40px;">
 			<div class="container" id="sub-page-content">
 				<div class="row">
