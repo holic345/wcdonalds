@@ -84,7 +84,9 @@ public class MemberController {
 	}
 
 	@GetMapping("/qna.do")
-	public String qna() {
+	public String qna(QnaVO qnaVO) {
+		System.out.println("qna select => " + qnaVO.getQa_name());
+		qnaServie.qnaSelect(qnaVO);
 		return "qna";
 	}
 
@@ -134,7 +136,7 @@ public class MemberController {
 		System.out.println("2 = " + qnaVO.getQa_agree2());
 		
 		
-		qnaServie.qnaInsert(qnaVO);
+		//qnaServie.qnaInsert(qnaVO);
 		System.out.println("qna controller");
 		return "qna";
 	}

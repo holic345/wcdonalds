@@ -107,11 +107,11 @@
 										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
 										<input type="hidden" name="qa_agree1" id="IS_PERSON_AGREE_YN"> 
 										<label class="check-container" for="agree-y">예 
-											<input type="radio"  id="agree-y" value="1" checked>
+											<input type="radio" name="radio1" id="agree-y" value="1" checked>
 											<span class="checkmark"></span>
 										</label> 
 										<label class="check-container" for="agree-n">아니오 
-											<input type="radio id="agree-n" value="2"> 
+											<input type="radio" name="radio1" id="agree-n" value="2"> 
 											<span class="checkmark"></span>
 										</label>
 									</div>
@@ -174,18 +174,18 @@
 										에서 확인하실 수 있습니다.<br> 위와 같이 개인정보를 처리하는데 동의를 거부할 권리가 있습니다.
 										그러나 동의를 거부할 경우 서비스 제공이 제한 될 수 있습니다.
 									</p>
-									<input type="hidden" id="IS_THIRD_AGREE_YN"
-										name="qa_agree2"/>
+									<input type="hidden" id="IS_THIRD_AGREE_YN" name="qa_agree2"/>
 									<div class="check-agree">
 										<span>위와 같이 개인정보를 처리하는 데 동의하십니까?</span> 
-											<!-- <input type="hidden" name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN">  -->
-											<label class="check-container" for="agree-y2">예 <input
-											type="radio" id="agree-y2" value="1" checked>
-											<span class="checkmark"></span>
-										</label> <label class="check-container" for="agree-n2">아니오 <input
-											type="radio" id="agree-n2" value="2"> <span
-											class="checkmark"></span>
-										</label>
+											<!-- <input type="hidden" name="IS_THIRD_AGREE_YN" id="IS_THIRD_AGREE_YN"> -->
+											<label class="check-container" for="agree-y2">예 
+												<input type="radio" name="radio2" id="agree-y2" value="1" checked>
+												<span class="checkmark"></span>
+											</label> 
+											<label class="check-container" for="agree-n2">아니오
+												<input type="radio" name="radio2" id="agree-n2" value="2"> 
+												<span class="checkmark"></span>
+											</label>
 									</div>
 									<div class="prevent-sentence">
 										<span>1:1 고객 문의 작성 시, 욕설/성희롱 등의 부적절한 표현은 삼가주시기를 부탁
@@ -273,15 +273,19 @@
 						</div>
 						<!-- content area end -->
 					</div>
+					
+					<!-- 문의조회 -->
 					<div style="display: none" id="div2">
 						<!-- visualArea end -->
 						<div class="contArea">
 							<ul class="tabType01">
-								<li data-title="문의" data-desc="문의하기"><a
-									href="javascript:page(1);" role="button">문의하기</a></li>
+								<li data-title="문의" data-desc="문의하기">
+									<a href="javascript:page(1);" role="button">문의하기</a>
+								</li>
 								<!-- 선택 된 태그에 aria-selected="true" 추가 -->
-								<li><a href="javascript:page(2);" role="button"
-									aria-selected="true">답변보기</a></li>
+								<li>
+									<a href="javascript:page(2);" role="button" aria-selected="true">답변보기</a>
+								</li>
 							</ul>
 							<!-- 답변보기 page 아래로 이어지는 부분 시작, div클래스 네임 처음 동일 -->
 							<div class="faq-form-warp">
@@ -289,19 +293,18 @@
 									<strong>문의내용 작성 시 입력하셨던 이메일, 비밀번호를 입력해 주세요.</strong>
 									<div class="reply-form">
 										<div class="d-flex-row">
-											<label for="email">이메일</label> <input type="text"
-												name="EMAIL2" id="EMAIL2" class="int w432">
+											<label for="email">이메일</label> 
+											<input type="text" name="qa_email" id="EMAIL2" class="int w432">
 										</div>
 										<div class="d-flex-row">
-											<label for="password">비밀번호</label> <input type="password"
-												name="CUST_PASSWORD2" id="CUST_PASSWORD2" class="int w432">
+											<label for="password">비밀번호</label> 
+											<input type="password" name="qa_password" id="CUST_PASSWORD2" class="int w432">
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- submit button -->
-							<button type="button" class="btnMC btnM" onclick="search();">
-								문의 조회하기</button>
+							<button type="button" class="btnMC btnM" onclick="search();">문의 조회하기</button>
 							<!-- 문의조회버튼 클릭 시 하단에 나오는 테이블 영역 -->
 							<div class="reply-view-area" id="LIST_REPLY_DIV">
 								<table class="reply-view">
@@ -323,11 +326,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<th scope="row">21V0003101</th>
-											<td>해피밀 이번달 장난감에 대해 알려주세요!</td>
-											<td>은평 이마트</td>
+											<th scope="row">1</th>
+											<td>제목</td>
+											<td>매장</td>
 											<td>2021-01-26</td>
-											<td>완료</td>
+											<td>상태</td>
 										</tr>
 										<tr>
 											<th scope="row">내용</th>
@@ -442,6 +445,7 @@
 					$("#IS_PERSON_AGREE_YN").val($(':radio[name="agree-y"]:checked').val());
 					$("#IS_THIRD_AGREE_YN").val($(':radio[name="agree-y2"]:checked').val());
 					
+					
 					var qnaForm = document.getElementById("qnaForm");
 					qnaForm.action="qnaInsert.do";
 					qnaForm.submit();
@@ -453,6 +457,29 @@
 		})
 			
 
+		//check 여부
+		
+		
+		
+		//문의 조회
+		function search() {
+			alert("문의조회버튼클릭");
+			   $(document).ready(function(){
+
+					$.ajax({
+						url:"/qna.do?type=1",
+						dataType: "text",
+						method: "get"
+						susseces:function(){
+							alert("ajax 성공");
+						},
+						error:function(){
+							alert("ajax 실패");
+						}
+						
+					})
+			   });
+		}
 
 		
 </script>
