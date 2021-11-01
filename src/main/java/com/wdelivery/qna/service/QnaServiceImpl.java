@@ -19,4 +19,10 @@ public class QnaServiceImpl implements QnaService {
 		System.out.println("qna ¼º°ø");
 	}
 
+	@Override
+	public QnaVO qnaSelect(QnaVO qnaVO) {
+		System.out.println("QNADAO¿¡ qnavo => " + qnaVO.getQa_name());
+		return qnaDAO.qnaSelect(qnaVO);
+	}
+
 }
