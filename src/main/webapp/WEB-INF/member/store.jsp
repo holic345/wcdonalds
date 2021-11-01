@@ -360,7 +360,7 @@
 		</div>
 	</div>
 	<div class="aside">
-		<a href="https://www.mcdelivery.co.kr/kr/" class="goDelivery" target="_blank" title="새창 열림">Wcdelivery</a>
+		<a href="cart.do" class="goDelivery" title="새창 열림">Wcdelivery</a>
 	</div>
 	<button type="button" class="btnTop">맨 위로 가기</button>
 </div>

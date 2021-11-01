@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/faq/faqCommon.css">
 <link rel="stylesheet" href="resources/css/faq/faq.css">
-<script type="text/javascript" src="resources/js/faq/faqMain.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- <script type="text/javascript" src="resources/js/faq/ajax.js"></script> -->
@@ -21,6 +20,7 @@
 <script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
 <script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
 <script type="text/javascript" src="resources/js/faq/customer_commonTable.js"></script> 
+<script type="text/javascript" src="resources/js/faq/faqMain.js"></script>
 <title>자주 찾는 질문과 답</title>
 <script type="text/javascript">
 		var mobile_yn = "No";
@@ -29,10 +29,10 @@
 		}
 		
 		$( document ).ready(function() {
-		    console.log( "ready!" );
+		    console.log("ready!");
 		    init();		    
 		    
-		    $("#category").change( function() {
+		    $("#category").change(function() {
 		    	//alert($("#category option:selected").val());	// 01, 02
 		    	 //$("#SELECTED_DATA").val = $("#category option:selected").val();
 		    	search($("#category option:selected").val(),'C');
@@ -40,7 +40,6 @@
 		    });
 	    
 		});
-
 </script>
 </head>
 <body>
@@ -83,7 +82,7 @@
 					<div class="storeFind">
 						<div class="srvcFilter">
 							<div class="service">
-								<span id="04" class="srvc" onclick="javascript:search('04','C');changeColor('04');teacherCheck();">
+								<span id="04" class="srvc" onclick="javascript:search('04','C');changeColor('04');">
 									<input type="checkbox" id="1" value="04" disabled /> 
 									<label for="1"> 메뉴 
 										<span class="icon">
@@ -154,8 +153,7 @@
 							<fieldset class="srchBox">
 								<legend>질문 검색</legend>
 								<div class="form">
-									<div class="selectWrap" id="selectWrap"
-										style="z-index: 100000; width: 150px">
+									<div class="selectWrap" id="selectWrap" style="z-index: 100000; width: 150px">
 										<select name="category" id="category" style="display: block; position: absolute; margin-left: -100000px;">
 											<option value="" title="전체">전체</option>
 											<option value="01" title="구매">구매</option>
@@ -349,13 +347,8 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-function teacherCheck() {
-
-	alert("교번을 입력하세요");
-
-}	
-	$(function() { /*??*/
+<script type="text/javascript">
+	$(function() { //$(document).ready(function){} 하고 같은 뜻
 	
 		selectMenu.init();
 		$(document).find('.selectWrap').each(function()

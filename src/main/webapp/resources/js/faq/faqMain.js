@@ -1,6 +1,3 @@
-''/**
- * 
- */
 var allList = null;
 var best10List = null;
 var best102List = null;
@@ -17,13 +14,14 @@ function init(){
 		location.href="/MC/MOB/main.jsp";
 		return;
 	}else{
+		$("#btnMore").attr("style","display:block");
 		initTable(3);
 		//reqCbAuto("faqMain.getCmcd", "", "spFaqTypeCd", "FAQ_TYPE_CD2","", "80", "", "전체"); //분야
 		
-		reqCbAuto("faqMain.getCmcd", "", "selectWrap", "category","", "80", "", "전체"); //분야
+		/*reqCbAuto("faqMain.getCmcd", "", "selectWrap", "category","", "80", "", "전체"); //분야*/
 		//reqBest10();
 		//reqBest102();
-		reqAll();
+		/*reqAll();*/
 	}
 	
 }
@@ -75,7 +73,7 @@ function search(type,type2)
 	doMore = "N";
 	pageStep = 2;
 	totalPageCount = 0;
-	document.getElementById("btnMore").style.display = "block";
+	$("#btnMore").attr("style","display:block");
 	
 	if(type2 == "C")
 	{
@@ -107,7 +105,7 @@ function search(type,type2)
 	}
 	REQ_PAGE[2] = 1;
 	
-	reqAll();
+	/*reqAll();*/
 }
 
 function morePage(type,type2)
@@ -153,7 +151,7 @@ function morePage(type,type2)
 	reqAll();
 }
 
-//자주찾는FAQ 전체 조회
+/*//자주찾는FAQ 전체 조회
 function reqAll(maxListCnt, reqPage){	
 	var tbIdx =2;
 	if(maxListCnt == null) maxListCnt = getColInfo(tbIdx, "maxListCnt");
@@ -165,7 +163,7 @@ function reqAll(maxListCnt, reqPage){
 	params += "&"+getOrderByInfo(tbIdx);
 	
 	new ajax.xhr.ExtRequest('/FrontServlet',params, resAll, 'POST', null, false);
-}
+}*/
 
 function resAll(jsonObj)
 {

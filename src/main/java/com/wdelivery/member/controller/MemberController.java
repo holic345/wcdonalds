@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.qna.service.QnaService;
@@ -104,7 +105,7 @@ public class MemberController {
 		return "brandintro";
 	}
 
-	@GetMapping("/memberJoin.do")
+	@RequestMapping("/memberJoin.do")
 	public String memberJoin() {
 		return "memberJoin";
 	}

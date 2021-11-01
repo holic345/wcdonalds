@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-
 <link rel="stylesheet" href="resources/css/order/orderMain.css" />
 <link rel="stylesheet" href="resources/css/order/orderLocal.css" />
-
 <div class="main" role="main">
-
 
 				<div class="clearfix">
 					<div class="page-title pull-left">
@@ -15,10 +12,7 @@
 						</h1>
 					</div>
 				</div>
-				
-
 				<div class="page-content">
-
 					<div class="row row-narrow">
 						<div class="col-xs-8" id="col-xs-8">
 							<form name="form_my_order" id="form_my_order" role="form" data-required-symbol="*" method="post" action="/kr/submit-order-payment.html" novalidate="novalidate">
@@ -40,24 +34,18 @@
 																<a class="text-gray-light btn-action action-delete" href="/kr/configurator/deletecart.json?cartId=1" title="삭제" onclick="onProductRemoveClick({ 'name':'단품 - 스파이시 맥앤치즈 버거','id':'2085','price':'6900.000','brand':'McDonalds','variant':'','quantity':'1'})">
 																<i class="far fa-trash-alt"></i></a>
 															</div>
-															
 															</td>
 														<td class="product-name">
 															<div>단품 - 스파이시 맥앤치즈 버거</div>
 															<ul>
-																
-																
+															
 															</ul>
-															 
-																
 														</td>
 														<td class="cost">₩ 6,900</td>
 													</tr>
 												</tbody>
 											</table>
 										</section>
-										
-										
 										<section class="panel-section order-remarks">
 											<div class="form-group">
 												<label for="form_review_order_remarks" class="field-label"><h3>배달시 요청 사항:</h3></label> <input type="text" class="form-control input-lg" name="form_review_order_remarks" id="form_review_order_remarks" data-rule-verifyspecialcharacters="true" data-msg-verifyspecialcharacters="form.reviewconfirm.orderverification.orderremark.error.invalid" value="">
@@ -65,7 +53,6 @@
 											<label class="control-hint" for="form_review_order_remarks">"&gt;", "", ";"와 같은 특정 특수문자는 사용 불가합니다.</label>											
 										</section>
 									</div>
-
 								</div>
 							<input type="hidden" name="csrfValue" value="99a855278a33d122cdd4705a315822bd"></form>
 						</div>
@@ -94,10 +81,7 @@
 													<td>
 														<div class="when-to-deliver"></div>
 														<div class="how-long-to-deliver">
-															
-																<span>2021/10/30 02:05</span>
-															
-															
+															<span>2021/10/30 02:05</span>
 														</div>
 													</td>
 												</tr>
@@ -120,51 +104,29 @@
 															</div>
 														</div>
 														<label for="enter-promocode" class="control-hint"></label>
-														
 													</div>
 												<input type="hidden" name="csrfValue" value="99a855278a33d122cdd4705a315822bd"></form>
 											</div>
-											
 										</div>
-
-										
-
-
-										
-
-
-
-
 									</section>	
 									<section class="panel-section section-cost-breakdown">
 										<table class="table-default table-cost">
 											<tfoot class="total">
 												<tr>
 													<th scope="row"><span>총 주문합계:</span></th>
-													<td><span>₩ 8,900</span>
-														
-														</td>
+													<td><span>₩ 8,900</span></td>
 												</tr>
 											</tfoot>
 											<tbody>
-												
-												
-												
 												<tr>
 													<th scope="row"><span>배달료:</span></th>
 													<td>₩ 2,000</td>
 												</tr>
-												
 												<!-- MDSAP-11635-v1 -->
 												
 												<!-- MDSAP-11635-v1 -->
-												
-												
-												
 											</tbody>
-											
 										</table>
-										
 										<fieldset class="form-actions text-center">
 											<div class="form-group">
 												<button type="button" class="btn btn-red btn-block btn-xl" data-associated-form="#form_my_order">
@@ -185,14 +147,11 @@
 						</div>
 					</div>
 				</div>
-
-
 				<div id="loading-view" class="loading-view hidden">
 					<div class="loading">
 						<span class="loading-icon"></span>
 					</div>
 				</div>
-
 			</div>
 
 <%@ include file="footer.jsp"%>
