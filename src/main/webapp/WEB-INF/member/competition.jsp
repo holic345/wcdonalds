@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/member/header.jsp"%>
+<%@ include file="header.jsp"%>
 
 <body>
 	<div class="content">
@@ -13,9 +13,9 @@
 					고품질의 음식을 제공하며,조리 과정에서 고객이 궁금한 모든 것을 알려드립니다.
 				</p>
 				<ul class="navPath">
-					<li><a href="/kor/main.do">Home</a></li>
-					<li><a href="/kor/story/main.do">Story</a></li>
-					<li><a href="/kor/story/competition/farmToRestaurant.do">윈딜리버리 경쟁력</a></li>
+					<li><a href="main.do">Home</a></li>
+					<li><a href="brandintro.do">Story</a></li>
+					<li><a href="competition.do">윈딜리버리 경쟁력</a></li>
 				</ul>
 			</div>
 		</div>
