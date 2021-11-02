@@ -25,7 +25,30 @@
 <script src="resources/js/commons.js"></script>
 </head>
 <body>
-	<body>	
+<c:if test="${!empty status }">
+	<c:choose>
+		<c:when test="${status eq 'err1'}">
+		<script>
+			alert('잘못된 아이디입니다');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err2'}">
+		<script>
+			alert('탈퇴 혹은 정지당한 회원입니다.');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err3'}">
+		<script>
+			alert('비밀번호가 틀립니다');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err4'}">
+		<script>
+			alert('공백은 넣을수 없습니다.');
+			</script>
+		</c:when>
+	</c:choose>
+</c:if>
 	<div class="skipMenu"><a href="#container">본문 바로가기</a></div>
 	<div class="wrapper ">
 		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
@@ -151,6 +174,7 @@
 					</div>
 				</nav>
 			</div>
+			
 			<form id="gotoMenuForm" method="post">
 				<input type="hidden" name="sub_category_seq" id="gotoform_sub_category_seq">
 			</form>
