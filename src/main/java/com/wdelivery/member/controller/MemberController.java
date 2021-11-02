@@ -165,5 +165,20 @@ public class MemberController {
 		//System.out.println("qna controller");
 		return "qna";
 	}
-
-}
+	@GetMapping("/competition.do")
+	public String competition() {
+		return "competition";
+	}
+	@GetMapping("/crew_recruit.do")
+	public String crew_recruit() {
+		return "crew_recruit";
+	}
+	@GetMapping("/crew_work.do")
+	public String crew_work() {
+		return "crew_work";
+	}
+	@GetMapping("/crew.do")
+	public String crew() {
+		return "crew";
+	}
+}//end controller
