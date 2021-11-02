@@ -303,49 +303,8 @@
 							</div>
 							<!-- submit button -->
 							<button type="button" class="btnMC btnM" onclick="search();">문의 조회하기</button>
-							<!-- 문의조회버튼 클릭 시 하단에 나오는 테이블 영역 -->
-							<div class="reply-view-area" id="LIST_REPLY_DIV">
-								<table class="reply-view">
-									<colgroup>
-										<col style="width: 144px">
-										<col style="width: auto">
-										<col style="width: 144px">
-										<col style="width: 144px">
-										<col style="width: 144px">
-									</colgroup>
-									<thead>
-										<tr>
-											<th scope="col">접수번호</th>
-											<th scope="col">제목</th>
-											<th scope="col">방문매장</th>
-											<th scope="col">접수일</th>
-											<th scope="col">상태</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>제목</td>
-											<td>매장</td>
-											<td>2021-01-26</td>
-											<td>상태</td>
-										</tr>
-										<tr>
-											<th scope="row">내용</th>
-											<td colspan="4">안녕하세요. 해피밀에서 나오는 이번달 장난감 무엇인가요?<br>너무
-												너무 궁금합니다! 빨리 알려주세요!
-											</td>
-										</tr>
-										<tr>
-											<th scope="row" class="color-mcdRed">답변</th>
-											<td colspan="4" class="color-mcdRed">안녕하세요, 고객님! 행복을 전하는
-												맥도날드 고객센터입니다!<br>문의주신 이번달 맥도날드의 해피밀은 말이죠! 맥도날드 공식 사이트에서
-												직접 확인할 수 있답니다~~~ 지금 바로 공식 사이트로 방문해보세요! 그럼 또 만나요~
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
+							<span id="req3" style="red"></span> 
+	
 
 							<div id="LIST_DIV"></div>
 							<div id="LIST_PAGE_DIV" style="display: none"></div>
@@ -542,27 +501,90 @@
 		
 		//문의 조회
 		function search() {
-			alert("문의조회버튼클릭");
+			if(($("#EMAIL2").val()).trim() == ""){
+				alert("이메일을 입력해 주세요.");
+				$('#EMAIL2').focus();
+				return false;
+			}
+			if(($("#CUST_PASSWORD2").val()).trim() == ""){
+				alert("비밀번호를 입력해주세요.");
+				$('#CUST_PASSWORD2').focus();
+				return false;
+			}
 			
-		//	  $(document).ready(function(){
-		var qa_email = $("#EMAIL").val();
+			alert("문의조회버튼클릭");
+
+		//var qa_email = $("#EMAIL").val();
+			
+			
+			var qa_email = document.getElementById('EMAIL2').value;
+			var qa_password = document.getElementById('CUST_PASSWORD2').value;
+
 					$.ajax({
 						url:"qna1.do",
 						data:{
-							qa_email : qa_email
+							qa_email : qa_email,
+							qa_password : qa_password
 						},
 						dataType: "json",  
 						type: "post",
 						success:function(data){
-							alert(data);
-							alert("ajax 성공");
+							//alert(data);
+							//alert("ajax 성공");
+							
+							//var d = data["qa_seq"];
+							//alert("d = " + d);
+							
+							$("#req3").html(
+								"<div class='reply-view-area' id='LIST_REPLY_DIV'>" + 
+									"<table class='reply-view' >" +
+										"<colgroup>" + 
+											"<col style='width: 144px'>" +
+											"<col style='width: auto'>" +
+											"<col style='width: 144px'>" +
+											"<col style='width: 144px'>" +
+											"<col style='width: 144px'>" +
+										"</colgroup>" +
+								"<thead>" + 
+									"<tr>" + 
+										"<th scope='col'>접수번호</th>" +
+										"<th scope='col'>제목</th>" +
+										"<th scope='col'>방문매장</th>" +
+										"<th scope='col'>접수일</th>" +
+										"<th scope='col'>상태</th>" +
+									"</tr>" +
+								"</thead>" +
+								"<tbody>" +
+									"<tr>" +
+										"<th scope='row'>" + data["qa_seq"] + "</th>" + 
+										"<th>" + data["qa_title"] + "</th>" + 
+										"<th>" + data["qa_store"] + "</th>" + 
+										"<th>" + data["qa_regdate"] + "</th>" + 
+										"<th>" + data["qa_status"] + "</th>" + 
+									"</tr>" +
+									"<tr>" +
+										"<th scope='row'>내용</th>" +
+											"<td colspan='4'>" + data["qa_content"] + "</td>" +
+		
+									"</tr>" +
+									"<tr>" +
+										"<th scope='row' class='color-mcdRed'>답변</th>" + 
+										"<td colspan='4' class='color-mcdRed'>" + 
+										//안녕하세요, 고객님! 행복을 전하는 맥도날드 고객센터입니다!<br>문의주신 이번달 맥도날드의 해피밀은 말이죠! 맥도날드 공식 사이트에서 직접 확인할 수 있답니다~~~ 지금 바로 공식 사이트로 방문해보세요! 그럼 또 만나요~@@@@ +
+										"</td>" + 
+									"</tr>" +
+								"</tbody>" +
+								"</table>" + 
+							"</div>"
+								
+							);
 						},
-						error:function(){
+						error:function(data){
 							alert("ajax 실패");
 						}
 						
 					})
-			//   });
+			
 		}
 
 		
