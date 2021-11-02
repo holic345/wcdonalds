@@ -20,7 +20,8 @@ function page(type)
 	}
 }
 
-/*function insertCheck()
+//체크
+/*function insertCheck() 
 {	
 	if ( !document.getElementById('agree-y').checked )
 	{
@@ -177,7 +178,7 @@ function resFileUpload(){
 	reqInsert();	
 }
 
-function storeSearchPop()
+function storePop()
 {
 	//window.open("/MC/HOM/storeSearch.jsp","","width=412,height=380, menubar=no, status=no, toolbar=no");
 	window.open("/MC/HOM/storeSearch.jsp","","width=660,height=500, menubar=no, status=no, toolbar=no");
