@@ -170,53 +170,17 @@
 	 });
 	 addrType, zip, zip1, zip2, addr, addr1, addr2, addrOpt, addrFocus
 	 */
+	 
 	function openDaumPostcode() {
-		new daum.Postcode(
-		{
+		 var themeObj = {
+				 bgColor: "#F8B01B"
+				};
+		new daum.Postcode({
+			
 			oncomplete : function(data) {
-				var fullAddr = '';
-				var extraAddr = '';
-	
-				if (data.userSelectedType === 'R') {
-					fullAddr = data.roadAddress;
-	
-				} else {
-					fullAddr = data.jibunAddress;
-				}
-	
-				if (data.userSelectedType === 'R') {
-	
-					if (data.bname !== '') {
-						extraAddr += data.bname;
-					}
-	
-					if (data.buildingName !== '') {
-						extraAddr += (extraAddr !== '' ? ', '
-								+ data.buildingName
-								: data.buildingName);
-					}
-	
-					fullAddr += (extraAddr !== '' ? ' ('
-							+ extraAddr + ')' : '');
-				}
-	
-				if (addrType != "" && addrType != undefined) {
-					document.getElementById(addrType).value = data.userSelectedType;
-				}
-				if (zip != "" && zip != undefined) {
-					document.getElementById(zip).value = data.zonecode;
-				}
-				if (addr != "" && addr != undefined) {
-					document.getElementById(addr).value = fullAddr;
-				}
-				if (addr1 != "" && addr1 != undefined) {
-					document.getElementById(addr1).value = fullAddr;
-				}
-	
-				if (addrFocus != "" && addrFocus != undefined) {
-					document.getElementById(addrFocus).focus();
-				}
-			}
+				document.querySelector("#m_zipcode").value = data.address;
+			},
+			theme: themeObj 
 		}).open();
 	}
 </script>
@@ -237,7 +201,7 @@
 						<span>회원가입</span>
 						<small>Join Us</small>
 					</h3>
-					<form name="join_form" id="join_form" method="post" action="#" enctype="multipart/form-data" onsubmit="">
+					<form name="join_form" id="join_form" method="post" action="winMemJoin.do"  onsubmit="">
 						<input type="hidden" id="ar1" value="" />
 						<input type="hidden" name="id_chk_ok" id="id_chk_ok" value="" />
 						<input type="hidden" name="pass_ok" id="pass_ok" value="" /> 
@@ -248,21 +212,21 @@
 							</div>
 						
 						<div class="form-group">
-							<label for="m_email" class="dis_b">이메일</label><input
-								name="m_email" id="m_email" type="email"
+							<label for="m_email" class="dis_b">이메일</label>
+							<input name="user_email" id="m_email" type="email"
 								class="form-control placeholder" placeholder="example@wdonald.com" /><span></span>
 						</div>
 						<div class="form-group">
-							<label for="m_name">성명</label> <input type="text" name="m_name"
-								id="m_name" class="form-control placeholder" />
+							<label for="m_name">성명</label> 
+							<input type="text" name="user_name" id="m_name" class="form-control placeholder" />
 						</div>
 						<div class="form-group">
 							<label for="m_password">패스워드</label>
 							 <input type="hidden" id="login_pwd_chk" name="login_pwd_chk" value="0" /> 
-							 <input type="password" id="m_password" name="m_password" value="" maxlength="16" class="form-control placeholder" /> 
+							 <input type="password" id="m_password" name="user_password" value="" maxlength="16" class="form-control placeholder" /> 
 							 <span id="pwd_chk_msg" class="f11_ment">
 							  	
-							  	<span	class="pwd_str_msg" level="0" style="display: none;">
+							  	<span class="pwd_str_msg" level="0" style="display: none;">
 							  		<small>패스워드	안전도 : <strong class="level0 text-danger">사용불가</strong></small>
 							  	</span> 
 							  	
@@ -282,7 +246,7 @@
 						</div>
 						<div class="form-group">
 							<label for="m_password2">패스워드 확인</label> 
-							<input type="password" id="m_password2" name="m_password2" value="" maxlength="16" class="form-control placeholder" />
+							<input type="password" id="m_password2" value="" maxlength="16" class="form-control placeholder" />
 								 <span id="pwd_chk_msg2" class="f11_ment"></span>
 				
 							<div class="box-info mt_10" id="collapseExam">
@@ -312,16 +276,17 @@
 						<div class="form-group">
 							<label for="m_zipcode" class="dis_b">주소</label>
 							<div class="input-group">
-								<input name="m_zipcode" id="m_zipcode" type="text" class="form-control placeholder" readonly="readonly" /> 
+								<input name="address1" id="m_zipcode" type="text" class="form-control placeholder" readonly="readonly" /> 
 									<span class="input-group-btn">
 									<a href="javascript:openDaumPostcode()"	class="btn btn-md btn-default" id="zip_find" zip="m_zipcode" address1="m_address" focus="m_address">
 									<i class="fa fa-search"></i></a></span>
 							</div>
-							<input name="m_address" id="m_address" type="text" class="form-control placeholder mt_10" />
+							<input name="address2" id="m_address" type="text" class="form-control placeholder mt_10" />
+							<!-- <input type="hidden" name="d_key" value="1"> -->
 						</div>						
 						<div class="form-group">
 							<label for="m_mobile1" class="dis_b">핸드폰</label>
-								<select	name="m_mobile1" id="m_mobile1" class="form-control dis_ib"	style="width: 30%">
+								<!-- <select	name="m_mobile1" id="m_mobile1" class="form-control dis_ib"	style="width: 30%">
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
@@ -330,29 +295,31 @@
 									<option value="019">019</option>
 								</select> - 
 								<input name="m_mobile2" id="m_mobile2" maxlength="4" type="text" class="form-control placeholder dis_ib" style="width: 30%" />
-								 - <input name="m_mobile3" id="m_mobile3" maxlength="4" type="text"	class="form-control placeholder dis_ib" style="width: 30%" />
+								 -  -->
+								 <input name="user_phone" id="m_mobile3" maxlength="11" type="text"	class="form-control placeholder dis_ib" style="width: 30%" />
 						</div>
 							<a name="m_birth_cal"></a>
 								<div class="form-group">
 								<label for="m_birth">생년월일</label>
 									<div class="input-group">
-									<input type="text" name="m_birth" id="m_birth" maxlength="10" class="form-control placeholder" readonly="readonly" />
+									<input type="text" name="user_birth" id="m_birth" maxlength="10" class="form-control placeholder" readonly="readonly" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="m_sex" class="dis_b">성별</label>
 							<label for="m_sex1"	class="radio-inline">
-								<input type="radio" name="m_sex" id="m_sex1" value="1" />남자</label>
+								<input type="radio" name="user_gender" id="m_sex1" value="0" />남자</label>
 								 <label for="m_sex2" class="radio-inline">
-								 <input type="radio" name="m_sex" id="m_sex2" value="2" />여자</label>
+								 <input type="radio" name="user_gender" id="m_sex2" value="1" />여자</label>
 						</div>
 
 						<label for="sms_agree_ck" class="checkbox-sms">
-							 <input	type="checkbox" name="" id="sms_agree_ck" value="#" />광고성 SMS 수신동의
+							 <input	type="checkbox" name="sms_agree" id="sms_agree_ck" value="1" />광고성 SMS 수신동의
 						</label> <br> 
 						<label for="email_agree_ck" class="checkbox-email">
-							<input type="checkbox" name="" id="email_agree_ck" value="#" />광고성 E-Mail수신동의</label>
+							<input type="checkbox" name="email_agree" id="email_agree_ck" value="1" />광고성 E-Mail수신동의</label>
 					<div class="b_btn_c">
+					<!-- <input type="hidden" name="user_status" value="3"> -->
 						<button class="btn btn-md btn-red" id="join_ok" type="submit">확인</button>
 						<a href="javascript:history.back();" class="btn btn-md btn-default">뒤로</a>
 					</div>

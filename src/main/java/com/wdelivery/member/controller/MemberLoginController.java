@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.KakaoUserVO;
+import com.wdelivery.member.vo.UserAddressVO;
 import com.wdelivery.member.vo.UserVO;
 
 @Controller
@@ -81,9 +82,12 @@ public class MemberLoginController {
 	}
 	
 	@PostMapping("winMemJoin.do")
-	public String winMemJoin(UserVO userVO) {
+	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
 		
-		return "";
+		System.out.println(userVO.toString());
+		memberService.winMemJoin(userVO);
+		memberService.winAddressJoin(addressVO);
+		return "main";
 	}
 	
 	@RequestMapping("logout.do")
