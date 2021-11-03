@@ -1,5 +1,7 @@
 package com.wdelivery.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
@@ -56,11 +59,16 @@ public class MemberController {
 		return "addressupdate";
 	}
 
-	@GetMapping("/cart.do")
-	public String cart() {
-		return "cart";
+	@GetMapping("/order.do")
+	public String cart(Model model) {
+		return "order";
 	}
 
+	@GetMapping("/orderConfirm.do")
+	public String cart(Model model, @RequestParam("b_code") String b_code, @RequestParam("va") String va) {
+		return "orderConfirm";
+	}
+	
 	@GetMapping("/detail.do")
 	public String detail() {
 		return "detail";
@@ -76,11 +84,6 @@ public class MemberController {
 		return "join";
 	}
 
-	@GetMapping("/orderConfirm.do")
-	public String orderConfirm() {
-		return "orderConfirm";
-	}
-
 	@GetMapping("/orderHistory.do")
 	public String orderHistory() {
 		return "orderHistory";
@@ -93,7 +96,7 @@ public class MemberController {
 		System.out.println("password => " + qa_password);
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
 		
-		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) { //db¿¡ ¾øÀ» ½Ã
+		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) { //dbÂ¿Â¡ Â¾Ã¸Ã€Â» Â½Ãƒ
 			System.out.println("search faild");
 		//}else {	
 			System.out.println("search success");
