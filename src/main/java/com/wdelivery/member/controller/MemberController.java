@@ -1,6 +1,9 @@
 package com.wdelivery.member.controller;
 
+
 import java.text.SimpleDateFormat;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
@@ -58,11 +62,16 @@ public class MemberController {
 		return "addressupdate";
 	}
 
-	@GetMapping("/cart.do")
-	public String cart() {
-		return "cart";
+	@GetMapping("/order.do")
+	public String cart(Model model) {
+		return "order";
 	}
 
+	@GetMapping("/orderConfirm.do")
+	public String cart(Model model, @RequestParam("b_code") String b_code, @RequestParam("va") String va) {
+		return "orderConfirm";
+	}
+	
 	@GetMapping("/detail.do")
 	public String detail() {
 		return "detail";
@@ -78,11 +87,6 @@ public class MemberController {
 		return "join";
 	}
 
-	@GetMapping("/orderConfirm.do")
-	public String orderConfirm() {
-		return "orderConfirm";
-	}
-
 	@GetMapping("/orderHistory.do")
 	public String orderHistory() {
 		return "orderHistory";
@@ -92,13 +96,20 @@ public class MemberController {
 	@ResponseBody
 	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
-		
+
 		
 		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db에 없을 시
 		//	System.out.println("search faild");
 	//	}else {	
 		//	System.out.println("search success");
 		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); 필요없을거같음
+
+		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) {
+			System.out.println("search faild");
+		//}else {	
+			System.out.println("search success");
+			//model.addAttribute("qna", qnaServie.qnaSelect(qnaVO));
+
 			
 			/*System.out.println("?" + vo.getQa_seq()); 
 			System.out.println("name?" + vo.getQa_name());
@@ -170,9 +181,25 @@ public class MemberController {
 		//System.out.println("2 = " + qnaVO.getQa_agree2());
 	
 		qnaServie.qnaInsert(qnaVO);
+		System.out.println(qnaVO.toString());
 		//System.out.println("qna controller");
 		
 		return "qna";
 	}
-
-}
+	@GetMapping("/competition.do")
+	public String competition() {
+		return "competition";
+	}
+	@GetMapping("/crew_recruit.do")
+	public String crew_recruit() {
+		return "crew_recruit";
+	}
+	@GetMapping("/crew_work.do")
+	public String crew_work() {
+		return "crew_work";
+	}
+	@GetMapping("/crew.do")
+	public String crew() {
+		return "crew";
+	}
+}//end controller

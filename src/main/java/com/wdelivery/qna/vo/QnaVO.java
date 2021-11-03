@@ -137,4 +137,12 @@ public class QnaVO {
 		this.qa_agree2 = qa_agree2;
 	}
 
+	@Override
+	public String toString() {
+		return "QnaVO [qa_seq=" + qa_seq + ", qa_title=" + qa_title + ", qa_content=" + qa_content + ", qa_password="
+				+ qa_password + ", qa_regdate=" + qa_regdate + ", qa_status=" + qa_status + ", qa_store=" + qa_store
+				+ ", qa_name=" + qa_name + ", qa_phone1=" + qa_phone1 + ", qa_phone2=" + qa_phone2 + ", qa_phone3="
+				+ qa_phone3 + ", qa_email=" + qa_email + ", qa_agree1=" + qa_agree1 + ", qa_agree2=" + qa_agree2 + "]";
+	}
+
 }
