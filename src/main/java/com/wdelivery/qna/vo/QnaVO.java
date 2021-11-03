@@ -1,18 +1,14 @@
 package com.wdelivery.qna.vo;
 
 import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
 
 public class QnaVO {
 	private int qa_seq;
 	private String qa_title;
 	private String qa_content;
 	private String qa_password;
-	//@DateTimeFormat(pattern="yyyy-MM-dd")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date qa_regdate;
 	private int qa_status;
