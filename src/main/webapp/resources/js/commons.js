@@ -196,16 +196,18 @@ function kakaoLogin() {
 /* */
 					 
 function kakaoLogout(){
-	Kakao.isInitialized();
+	console.log(Kakao.isInitialized());
+	
 	if(!Kakao.Auth.getAccessToken()){
 		alert('Not logged in');
 		return;		
 	}
+	alert(1);
 	Kakao.Auth.logout(function(){
 		console.log(Kakao.Auth.getAccessToken());
 		$.post("logout.do");
 	})	
-	window.location.href="http://localhost:8080/controller/main.do";
+	/*window.location.href="http://localhost:8080/controller/main.do";*/
 }
 function naverLogout(accessKey){
 	$.post("logout.do",function(){
