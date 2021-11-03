@@ -42,6 +42,11 @@
 			alert('비밀번호가 틀립니다');
 			</script>
 		</c:when>
+		<c:when test="${status eq 'err5'}">
+		<script>
+			alert('이메일 인증을 완료해주세요.');
+			</script>
+		</c:when>
 		<c:when test="${status eq 'err4'}">
 		<script>
 			alert('공백은 넣을수 없습니다.');
@@ -93,7 +98,7 @@
 								<ul class="depth2">
 									<li><a href="brandintro.do" class="dth2">브랜드 소개</a></li>
 									<li><a href="list.do" class="dth2">사회적 책임과 지원</a></li>
-									<li><a href="farmToRestaurant.do" class="dth2">맥도날드 경쟁력</a></li>
+									<li><a href="competition.do" class="dth2">맥도날드 경쟁력</a></li>
 									<li><a href="crew.do" class="dth2">맥도날드 사람들</a></li>
 								</ul>
 							</li>
@@ -102,17 +107,28 @@
 					<!-- //menu -->
 					<form id="commonSearchForm" method="post">
 					<div class="util">
-					<c:if test="${empty sessionScope.userInfo}">
-						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
-						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
-					</c:if>
+					
 					<c:choose>
 						<c:when test="${not empty sessionScope.userInfo}">
 							<a href="logout.do" class="btn_register" title="로그아웃">로그아웃</a>					
 							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
 						</c:when>
+						<c:when test="${not empty sessionScope.kakaoSession}">
+							<a href="#" class="btn_register"  onclick="javascript:kakaoLogout()" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+						<c:when test="${not empty sessionScope.naverSession}">
+							<a href="#" onclick="naverLogout('${sessionScope.naverAccessKey}')" class="btn_register" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+						<c:when test="${empty sessionScope.userInfo && empty sessionScope.kakaoSession && empty sessionScope.naverSession}">
+							<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
+						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
+
+						<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
+
+						</c:when>
 					</c:choose>
-						<a href="cart.do" class="btn_cart" title="카트로 이동">카트</a>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
 							<fieldset class="srchField">

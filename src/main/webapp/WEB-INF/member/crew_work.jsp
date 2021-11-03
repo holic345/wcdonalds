@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="WEB-INF/member/header.jsp"%>
+<%@ include file="header.jsp"%>
 <div id="container">
 	<div class="content">
 
@@ -13,9 +13,9 @@
 					&lsquo;윈딜리버리 사람들&rsquo;이 있습니다.
 				</p>
 				<ul class="navPath">
-					<li><a href="/controller/main.do">Home</a></li>
-					<li><a href="/kor/story/main.do">Story</a></li>
-					<li><a href="/kor/story/people/crew.do">윈딜리버리 사람들</a></li>
+					<li><a href="main.do">Home</a></li>
+					<li><a href="main.do">Story</a></li>
+					<li><a href="crew.do">윈딜리버리 사람들</a></li>
 				</ul>
 			</div>
 		</div>
@@ -23,9 +23,9 @@
 		<div class="contArea">
 			<div class="inner">
 				<ul class="tabType01">
-					<li><a href="/controller/crew.do" role="button">크루이야기</a></li>
-					<li><a href="/kor/story/people/work.do" role="button" aria-selected="true">업무소개</a></li>
-					<li><a href="/kor/story/people/recruit.do" role="button">인재채용</a></li>
+					<li><a href="crew.do" role="button">크루이야기</a></li>
+					<li><a href="crew_work.do" role="button" aria-selected="true">업무소개</a></li>
+					<li><a href="crew_recruit.do" role="button">인재채용</a></li>
 				</ul>
 				<h2 class="titDep2">업무 소개 (Restaurant Department Management)</h2>
 				<p role="text" class="txtInfo">
@@ -111,4 +111,4 @@
 	<button type="button" class="btnTop">맨 위로 가기</button>
 </div>
 <!-- //container -->
-<%@ include file="WEB-INF/member/footer.jsp"%>
+<%@ include file="footer.jsp"%>

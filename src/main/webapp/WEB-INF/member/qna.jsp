@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="keywords" content="맥도날드">
 <meta name="description" content="맥도날드">
@@ -14,11 +14,11 @@
 <link rel="stylesheet" href="resources/css/faq/faq.css" />
 <title>1:1 고객문의</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script type="text/javascript" src="/common/js/ajax.js"></script> -->
-<script type="text/javascript" src="/common/js/commonTable.js"></script>
-<script type="text/javascript" src="/common/js/extendedComboBox.js"></script>
-<script type="text/javascript" src="/common/js/newUtil.js"></script>
-<script type="text/javascript" src="/common/js/customer_common.js"></script>
+<script type="text/javascript" src="resources/js/faq/ajax.js"></script>
+<script type="text/javascript" src="resources/js/faq/commonTable.js"></script>
+<script type="text/javascript" src="resources/js/faq/extendedComboBox.js"></script>
+<script type="text/javascript" src="resources/js/faq/newUtil.js"></script>
+<script type="text/javascript" src="resources/js/faq/customer_common.js"></script>
 <!-- <script type="text/javascript" src="resources/js/qna.js"></script> -->
 <!-- smartEditor -->
 <script type="text/javascript" src="Editor/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
@@ -328,7 +328,7 @@
 			<div class="pop-body">
 				<img src="/common/images/customer/insert_ok.png" width="650"
 					height="536" border="0" />
-				<button type="button" id="btnInsert" class="btnMC btnM insertBtn"
+				<button type="button" class="btnMC btnM insertBtn"
 					onclick="page(3);">닫기</button>
 			</div>
 		</div>
@@ -365,7 +365,6 @@
 		function isValidEmail(email)
 		{
 			VALIDATE_ERROR_MESSAGE = "";
-		
 			var part = email.match(email_re);
 		
 			// @ 가 없는 경우
@@ -377,7 +376,7 @@
 		
 			var user = RegExp.$1;
 			var host = RegExp.$2;
-		
+					
 			return isValidEmail2(user, host);
 		}
 		
@@ -421,6 +420,7 @@
 				}
 				
 			});
+			
 			$("#btnInsert").click(function() { 
 				oEditors.getById["ACPT_DESC"].exec("UPDATE_CONTENTS_FIELD", []); //textarea의 id를 적어줍니다. 
 				var selcatd = $("#selcatd > option:selected").val(); 
@@ -445,10 +445,11 @@
 				if (!isValidEmail($("#EMAIL").val()))
 				{
 					alert("이메일 형식 오류입니다.");
+					console($("#EMAIL").val());
 					$('#EMAIL').focus();
 					return false;
 				}
-					
+				
 				if(($("#CUST_PASSWORD").val()).trim() == "")
 				{
 					alert("비밀번호를 입력해 주세요.");
