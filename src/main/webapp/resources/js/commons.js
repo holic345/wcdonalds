@@ -137,31 +137,13 @@ $(document).ready(function() {
 var naverLogin = new naver.LoginWithNaverId(
 	{
 		clientId: "Xh_il_8tTurOD_pU6D37", //내 애플리케이션 정보에 clientId를 입력해준다 
-		callbackUrl: "http://localhost:8080/controller/main.do", //내 애플리케이션 API설정의 CallbackURL을 입력해준다.
+		callbackUrl: "http://localhost:8080/controller/naverCallback.do", //내 애플리케이션 API설정의 CallbackURL을 입력해준다.
 		isPopup: false,
 		callbackHandle: true
 	}
 );
 //네아로 로그인 정보를 초기화 하기 위하여 init호출
 naverLogin.init();
-//callback의 처리 정상적으로 callback 처리가 완료될 경우 mainPage로 redirect
-window.addEventListener('load', function() {
-	naverLogin.getLoginStatus(function(status) {
-		if (status) {
-			var email = naverLogin.user.getEmail(); //필수로 설정할 것을 받아와 아래처럼 조건문을 준다 
-			console.log(naverLogin.user);
-			alert(email);
-			if (email == undefined || email == null) {
-				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-				naverLogin.reprompt();
-				return;
-			}
-			//window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/controller/main.do");
-		} else {
-			console.log("callback 처리에 실패하였습니다.");
-		}
-	});
-});
 
 var testPopUp;
 function openPopUp() {
@@ -196,12 +178,8 @@ function kakaoLogin() {
 						data: JSON.stringify(response.kakao_account),
 						contentType: "application/json",
 						succcess: function() {
-							alert(response.kakao_account);
-							/*
-							콜백 수행 부분
-							header.jsp 쪽 로그인-> 로그아웃 / 회원가입 -> 마이페이지 전환 필요	
-							*/
-						}
+							window.location.href="http://localhost:8080/controller/main.do";						
+								}
 					})
 
 				},
@@ -214,4 +192,27 @@ function kakaoLogin() {
 			console.log(error)
 		},
 	})
+}
+/* */
+					 
+function kakaoLogout(){
+	Kakao.isInitialized();
+	if(!Kakao.Auth.getAccessToken()){
+		alert('Not logged in');
+		return;		
+	}
+	Kakao.Auth.logout(function(){
+		console.log(Kakao.Auth.getAccessToken());
+		$.post("logout.do");
+	})	
+	window.location.href="http://localhost:8080/controller/main.do";
+}
+function naverLogout(accessKey){
+	$.post("logout.do",function(){
+		window.location.href="https://nid.naver.com/oauth2.0/token?grant_type="+
+		"delete&client_id=Xh_il_8tTurOD_pU6D37&client_secret=JHDMkT0G7N&access_token="
+		+accessKey+"&service_provider=NAVER";		
+	})
+	window.location.href="http://localhost:8080/controller/main.do";
+	//https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=Xh_il_8tTurOD_pU6D37&client_secret=JHDMkT0G7N&access_token=&service_provider=NAVER		
 }
