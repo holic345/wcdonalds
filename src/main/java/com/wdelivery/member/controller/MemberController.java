@@ -1,11 +1,14 @@
 package com.wdelivery.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
@@ -53,11 +56,16 @@ public class MemberController {
 		return "addressupdate";
 	}
 
-	@GetMapping("/cart.do")
-	public String cart() {
-		return "cart";
+	@GetMapping("/order.do")
+	public String cart(Model model) {
+		return "order";
 	}
 
+	@GetMapping("/orderConfirm.do")
+	public String cart(Model model, @RequestParam("b_code") String b_code, @RequestParam("va") String va) {
+		return "orderConfirm";
+	}
+	
 	@GetMapping("/detail.do")
 	public String detail() {
 		return "detail";
@@ -71,11 +79,6 @@ public class MemberController {
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
-	}
-
-	@GetMapping("/orderConfirm.do")
-	public String orderConfirm() {
-		return "orderConfirm";
 	}
 
 	@GetMapping("/orderHistory.do")
