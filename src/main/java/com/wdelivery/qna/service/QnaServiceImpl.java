@@ -16,7 +16,15 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void qnaInsert(QnaVO qnaVO) {
 		qnaDAO.qnaInsert(qnaVO);
-		System.out.println("qna 성공");
+		//System.out.println("qna 성공");
 	}
+
+	
+	  @Override
+	  public QnaVO qnaSelect(QnaVO qnaVO) {
+		  System.out.println("QNADAO에 qnavo select => " + qnaVO.getQa_name()); 
+		  return qnaDAO.qnaSelect(qnaVO);
+	  }
+	 
 
 }

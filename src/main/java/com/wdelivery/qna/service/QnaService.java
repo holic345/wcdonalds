@@ -4,4 +4,5 @@ import com.wdelivery.qna.vo.QnaVO;
 
 public interface QnaService {
 	public void qnaInsert(QnaVO qnaVO);
+	public QnaVO qnaSelect(QnaVO anaVO);
 }

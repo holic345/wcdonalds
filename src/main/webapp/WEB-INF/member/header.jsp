@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,35 @@
 <script src="resources/js/commons.js"></script>
 </head>
 <body>
-	<body>	
+<c:if test="${!empty status }">
+	<c:choose>
+		<c:when test="${status eq 'err1'}">
+		<script>
+			alert('잘못된 아이디입니다');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err2'}">
+		<script>
+			alert('탈퇴 혹은 정지당한 회원입니다.');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err3'}">
+		<script>
+			alert('비밀번호가 틀립니다');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err5'}">
+		<script>
+			alert('이메일 인증을 완료해주세요.');
+			</script>
+		</c:when>
+		<c:when test="${status eq 'err4'}">
+		<script>
+			alert('공백은 넣을수 없습니다.');
+			</script>
+		</c:when>
+	</c:choose>
+</c:if>
 	<div class="skipMenu"><a href="#container">본문 바로가기</a></div>
 	<div class="wrapper ">
 		<header class="header"><!-- 상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가 -->
@@ -69,7 +98,7 @@
 								<ul class="depth2">
 									<li><a href="brandintro.do" class="dth2">브랜드 소개</a></li>
 									<li><a href="list.do" class="dth2">사회적 책임과 지원</a></li>
-									<li><a href="farmToRestaurant.do" class="dth2">맥도날드 경쟁력</a></li>
+									<li><a href="competition.do" class="dth2">맥도날드 경쟁력</a></li>
 									<li><a href="crew.do" class="dth2">맥도날드 사람들</a></li>
 								</ul>
 							</li>
@@ -78,9 +107,28 @@
 					<!-- //menu -->
 					<form id="commonSearchForm" method="post">
 					<div class="util">
-						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
+					
+					<c:choose>
+						<c:when test="${not empty sessionScope.userInfo}">
+							<a href="logout.do" class="btn_register" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+						<c:when test="${not empty sessionScope.kakaoSession}">
+							<a href="#" class="btn_register"  onclick="javascript:kakaoLogout()" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+						<c:when test="${not empty sessionScope.naverSession}">
+							<a href="#" onclick="naverLogout('${sessionScope.naverAccessKey}')" class="btn_register" title="로그아웃">로그아웃</a>					
+							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+						</c:when>
+						<c:when test="${empty sessionScope.userInfo && empty sessionScope.kakaoSession && empty sessionScope.naverSession}">
+							<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
 						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
+
 						<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
+
+						</c:when>
+					</c:choose>
 						<div class="topSearch"><!-- 검색 활성화인 경우 open 클래스 추가 -->
 							<button type="button" class="srch">검색 열기</button>
 							<fieldset class="srchField">
@@ -101,7 +149,7 @@
 							<div>
 								<p class="roboto">Wcdonalds</p>
 								<h3 class="tit01 tit_ico key01">일반 로그인</h3>
-								<form action="memLogin.do" method="post">
+								<form action="memLogin.do" method="post" >
 									<div class="input">
 										<input id="id" type="text" placeholder="아이디를 입력하세요" name="user_email" data-role="textfield">
 									</div>
@@ -116,7 +164,7 @@
 										<p>앞으로도 자동으로 로그인</p>
 									</div>
 									<div>
-										<input type="submit" value="로그인">
+										<input type="submit" id="loginBtn" value="로그인">
 									</div>
 									<div>
 										<a href="javascript:alert('회원가입페이지는 준비중입니다.')">회원가입</a> <a
@@ -142,6 +190,7 @@
 					</div>
 				</nav>
 			</div>
+			
 			<form id="gotoMenuForm" method="post">
 				<input type="hidden" name="sub_category_seq" id="gotoform_sub_category_seq">
 			</form>
