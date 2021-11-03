@@ -1,5 +1,7 @@
 package com.wdelivery.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.menu.burger.service.BurgerService;
+import com.wdelivery.menu.burger.vo.BurgerVO;
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
 
@@ -25,6 +29,9 @@ public class MemberController {
 	
 	@Autowired
 	private QnaService qnaServie;
+	
+	@Autowired
+	BurgerService burgerService;
 	
 	@GetMapping("/main.do")
 	public String main() {
@@ -165,5 +172,22 @@ public class MemberController {
 		//System.out.println("qna controller");
 		return "qna";
 	}
+	
+	@GetMapping("/test.do") 
+	public List<BurgerVO> listBurger() { 
+
+		return burgerService.listBurger(); 
+		
+	}
+	
+	/*
+	 * @PostMapping(value = "/test") public ModelAndView burgerList(ModelAndView
+	 * mav) {
+	 * 
+	 * mav.setViewName("/menu/burger"); mav.addObject("burgerList",
+	 * burgerService.listBurger());
+	 * 
+	 * return mav; }
+	 */
 
 }
