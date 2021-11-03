@@ -162,6 +162,7 @@ public class MemberController {
 		//System.out.println("2 = " + qnaVO.getQa_agree2());
 	
 		qnaServie.qnaInsert(qnaVO);
+		System.out.println(qnaVO.toString());
 		//System.out.println("qna controller");
 		return "qna";
 	}
