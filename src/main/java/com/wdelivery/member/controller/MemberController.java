@@ -1,5 +1,7 @@
 package com.wdelivery.member.controller;
 
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,27 +88,33 @@ public class MemberController {
 		return "orderHistory";
 	}
 
-	@PostMapping("/qna1.do")
+	@PostMapping("/qnaSelect.do")
 	@ResponseBody
-	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password, Model model) {
-		System.out.println("controller\n email => " + qa_email);
-		System.out.println("password => " + qa_password);
+	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
 		
-		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) { //db에 없을 시
-			System.out.println("search faild");
-		//}else {	
-			System.out.println("search success");
-			model.addAttribute("qna", qnaServie.qnaSelect(qnaVO));
+		
+		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db에 없을 시
+		//	System.out.println("search faild");
+	//	}else {	
+		//	System.out.println("search success");
+		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); 필요없을거같음
 			
-			System.out.println("?" + vo.getQa_seq()); 
+			/*System.out.println("?" + vo.getQa_seq()); 
 			System.out.println("name?" + vo.getQa_name());
 			System.out.println("title?" + vo.getQa_title());
 			System.out.println("content?" + vo.getQa_content());
-			System.out.println("regDate?" + vo.getQa_regdate());
+			System.out.println("regDate?" + vo.getQa_regdate());*/
 			 
 			//return vo;
 		//}
+		
+		try {
+			System.out.println(vo.toString());
+			
+		}catch(NullPointerException e) {
+			System.out.println("문의 조회 실패");
+		}
 		
 		return vo;
 	}
@@ -163,6 +171,7 @@ public class MemberController {
 	
 		qnaServie.qnaInsert(qnaVO);
 		//System.out.println("qna controller");
+		
 		return "qna";
 	}
 
