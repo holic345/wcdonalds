@@ -92,7 +92,7 @@ public class MemberLoginController {
 		System.out.println(addressVO.toString());
 		memberService.winMemJoin(userVO);
 		memberService.winAddressJoin(addressVO);
-		return "main";
+		return "emailConfirm";
 	}
 	
 	@RequestMapping("logout.do")
