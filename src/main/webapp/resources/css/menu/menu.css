@@ -12491,7 +12491,7 @@ body.show-configurator .root {
 }
 
 .table-select-meal th.calories-column, .table-select-meal th.cost-column,
-	.table-select-meal th.tax-column, .table-select-meal th.side-column {
+	.table-select-meal th.tax-column, .table-select-meal th.side-column, .table-select-meal th.drink-column {
 	font-size: 18px;
 	font-size: 1.125rem;
 	text-transform: uppercase;
@@ -12506,9 +12506,8 @@ body.show-configurator .root {
 .table-select-meal .description-column .item-description {
 	color: #6a6a6a
 }
-
 .table-select-meal .calories-column, .table-select-meal .cost-column,
-	.table-select-meal .tax-column, .table-select-meal .side-column{
+	.table-select-meal .tax-column, .table-select-meal .side-column, .table-select-meal .drink-column{
 	color: #9f9f9f;
 	font-family: "Flama Condensed Medium", sans-serif
 }
