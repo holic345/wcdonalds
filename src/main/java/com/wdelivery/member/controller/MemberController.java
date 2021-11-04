@@ -186,7 +186,7 @@ public class MemberController {
 	}
 
 	//臾몄�� insert
-	@PostMapping("/qnaInsert.do")
+	@RequestMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
 		// System.out.println("1 = " + qnaVO.getQa_agree1());
 		// System.out.println("2 = " + qnaVO.getQa_agree2());
