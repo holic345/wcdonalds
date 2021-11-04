@@ -38,6 +38,14 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("serviceImpl : " + result);
 		return result;
 	}
+
+	public UserVO userSelect(String user_email) {
+		
+		return memberDAO.userSelect(user_email);
+	}
+
+	
+
 	
 	
 }

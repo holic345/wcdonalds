@@ -25,6 +25,7 @@
 						<div class="panel-body">
 							<section class="panel-section my-orders">
 								<table class="table-default table-order-details">
+									<c:if test="${cartList != null}">
 									<tbody>
 										<c:forEach var="cartList" items="${cartList}" varStatus="status">
 											<tr>
@@ -48,6 +49,7 @@
 											</tr>
 										</c:forEach>
 									</tbody>
+									</c:if>
 								</table>
 							</section>
 <!-- 										<section class="panel-section order-remarks">
@@ -117,8 +119,16 @@
 								<table class="table-default table-cost">
 									<tfoot class="total">
 										<tr>
-											<th scope="row"><span>총 주문합계:</span></th>
-											<td><span>₩ 8,900</span></td>
+											<c:choose>
+												<c:when test="${cartList == null}">
+													<th scope="row"><span>총 주문합계:</span></th>
+													<td><span>₩ 0</span></td>
+												</c:when>
+												<c:when test="${cartList != null}">
+													<th scope="row"><span>총 주문합계:</span></th>
+													<td><span>₩ 8,900</span></td>
+												</c:when>
+											</c:choose>
 										</tr>
 									</tfoot>
 									<tbody>

@@ -36,9 +36,10 @@
 												<div class="product-cost">
 													<span class="starting-price" style="margin-top:5px;">${selectBurger.b_price}</span>
 												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 											</div>
 										</a>
+										<button style="background-color:#ffbc0d; color:white; margin-left:150px; border-radius:25px; width:90px; height:30px;" 
+													onclick="javascript:location.href='order.do?b_code=${selectBurger.b_code}'"><h4>주문하기</h4></button>
 									</li>
 								</c:forEach>
 							</ul>
