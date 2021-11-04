@@ -10,11 +10,8 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/member-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/store-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/admin-servlet.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/appServlet/list-servlet.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/email-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
