@@ -29,29 +29,35 @@ public class MemberLoginController {
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
 
-		//status : err1 아이디 없음 , err2 탈퇴 혹은 정지당한 회원 ,err3 비밀번호 오류
-		// err4 : 공백 입력불가
-
+		//status : err1 ���대�� ���� , err2 ���� �뱀�� ��吏��뱁�� ���� ,err3 鍮�諛�踰��� �ㅻ�
+		// err4 : 怨듬갚 ���λ�媛�
+	
 		if(!userVO.getUser_email().equals("")&&userVO.getUser_email()!=null
 				&&userVO.getUser_password()!=null&&!userVO.getUser_password().equals("")) {
 			
 			UserVO findUserVO = memberService.findUser(userVO);
-			//입력한 아이디에 대한 정보가 DB에 저장되어 있을때
+			//���ν�� ���대���� ���� ��蹂닿� DB�� ���λ���� ������
 			
 			if(findUserVO==null) {
-				System.out.println("아이디 오류 ");
+				System.out.println("���대�� �ㅻ� ");
 
 				model.addAttribute("status","err1");
 
-				return "main";//입력한 이메일로 아무정보를 가져오지 못했을경우
+				return "main";//���ν�� �대��쇰� ��臾댁��蹂대�� 媛��몄�ㅼ� 紐삵����寃쎌��
 			}
 			if(userVO.getUser_password().equals(findUserVO.getUser_password())) {
-				//db에서 가져온 아이디와 패스워드가 사용자가 입력한 패스워드와 같을때
+				//db���� 媛��몄�� ���대���� �⑥�ㅼ����媛� �ъ�⑹��媛� ���ν�� �⑥�ㅼ������ 媛�����
 				if(findUserVO.getUser_status()==1) {
-					//회원상태 /  0 = 탈퇴,1 = 정상, 2 = 회원정지
+					//�������� /  0 = ����,1 = ����, 2 = ������吏�
 					session.setAttribute("userInfo", findUserVO);
+					
+					 //delete ggogogo
+					 session.setAttribute("name", findUserVO.getUser_name());
+					 session.setAttribute("phone", findUserVO.getUser_phone());
+					
+					
 				}else if(findUserVO.getUser_status()==3){
-					//이메일 미인증 유저
+					//�대��� 誘몄�몄� ����
 					session.setAttribute("userInfo", findUserVO);
 					model.addAttribute("status","err5");
 				}else {
@@ -61,16 +67,16 @@ public class MemberLoginController {
 				}
 				return "main";
 				}else {
-					//아이디는 디비에 있는데 비밀번호가 오류일때
-					System.out.println("비밀번호 오류 : 디비접근 했음");
+					//���대���� ��鍮��� ������ 鍮�諛�踰��멸� �ㅻ��쇰��
+					System.out.println("鍮�諛�踰��� �ㅻ� : ��鍮���洹� ����");
 
 					model.addAttribute("status","err3");
 
 					return "main";
 				}
 			}
-		//아이디 비밀번호가 공백으로 들어왔을 경우
-		System.out.println("비밀번호 혹은 아이디 공백 접근 : 에러");
+		//���대�� 鍮�諛�踰��멸� 怨듬갚�쇰� �ㅼ�댁���� 寃쎌��
+		System.out.println("鍮�諛�踰��� �뱀�� ���대�� 怨듬갚 ��洹� : ����");
 
 		model.addAttribute("status","err4");
 
@@ -98,9 +104,9 @@ public class MemberLoginController {
 	public String logout(HttpSession session) {
 		/*
 		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
-		 * System.out.println(userVO.toString()+" 세션 초기화");
+		 * System.out.println(userVO.toString()+" �몄�� 珥�湲고��");
 		 */
-		System.out.println("들어오나?");
+		System.out.println("�ㅼ�댁�ㅻ��?");
 		session.invalidate();
 		return "main";
 	}

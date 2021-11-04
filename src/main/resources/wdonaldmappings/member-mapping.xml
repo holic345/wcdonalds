@@ -21,4 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			insert into user_address(user_email, address1, address2,d_key) values (#{user_email},#{address1},#{address2},1)
 		]]>
 	</insert>
+	
+	<select id="userSelect" resultType="userVO">
+		select * from user_info where user_seq = #{user_seq}
+	</select>
+	<update id="mypageUpdate">
+		<![CDATA[
+		update user_info set user_phone = #{user_phone} where user_seq = #{user_seq}
+		]]>
+	</update>
 </mapper>

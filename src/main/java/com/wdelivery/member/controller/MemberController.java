@@ -1,9 +1,7 @@
 package com.wdelivery.member.controller;
 
 
-import java.text.SimpleDateFormat;
-
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
 
@@ -42,15 +40,22 @@ public class MemberController {
 		return "list";
 	}
 
-	@GetMapping("/mypage.do")
-	public String mypage() {
-		return "mypage";
-	}
-
+	//mypage 정보
 	@GetMapping("/mypageupdate.do")
 	public String mypageupdate() {
 		return "mypageupdate";
 	}
+	@PostMapping("/mypageUpdate.do")
+	public String mypageUpdate(UserVO userVO, HttpSession session) {
+		System.out.println("ㅜㅜ" + userVO.getUser_seq());
+		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
+		memberService.mypageUpdate(userVO);
+		System.out.println("mypageupdate !!controller ");
+		System.out.println(userVO.toString());
+		return "mypageupdate";
+	}
+	 
+	
 
 	@GetMapping("/addressBook.do")
 	public String addressBook() {
@@ -92,6 +97,7 @@ public class MemberController {
 		return "orderHistory";
 	}
 
+	//문의 조회
 	@PostMapping("/qnaSelect.do")
 	@ResponseBody
 	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
@@ -129,7 +135,6 @@ public class MemberController {
 		
 		return vo;
 	}
-	
 	@GetMapping("/qna.do")
 	public String qnapage() {
 		return "qna";
@@ -175,14 +180,14 @@ public class MemberController {
 		return "promotion";
 	}
 	
+	//문의 insert
 	@PostMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
 		//System.out.println("1 = " + qnaVO.getQa_agree1());
 		//System.out.println("2 = " + qnaVO.getQa_agree2());
 	
 		qnaServie.qnaInsert(qnaVO);
-		System.out.println(qnaVO.toString());
-		//System.out.println("qna controller");
+		System.out.println("insertcontroller => " + qnaVO.toString());
 		
 		return "qna";
 	}

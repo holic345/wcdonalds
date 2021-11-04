@@ -64,129 +64,7 @@
 <script src="/m/appstrap/js/jquery-migrate-1.2.1.min.js"></script> <!--Legacy jQuery support for quicksand plugin--> 
 <script src="resources/js/commons.js"></script>
 </head>
-<body>
-	<!-- <div class="skipMenu"><a href="#container">본문 바로가기</a></div>
-	<div class="wrapper ">
-		<header class="header">상단 고정 fixed 클래스 추가, 메뉴의 depth1 오버시 open 클래스 추가
-			<div class="headArea">
-				<strong class="hLogo"><a href="main.do" class="logo" title="메인으로 이동"><img src="resources/wcdonald.png" alt="맥도날드"></a></strong>
-				<nav class="hMenu">
-					<div class="menu">
-						<ul class="depth1">
-							<li>li 오버시 on 클래스 추가
-								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a>현재페이지 메뉴에 current 클래스 추가
-								<ul class="depth2">
-									<li><a href="list.do" class="dth2">버거</a></li>
-									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
-									<li><a href="javascript:gotoMenu(3);" class="dth2">맥모닝</a></li>
-									<li><a href="javascript:gotoMenu(15);" role="button">해피 스낵</a></li>
-									<li><a href="javascript:gotoMenu(7);" class="dth2">사이드 &amp; 디저트</a></li>
-									<li><a href="javascript:gotoMenu(9);" class="dth2">맥카페 &amp; 음료</a></li>
-									<li><a href="javascript:gotoMenu(5);" class="dth2">해피밀</a></li>
-									<li><a href="javascript:gotoMenu(11);" class="dth2">365일 즐거운 혜택</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="#" class="dth1 ">Store</a>
-								<ul class="depth2">
-									<li><a href="store.do" class="dth2">매장찾기</a></li>
-									<li><a href="/kor/store/mcdelivery.do" class="dth2">맥딜리버리</a></li>
-									<li><a href="/kor/store/mcdrive.do" class="dth2">맥드라이브</a></li>
-									<li><a href="/kor/store/rental.do" class="dth2">임차문의</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="/kor/promotion/list.do" class="dth1">What’s New</a>
-								<ul class="depth2">
-									<li><a href="/kor/promotion/list.do" class="dth2">프로모션</a></li>
-									<li><a href="/kor/news/list.do" class="dth2">새로운 소식</a></li>
-									 li><a href="/kor/kitchen.do" class="dth2">주방공개의 날</a></li
-								    <li><a href="/kor/happymeal/list.do" class="dth2">이달의 해피밀</a></li> 
-								</ul>
-							</li>
-							<li>
-								<a href="/kor/story/main.do" class="dth1">Story</a>
-								<ul class="depth2">
-									<li><a href="/kor/story/intro/brandintro.do" class="dth2">브랜드 소개</a></li>
-									<li><a href="/kor/story/society/list.do" class="dth2">사회적 책임과 지원</a></li>
-									<li><a href="/kor/story/competition/farmToRestaurant.do" class="dth2">맥도날드 경쟁력</a></li>
-									<li><a href="/kor/story/people/crew.do" class="dth2">맥도날드 사람들</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					//menu
-					<form id="commonSearchForm" method="post">
-					<div class="util">
-						<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
-						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
-						<a href="cart.do" class="btn_cart" title="카트로 이동">카트</a>
-						<div class="topSearch">검색 활성화인 경우 open 클래스 추가
-							<button type="button" class="srch">검색 열기</button>
-							<fieldset class="srchField">
-								<legend>통합검색</legend>
-								<div class="form">
-									<input type="text" name="commonSearchWord" id ="commonSearchWord" placeholder="매장 또는 메뉴정보를 검색하실 수 있습니다." title="검색어 입력" onkeypress="if( event.keyCode==13 ){gotoCommonSearch();}" >
-									<button type="button" class="btnMC btnM" onclick="gotoCommonSearch()">검색하기</button>
-								</div>
-								<button type="button" class="close">검색 닫기</button>
-							</fieldset>
-						</div>
-					</div>
-					</form>
-					//util
-					로그인 폼
-					<div id="login_pop" class="close">
-						<div class="wrapper shadow clearfix">
-							<div>
-								<p class="roboto">Wcdonalds</p>
-								<h3 class="tit01 tit_ico key01">일반 로그인</h3>
-								<form action="#" method="post">
-									<div class="input">
-										<input id="id" type="text" placeholder="아이디를 입력하세요" name="#" data-role="textfield">
-									</div>
-									<div class="input">
-										<input id="password" type="password" placeholder="비밀번호를 입력하세요"	name="#" data-role="textfield">
-										<button type="button" tabindex="-1" class="btn_view01"></button>
-									</div>
-									<div class="check">
-										<div>
-											<i class="fas fa-check"></i>
-										</div>
-										<p>앞으로도 자동으로 로그인</p>
-									</div>
-									<div>
-										<input type="submit" value="로그인">
-									</div>
-									<div>
-										<a href="javascript:alert('회원가입페이지는 준비중입니다.')">회원가입</a> <a
-											href="javascript:alert('비밀번호찾기 페이지는 준비중입니다.')">비밀번호 찾기</a>
-									</div>
-								</form>
-								아이디비번 버튼
-							로그인 창
-							</div>
-							<div class="simple_login">
-								<div class="btn_x">
-									<i class="fas fa-times"></i>
-								</div>
-								<h3 class="tit01 tit_ico lock">간편 로그인</h3>
-								<ul class="list">
-									<li class="naver"><a><span>네이버 로그인</span></a></li>
-									<li class="kakao"><a><span>카카오톡 로그인</span></a></li>
-								</ul>
-							</div>
-						</div>
-						//wrapper
-						<div class="dimmed"></div>
-					</div>
-				</nav>
-			</div>
-			<form id="gotoMenuForm" method="post">
-				<input type="hidden" name="sub_category_seq" id="gotoform_sub_category_seq">
-			</form>
-		</header>
-		//header -->
+
 		<div style="padding: 40px 0px 40px;">
 			<div class="container" id="sub-page-content">
 				<div class="row">
@@ -201,7 +79,9 @@
 							</ul>
 						</div>			
 					</div>
+					
 					<!-- 테이블 -->
+					
 					<div class="col-md-9">
 					<h3 class="title-divider mt_0"><span>마이페이지</span> <small>MyPage</small></h3>
 						<div class="page-content">
@@ -212,7 +92,7 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-xs-12">
-											<form action="/kr/updateProfile.html" method="post"
+											<form action="mypageUpdate.do" method="post"
 												role="form" data-form-sync="#form_consentnewnumber"
 												class="form form-register" id="form_accountsetting"
 												name="form_accountsetting" data-required-symbol="*"
@@ -232,7 +112,7 @@
 																<input type="text"
 																	class="form-control input-lg required no-special-characters"
 																	id="form_accountsetting_firstname" name="firstName"
-																	value="이름가져오기" />
+																	value="잉ㅇ" readonly/><%-- ${sessionScope.name} --%>
 															</div>
 														</div>
 													</div>
@@ -243,7 +123,7 @@
 																	for="form_accountsetting_gender">성별:</label> <select
 																	name="gender" id="form_accountsetting_gender"
 																	class="select-lg">
-																	<option value=""></option>
+																	<option value="">${gender}</option>
 																	<option value="Male">남</option>
 																	<option selected="selected" value="Female">여</option>
 																	<option value="Do Not Specify">선택 안함</option>
@@ -260,7 +140,7 @@
 																	class="form-control input-lg required number digit-only"
 																	maxlength="11" id="form_accountsetting_contactno"
 																	name="contactNo" placeholder="숫자만 입력"
-																	value="번호 가져오기" />
+																	value="${sessionScope.phone}" />
 															</div>
 														</div>
 													</div>
@@ -331,5 +211,6 @@
 	</div>
 </div>
 <!--  myPage 사이드바 <div> 부분 -->
+
 
 <%@ include file="footer.jsp"%>
