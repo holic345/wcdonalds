@@ -52,7 +52,7 @@ public class MemberController {
 	}
 	@PostMapping("/mypageUpdate.do")
 	public String mypageUpdate(UserVO userVO, HttpSession session) {
-		System.out.println("ㅜㅜ" + userVO.getUser_seq());
+		System.out.println("����" + userVO.getUser_seq());
 		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
 		memberService.mypageUpdate(userVO);
 		System.out.println("mypageupdate !!controller ");
@@ -102,18 +102,18 @@ public class MemberController {
 		return "orderHistory";
 	}
 
-	//문의 조회
+	//臾몄�� 議고��
 	@PostMapping("/qnaSelect.do")
 	@ResponseBody
 	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
 
 		
-		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db占쏙옙 占쏙옙占쏙옙 占쏙옙
+		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db������ ������������ ������
 		//	System.out.println("search faild");
 	//	}else {	
 		//	System.out.println("search success");
-		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); 占십울옙占쏙옙占쏙옙키占쏙옙占
+		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); �����몄���������������ㅵ��������
 
 		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) {
 			System.out.println("search faild");
@@ -135,7 +135,7 @@ public class MemberController {
 			System.out.println(vo.toString());
 			
 		}catch(NullPointerException e) {
-			System.out.println("占쏙옙占쏙옙 占쏙옙회 占쏙옙占쏙옙");
+			System.out.println("������������ �������� ������������");
 		}
 		return vo;
 	}
@@ -185,7 +185,7 @@ public class MemberController {
 		return "promotion";
 	}
 
-	//문의 insert
+	//臾몄�� insert
 	@PostMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
 		// System.out.println("1 = " + qnaVO.getQa_agree1());
