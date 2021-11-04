@@ -1,7 +1,7 @@
 package com.wdelivery.member.vo;
 
 public class UserAddressVO {
-	private int user_seq;
+//	private int user_seq;
 	private String user_email;
 	public String getUser_email() {
 		return user_email;
@@ -14,12 +14,12 @@ public class UserAddressVO {
 	private String address2;
 	private int address_seq;
 	private String d_key;
-	public int getUser_seq() {
-		return user_seq;
-	}
-	public void setUser_seq(int user_seq) {
-		this.user_seq = user_seq;
-	}
+//	public int getUser_seq() {
+//		return user_seq;
+//	}
+//	public void setUser_seq(int user_seq) {
+//		this.user_seq = user_seq;
+//	}
 	public String getAddress1() {
 		return address1;
 	}
@@ -46,7 +46,7 @@ public class UserAddressVO {
 	}
 	@Override
 	public String toString() {
-		return "UserAddressVO [user_seq=" + user_seq + ", user_email=" + user_email + ", address1=" + address1
+		return "UserAddressVO [user_email=" + user_email + ", address1=" + address1
 				+ ", address2=" + address2 + ", address_seq=" + address_seq + ", d_key=" + d_key + "]";
 	}
 	

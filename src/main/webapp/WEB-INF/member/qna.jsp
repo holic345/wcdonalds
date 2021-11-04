@@ -235,7 +235,8 @@
 											</td>
 											<th scope="row">비밀번호</th>
 											<td>
-												<input class="int w432" type="password" name="qa_password" id="CUST_PASSWORD">
+												<input class="int w432" type="password" 
+												name="qa_password" id="CUST_PASSWORD">
 											</td>
 										</tr>
 										<tr>
@@ -303,7 +304,7 @@
 							</div>
 							<!-- submit button -->
 							<button type="button" class="btnMC btnM" onclick="search();">문의 조회하기</button>
-							<span id="req3" style="red"></span> 
+							<span id="req" style="red"></span> 
 	
 
 							<div id="LIST_DIV"></div>
@@ -473,12 +474,13 @@
 					oEditors.getById["ACPT_DESC"].exec("FOCUS"); //포커싱 
 					return; 
 				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
-			
+				
 				var result = confirm("문의등록 하시겠습니까?"); 
+				
 				if(result){ 
 					var a = $("input[name='qa_agree1']:checked").val();
 					var b = $("input[name='qa_agree2']:checked").val();
-					//alert("동의 a =" + a);
+					//alert("동의 a =" + a); ,
 					
 					if(a == 1 && b == 1){
 					
@@ -513,16 +515,11 @@
 				return false;
 			}
 			
-			alert("문의조회버튼클릭");
-
-		//var qa_email = $("#EMAIL").val();
-			
-			
 			var qa_email = document.getElementById('EMAIL2').value;
 			var qa_password = document.getElementById('CUST_PASSWORD2').value;
 
 					$.ajax({
-						url:"qna1.do",
+						url:"qnaSelect.do",
 						data:{
 							qa_email : qa_email,
 							qa_password : qa_password
@@ -533,10 +530,7 @@
 							//alert(data);
 							//alert("ajax 성공");
 							
-							//var d = data["qa_seq"];
-							//alert("d = " + d);
-							
-							$("#req3").html(
+							$("#req").html(
 								"<div class='reply-view-area' id='LIST_REPLY_DIV'>" + 
 									"<table class='reply-view' >" +
 										"<colgroup>" + 
@@ -566,7 +560,6 @@
 									"<tr>" +
 										"<th scope='row'>내용</th>" +
 											"<td colspan='4'>" + data["qa_content"] + "</td>" +
-		
 									"</tr>" +
 									"<tr>" +
 										"<th scope='row' class='color-mcdRed'>답변</th>" + 
@@ -581,9 +574,8 @@
 							);
 						},
 						error:function(data){
-							alert("ajax 실패");
+							alert("이메일과 비밀번호를 다시 확인해주세요."); //ajax failed
 						}
-						
 					})
 			
 		}

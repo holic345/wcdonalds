@@ -34,87 +34,12 @@
 												<strong class="ko">${selectBurger.b_name}</strong>
 												<em class="en">${selectBurger.b_e_name}</em>
 												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
+													<span class="starting-price" style="margin-top:5px;">${selectBurger.b_price}</span>
 												</div>
 												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 											</div>
 										</a>
 									</li>
-									<%-- <li>
-										<a href="javascript:goDetail(396)" data-seq="396">
-											<div class="thum">
-												<img src="${selectBurger.b_img_path}" alt="슈니언 버거">
-											</div>
-											<div class="name">
-												<strong class="ko">${selectBurger.b_name}</strong>
-												<em class="en">${selectBurger.b_e_name}</em>
-												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
-												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-											</div>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:goDetail(387)" data-seq="387">
-											<div class="thum">
-												<img src="${selectBurger.b_img_path}" alt="트리플 치즈버거">
-											</div>
-											<div class="name">
-												<strong class="ko">${selectBurger.b_name}</strong>
-												<em class="en">${selectBurger.b_e_name}</em>
-												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
-												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-											</div>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:goDetail(15)" data-seq="15">
-											<div class="thum">
-												<img src="${selectBurger.b_img_path}" alt="빅맥®">
-											</div>
-											<div class="name">
-												<strong class="ko">${selectBurger.b_name}<sub class="reg">®</sub></strong>
-												<em class="en">${selectBurger.b_e_name}<sub class="reg">®</sub></em>
-												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
-												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-											</div>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:goDetail(19)" data-seq="19">
-											<div class="thum">
-												<img src="${selectBurger.b_img_path}" alt="맥스파이시® 상하이 버거">
-											</div>
-											<div class="name">
-												<strong class="ko">${selectBurger.b_name}</strong>
-												<em class="en">${selectBurger.b_e_name}</em>
-												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
-												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-											</div>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:goDetail(1)" data-seq="1">
-											<div class="thum">
-												<img src="${selectBurger.b_img_path}" alt="1955 버거™">
-											</div>
-											<div class="name">
-												<strong class="ko">${selectBurger.b_name}</strong>
-												<em class="en">${selectBurger.b_e_name}</em>
-												<div class="product-cost">
-													<span class="starting-price" style="margin-top:5px;">₩ ${selectBurger.b_price}</span>
-												</div>
-												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-											</div>
-										</a>
-									</li> --%>
 								</c:forEach>
 							</ul>
 							<div class="btnMore" id="btnMore">
