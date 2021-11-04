@@ -29,26 +29,26 @@ public class MemberLoginController {
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
 
-		//status : err1 아이디 없음 , err2 탈퇴 혹은 정지당한 회원 ,err3 비밀번호 오류
-		// err4 : 공백 입력불가
+		//status : err1 �븘�씠�뵒 �뾾�쓬 , err2 �깉�눜 �샊�� �젙吏��떦�븳 �쉶�썝 ,err3 鍮꾨�踰덊샇 �삤瑜�
+		// err4 : 怨듬갚 �엯�젰遺덇�
 
 		if(!userVO.getUser_email().equals("")&&userVO.getUser_email()!=null
 				&&userVO.getUser_password()!=null&&!userVO.getUser_password().equals("")) {
 			
 			UserVO findUserVO = memberService.findUser(userVO);
-			//입력한 아이디에 대한 정보가 DB에 저장되어 있을때
+			//�엯�젰�븳 �븘�씠�뵒�뿉 ���븳 �젙蹂닿� DB�뿉 ���옣�릺�뼱 �엳�쓣�븣
 			
 			if(findUserVO==null) {
-				System.out.println("아이디 오류 ");
+				System.out.println("�븘�씠�뵒 �삤瑜� ");
 
 				model.addAttribute("status","err1");
 
-				return "main";//입력한 이메일로 아무정보를 가져오지 못했을경우
+				return "main";//�엯�젰�븳 �씠硫붿씪濡� �븘臾댁젙蹂대�� 媛��졇�삤吏� 紐삵뻽�쓣寃쎌슦
 			}
 			if(userVO.getUser_password().equals(findUserVO.getUser_password())) {
-				//db에서 가져온 아이디와 패스워드가 사용자가 입력한 패스워드와 같을때
+				//db�뿉�꽌 媛��졇�삩 �븘�씠�뵒�� �뙣�뒪�썙�뱶媛� �궗�슜�옄媛� �엯�젰�븳 �뙣�뒪�썙�뱶�� 媛숈쓣�븣
 				if(findUserVO.getUser_status()==1) {
-					//회원상태 /  0 = 탈퇴,1 = 정상, 2 = 회원정지
+					//�쉶�썝�긽�깭 /  0 = �깉�눜,1 = �젙�긽, 2 = �쉶�썝�젙吏�
 					session.setAttribute("userInfo", findUserVO);
 				}else if(findUserVO.getUser_status()==3){
 					//이메일 미인증 유저
@@ -61,16 +61,16 @@ public class MemberLoginController {
 				}
 				return "main";
 				}else {
-					//아이디는 디비에 있는데 비밀번호가 오류일때
-					System.out.println("비밀번호 오류 : 디비접근 했음");
+					//�븘�씠�뵒�뒗 �뵒鍮꾩뿉 �엳�뒗�뜲 鍮꾨�踰덊샇媛� �삤瑜섏씪�븣
+					System.out.println("鍮꾨�踰덊샇 �삤瑜� : �뵒鍮꾩젒洹� �뻽�쓬");
 
 					model.addAttribute("status","err3");
 
 					return "main";
 				}
 			}
-		//아이디 비밀번호가 공백으로 들어왔을 경우
-		System.out.println("비밀번호 혹은 아이디 공백 접근 : 에러");
+		//�븘�씠�뵒 鍮꾨�踰덊샇媛� 怨듬갚�쑝濡� �뱾�뼱�솕�쓣 寃쎌슦
+		System.out.println("鍮꾨�踰덊샇 �샊�� �븘�씠�뵒 怨듬갚 �젒洹� : �뿉�윭");
 
 		model.addAttribute("status","err4");
 
@@ -89,6 +89,7 @@ public class MemberLoginController {
 	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
 		
 		System.out.println(userVO.toString());
+		System.out.println(addressVO.toString());
 		memberService.winMemJoin(userVO);
 		memberService.winAddressJoin(addressVO);
 		return "main";
@@ -96,11 +97,16 @@ public class MemberLoginController {
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
+<<<<<<< HEAD
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		System.out.println(userVO.toString()+" �꽭�뀡 珥덇린�솕");
+=======
 		/*
 		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
 		 * System.out.println(userVO.toString()+" 세션 초기화");
 		 */
 		System.out.println("들어오나?");
+>>>>>>> 2f5776c1302140cc5336b1489d202aa86547184b
 		session.invalidate();
 		return "main";
 	}
