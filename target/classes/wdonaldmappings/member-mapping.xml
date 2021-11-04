@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 	
+
 	<insert id="winMemJoin">
 		<![CDATA[
 			insert into user_info (user_email, user_password, user_name, user_gender, user_phone, terms_agree, user_agreedate, sms_agree, email_agree, user_birth,user_regdate,user_status) 
