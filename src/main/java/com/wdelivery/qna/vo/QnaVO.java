@@ -2,11 +2,18 @@ package com.wdelivery.qna.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
 public class QnaVO {
 	private int qa_seq;
 	private String qa_title;
 	private String qa_content;
 	private String qa_password;
+	//@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date qa_regdate;
 	private int qa_status;
 	private String qa_store;
@@ -128,6 +135,14 @@ public class QnaVO {
 
 	public void setQa_agree2(String qa_agree2) {
 		this.qa_agree2 = qa_agree2;
+	}
+
+	@Override
+	public String toString() {
+		return "QnaVO [qa_seq=" + qa_seq + ", qa_title=" + qa_title + ", qa_content=" + qa_content + ", qa_password="
+				+ qa_password + ", qa_regdate=" + qa_regdate + ", qa_status=" + qa_status + ", qa_store=" + qa_store
+				+ ", qa_name=" + qa_name + ", qa_phone1=" + qa_phone1 + ", qa_phone2=" + qa_phone2 + ", qa_phone3="
+				+ qa_phone3 + ", qa_email=" + qa_email + ", qa_agree1=" + qa_agree1 + ", qa_agree2=" + qa_agree2 + "]";
 	}
 
 }

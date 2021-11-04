@@ -21,8 +21,7 @@ public class QnaServiceImpl implements QnaService {
 
 	
 	  @Override
-	  public QnaVO qnaSelect(QnaVO qnaVO) {
-		  System.out.println("QNADAO¿¡ qnavo select => " + qnaVO.getQa_name()); 
+	  public QnaVO qnaSelect(QnaVO qnaVO) throws Exception{
 		  return qnaDAO.qnaSelect(qnaVO);
 	  }
 	 

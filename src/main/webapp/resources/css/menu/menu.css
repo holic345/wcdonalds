@@ -12491,7 +12491,7 @@ body.show-configurator .root {
 }
 
 .table-select-meal th.calories-column, .table-select-meal th.cost-column,
-	.table-select-meal th.tax-column {
+	.table-select-meal th.tax-column, .table-select-meal th.side-column {
 	font-size: 18px;
 	font-size: 1.125rem;
 	text-transform: uppercase;
@@ -12508,21 +12508,20 @@ body.show-configurator .root {
 }
 
 .table-select-meal .calories-column, .table-select-meal .cost-column,
-	.table-select-meal .tax-column {
+	.table-select-meal .tax-column, .table-select-meal .side-column{
 	color: #9f9f9f;
 	font-family: "Flama Condensed Medium", sans-serif
 }
 
-.table-select-meal tr.selected .calories-column, .table-select-meal tr.selected .cost-column
-	{
-	color: #44900c
+.table-select-meal > tbody > .selected .calories-column, .table-select-meal > tbody > .selected .cost-column {
+	color: #44900c;
 }
 
 .table-select-meal tr.disabled .calories-column, .table-select-meal tr.disabled .cost-column,
 	.table-select-meal tr.disabled .description-column, .table-select-meal tr.disabled .item-description,
 	.table-select-meal tr.disabled .item-title, .table-select-meal tr.disabled .tax-column
 	{
-	color: #ccc
+	color: #ccc;
 }
 
 .table-select-meal tr.disabled .picture-column {

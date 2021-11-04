@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.KakaoUserVO;
+import com.wdelivery.member.vo.NaverUserVO;
 import com.wdelivery.member.vo.UserAddressVO;
 import com.wdelivery.member.vo.UserVO;
 
@@ -49,6 +50,10 @@ public class MemberLoginController {
 				if(findUserVO.getUser_status()==1) {
 					//�쉶�썝�긽�깭 /  0 = �깉�눜,1 = �젙�긽, 2 = �쉶�썝�젙吏�
 					session.setAttribute("userInfo", findUserVO);
+				}else if(findUserVO.getUser_status()==3){
+					//이메일 미인증 유저
+					session.setAttribute("userInfo", findUserVO);
+					model.addAttribute("status","err5");
 				}else {
 
 					model.addAttribute("status","err2");
@@ -74,9 +79,8 @@ public class MemberLoginController {
 	}
 	
 	@RequestMapping("kakaoLogin.do")
-	@ResponseBody
 	public String kakaoLogin(@RequestBody KakaoUserVO kakaoVO,HttpSession session) {
-		
+		session.setAttribute("kakaoSession", kakaoVO);
 		System.out.println(kakaoVO.toString());
 		return "main";
 	}
@@ -93,9 +97,31 @@ public class MemberLoginController {
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
+<<<<<<< HEAD
 		UserVO userVO = (UserVO)session.getAttribute("userInfo");
 		System.out.println(userVO.toString()+" �꽭�뀡 珥덇린�솕");
+=======
+		/*
+		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		 * System.out.println(userVO.toString()+" 세션 초기화");
+		 */
+		System.out.println("들어오나?");
+>>>>>>> 2f5776c1302140cc5336b1489d202aa86547184b
 		session.invalidate();
 		return "main";
+	}
+	
+	@RequestMapping("naverLogin.do")
+	@ResponseBody
+	public String naverLogin(@RequestBody NaverUserVO naverVO,HttpSession session) {
+		session.setAttribute("naverSession", naverVO);
+		session.setAttribute("naverAccessKey", naverVO.getAccessToken());
+		System.out.println(naverVO.toString());
+		return "main";
+	}
+	
+	@RequestMapping("naverCallback.do")
+	public String naverCallback() {
+		return "naverCallback";
 	}
 }
