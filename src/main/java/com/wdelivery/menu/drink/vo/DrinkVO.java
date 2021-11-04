@@ -11,6 +11,8 @@ public class DrinkVO {
 	private String d_n_img_path;
 	private String d_n_img;
 	private int d_status;
+	private int category_code;
+	private String d_e_name;
 	
 	public String getD_code() {
 		return d_code;
@@ -65,6 +67,18 @@ public class DrinkVO {
 	}
 	public void setD_status(int d_status) {
 		this.d_status = d_status;
+	}
+	public int getCategory_code() {
+		return category_code;
+	}
+	public void setCategory_code(int category_code) {
+		this.category_code = category_code;
+	}
+	public String getD_e_name() {
+		return d_e_name;
+	}
+	public void setD_e_name(String d_e_name) {
+		this.d_e_name = d_e_name;
 	}
 
 }

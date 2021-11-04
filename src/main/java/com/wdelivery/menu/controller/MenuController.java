@@ -11,6 +11,8 @@ import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
 import com.wdelivery.menu.drink.service.DrinkService;
 import com.wdelivery.menu.drink.vo.DrinkVO;
+import com.wdelivery.menu.side.service.SideService;
+import com.wdelivery.menu.side.vo.SideVO;
 
 @Controller
 public class MenuController {
@@ -20,6 +22,9 @@ public class MenuController {
 	
 	@Autowired
 	public DrinkService drinkService;
+	
+	@Autowired
+	public SideService sideService;
 	
 	@GetMapping("/burger.do")
 	public String selectBurger(Model model) {
@@ -39,6 +44,16 @@ public class MenuController {
 		System.out.println("selectDrink");
 		
 		return "drink";
+	}
+	
+	@GetMapping("/side.do")
+	public String selectSide(Model model) {
+		List<SideVO> selectSide = sideService.selectSide();
+		model.addAttribute("selectSide", selectSide);
+		
+		System.out.println("selectSide");
+		
+		return "side";
 	}
 
 }
