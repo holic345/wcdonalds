@@ -114,13 +114,19 @@ public class MemberLoginController {
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
+
+		UserVO userVO = (UserVO)session.getAttribute("userInfo");
+		System.out.println(userVO.toString()+" �꽭�뀡 珥덇린�솕");
+
 		/*
 		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
 		 * System.out.println(userVO.toString()+" �몄�� 珥�湲고��");
 		 */
-		System.out.println("�ㅼ�댁�ㅻ��?");
+
+		System.out.println("들어오나?");
+
 		session.invalidate();
-		return "redirect:main.do";
+		return "main";
 	}
 	
 	@RequestMapping("naverLogin.do")
