@@ -56,9 +56,9 @@
 								</ul>
 							</li>
 							<li>
-								<a href="/kor/promotion/list.do" class="dth1">What’s New</a>
+								<a href="main.do" class="dth1">What’s New</a>
 								<ul class="depth2">
-									<li><a href="/kor/promotion/list.do" class="dth2">프로모션</a></li>
+									<li><a href="promotion.do" class="dth2">프로모션</a></li>
 									<li><a href="/kor/news/list.do" class="dth2">새로운 소식</a></li>
 									<!--  li><a href="/kor/kitchen.do" class="dth2">주방공개의 날</a></li -->
 								    <li><a href="/kor/happymeal/list.do" class="dth2">이달의 해피밀</a></li> 
@@ -196,7 +196,7 @@
 					</div>
 				</div>
 					<div class="col-md-9">
-					<script type="text/javascript" src="resources/js/join/join.js"></script>
+					<script type="text/javascript" src="resources/js/join/memJoin.js"></script>
 					<h3 class="title-divider mt_0">
 						<span>회원가입</span>
 						<small>Join Us</small>
@@ -214,7 +214,8 @@
 						<div class="form-group">
 							<label for="m_email" class="dis_b">이메일</label>
 							<input name="user_email" id="m_email" type="email"
-								class="form-control placeholder" placeholder="example@wdonald.com" /><span></span>
+								class="form-control placeholder" placeholder="example@wdonald.com" /><span id="emailchecktxt"></span><br/>
+							<button class="btn btn-md btn-red" id="email_chk" >중복체크</button>
 						</div>
 						<div class="form-group">
 							<label for="m_name">성명</label> 
@@ -278,14 +279,14 @@
 							<div class="input-group">
 								<input name="address1" id="m_zipcode" type="text" class="form-control placeholder" readonly="readonly" /> 
 									<span class="input-group-btn">
-									<a href="javascript:openDaumPostcode()"	class="btn btn-md btn-default" id="zip_find" zip="m_zipcode" address1="m_address" focus="m_address">
+									<a href="javascript:openDaumPostcode()"	class="btn btn-md btn-default" id="zip_find" zip="m_zipcode" address1="m_address" focus="address2">
 									<i class="fa fa-search"></i></a></span>
 							</div>
 							<input name="address2" id="m_address" type="text" class="form-control placeholder mt_10" />
 							<!-- <input type="hidden" name="d_key" value="1"> -->
 						</div>						
 						<div class="form-group">
-							<label for="m_mobile1" class="dis_b">핸드폰</label>
+							<label for="m_mobile1" class="dis_b" >핸드폰</label>
 								<!-- <select	name="m_mobile1" id="m_mobile1" class="form-control dis_ib"	style="width: 30%">
 									<option value="010">010</option>
 									<option value="011">011</option>
@@ -296,7 +297,7 @@
 								</select> - 
 								<input name="m_mobile2" id="m_mobile2" maxlength="4" type="text" class="form-control placeholder dis_ib" style="width: 30%" />
 								 -  -->
-								 <input name="user_phone" id="m_mobile3" maxlength="11" type="text"	class="form-control placeholder dis_ib" style="width: 30%" />
+								 <input name="user_phone" id="m_mobile3" maxlength="11" type="text"	class="form-control placeholder dis_ib" style="width: 30%" placeholder="'-'은 빼고 입력해주세요!"/>
 						</div>
 							<a name="m_birth_cal"></a>
 								<div class="form-group">
@@ -307,9 +308,9 @@
 						</div>
 						<div class="form-group">
 							<label for="m_sex" class="dis_b">성별</label>
-							<label for="m_sex1"	class="radio-inline">
+							<label for="m_sex"	class="radio-inline">
 								<input type="radio" name="user_gender" id="m_sex1" value="0" />남자</label>
-								 <label for="m_sex2" class="radio-inline">
+								 <label for="m_sex" class="radio-inline">
 								 <input type="radio" name="user_gender" id="m_sex2" value="1" />여자</label>
 						</div>
 
@@ -320,7 +321,7 @@
 							<input type="checkbox" name="email_agree" id="email_agree_ck" value="1" />광고성 E-Mail수신동의</label>
 					<div class="b_btn_c">
 					<!-- <input type="hidden" name="user_status" value="3"> -->
-						<button class="btn btn-md btn-red" id="join_ok" type="submit">확인</button>
+						<button class="btn btn-md btn-red" id="join_ok" type="submit" >확인</button>
 						<a href="javascript:history.back();" class="btn btn-md btn-default">뒤로</a>
 					</div>
 					</form>

@@ -15,190 +15,7 @@ function join_chk(){
 	}
 }
 
-function input_chk(){
-	var form = document.join_form;
-	var introduction = form.introduction.value;
-	var introduction = introduction.replace(/^\s*/,'').replace(/\s*$/, ''); 
-
-	if (form.pass_chk_ok.value=="false"){
-		alert("패스워드를 확인해주세요");
-		form.m_password_chk.focus();
-		return;
-	}
-	
-	if (form.m_name.value==""){
-		alert("성명을 입력해주세요");
-		form.m_name.focus();
-		return;
-	}
-
-	if (form.m_id.value==""){
-		alert("아이디를 입력해주세요");
-		form.m_id.focus();
-		return;
-	}
-	
-	if (form.m_id.value.length < 4 ){
-		alert("4자이상 사용해주시기 바랍니다.");
-		form.m_id.focus();
-		return;
-	}
-
-	if (form.m_password.value==""){
-		alert("패스워드를 입력해주세요");
-		form.m_password.focus();
-		return;
-	}
-
-	if (form.m_password_chk.value==""){
-		alert("패스워드 확인을 입력해주세요");
-		form.m_password_chk.focus();
-		return;
-	}
-
-	if (form.m_password.value != form.m_password_chk.value){
-		alert("입력하신 패스워드가 다릅니다");
-		form.m_password_chk.focus();
-		return;
-	}
-
-	if (form.m_zipcode1.value==""){
-		alert("우편번호를 입력해주세요");
-		form.m_zipcode1.focus();
-		return;
-	}
-
-	if (form.m_zipcode2.value==""){
-		alert("우편번호를 입력해주세요");
-		form.m_zipcode2.focus();
-		return;
-	}
-
-	if (form.m_address1.value==""){
-		alert("주소를 입력해주세요");
-		form.m_address1.focus();
-		return;
-	}	
-
-	if (form.m_address2.value==""){
-		alert("주소를 입력해주세요");
-		form.m_address2.focus();
-		return;
-	}	
-
-	if (form.m_email1.value==""){
-		alert("이메일주소를 입력해주세요");
-		form.m_email1.focus();
-		return;
-	}	
-
-	if (form.m_email2.value==""){
-		alert("이메일주소를 입력해주세요");
-		form.m_email2.focus();
-		return;
-	}	
-
-	if (form.m_email2.value=="E00"){
-		if (form.m_email3.value=="")	{
-			alert("이메일주소를 입력해주세요");
-			form.m_email3.focus();
-			return;
-		}
-	}	
-
-	if (form.m_tel1.value==""){
-		alert("집전화번호를 입력해주세요");
-		form.m_tel1.focus();
-		return;
-	}	
-
-	if (form.m_tel2.value==""){
-		alert("집전화번호를 입력해주세요");
-		form.m_tel2.focus();
-		return;
-	}	
-
-	if (form.m_tel3.value==""){
-		alert("집전화번호를 입력해주세요");
-		form.m_tel3.focus();
-		return;
-	}	
-
-	if (form.m_mobile1.value==""){
-		alert("휴대폰번호를 입력해주세요");
-		form.m_mobile1.focus();
-		return;
-	}	
-
-	if (form.m_mobile2.value==""){
-		alert("휴대폰번호를 입력해주세요");
-		form.m_mobile2.focus();
-		return;
-	}	
-
-	if (form.m_mobile3.value==""){
-		alert("휴대폰번호를 입력해주세요");
-		form.m_mobile3.focus();
-		return;
-	}	
-
-	if (form.m_birth_yy.value==""){
-		alert("생년월일을 입력해주세요");
-		form.m_birth_yy.focus();
-		return;
-	}	
-
-	if (form.m_birth_mm.value==""){
-		alert("생년월일을 입력해주세요");
-		form.m_birth_mm.focus();
-		return;
-	}	
-
-	if (form.m_birth_dd.value==""){
-		alert("생년월일을 입력해주세요");
-		form.m_birth_dd.focus();
-		return;
-	}	
-
-	var sex_chk_count = 0;
-	for (k=0;k<form.m_sex.length;k++){
-		if (form.m_sex[k].checked == true){
-			sex_chk_count ++;
-		}
-	}
-		
-	if (sex_chk_count <= 0){
-		alert("성별을 선택해주세요");
-		return;
-	}
-	
-	var route_chk_count = 0;
-	for (k=0;k<form.m_route.length;k++){
-		if (form.m_route[k].checked == true)
-		{
-			route_chk_count ++;
-		}
-	}
-	if (route_chk_count <= 0){
-		alert("가입경로를 선택해주세요");
-		return;
-	}
-
-	if (form.introduction.value==""){
-		alert("자기소개를 입력해주세요");
-		form.introduction.focus();
-		return;
-	}
-
-	if (introduction.length < 20 )
-	{
-		alert("자기소개를 20자 이상 작성하셔야 합니다.");
-		form.introduction.focus();
-		return;
-	}
-
-	form.submit();
-}
+/*----------------------------------------------------------------------------------*/
 
 function photo_up(){
 	window.open("/join/photo_up.asp","photo","width=600,height=250");
@@ -292,24 +109,24 @@ function checkOnlyAlphabetNumber(str){
 }
 
 function ResutCheckID(form){
-	var id = document.getElementById("m_id").value;
+	var email = document.getElementById("m_email").value;
 	var form = document.getElementById("join_form")
-	var result = checkOnlyAlphabetNumber(id);
+	//var result = checkOnlyAlphabetNumber(email);
 	
-	if (id != '')
+	if (email != '')
 	{
-		if(result == false)	{
-			alert("사용 ID는 영문 또는 숫자만 사용가능합니다");
-			form.m_id.value = "";
-			form.m_id.focus();
+		/*if(result == false)	{
+			alert("사용 email는 영문 또는 숫자만 사용가능합니다");
+			form.m_email.value = "";
+			form.m_email.focus();
 			return false;
-		}
+		}*/
 	}
 	
 	
 	myAjax = createAjax();
-	var toSend = id;
-	var url  = "id_check.asp?m_id="+escape(toSend);
+	var toSend = email;
+	var url  = "email_check.asp?m_id="+escape(toSend);
 	
 	myAjax.onreadystatechange = receiveResponse;
 	myAjax.open("get",url,true);
@@ -332,11 +149,11 @@ function receiveResponse(){
 	if(myAjax.readyState == 4){
 		if(myAjax.status == 200){
 			if(myAjax.responseText == "true"){
-				//alert("사용가능한 ID입니다.");
-				document.getElementById("idchecktxt").innerHTML = "<span class='text-success'>사용가능한 ID입니다.</span>";
+				alert("사용가능한 email입니다.");
+				document.getElementById("emailchecktxt").innerHTML = "<span class='text-success'>사용가능한 Email입니다.</span>";
 			}else{
 				//document.getElementById("m_id").value = "";
-				document.getElementById("idchecktxt").innerHTML = "<span class='text-danger'>사용할 수 없는 ID입니다.</span>";
+				document.getElementById("emailchecktxt").innerHTML = "<span class='text-danger'>사용할 수 없는 Email입니다.</span>";
 			}
 		}else{
 			//alert("서버에러200 status:"+myAjax.responseXML.status);
