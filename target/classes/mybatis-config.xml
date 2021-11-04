@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.wdelivery.menu.burger.vo.BurgerVO" alias="burgerVO"/>
 		
 		<typeAlias type="com.wdelivery.cart.vo.CartVO" alias="cartVO"/>
+		<typeAlias type="com.wdelivery.faq.vo.FaqVO" alias="faqVO"/>
 	</typeAliases>
 	<mappers>		
 		<mapper resource="wdonaldmappings/member-mapping.xml"/>
@@ -17,5 +18,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="wdonaldmappings/burger-mapping.xml"/>
 		
 		<mapper resource="wdonaldmappings/cart-mapping.xml"/>
+		<mapper resource="wdonaldmappings/faq-mapping.xml"/>
 	</mappers>
 </configuration>
