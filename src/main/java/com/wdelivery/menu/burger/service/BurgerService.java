@@ -6,7 +6,7 @@ import com.wdelivery.menu.burger.vo.BurgerVO;
 
 public interface BurgerService {
 
-	List<BurgerVO> listBurger();
+	public List<BurgerVO> selectBurger();
 	
 	BurgerVO detailBurger(String b_code);
 	

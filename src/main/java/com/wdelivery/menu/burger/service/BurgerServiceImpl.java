@@ -2,8 +2,7 @@ package com.wdelivery.menu.burger.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wdelivery.menu.burger.dao.BurgerDAO;
@@ -12,12 +11,13 @@ import com.wdelivery.menu.burger.vo.BurgerVO;
 @Service
 public class BurgerServiceImpl implements BurgerService {
 
-	@Inject
+	@Autowired
 	BurgerDAO burgerDAO;
 
 	@Override
-	public List<BurgerVO> listBurger() {
-		return burgerDAO.listBurger();
+	public List<BurgerVO> selectBurger(){
+		System.out.println("selectBurger");
+		return burgerDAO.selectBurger();
 	}
 
 	@Override
@@ -42,6 +42,6 @@ public class BurgerServiceImpl implements BurgerService {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+
 }

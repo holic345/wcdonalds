@@ -16,11 +16,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${listBurger}" var="listBurger">
+			<c:forEach items="${selectBurger}" var="selectBurger">
 				<tr>
-					<td>${listBurger.b_name}</td>
-					<td>${listBurger.b_e_name}</td>
-					<td>${listBurger.b_price}</td>
+					<td>${selectBurger.b_name}</td>
+					<td>${selectBurger.b_e_name}</td>
+					<td>${selectBurger.b_price}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

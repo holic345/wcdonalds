@@ -2,14 +2,11 @@ package com.wdelivery.menu.burger.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.wdelivery.menu.burger.vo.BurgerVO;
 
-@Mapper
 public interface BurgerDAO {
 
-	List<BurgerVO> listBurger();
+	public List<BurgerVO> selectBurger();
 	
 	BurgerVO detailBurger(String b_code);
 	
