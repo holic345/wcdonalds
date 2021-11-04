@@ -10,13 +10,14 @@
 					<p class="subCopy">빅맥<sub class="reg">®</sub>에서 맥스파이시<sub class="reg">®</sub> 상하이버거까지, <br>주문 즉시 바로 조리해 더욱 맛있는, 맥도날드의 다양한 버거를 소개합니다.</p>
 					<ul class="navPath">
 						<li><a href="/">Home</a></li>
-						<li><a href="javascript:gotoMenu(1);">Menu</a></li>
-						<li><a href="javascript:gotoMenu(1);">버거</a></li>
+						<li><a href="burger.do">Menu</a></li>
+						<li><a href="burger.do">버거</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="contArea">
 				<div class="inner">
+					<c:forEach items="${selectBurger}" var="selectBurger">
 					<div class="menuView">
 						<div class="viewTop">
 							<div class="name">
@@ -92,7 +93,7 @@
 									</table>
 								</div>
 							</div>
-						
+						</c:forEach>	
 							<div class="toggle">
 								<h4 class="tit">알레르기 정보</h4>
 								<button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false">알레르기 정보 보기</button><!-- toggle버튼 선택시 aria-selected값 true로 변경 / aria-expanded 값 true로 변경 -->
