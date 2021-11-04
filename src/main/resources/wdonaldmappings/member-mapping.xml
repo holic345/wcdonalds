@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</insert>
 	
+
 	<select id="userSelect" resultType="userVO">
 		select * from user_info where user_seq = #{user_seq}
 	</select>
@@ -30,4 +31,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update user_info set user_phone = #{user_phone} where user_seq = #{user_seq}
 		]]>
 	</update>
+
+	<select id="emailChk" resultType="userVO" parameterType="userVO">
+		<![CDATA[
+			select user_email from user_info
+		]]>
+	</select>
+
 </mapper>

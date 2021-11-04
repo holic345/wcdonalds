@@ -29,13 +29,17 @@ public class MemberLoginController {
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
 
-		//status : err1 ���대�� ���� , err2 ���� �뱀�� ��吏��뱁�� ���� ,err3 鍮�諛�踰��� �ㅻ�
-		// err4 : 怨듬갚 ���λ�媛�
-	
+
+
+		//status : err1 �븘�씠�뵒 �뾾�쓬 , err2 �깉�눜 �샊�� �젙吏��떦�븳 �쉶�썝 ,err3 鍮꾨�踰덊샇 �삤瑜�
+		// err4 : 怨듬갚 �엯�젰遺덇�
+
+
 		if(!userVO.getUser_email().equals("")&&userVO.getUser_email()!=null
 				&&userVO.getUser_password()!=null&&!userVO.getUser_password().equals("")) {
 			
 			UserVO findUserVO = memberService.findUser(userVO);
+
 			//���ν�� ���대���� ���� ��蹂닿� DB�� ���λ���� ������
 			
 			if(findUserVO==null) {
@@ -49,6 +53,10 @@ public class MemberLoginController {
 				//db���� 媛��몄�� ���대���� �⑥�ㅼ����媛� �ъ�⑹��媛� ���ν�� �⑥�ㅼ������ 媛�����
 				if(findUserVO.getUser_status()==1) {
 					//�������� /  0 = ����,1 = ����, 2 = ������吏�
+
+			//�엯�젰�븳 �븘�씠�뵒�뿉 ���븳 �젙蹂닿� DB�뿉 ���옣�릺�뼱 �엳�쓣�븣
+			
+
 					session.setAttribute("userInfo", findUserVO);
 					
 					 //delete ggogogo
@@ -67,16 +75,19 @@ public class MemberLoginController {
 				}
 				return "main";
 				}else {
-					//���대���� ��鍮��� ������ 鍮�諛�踰��멸� �ㅻ��쇰��
-					System.out.println("鍮�諛�踰��� �ㅻ� : ��鍮���洹� ����");
+
+					//�븘�씠�뵒�뒗 �뵒鍮꾩뿉 �엳�뒗�뜲 鍮꾨�踰덊샇媛� �삤瑜섏씪�븣
+					System.out.println("鍮꾨�踰덊샇 �삤瑜� : �뵒鍮꾩젒洹� �뻽�쓬");
+
 
 					model.addAttribute("status","err3");
 
 					return "main";
 				}
 			}
-		//���대�� 鍮�諛�踰��멸� 怨듬갚�쇰� �ㅼ�댁���� 寃쎌��
-		System.out.println("鍮�諛�踰��� �뱀�� ���대�� 怨듬갚 ��洹� : ����");
+
+		//�븘�씠�뵒 鍮꾨�踰덊샇媛� 怨듬갚�쑝濡� �뱾�뼱�솕�쓣 寃쎌슦
+		System.out.println("鍮꾨�踰덊샇 �샊�� �븘�씠�뵒 怨듬갚 �젒洹� : �뿉�윭");
 
 		model.addAttribute("status","err4");
 
@@ -95,6 +106,7 @@ public class MemberLoginController {
 	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
 		
 		System.out.println(userVO.toString());
+		System.out.println(addressVO.toString());
 		memberService.winMemJoin(userVO);
 		memberService.winAddressJoin(addressVO);
 		return "main";
@@ -108,7 +120,7 @@ public class MemberLoginController {
 		 */
 		System.out.println("�ㅼ�댁�ㅻ��?");
 		session.invalidate();
-		return "main";
+		return "redirect:main.do";
 	}
 	
 	@RequestMapping("naverLogin.do")
