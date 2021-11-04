@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wdelivery.cart.service.CartService;
+import com.wdelivery.cart.vo.CartVO;
 import com.wdelivery.member.service.MemberService;
-
+import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
-
-import com.wdelivery.member.vo.UserVO;
-
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
 
@@ -38,7 +37,10 @@ public class MemberController {
 	private QnaService qnaServie;
 
 	@Autowired
-	BurgerService burgerService;
+	private BurgerService burgerService;
+	
+	@Autowired
+	private CartService cartService;
 
 	@GetMapping("/main.do")
 	public String main() {
@@ -73,13 +75,75 @@ public class MemberController {
 	}
 
 	@GetMapping("/order.do")
-	public String cart(Model model) {
-		return "order";
+	public String orderPage(Model model, @RequestParam(value="b_code", required=false) String b_code) {
+		//라지세트 디비정보도 가져와야됨(아직 안만들어짐)
+		
+//		BurgerSetVO burgerSetVO = burgerService.detailBurgerSet(b_code);
+//		model.addAttribute("burgerSetVO", burgerSetVO);
+		
+		if(b_code != null) {
+			BurgerVO burgerVO = burgerService.detailBurger(b_code);
+			System.out.println("vo : " + burgerVO.getB_code());
+			System.out.println("vo : " + burgerVO.getB_img_path());
+			System.out.println("vo : " + burgerVO.getB_name());
+			System.out.println("vo : " + burgerVO.getB_price());
+			model.addAttribute("burgerVO", burgerVO);
+			
+			return "order";
+		} else
+			return "redirect:list.do";
 	}
 
-	@GetMapping("/orderConfirm.do")
-	public String cart(Model model, @RequestParam("b_code") String b_code, @RequestParam("va") String va) {
-		return "orderConfirm";
+	@GetMapping("/cart.do")
+	public String cart(Model model, @RequestParam(value="b_code", required=false) String b_code, @RequestParam(value="va", required=false) String va) {
+		if(b_code == null && va == null) {
+			return "orderConfirm";
+		}
+		else {
+			if (va.equals("라지세트")) {
+				BurgerVO burgerVO = burgerService.detailBurger(b_code);
+	
+				CartVO cartVO = new CartVO();
+				cartVO.setCart_b_code(burgerVO.getB_code());
+				cartVO.setCart_b_img_path(burgerVO.getB_img_path());
+				cartVO.setCart_b_name(burgerVO.getB_name());
+				cartVO.setCart_b_price(burgerVO.getB_price());
+	
+				cartService.cartInsert(cartVO);
+				List<CartVO> cartList = cartService.cartList();
+	
+				model.addAttribute("cartList", cartList);
+	
+			} else if (va.equals("세트")) {
+				BurgerVO burgerVO = burgerService.detailBurger(b_code);
+	
+				CartVO cartVO = new CartVO();
+				cartVO.setCart_b_code(burgerVO.getB_code());
+				cartVO.setCart_b_img_path(burgerVO.getB_img_path());
+				cartVO.setCart_b_name(burgerVO.getB_name());
+				cartVO.setCart_b_price(burgerVO.getB_price());
+	
+				cartService.cartInsert(cartVO);
+				List<CartVO> cartList = cartService.cartList();
+	
+				model.addAttribute("cartList", cartList);
+	
+			} else if (va.equals("단품")) {
+				BurgerVO burgerVO = burgerService.detailBurger(b_code);
+	
+				CartVO cartVO = new CartVO();
+				cartVO.setCart_b_code(burgerVO.getB_code());
+				cartVO.setCart_b_img_path(burgerVO.getB_img_path());
+				cartVO.setCart_b_name(burgerVO.getB_name());
+				cartVO.setCart_b_price(burgerVO.getB_price());
+	
+				cartService.cartInsert(cartVO);
+				List<CartVO> cartList = cartService.cartList();
+	
+				model.addAttribute("cartList", cartList);
+			}
+			return "orderConfirm";
+		}
 	}
 
 	@GetMapping("/detail.do")
