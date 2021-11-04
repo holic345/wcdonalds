@@ -9,8 +9,8 @@ $("#m_email").blur(function(){
     var m_email = $("#m_email").val();
    // alert("1차 성공");
 	   if (isEmailValid($("#m_email"))==false) {
-	        alert('잘못된 이메일주소입니다.');
 	        $("#m_email").focus();
+  	$("#emailchecktxt").html('<small><strong class="text-danger">잘못된 형식의 이메일 주소입니다.</strong></small>');
 	        return false;
         }
 
