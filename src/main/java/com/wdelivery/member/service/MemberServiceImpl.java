@@ -32,6 +32,12 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.mypageUpdate(userVO);
 	}
 
+	@Override
+	public UserVO userSelect(String user_email) {
+		
+		return memberDAO.userSelect(user_email);
+	}
+
 	
 	
 	

@@ -291,11 +291,11 @@
 									<div class="reply-form">
 										<div class="d-flex-row">
 											<label for="email">이메일</label> 
-											<input type="text" name="qa_email" id="EMAIL2" class="int w432">
+										<!-- 	<input type="text" name="qa_email" id="EMAIL2" class="int w432"> -->
 										</div>
 										<div class="d-flex-row">
 											<label for="password">비밀번호</label> 
-											<input type="password" name="qa_password" id="CUST_PASSWORD2" class="int w432">
+											<!-- <input type="password" name="qa_password" id="CUST_PASSWORD2" class="int w432"> -->
 										</div>
 									</div>
 								</div>

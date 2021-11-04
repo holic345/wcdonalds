@@ -50,6 +50,7 @@ public class MemberLoginController {
 				if(findUserVO.getUser_status()==1) {
 					//�쉶�썝�긽�깭 /  0 = �깉�눜,1 = �젙�긽, 2 = �쉶�썝�젙吏�
 					session.setAttribute("userInfo", findUserVO);
+					session.setAttribute("user_email" , findUserVO.getUser_email());
 				}else if(findUserVO.getUser_status()==3){
 					//이메일 미인증 유저
 					session.setAttribute("userInfo", findUserVO);
@@ -83,7 +84,7 @@ public class MemberLoginController {
 		session.setAttribute("kakaoSession", kakaoVO);
 		System.out.println(kakaoVO.toString());
 		return "main";
-	}
+	}                                                                                                                                            
 	
 	@PostMapping("winMemJoin.do")
 	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
@@ -97,14 +98,6 @@ public class MemberLoginController {
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
-
-		UserVO userVO = (UserVO)session.getAttribute("userInfo");
-		System.out.println(userVO.toString()+" �꽭�뀡 珥덇린�솕");
-
-		/*
-		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
-		 * System.out.println(userVO.toString()+" 세션 초기화");
-		 */
 
 		System.out.println("들어오나?");
 
