@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
@@ -94,6 +96,34 @@ public class MemberLoginController {
 		memberService.winAddressJoin(addressVO);
 		return "emailConfirm";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
+	public int emailChk(UserVO userVO, String user_email) throws Exception{
+		int emailResult = memberService.emailChk(user_email);
+//		System.out.println("email Controller : " + result);
+//		return result;
+		System.out.println("controller : " + emailResult);
+		return emailResult;
+		
+	}
+	
+//	@RequestMapping(value = "signup", method = RequestMethod.POST)
+//	public String regPost(UserVO userVO, String user_email) throws Exception{
+//		int emailResult = memberService.emailChk(user_email);
+//		System.out.println("controller : " + emailResult);
+//		try {
+//			if (emailResult == 1) {
+//				return "signup";
+//			}else if (emailResult == 0) {
+//				memberService.winMemJoin(userVO);
+//				return "winMemJoin";
+//			}
+//		} catch (Exception e) {
+//			throw new RuntimeException();
+//		}
+//		return "redirect:/";
+//	}
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {

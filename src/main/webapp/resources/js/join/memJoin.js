@@ -2,37 +2,38 @@
 $(function(){
 	
 	//아이디 패스워드 검증하기
-    var re_email = /^[a-zA-Z0-9]{4,16}$/;
+    //var re_email = /^[a-zA-Z0-9]{4,16}$/;
     var re_pwd = /^[a-zA-Z0-9]{6,18}$/;
     
-/*    $(document).on("keyup", "#m_id", function(){
-        var m_id = $("#m_email").val();
-        
-        if(re_id.test(re_email) != true){
-        
-            $("#emailchecktxt").html('<small><strong class="text-danger">사용할 수 없는 아이디 입니다.</strong></small>');
-            $("#id_chk_ok").val("false");
-            return false;
-            
-        }else{
-        
-            $.ajax({
-                type    : "post",
-                url     : "/join/id_check.asp",
-                data    : {m_id : m_id}
-            }).done(function(msg){
-                if(msg != "true"){
-                    $("#idchecktxt").html('<small><strong class="text-danger">사용할 수 없는 아이디 입니다.</strong></small>');
-                    $("#id_chk_ok").val("false");
-                }else{
-                    $("#idchecktxt").html('<small><strong class="text-success">사용가능한 아이디 입니다.</strong></small>');
-                    $("#id_chk_ok").val("true");
-                }
-            });
-            
+$("#m_email").blur(function(){
+    var m_email = $("#m_email").val();
+   // alert("1차 성공");
+	   if (isEmailValid($("#m_email"))==false) {
+	        alert('잘못된 이메일주소입니다.');
+	        $("#m_email").focus();
+	        return false;
         }
-    });*/
 
+        $.ajax({
+            type    : "get",
+            url     : "emailChk.do",
+            data    : {"user_email" : m_email},
+			success : function(data){
+				
+			console.log("중복확인 : " + data);
+				
+			if(data == 1){
+                $("#emailchecktxt").html('<small><strong class="text-danger">사용할 수 없는 이메일 입니다.</strong></small>');
+            }else{
+                $("#emailchecktxt").html('<small><strong class="text-success">사용가능한 이메일 입니다.</strong></small>');
+            }
+			},
+			error : function(){
+				alert("실패");
+			}
+        })
+    });
+	
 
     //비밀번호 체크하는거 
     $("#m_password").keyup(function() {
@@ -77,7 +78,7 @@ $("#join_ok").click(function() {
        
         //name input
         var m_name = ($("#m_name").val()).trim;
-        if (m_name=='') {
+        if (m_name=="") {
             alert('이름을 입력해주세요..');
             $("#m_name").focus();
             return false;
@@ -85,7 +86,7 @@ $("#join_ok").click(function() {
 
         //password input
         var m_password = ($("#m_password").val()).trim;
-        if (m_password=='') {
+        if (m_password=="") {
             alert('패스워드를 입력해주세요..');
             $("#m_password").focus();
             return false;
@@ -93,7 +94,7 @@ $("#join_ok").click(function() {
 
         //password dual
         var m_password2 = ($("#m_password2").val()).trim;
-        if (m_password2=='') {
+        if (m_password2=="") {
             alert('패스워드 확인을 입력해주세요.');
             $("#m_password2").focus();
             return false;
@@ -110,13 +111,13 @@ $("#join_ok").click(function() {
         var m_zipcode = ($("#m_zipcode").val()).trim;
         var m_address = ($("#m_address").val()).trim;
 
-        if (m_zipcode=='') {
+        if (m_zipcode=="") {
             alert('주소를 검색해주세요.');
             $("#zip_find").focus();
             return false;
         }
 
-        if (m_address=='') {
+        if (m_address=="") {
             alert('주소를 검색해주세요.');
             $("#zip_find").focus();
             return false;
@@ -138,7 +139,7 @@ $("#join_ok").click(function() {
         }*/
         
         var m_mobile3 = ($("#m_mobile3").val()).trim;
-        if (m_mobile3=='') {
+        if (m_mobile3=="") {
             alert('휴대폰번호를 입력해주세요.');
             $("#m_mobile3").focus();
             return false;
@@ -146,7 +147,7 @@ $("#join_ok").click(function() {
 
         //생년월일
         var m_birth = $("#m_birth").val();
-        if (m_birth=='') {
+        if (m_birth=="") {
             alert('생년월일을 입력해주세요.');
             $("#m_birth").focus();
             return false;
@@ -154,7 +155,7 @@ $("#join_ok").click(function() {
 
         //성별
         var m_sex = $(":radio[name='user_gender']:checked").val();
-        if (m_sex=='' || m_sex==undefined) {
+        if (m_sex=="" || m_sex==undefined) {
             alert('성별을 선택해주세요.');
             $("#m_sex1").focus();
             return false;
