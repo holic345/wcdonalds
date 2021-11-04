@@ -83,7 +83,7 @@ public class MemberLoginController {
 		session.setAttribute("kakaoSession", kakaoVO);
 		System.out.println(kakaoVO.toString());
 		return "main";
-	}
+	}                                                                                                                                            
 	
 	@PostMapping("winMemJoin.do")
 	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
