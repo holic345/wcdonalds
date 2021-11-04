@@ -12,8 +12,6 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/admin-servlet.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/email-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
