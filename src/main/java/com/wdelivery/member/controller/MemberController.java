@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+import com.wdelivery.faq.service.FaqService;
+import com.wdelivery.faq.vo.FaqVO;
+
 import com.wdelivery.cart.service.CartService;
 import com.wdelivery.cart.vo.CartVO;
+
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
@@ -35,6 +40,9 @@ public class MemberController {
 
 	@Autowired
 	private QnaService qnaServie;
+	
+	@Autowired
+	private FaqService faqService;
 
 	@Autowired
 	private BurgerService burgerService;
@@ -160,7 +168,15 @@ public class MemberController {
 	}
 
 	@GetMapping("/faq.do")
-	public String faq() {
+	public String faq(Model model) {
+		List<FaqVO> vo = faqService.faqSelect();
+		for(FaqVO vo1 : vo) {
+			System.out.println(vo1.getFaq_seq());
+			System.out.println(vo1.getFaq_name());
+			System.out.println(vo1.getFaq_title());
+			System.out.println(vo1.getFaq_content());
+		}
+		model.addAttribute("vo",vo);
 		return "faq";
 	}
 
