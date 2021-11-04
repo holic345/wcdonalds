@@ -97,6 +97,7 @@
 												class="form form-register" id="form_accountsetting"
 												name="form_accountsetting" data-required-symbol="*"
 												autocomplete="off">
+												<input type="hidden"> <!-- 여기 수정 중 -->
 												<div class="form-register error-container">
 													<p>표시된 필수 항목을 입력해 주세요.</p>
 												</div>
@@ -112,35 +113,29 @@
 																<input type="text"
 																	class="form-control input-lg required no-special-characters"
 																	id="form_accountsetting_firstname" name="firstName"
-																	value="잉ㅇ" readonly/><%-- ${sessionScope.name} --%>
+																	value="${userVO.user_name }" readonly/>
 															</div>
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-xs-6">
 															<div class="form-group">
-																<label class="field-label"
-																	for="form_accountsetting_gender">성별:</label> <select
-																	name="gender" id="form_accountsetting_gender"
-																	class="select-lg">
-																	<option value="">${gender}</option>
-																	<option value="Male">남</option>
-																	<option selected="selected" value="Female">여</option>
-																	<option value="Do Not Specify">선택 안함</option>
-																</select>
+																<label class="field-label" for="form_accountsetting_gender">성별:</label> 
+																<input type="text"
+																	class="form-control input-lg required no-special-characters"
+																	id="form_accountsetting_firstname" name="firstName"
+																	value="${userVO.user_gender }" readonly/>
 															</div>
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="form-group">
-																<label class="field-label"
-																	for="form_accountsetting_contactno">휴대전화 번호:</label> <input
-																	type="text"
-																	class="form-control input-lg required number digit-only"
+																<label class="field-label" for="form_accountsetting_contactno">휴대전화 번호:</label> 
+																	<input type="text" class="form-control input-lg required number digit-only"
 																	maxlength="11" id="form_accountsetting_contactno"
 																	name="contactNo" placeholder="숫자만 입력"
-																	value="${sessionScope.phone}" />
+																	value="${userVO.user_phone }" />
 															</div>
 														</div>
 													</div>

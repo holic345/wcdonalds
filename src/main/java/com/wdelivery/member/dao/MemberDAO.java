@@ -10,6 +10,6 @@ public interface MemberDAO {
 	public void winMemJoin(UserVO userVO);
 	public void winAddressJoin(UserAddressVO addressVO);
 	
-	//public UserVO userSelect(int user_seq);
+	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
 }
