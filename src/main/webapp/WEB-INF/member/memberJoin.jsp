@@ -215,7 +215,7 @@
 							<label for="m_email" class="dis_b">이메일</label>
 							<input name="user_email" id="m_email" type="email"
 								class="form-control placeholder" placeholder="example@wdonald.com" /><span id="emailchecktxt"></span><br/>
-							<button class="btn btn-md btn-red" id="email_chk" >중복체크</button>
+							
 						</div>
 						<div class="form-group">
 							<label for="m_name">성명</label> 
@@ -298,6 +298,9 @@
 								<input name="m_mobile2" id="m_mobile2" maxlength="4" type="text" class="form-control placeholder dis_ib" style="width: 30%" />
 								 -  -->
 								 <input name="user_phone" id="m_mobile3" maxlength="11" type="text"	class="form-control placeholder dis_ib" style="width: 30%" placeholder="'-'은 빼고 입력해주세요!"/>
+								 <button type="button" class="btn btn-md btn-red" value="">번호확인</button>
+								 <input name="send_sms" id="send_sms" maxlength="11" type="text" style="width: 30%" placeholder="인증번호입력"/> 
+								 <button type="button" class="btn btn-md btn-red" value="">확인</button>
 						</div>
 							<a name="m_birth_cal"></a>
 								<div class="form-group">

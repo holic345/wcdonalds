@@ -32,7 +32,20 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.mypageUpdate(userVO);
 	}
 
+	@Override
+	public int emailChk(String user_email) throws Exception {
+		int result = memberDAO.emailChk(user_email);
+		System.out.println("serviceImpl : " + result);
+		return result;
+	}
+
+	public UserVO userSelect(String user_email) {
+		
+		return memberDAO.userSelect(user_email);
+	}
+
 	
+
 	
 	
 }

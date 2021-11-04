@@ -23,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 
-	<select id="userSelect" resultType="userVO">
-		select * from user_info where user_seq = #{user_seq}
+	<select id="userSelect" resultType="userVO" parameterType="userVO">
+		select * from user_info where user_email = #{user_email}
 	</select>
 	<update id="mypageUpdate">
 		<![CDATA[
@@ -32,9 +32,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</update>
 
-	<select id="emailChk" resultType="userVO" parameterType="userVO">
+	<select id="emailChk" resultType="int" parameterType="userVO">
 		<![CDATA[
-			select user_email from user_info
+			select count(*) from user_info where user_email = #{user_email};
 		]]>
 	</select>
 

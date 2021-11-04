@@ -49,12 +49,20 @@ public class MemberController {
 
 
 	@GetMapping("/mypageupdate.do")
-	public String mypageupdate() {
+	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
+		
+		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
+		System.out.println("mypage : " + user_email );
+		
+		userVO = memberService.userSelect(user_email); //세션 아이디 VO 넣기
+		System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_name()));
+		
 		return "mypageupdate";
 	}
 	@PostMapping("/mypageUpdate.do")
 	public String mypageUpdate(UserVO userVO, HttpSession session) {
-		System.out.println("����" + userVO.getUser_seq());
+		System.out.println("mypageupdateController" + userVO.getUser_seq());
 		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
 		memberService.mypageUpdate(userVO);
 		System.out.println("mypageupdate !!controller ");
@@ -281,14 +289,6 @@ public class MemberController {
 		return "crew";
 	}
 
-	/*
-	 * @GetMapping("/list.do") public String test(Model model) { List<BurgerVO>
-	 * selectBurger = burgerService.selectBurger();
-	 * model.addAttribute("selectBurger", selectBurger);
-	 * 
-	 * System.out.println("selectBurger");
-	 * 
-	 * return "list"; }
-	 */
+
 
 }
