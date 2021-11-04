@@ -178,10 +178,10 @@ function kakaoLogin() {
 						data: JSON.stringify(response.kakao_account),
 						contentType: "application/json",
 						succcess: function() {
-							window.location.href="http://localhost:8080/controller/main.do";						
+												
 								}
 					})
-
+					window.location.href="http://localhost:8080/controller/main.do";
 				},
 				fail: function(error) {
 					console.log(error)
@@ -202,7 +202,6 @@ function kakaoLogout(){
 		alert('Not logged in');
 		return;		
 	}
-	alert(1);
 	Kakao.Auth.logout(function(){
 		console.log(Kakao.Auth.getAccessToken());
 		$.post("logout.do");
