@@ -76,7 +76,7 @@ $("#join_ok").click(function() {
         }
        
         //name input
-        var m_name = ($("#m_name").val().trim);
+        var m_name = ($("#m_name").val()).trim;
         if (m_name=='') {
             alert('이름을 입력해주세요..');
             $("#m_name").focus();
