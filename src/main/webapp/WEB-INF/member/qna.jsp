@@ -111,7 +111,7 @@
 											<span class="checkmark"></span>
 										</label> 
 										<label class="check-container" for="agree-n">아니오 
-											<input type="radio" name="qa_agree1" id="agree-n" value="0"> 
+											<input type="radio" name="qa_agree1" id="agree-n" value="0">
 											<span class="checkmark"></span>
 										</label>
 									</div>
@@ -231,13 +231,11 @@
 										<tr>
 											<th scope="row">이메일</th>
 											<td>
-												<input class="int w432" type="text" name="qa_email" id="EMAIL">
+												<input class="int w432" type="text" name="qa_email" id="EMAIL"/>
 											</td>
 											<th scope="row">비밀번호</th>
 											<td>
-												<input class="int w432" type="password" 
-												name="qa_password" id="CUST_PASSWORD">
-											</td>
+												<input class="int w432" type="password" name="qa_password" id="CUST_PASSWORD"/></td>
 										</tr>
 										<tr>
 											<th scope="row">제목</th>
@@ -431,8 +429,7 @@
 					alert("카테고리를 선택해주세요."); 
 					return; 
 				} 
-				if(($("#CUST_NM").val()).trim() == "")
-				{
+				if(($("#CUST_NM").val()).trim() == ""){
 					alert("이름을 입력해 주세요.");
 					$('#CUST_NM').focus();
 					return false;
@@ -443,16 +440,14 @@
 					$('#MOBILE1').focus();
 					return false;
 				}
-				if (!isValidEmail($("#EMAIL").val()))
-				{
+				if (!isValidEmail($("#EMAIL").val())){
 					alert("이메일 형식 오류입니다.");
 					console($("#EMAIL").val());
 					$('#EMAIL').focus();
 					return false;
 				}
 				
-				if(($("#CUST_PASSWORD").val()).trim() == "")
-				{
+				if(($("#CUST_PASSWORD").val()).trim() == ""){
 					alert("비밀번호를 입력해 주세요.");
 					$('#CUST_PASSWORD').focus();
 					return false;
@@ -478,6 +473,7 @@
 				var result = confirm("문의등록 하시겠습니까?"); 
 				
 				if(result){ 
+					alert("무야? " + $("#EMAIL").val());
 					var a = $("input[name='qa_agree1']:checked").val();
 					var b = $("input[name='qa_agree2']:checked").val();
 					//alert("동의 a =" + a); ,

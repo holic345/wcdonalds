@@ -19,101 +19,28 @@
 					<div class="inner">
 						<ul class="tabType01">
 							<li data-title="버거" data-desc="버거메뉴"><a href="javascript:gotoMenu(1);" role="button" aria-selected="true">단품메뉴</a></li><!-- 선택 된 태그에 aria-selected="true" 추가 -->
-							<li><a href="javascript:gotoMenu(2);" role="button">세트메뉴</a></li>
+							<!-- <li><a href="javascript:gotoMenu(2);" role="button">세트메뉴</a></li> -->
 						</ul>
 						<div class="mcMenu">
 							<p class="count" id="count">21 Products</p>
 							<ul class="menuList" id="menuList">
-								<li>
-									<a href="javascript:goDetail(300)" data-seq="300">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1633520381157.png" alt="1955 스모키 더블 베이컨">
-										</div>
-										<div class="name">
-											<strong class="ko">1955 스모키 더블 베이컨</strong>
-											<em class="en">1955 Smoky Double Bacon</em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+								<c:forEach items="${selectBurger}" var="selectBurger">
+									<li>
+										<a href="javascript:goDetail(300)" data-seq="300">
+											<div class="thum">
+												<img src="${selectBurger.b_img_path}" alt="${selectBurger.b_name}">
 											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:goDetail(396)" data-seq="396">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1624844044781.png" alt="슈니언 버거">
-										</div>
-										<div class="name">
-											<strong class="ko">슈니언 버거</strong>
-											<em class="en">Shrimp Onion Burger</em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
+											<div class="name">
+												<strong class="ko">${selectBurger.b_name}</strong>
+												<em class="en">${selectBurger.b_e_name}</em>
+												<div class="product-cost">
+													<span class="starting-price" style="margin-top:5px;">${selectBurger.b_price}</span>
+												</div>
+												<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
 											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:goDetail(387)" data-seq="387">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1621834836862.png" alt="트리플 치즈버거">
-										</div>
-										<div class="name">
-											<strong class="ko">트리플 치즈버거</strong>
-											<em class="en">Triple Cheeseburger</em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
-											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:goDetail(15)" data-seq="15">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727841393.png" alt="빅맥®">
-										</div>
-										<div class="name">
-											<strong class="ko">빅맥<sub class="reg">®</sub></strong>
-											<em class="en">Big Mac<sub class="reg">®</sub></em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
-											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:goDetail(19)" data-seq="19">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583728339451.png" alt="맥스파이시® 상하이 버거">
-										</div>
-										<div class="name">
-											<strong class="ko">맥스파이시<sub class="reg">®</sub> 상하이 버거</strong>
-											<em class="en">WcSpicy<sub class="reg">®</sub> Shanghai Burger</em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
-											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="javascript:goDetail(1)" data-seq="1">
-										<div class="thum">
-											<img src="https://www.mcdonalds.co.kr/upload/product/pcList/1599119588089.png" alt="1955 버거™">
-										</div>
-										<div class="name">
-											<strong class="ko">1955<sub>®</sub> 버거</strong>
-											<em class="en">1955<sub>®</sub> Burger</em>
-											<div class="product-cost">
-												<span class="starting-price" style="margin-top:5px;">₩ 8,500</span>
-											</div>
-											<button style="background-color:#ffbc0d; color:white; border-radius:25px; width:90px; height:30px;"><h4>주문하기</h4></button>
-										</div>
-									</a>
-								</li>
+										</a>
+									</li>
+								</c:forEach>
 							</ul>
 							<div class="btnMore" id="btnMore">
 								<button type="button" class="more" onclick="more()">더보기</button>
