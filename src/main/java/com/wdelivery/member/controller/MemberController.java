@@ -217,14 +217,14 @@ public class MemberController {
 		return "crew";
 	}
 
-	@GetMapping("/list.do")
-	public String test(Model model) {
-		List<BurgerVO> selectBurger = burgerService.selectBurger();
-		model.addAttribute("selectBurger", selectBurger);
-		
-		System.out.println("selectBurger");
-		
-		return "list";
-	}
+	/*
+	 * @GetMapping("/list.do") public String test(Model model) { List<BurgerVO>
+	 * selectBurger = burgerService.selectBurger();
+	 * model.addAttribute("selectBurger", selectBurger);
+	 * 
+	 * System.out.println("selectBurger");
+	 * 
+	 * return "list"; }
+	 */
 
 }
