@@ -26,6 +26,13 @@ public class MemberServiceImpl implements MemberService {
 	public void winAddressJoin(UserAddressVO addressVO) {
 		memberDAO.winAddressJoin(addressVO);
 	}
+
+	@Override
+	public void mypageUpdate(UserVO userVO) {
+		memberDAO.mypageUpdate(userVO);
+	}
+
+	
 	
 	
 }
