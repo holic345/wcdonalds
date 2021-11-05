@@ -59,5 +59,6 @@
 
 	 <context:component-scan base-package="com.wdelivery.menu.drink.service"></context:component-scan>
 	 <context:component-scan base-package="com.wdelivery.menu.side.service"></context:component-scan>
+	 <context:component-scan base-package="com.wdelivery.menu.winmorning.service"></context:component-scan>
 
 </beans>

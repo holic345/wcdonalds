@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.wdelivery.menu.burger.vo.BurgerVO" alias="burgerVO"/>
 		<typeAlias type="com.wdelivery.menu.drink.vo.DrinkVO" alias="drinkVO"/>
 		<typeAlias type="com.wdelivery.menu.side.vo.SideVO" alias="sideVO"/>
-		<typeAlias type="com.wdelivery.menu.winmorning.vo.WinMorningVO" alias="winMorningVO"/>
+		<typeAlias type="com.wdelivery.menu.winMorning.vo.WinMorningVO" alias="winMorningVO"/>
 		
 		<typeAlias type="com.wdelivery.cart.vo.CartVO" alias="cartVO"/>
 		<typeAlias type="com.wdelivery.faq.vo.FaqVO" alias="faqVO"/>
