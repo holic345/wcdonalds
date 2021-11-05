@@ -21,7 +21,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			insert into user_address(user_email, address1, address2,d_key) values (#{user_email},#{address1},#{address2},1)
 		]]>
 	</insert>
-	
+	<insert id="naverMemJoin"  parameterType="userVO">
+		<![CDATA[
+			insert into user_info (user_email, user_gender, user_phone, user_birth,user_regdate,user_status) 
+			values (#{user_email},#{user_gender},#{user_phone},#{user_birth},now(),5)
+		]]>
+	</insert>
+	<insert id="kakaoMemJoin"  parameterType="userVO">
+		<![CDATA[
+			insert into user_info (user_email, user_gender, user_birth,user_regdate,user_status) 
+			values (#{user_email},#{user_gender},#{user_birth},now(),4)
+		]]>
+	</insert>
 
 	<select id="userSelect" resultType="userVO" parameterType="userVO">
 		<![CDATA[
@@ -58,6 +69,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			update user_info set user_status = 1 where user_email = #{user_email}
 		]]>
 	</update>
+	
+	<select id="isThisKakaoMemberInService" resultType="userVO" parameterType="String">
+		<![CDATA[
+			select * from user_info where user_email = #{email}
+		]]>
+	</select>
+	<select id="isThisNaverMemberInService" resultType="userVO" parameterType="String">
+		<![CDATA[
+			select * from user_info where user_email = #{email}
+		]]>
+	</select>
 	
 	<select id="isAuthKeyAvailable" resultType="int"  parameterType="java.util.HashMap">
 		<![CDATA[

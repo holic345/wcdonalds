@@ -82,8 +82,25 @@ public class MemberLoginController {
 	
 	@RequestMapping("kakaoLogin.do")
 	public String kakaoLogin(@RequestBody KakaoUserVO kakaoVO,HttpSession session) {
-		session.setAttribute("kakaoSession", kakaoVO);
 		System.out.println(kakaoVO.toString());
+		UserVO kakaoUserVO = memberService.isMemberInService("kakao", "kakao#"+kakaoVO.getEmail());
+		if(kakaoUserVO!=null) {
+		session.setAttribute("kakaoSession", kakaoUserVO);
+		session.setAttribute("status", kakaoUserVO.getUser_status());
+		}else {
+			UserVO userVO = new UserVO();
+			userVO.setUser_email("kakao#"+kakaoVO.getEmail());
+			userVO.setUser_gender((kakaoVO.getGender().equals("male")?"man":"woman"));
+			userVO.setUser_birth(kakaoVO.getBirthday());
+		
+			System.out.println("start socialMemJoin() => "+userVO.toString());
+			
+			memberService.socialMemJoin("kakao",userVO);
+			userVO = memberService.isMemberInService("kakao", "kakao#"+kakaoVO.getEmail());
+			System.out.println(userVO.toString());
+			session.setAttribute("kakaoSession", userVO);
+			session.setAttribute("status", userVO.getUser_status());
+		}
 		return "main";
 	}                                                                                                                                            
 	
@@ -107,9 +124,7 @@ public class MemberLoginController {
 	@ResponseBody
 	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
 	public int emailChk(UserVO userVO, String user_email) throws Exception{
-		System.out.println("留ㅽ븨�릺�굹?");
 		int emailResult = memberService.emailChk(user_email);
-
 		System.out.println("controller : " + emailResult);
 		return emailResult;
 		
@@ -142,9 +157,28 @@ public class MemberLoginController {
 	
 	@RequestMapping("naverLogin.do")
 	public String naverLogin(@RequestBody NaverUserVO naverVO,HttpSession session) {
-		session.setAttribute("naverSession", naverVO);
-		session.setAttribute("naverAccessKey", naverVO.getAccessToken());
 		System.out.println(naverVO.toString());
+		UserVO naverUserVO = memberService.isMemberInService("naver", "naver#"+naverVO.getEmail());
+		if(naverUserVO!=null) {
+		session.setAttribute("naverSession", naverUserVO);
+		session.setAttribute("status", naverUserVO.getUser_status());
+		}else {
+			UserVO userVO = new UserVO();
+			userVO.setUser_email("naver#"+naverVO.getEmail());
+			userVO.setUser_gender((naverVO.getGender().equals("M")?"man":"woman"));
+			userVO.setUser_birth(naverVO.getBirthday());
+			userVO.setUser_phone(naverVO.getMobile());
+		
+			System.out.println("start socialMemJoin() => "+userVO.toString());
+			
+			memberService.socialMemJoin("naver",userVO);
+			userVO = memberService.isMemberInService("naver", "naver#"+naverVO.getEmail());
+			System.out.println(userVO.toString());
+			session.setAttribute("naverSession", userVO);
+			session.setAttribute("status", userVO.getUser_status());
+		}
+		
+		session.setAttribute("accessToken", naverVO.getAccessToken());
 		return "main";
 	}
 	
