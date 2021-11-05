@@ -21,8 +21,8 @@
 					<div class="menuView">
 						<div class="viewTop">
 							<div class="name">
-								<h2 class="ko">슈니언 버거</h2>
-								<em class="en">Shrimp Onion Burger</em>
+								<h2 class="ko">${selectBurger.b_name}</h2>
+								<em class="en">${selectBurger.b_e_name}</em>
 							</div>
 							<div class="info" data-title="슈니언 버거(버거)" data-desc="버거 메뉴">
 								<div class="visual"><img src="https://www.mcdonalds.co.kr/upload/product/pcfile/1624844051863.png" alt="슈니언 버거"></div>
