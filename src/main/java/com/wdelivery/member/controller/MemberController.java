@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+import com.wdelivery.faq.service.FaqService;
+import com.wdelivery.faq.vo.FaqVO;
+
 import com.wdelivery.cart.service.CartService;
 import com.wdelivery.cart.vo.CartVO;
+
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
@@ -35,6 +40,9 @@ public class MemberController {
 
 	@Autowired
 	private QnaService qnaServie;
+	
+	@Autowired
+	private FaqService faqService;
 
 	@Autowired
 	private BurgerService burgerService;
@@ -49,12 +57,20 @@ public class MemberController {
 
 
 	@GetMapping("/mypageupdate.do")
-	public String mypageupdate() {
+	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
+		
+		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
+		System.out.println("mypage : " + user_email );
+		
+		userVO = memberService.userSelect(user_email); //세션 아이디 VO 넣기
+		System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_name()));
+		
 		return "mypageupdate";
 	}
 	@PostMapping("/mypageUpdate.do")
 	public String mypageUpdate(UserVO userVO, HttpSession session) {
-		System.out.println("����" + userVO.getUser_seq());
+		System.out.println("mypageupdateController" + userVO.getUser_seq());
 		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
 		memberService.mypageUpdate(userVO);
 		System.out.println("mypageupdate !!controller ");
@@ -152,7 +168,15 @@ public class MemberController {
 	}
 
 	@GetMapping("/faq.do")
-	public String faq() {
+	public String faq(Model model) {
+		List<FaqVO> vo = faqService.faqSelect();
+		for(FaqVO vo1 : vo) {
+			System.out.println(vo1.getFaq_seq());
+			System.out.println(vo1.getFaq_name());
+			System.out.println(vo1.getFaq_title());
+			System.out.println(vo1.getFaq_content());
+		}
+		model.addAttribute("vo",vo);
 		return "faq";
 	}
 
@@ -281,14 +305,6 @@ public class MemberController {
 		return "crew";
 	}
 
-	@GetMapping("/list.do")
-	public String test(Model model) {
-		List<BurgerVO> selectBurger = burgerService.selectBurger();
-		model.addAttribute("selectBurger", selectBurger);
-		
-		System.out.println("selectBurger");
-		
-		return "list";
-	}
+
 
 }

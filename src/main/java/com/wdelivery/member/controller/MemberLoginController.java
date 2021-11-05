@@ -1,16 +1,23 @@
 package com.wdelivery.member.controller;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wdelivery.member.service.MailSendService;
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.KakaoUserVO;
 import com.wdelivery.member.vo.NaverUserVO;
@@ -25,6 +32,9 @@ public class MemberLoginController {
 	 
 	@Autowired
 	private MemberService memberService; 
+	@Autowired
+	private MailSendService mss;
+	
 	
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
@@ -50,6 +60,7 @@ public class MemberLoginController {
 				if(findUserVO.getUser_status()==1) {
 					//�쉶�썝�긽�깭 /  0 = �깉�눜,1 = �젙�긽, 2 = �쉶�썝�젙吏�
 					session.setAttribute("userInfo", findUserVO);
+					session.setAttribute("user_email" , findUserVO.getUser_email());
 				}else if(findUserVO.getUser_status()==3){
 					//이메일 미인증 유저
 					session.setAttribute("userInfo", findUserVO);
@@ -85,6 +96,7 @@ public class MemberLoginController {
 		return "main";
 	}                                                                                                                                            
 	
+	@Transactional
 	@PostMapping("winMemJoin.do")
 	public String winMemJoin(UserVO userVO, UserAddressVO addressVO) {
 		
@@ -92,24 +104,51 @@ public class MemberLoginController {
 		System.out.println(addressVO.toString());
 		memberService.winMemJoin(userVO);
 		memberService.winAddressJoin(addressVO);
+		memberService.insertAuthData(userVO);
+		String authKey = mss.sendAuthMail(userVO.getUser_email());
+		Map<String,String> map = new HashMap<String,String>();	
+		map.put("user_email", userVO.getUser_email());
+		map.put("authKey", authKey);
+		memberService.updateAuthKey(map);
 		return "emailConfirm";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
+	public int emailChk(UserVO userVO, String user_email) throws Exception{
+		System.out.println("매핑되나?");
+		int emailResult = memberService.emailChk(user_email);
+//		System.out.println("email Controller : " + result);
+//		return result;
+		System.out.println("controller : " + emailResult);
+		return emailResult;
+		
+	}
+	
+//	@RequestMapping(value = "signup", method = RequestMethod.POST)
+//	public String regPost(UserVO userVO, String user_email) throws Exception{
+//		int emailResult = memberService.emailChk(user_email);
+//		System.out.println("controller : " + emailResult);
+//		try {
+//			if (emailResult == 1) {
+//				return "signup";
+//			}else if (emailResult == 0) {
+//				memberService.winMemJoin(userVO);
+//				return "winMemJoin";
+//			}
+//		} catch (Exception e) {
+//			throw new RuntimeException();
+//		}
+//		return "redirect:/";
+//	}
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 
-		UserVO userVO = (UserVO)session.getAttribute("userInfo");
-		System.out.println(userVO.toString()+" �꽭�뀡 珥덇린�솕");
-
-		/*
-		 * UserVO userVO = (UserVO)session.getAttribute("userInfo");
-		 * System.out.println(userVO.toString()+" 세션 초기화");
-		 */
-
 		System.out.println("들어오나?");
 
 		session.invalidate();
-		return "main";
+		return "redirect:main.do";
 	}
 	
 	@RequestMapping("naverLogin.do")
@@ -124,5 +163,22 @@ public class MemberLoginController {
 	@RequestMapping("naverCallback.do")
 	public String naverCallback() {
 		return "naverCallback";
+	}
+	
+	@RequestMapping("signUpConfirm.do")
+	public String signUpConfirm(
+				@RequestParam("email") String email,
+			@RequestParam("authKey") String authKey){
+		System.out.println(email + " authKey =" +authKey);
+		Map<String,String> emailMap = new HashMap<String,String>();
+		emailMap.put("authKey", authKey);
+		emailMap.put("email", email);
+		if(isAuthKeyAvailable(emailMap))
+			memberService.signUpConfirm(email);
+		return "main";
+	}
+	
+	public boolean isAuthKeyAvailable(Map<String,String> emailMap) {
+		return memberService.isAuthKeyAvailable(emailMap);
 	}
 }

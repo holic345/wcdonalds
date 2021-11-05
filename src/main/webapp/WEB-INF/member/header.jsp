@@ -65,12 +65,12 @@
 							<li><!-- li 오버시 on 클래스 추가 -->
 								<a href="javascript:gotoMenu(1);" class="dth1">Menu</a><!-- 현재페이지 메뉴에 current 클래스 추가 -->
 								<ul class="depth2">
-									<li><a href="list.do" class="dth2">버거</a></li>
+									<li><a href="burger.do" class="dth2">버거</a></li>
 									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
 									<li><a href="javascript:gotoMenu(3);" class="dth2">맥모닝</a></li>
 									<li><a href="javascript:gotoMenu(15);" role="button">해피 스낵</a></li>
 									<li><a href="javascript:gotoMenu(7);" class="dth2">사이드 &amp; 디저트</a></li>
-									<li><a href="javascript:gotoMenu(9);" class="dth2">맥카페 &amp; 음료</a></li>
+									<li><a href="drink.do" class="dth2">맥카페 &amp; 음료</a></li>
 									<li><a href="javascript:gotoMenu(5);" class="dth2">해피밀</a></li>
 									<!-- <li><a href="javascript:gotoMenu(11);" class="dth2">365일 즐거운 혜택</a></li> -->
 								</ul>
@@ -111,17 +111,17 @@
 					<c:choose>
 						<c:when test="${not empty sessionScope.userInfo}">
 							<a href="logout.do" class="btn_register" title="로그아웃">로그아웃</a>					
-							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+							<a href="mypageupdate.do" class="btn_register" title="마이페이지">마이페이지</a>
 							<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
 						</c:when>
 						<c:when test="${not empty sessionScope.kakaoSession}">
 							<a href="#" class="btn_register"  onclick="javascript:kakaoLogout()" title="로그아웃">로그아웃</a>					
-							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+							<a href="mypageupdate.do" class="btn_register" title="마이페이지">마이페이지</a>
 							<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
 						</c:when>
 						<c:when test="${not empty sessionScope.naverSession}">
 							<a href="#" onclick="naverLogout('${sessionScope.naverAccessKey}')" class="btn_register" title="로그아웃">로그아웃</a>					
-							<a href="mypage.do" class="btn_register" title="마이페이지">마이페이지</a>
+							<a href="mypageupdate.do" class="btn_register" title="마이페이지">마이페이지</a>
 							<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
 						</c:when>
 						<c:when test="${empty sessionScope.userInfo && empty sessionScope.kakaoSession && empty sessionScope.naverSession}">
