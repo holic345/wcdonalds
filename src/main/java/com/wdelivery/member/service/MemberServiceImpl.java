@@ -3,6 +3,8 @@ package com.wdelivery.member.service;
 import java.util.HashMap;
 
 import org.json.simple.JSONObject;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +72,30 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
 	}
+	public void insertAuthData(UserVO userVO) {
+		memberDAO.insertAuthData(userVO);
+	}
 
+	@Override
+	public void updateAuthKey(Map<String, String> map) {
+		memberDAO.updateAuthKey(map);
+	}
+
+	@Override
+	public void signUpConfirm(String email) {
+		memberDAO.signUpConfirm(email);
+	}
+
+	@Override
+	public boolean isAuthKeyAvailable(Map<String, String> emailMap) {
+		int result =memberDAO.isAuthKeyAvailable(emailMap);
+		System.out.println("MemberServiceImpl result =>"+ result);
+		if(result>0)
+			return true;
+		else
+			return false;
+	}
+	
 	
 
 	

@@ -24,7 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 
 	<select id="userSelect" resultType="userVO" parameterType="userVO">
-		select * from user_info where user_email = #{user_email}
+		<![CDATA[
+			select * from user_info where user_email = #{user_email}	
+		]]>
 	</select>
 	<update id="mypageUpdate">
 		<![CDATA[
@@ -37,5 +39,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select count(*) from user_info where user_email = #{user_email};
 		]]>
 	</select>
-
+	
+	<insert id="insertAuthData" parameterType="userVO">
+	<![CDATA[
+			insert into authkey(user_email) values (#{user_email})
+		]]>
+	</insert>
+	<update id="updateAuthKey" parameterType="java.util.HashMap">
+	<![CDATA[
+			update authkey set auth_key = #{authKey} where user_email = #{user_email}
+		]]>
+	</update>
+	
+	<update id="signUpConfirm" parameterType="String">
+	<![CDATA[
+			update user_info set user_status = 1 where user_email = #{user_email}
+		]]>
+	</update>
+	
+	<select id="isAuthKeyAvailable" resultType="int"  parameterType="java.util.HashMap">
+		<![CDATA[
+			select count(*) from authkey where user_email = #{email} and auth_key = #{authKey}
+		]]>
+	</select>
 </mapper>
