@@ -338,8 +338,8 @@
 	<!-- hidden iframe 끝 -->
 
 
-	<%@ include file="footer.jsp"%>
-	<script type="text/javascript">
+<%@ include file="footer.jsp"%>
+<script type="text/javascript">
 	function page(type) {
 		if(type == 1) {
 			document.getElementById("div1").style.display = "block";
@@ -575,6 +575,13 @@
 						}
 					})
 			
+		}
+		
+		
+		//매장검색
+		function storeSearchPop(){
+			//window.open("/MC/HOM/storeSearch.jsp","","width=412,height=380, menubar=no, status=no, toolbar=no");
+			window.open("qnaStoreSearch.do","","width=660,height=500, menubar=no, status=no, toolbar=no");
 		}
 
 		

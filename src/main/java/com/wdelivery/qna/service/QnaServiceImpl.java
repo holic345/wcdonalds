@@ -3,6 +3,7 @@ package com.wdelivery.qna.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wdelivery.admin.vo.AdminVO;
 import com.wdelivery.qna.dao.QnaDAO;
 import com.wdelivery.qna.vo.QnaVO;
 
@@ -25,6 +26,14 @@ public class QnaServiceImpl implements QnaService {
 	  public QnaVO qnaSelect(QnaVO qnaVO) throws Exception{
 		  return qnaDAO.qnaSelect(qnaVO);
 	  }
-	 
+
+
+	@Override
+	public AdminVO storeSelect(AdminVO adminVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	  
+	  
 
 }

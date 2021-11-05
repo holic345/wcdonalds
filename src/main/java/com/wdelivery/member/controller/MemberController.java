@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.faq.service.FaqService;
 import com.wdelivery.faq.vo.FaqVO;
+import com.wdelivery.admin.vo.AdminVO;
 
 import com.wdelivery.cart.service.CartService;
 import com.wdelivery.cart.vo.CartVO;
@@ -191,44 +192,21 @@ public class MemberController {
 		return "orderHistory";
 	}
 
-	//臾몄�� 議고��
+	//qnaselect
 	@PostMapping("/qnaSelect.do")
 	@ResponseBody
 	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
-
-		
-		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db������ ������������ ������
-		//	System.out.println("search faild");
-	//	}else {	
-		//	System.out.println("search success");
-		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); �����몄���������������ㅵ��������
-
-		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) {
-			System.out.println("search faild");
-		//}else {	
-			System.out.println("search success");
-			//model.addAttribute("qna", qnaServie.qnaSelect(qnaVO));
-
-			
-			/*System.out.println("?" + vo.getQa_seq()); 
-			System.out.println("name?" + vo.getQa_name());
-			System.out.println("title?" + vo.getQa_title());
-			System.out.println("content?" + vo.getQa_content());
-			System.out.println("regDate?" + vo.getQa_regdate());*/
-			 
-			//return vo;
-		//}
 		
 		try {
 			System.out.println(vo.toString());
 			
 		}catch(NullPointerException e) {
-			System.out.println("������������ �������� ������������");
+			System.out.println("NullException");
 		}
 		return vo;
 	}
-
+	
 	@GetMapping("/qna.do")
 	public String qnapage() {
 		return "qna";
@@ -274,7 +252,7 @@ public class MemberController {
 		return "promotion";
 	}
 
-	//臾몄�� insert
+	//qna Insert
 	@RequestMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
 		// System.out.println("1 = " + qnaVO.getQa_agree1());
@@ -285,6 +263,21 @@ public class MemberController {
 		
 		return "qna";
 	}
+	@GetMapping("/qnaStoreSearch.do")
+	public String qnaStoreSearch() {
+		return "qnaStoreSearch";
+	}
+	@PostMapping("/qnaStoreSearchP.do")
+	@ResponseBody
+	public AdminVO qnaStoreSearchP(AdminVO adminVO, @RequestParam(name = "qa_store") String qa_store) {
+		AdminVO adminVo = qnaServie.storeSelect(adminVO);
+		
+		System.out.println("qnaStoreSerarch : " + adminVo.toString());
+		
+		
+		return adminVo;
+	}
+	
 
 	@GetMapping("/competition.do")
 	public String competition() {
