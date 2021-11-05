@@ -67,9 +67,9 @@
 								<ul class="depth2">
 									<li><a href="burger.do" class="dth2">버거</a></li>
 									<li><a href="javascript:gotoMenu(14);" role="button">맥런치</a></li>
-									<li><a href="javascript:gotoMenu(3);" class="dth2">맥모닝</a></li>
+									<li><a href="morning.do" class="dth2">맥모닝</a></li>
 									<li><a href="javascript:gotoMenu(15);" role="button">해피 스낵</a></li>
-									<li><a href="javascript:gotoMenu(7);" class="dth2">사이드 &amp; 디저트</a></li>
+									<li><a href="side.do" class="dth2">사이드 &amp; 디저트</a></li>
 									<li><a href="drink.do" class="dth2">맥카페 &amp; 음료</a></li>
 									<li><a href="javascript:gotoMenu(5);" class="dth2">해피밀</a></li>
 									<!-- <li><a href="javascript:gotoMenu(11);" class="dth2">365일 즐거운 혜택</a></li> -->

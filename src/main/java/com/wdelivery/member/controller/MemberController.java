@@ -183,10 +183,10 @@ public class MemberController {
 		}
 	}
 
-	@GetMapping("/detail.do")
-	public String detail() {
-		return "detail";
-	}
+//	@GetMapping("/detail.do")
+//	public String detail() {
+//		return "detail";
+//	}
 
 	@GetMapping("/faq.do")
 	public String faq(Model model) {
