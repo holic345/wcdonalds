@@ -9,5 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT * FROM drink
 		]]>
 	</select>
+	<select id="detailDrink" resultType="drinkVO">
+			SELECT * FROM drink WHERE d_code = #{drink_code}
+	</select>
 	
 </mapper>
