@@ -304,7 +304,10 @@ public class MemberController {
 	public String crew() {
 		return "crew";
 	}
-
+	@GetMapping("/paymentWin.do")
+	public String paymentWin() {
+		return "paymentWin";
+	}
 
 
 }
