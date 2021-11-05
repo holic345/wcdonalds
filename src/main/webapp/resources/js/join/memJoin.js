@@ -24,6 +24,8 @@ $("#m_email").blur(function(){
 				
 			if(data == 1){
                 $("#emailchecktxt").html('<small><strong class="text-danger">사용할 수 없는 이메일 입니다.</strong></small>');
+                $("#m_email").focus();
+	        	return false;
             }else{
                 $("#emailchecktxt").html('<small><strong class="text-success">사용가능한 이메일 입니다.</strong></small>');
             }
@@ -42,6 +44,7 @@ $("#m_email").blur(function(){
 
         $(".pwd_str_msg").hide();
         $(".pwd_str_msg[level='"+$chkLevel+"']").show();
+       
     }); //$("#m_password").keyup
    
     $("#m_password2").focus(function() { $("#pwd_chk_msg2").hide(); });
@@ -59,11 +62,67 @@ $("#m_email").blur(function(){
     }); //$("#m_password2").blur
     
     $login_pwd_str_conf = 0;
+    
+    //문자 인증
+/*		var code2 = "";
+		$("#inputPhone").click(function(){
+			var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+			var phone = $("#m_mobile3").val();
+			
+			if(!regExp.test(phone)){
+			alert("올바른 번호가 아닙니다.");
+			return false;
+				}
+			$.ajax({
+		        type:"GET",
+		        url:"check/sendSMS.do?phone=" + phone,
+		        cache : false,
+		        success:function(data){
+		        	if(data=='error'){
+		        		alert("휴대폰 번호가 올바르지 않습니다.")
+						$(".successPhoneChk").text("유효한 번호를 입력해주세요.");
+						$(".successPhoneChk").css("color","red");
+						$("#m_mobile3").attr("autofocus",true);
+						$("#sms_chk").val(0);
+		        	}else{	       
+		        		alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오."); 		
+		        		$("#send_sms").attr("disabled",false);
+		        		$("#inputCertified").css("display","inline-block");
+		        		$(".successPhoneChk").text("인증번호를 입력한 뒤 본인인증을 눌러주십시오.");
+		        		$(".successPhoneChk").css("color","green");
+		        		$("#m_mobile3").attr("readonly",false);
+		        		code2 = data;
+		        		//alert("data : " + data);
+		        	}
+		        return code2;
+		        
+		        },error : function(){
+		        	alert("실패");
+		        }
+		    });
+		});*/
+    //휴대폰 문자 인증번호 대조
+/*	$("#inputCertified").click(function(){
+		if($("#send_sms").val() == code2){
+			$(".successPhoneChk").text("인증번호가 일치합니다.");
+			$(".successPhoneChk").css("color","green");
+			$("#inputCertified").val("true");
+			$("#send_sms").attr("disabled",true);
+			$("#m_mobile3").attr("readonly",true);
+			$("#sms_chk").val("1");
+		}else{
+			$(".successPhoneChk").text("인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.");
+			$(".successPhoneChk").css("color","red");
+			$("#inputCertified").val("false");
+			$(this).attr("autofocus",true);
+		}
+		return false;
+	});*/
 
 //필수입력사항	
-$("#join_ok").click(function() {
-		 //이메일
-        var m_email = ($("#m_email").val()).trim;
+/*$("#join_ok").click(function() {
+
+        var m_email = $.trim($("#m_email").val());
         if (m_email=="") {
             alert('이메일주소를 입력해주세요.');
             $('#m_email').focus();
@@ -76,40 +135,35 @@ $("#join_ok").click(function() {
             return false;
         }
        
-        //name input
-        var m_name = ($("#m_name").val()).trim;
+        var m_name = $.trim($("#m_name").val());
         if (m_name=="") {
             alert('이름을 입력해주세요..');
             $("#m_name").focus();
             return false;
         }
 
-        //password input
-        var m_password = ($("#m_password").val()).trim;
+        var m_password =  $.trim($("#m_password").val());
         if (m_password=="") {
             alert('패스워드를 입력해주세요..');
             $("#m_password").focus();
             return false;
         }
 
-        //password dual
-        var m_password2 = ($("#m_password2").val()).trim;
+        var m_password2 = $.trim($("#m_password2").val());
         if (m_password2=="") {
             alert('패스워드 확인을 입력해주세요.');
             $("#m_password2").focus();
             return false;
         }
 		
-		//password confirm
 		if(m_password != m_password2){
 			alert('패스워드가 일치하지 않습니다. 다시 확인바랍니다.');
 			$("#m_password2").focus();
             return false;
 		}
 		
-        //m_zipcode, m_address
-        var m_zipcode = ($("#m_zipcode").val()).trim;
-        var m_address = ($("#m_address").val()).trim;
+        var m_zipcode = $("#m_zipcode").val();
+        var m_address = $.trim($("#m_address").val());
 
         if (m_zipcode=="") {
             alert('주소를 검색해주세요.');
@@ -123,29 +177,13 @@ $("#join_ok").click(function() {
             return false;
         }
 
-        //휴대폰번호
-        /*var m_mobile1 = $("#m_mobile1").val();
-        if (m_mobile1=='') {
-            alert('휴대폰번호 첫째자리를 입력해주세요.');
-            $("#m_mobile1").focus();
-            return false;
-        }
-        
-        var m_mobile2 = $("#m_mobile2").val();
-        if (m_mobile2=='') {
-            alert('휴대폰번호 둘째자리를 입력해주세요.');
-            $("#m_mobile2").focus();
-            return false;
-        }*/
-        
         var m_mobile3 = ($("#m_mobile3").val()).trim;
         if (m_mobile3=="") {
             alert('휴대폰번호를 입력해주세요.');
             $("#m_mobile3").focus();
             return false;
         }
-
-        //생년월일
+       
         var m_birth = $("#m_birth").val();
         if (m_birth=="") {
             alert('생년월일을 입력해주세요.');
@@ -153,17 +191,37 @@ $("#join_ok").click(function() {
             return false;
         }
 
-        //성별
         var m_sex = $(":radio[name='user_gender']:checked").val();
         if (m_sex=="" || m_sex==undefined) {
             alert('성별을 선택해주세요.');
             $("#m_sex1").focus();
             return false;
         }
-
+		
+		var pwd_chk = $("#login_pwd_chk").val();
+		if(pwd_chk == 0){
+			alert('비밀번호 안전도 올려올려');
+			$("#m_password").focus();
+			return false;
+		}
+		
+		var pwd_chk = $("#login_pwd_chk").val();
+		if(pwd_chk == 0){
+			alert('비밀번호 안전도 올려올려');
+			$("#m_password").focus();
+			return false;
+		}
+		
+		var sms = $("#sms_chk").val();
+		if(sms == 0){
+			alert('문자 인증을 완료해 주세요.');
+			$("#send_sms").focus();
+			return false;
+		}
+		
         $("#join_form").submit();
 
-    });
+    });*/
 })
 /*----------------------------------------------------------------------------------*/
 function admPwdStrengthChk(val, arr_pattern) {

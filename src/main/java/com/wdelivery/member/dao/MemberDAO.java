@@ -12,6 +12,8 @@ public interface MemberDAO {
 	public void winMemJoin(UserVO userVO);
 	public void winAddressJoin(UserAddressVO addressVO);
 	int emailChk(String user_email) throws Exception;
+	String sendSMS(String user_phone);
+
 	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
 	public void insertAuthData(UserVO userVO);
