@@ -299,8 +299,9 @@
 								 <input name="user_phone" id="m_mobile3" maxlength="11" type="text"	class="form-control placeholder dis_ib" style="width: 30%" placeholder="'-'은 빼고 입력해주세요!"/>
 								 <button type="button" class="btn btn-md btn-red" id="inputPhone">인증문자보내기</button><br/>
 								 <input name="send_sms" id="send_sms" class="form-control placeholder dis_ib" maxlength="4" type="text" style="width: 30%; margin : 10px 0;" placeholder="숫자 4글자를 입력해주세요."/>
-								 <button type="submit" class="btn btn-md btn-red" id="inputCertified">인증번호확인</button>
+								 <button type="submit" class="btn btn-md btn-red" id="inputCertified" style="display : none;">인증번호확인</button>
 								 <span class="successPhoneChk"></span>
+								 <input type="hidden" id="sms_chk" value="0">
 						</div>
 							<a name="m_birth_cal"></a>
 								<div class="form-group">

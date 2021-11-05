@@ -54,15 +54,15 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void certifiedPhoneNumber(String user_phone, String numStr) {
-		String api_key = "NCS2TGRLVYFPICZA";
-		String api_secret = "VOZZNTHVAN8CPBL6CM4ICODBU4WEVXWE";
+		String api_key = "NCSLKKH1668CXHYF"; //일성Key
+		String api_secret = "XTKDJVGBZYYGT1CVBVHOXVXYP05L7DND";
 		Message coolsms = new Message(api_key, api_secret);
 		
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("to", user_phone);
-		params.put("from", "01053567968");
+		params.put("from", "01042820579");
 		params.put("type", "SMS");
-		params.put("text", "[Windonald] 인증 번호는 [" + numStr + "] 입니다." );
+		params.put("text", "[Wdonald] 인증 번호는 [" + numStr + "] 입니다." );
 		params.put("app_version", "test app 1.2");
 		
 		try {
