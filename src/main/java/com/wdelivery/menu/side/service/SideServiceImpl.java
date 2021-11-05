@@ -20,4 +20,10 @@ public class SideServiceImpl implements SideService {
 		return sideDAO.selectSide();
 	}
 
+	@Override
+	public SideVO detailSide(String side_code) {
+		
+		return sideDAO.detailSide(side_code);
+	}
+
 }

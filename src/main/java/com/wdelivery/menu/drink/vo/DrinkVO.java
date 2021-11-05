@@ -13,7 +13,14 @@ public class DrinkVO {
 	private int d_status;
 	private int category_code;
 	private String d_e_name;
+	private int d_kcal;
 	
+	public int getD_kcal() {
+		return d_kcal;
+	}
+	public void setD_kcal(int d_kcal) {
+		this.d_kcal = d_kcal;
+	}
 	public String getD_code() {
 		return d_code;
 	}

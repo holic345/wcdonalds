@@ -41,30 +41,30 @@ public class MemberLoginController {
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
 
-		//status : err1 �븘�씠�뵒 �뾾�쓬 , err2 �깉�눜 �샊�� �젙吏��떦�븳 �쉶�썝 ,err3 鍮꾨�踰덊샇 �삤瑜�
-		// err4 : 怨듬갚 �엯�젰遺덇�
+		//status : err1 占쎈툡占쎌뵠占쎈탵 占쎈씨占쎌벉 , err2 占쎄퉱占쎈닚 占쎌깏占쏙옙 占쎌젟筌욑옙占쎈뼣占쎈립 占쎌돳占쎌뜚 ,err3 �뜮袁⑨옙甕곕뜇�깈 占쎌궎�몴占�
+		// err4 : �⑤벉媛� 占쎌뿯占쎌젾�겫�뜃占�
 
 		if(!userVO.getUser_email().equals("")&&userVO.getUser_email()!=null
 				&&userVO.getUser_password()!=null&&!userVO.getUser_password().equals("")) {
 			
 			UserVO findUserVO = memberService.findUser(userVO);
-			//�엯�젰�븳 �븘�씠�뵒�뿉 ���븳 �젙蹂닿� DB�뿉 ���옣�릺�뼱 �엳�쓣�븣
+			//占쎌뿯占쎌젾占쎈립 占쎈툡占쎌뵠占쎈탵占쎈퓠 占쏙옙占쎈립 占쎌젟癰귣떯占� DB占쎈퓠 占쏙옙占쎌삢占쎈┷占쎈선 占쎌뿳占쎌뱽占쎈르
 			
 			if(findUserVO==null) {
-				System.out.println("�븘�씠�뵒 �삤瑜� ");
+				System.out.println("占쎈툡占쎌뵠占쎈탵 占쎌궎�몴占� ");
 
 				model.addAttribute("status","err1");
 
-				return "main";//�엯�젰�븳 �씠硫붿씪濡� �븘臾댁젙蹂대�� 媛��졇�삤吏� 紐삵뻽�쓣寃쎌슦
+				return "main";//占쎌뿯占쎌젾占쎈립 占쎌뵠筌롫뗄�뵬嚥∽옙 占쎈툡�눧�똻�젟癰귣�占쏙옙 揶쏉옙占쎌죬占쎌궎筌욑옙 筌륁궢六쏙옙�뱽野껋럩�뒭
 			}
 			if(userVO.getUser_password().equals(findUserVO.getUser_password())) {
-				//db�뿉�꽌 媛��졇�삩 �븘�씠�뵒�� �뙣�뒪�썙�뱶媛� �궗�슜�옄媛� �엯�젰�븳 �뙣�뒪�썙�뱶�� 媛숈쓣�븣
+				//db占쎈퓠占쎄퐣 揶쏉옙占쎌죬占쎌궔 占쎈툡占쎌뵠占쎈탵占쏙옙 占쎈솭占쎈뮞占쎌뜖占쎈굡揶쏉옙 占쎄텢占쎌뒠占쎌쁽揶쏉옙 占쎌뿯占쎌젾占쎈립 占쎈솭占쎈뮞占쎌뜖占쎈굡占쏙옙 揶쏆늿�뱽占쎈르
 				if(findUserVO.getUser_status()==1) {
-					//�쉶�썝�긽�깭 /  0 = �깉�눜,1 = �젙�긽, 2 = �쉶�썝�젙吏�
+					//占쎌돳占쎌뜚占쎄맒占쎄묶 /  0 = 占쎄퉱占쎈닚,1 = 占쎌젟占쎄맒, 2 = 占쎌돳占쎌뜚占쎌젟筌욑옙
 					session.setAttribute("userInfo", findUserVO);
 					session.setAttribute("user_email" , findUserVO.getUser_email());
 				}else if(findUserVO.getUser_status()==3){
-					//이메일 미인증 유저
+					//�씠硫붿씪 誘몄씤利� �쑀��
 					session.setAttribute("userInfo", findUserVO);
 					model.addAttribute("status","err5");
 				}else {
@@ -74,16 +74,16 @@ public class MemberLoginController {
 				}
 				return "main";
 				}else {
-					//�븘�씠�뵒�뒗 �뵒鍮꾩뿉 �엳�뒗�뜲 鍮꾨�踰덊샇媛� �삤瑜섏씪�븣
-					System.out.println("鍮꾨�踰덊샇 �삤瑜� : �뵒鍮꾩젒洹� �뻽�쓬");
+					//占쎈툡占쎌뵠占쎈탵占쎈뮉 占쎈탵�뜮袁⑸퓠 占쎌뿳占쎈뮉占쎈쑓 �뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌궎�몴�꼷�뵬占쎈르
+					System.out.println("�뜮袁⑨옙甕곕뜇�깈 占쎌궎�몴占� : 占쎈탵�뜮袁⑹젔域뱄옙 占쎈뻥占쎌벉");
 
 					model.addAttribute("status","err3");
 
 					return "main";
 				}
 			}
-		//�븘�씠�뵒 鍮꾨�踰덊샇媛� 怨듬갚�쑝濡� �뱾�뼱�솕�쓣 寃쎌슦
-		System.out.println("鍮꾨�踰덊샇 �샊�� �븘�씠�뵒 怨듬갚 �젒洹� : �뿉�윭");
+		//占쎈툡占쎌뵠占쎈탵 �뜮袁⑨옙甕곕뜇�깈揶쏉옙 �⑤벉媛싷옙�몵嚥∽옙 占쎈굶占쎈선占쎌넅占쎌뱽 野껋럩�뒭
+		System.out.println("�뜮袁⑨옙甕곕뜇�깈 占쎌깏占쏙옙 占쎈툡占쎌뵠占쎈탵 �⑤벉媛� 占쎌젔域뱄옙 : 占쎈퓠占쎌쑎");
 
 		model.addAttribute("status","err4");
 
@@ -118,7 +118,7 @@ public class MemberLoginController {
 	@ResponseBody
 	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
 	public int emailChk(UserVO userVO, String user_email) throws Exception{
-		System.out.println("매핑되나?");
+		System.out.println("留ㅽ븨�릺�굹?");
 		int emailResult = memberService.emailChk(user_email);
 
 		System.out.println("controller : " + emailResult);
@@ -148,7 +148,7 @@ public class MemberLoginController {
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 
-		System.out.println("들어오나?");
+		System.out.println("�뱾�뼱�삤�굹?");
 
 		session.invalidate();
 		return "redirect:main.do";
