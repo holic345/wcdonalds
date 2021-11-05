@@ -28,7 +28,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<update id="mypageUpdate">
 		<![CDATA[
-		update user_info set user_phone = #{user_phone} where user_seq = #{user_seq}
+		update user_info
+		set user_name = #{user_name}, user_phone = #{user_phone}, user_password = #{user_password}
+		where user_seq = #{user_seq}
 		]]>
 	</update>
 

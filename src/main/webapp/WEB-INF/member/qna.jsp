@@ -291,18 +291,18 @@
 									<div class="reply-form">
 										<div class="d-flex-row">
 											<label for="email">이메일</label> 
-										<!-- 	<input type="text" name="qa_email" id="EMAIL2" class="int w432"> -->
+											<input type="text" name="" id="EMAIL2" class="int w432">
 										</div>
 										<div class="d-flex-row">
 											<label for="password">비밀번호</label> 
-											<!-- <input type="password" name="qa_password" id="CUST_PASSWORD2" class="int w432"> -->
+											<input type="password" name="" id="CUST_PASSWORD2" class="int w432">
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- submit button -->
 							<button type="button" class="btnMC btnM" onclick="search();">문의 조회하기</button>
-							<span id="req" style="red"></span> 
+							<span id="req" style="red"></span> <!-- 필요없음 -->
 	
 
 							<div id="LIST_DIV"></div>
@@ -471,7 +471,8 @@
 				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
 				
 				var result = confirm("문의등록 하시겠습니까?"); 
-				
+				alert("뭐냐 " +document.getElementsByName("qa_email").length);
+
 				if(result){ 
 					alert("무야? " + $("#EMAIL").val());
 					var a = $("input[name='qa_agree1']:checked").val();

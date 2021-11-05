@@ -55,25 +55,26 @@ public class MemberController {
 		return "main";
 	}
 
-
+	//회원정보 수정
 	@GetMapping("/mypageupdate.do")
 	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
 		
 		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
-		System.out.println("mypage : " + user_email );
+		//System.out.println("mypage : " + user_email );
 		
-		userVO = memberService.userSelect(user_email); //세션 아이디 VO 넣기
-		System.out.println("mypage !!!!!!!!=>" + userVO.toString());
-		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_name()));
+		userVO = memberService.userSelect(user_email); //세션 아이디 VO에 넣기
+		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
 		
 		return "mypageupdate";
 	}
 	@PostMapping("/mypageUpdate.do")
-	public String mypageUpdate(UserVO userVO, HttpSession session) {
+	public String mypageUpdate(UserVO userVO) {
+		//String user_email = (String) session.getAttribute("user_email");
+		//System.out.println("mypageupdate하는중 : " + user_email );
 		System.out.println("mypageupdateController" + userVO.getUser_seq());
 		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
 		memberService.mypageUpdate(userVO);
-		System.out.println("mypageupdate !!controller ");
 		System.out.println(userVO.toString());
 		return "mypageupdate";
 	}
