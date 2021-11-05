@@ -18,7 +18,7 @@ a, a:focus, a:hover {
 
 .btn-toolbar:after, .colsize-2-row:after, .colsize-3-row:after,
 	.colsize-4-row:after, .colsize-5-row:after, .container-fluid:after,
-	.container:after, /*  .dropdown-menu>li>a,  */ .form-horizontal .form-group:after,
+	.container:after,/*  .dropdown-menu>li>a,  */.form-horizontal .form-group:after,
 	.modal-footer:after, .nav:after, .navbar-collapse:after, .navbar-header:after,
 	.navbar:after, .pager:after, .panel-body:after, .row:after {
 	clear: both
@@ -80,7 +80,7 @@ mark {
 .btn, .btn-danger.active, .btn-danger:active, .btn-default.active,
 	.btn-default:active, .btn-info.active, .btn-info:active, .btn-primary.active,
 	.btn-primary:active, .btn-warning.active, .btn-warning:active, .btn.active,
-	.btn:active, /*  .dropdown-menu>.disabled>a:focus, */ .dropdown-menu>.disabled>a:hover,
+	.btn:active,/*  .dropdown-menu>.disabled>a:focus, */ .dropdown-menu>.disabled>a:hover,
 	.form-control, .navbar-toggle, .open>.btn-danger.dropdown-toggle, .open>.btn-default.dropdown-toggle,
 	.open>.btn-info.dropdown-toggle, .open>.btn-primary.dropdown-toggle,
 	.open>.btn-warning.dropdown-toggle {
@@ -147,11 +147,11 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 	-webkit-appearance: none
 }
 
-.input button, .input input ~* {
-	position: absolute;
-	right: 0;
-	top: 225px;
-	left: 380px;
+.input button, .input input~* {
+    position: absolute;
+    right: 0;
+    top: 225px;
+    left: 380px;
 }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
@@ -1273,7 +1273,7 @@ output {
 	padding: 6px 12px;
 	background-color: #fff;
 	border: 1px solid #ccc;
-	/* 	border-radius: 4px;  */
+/* 	border-radius: 4px;  */
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 	-webkit-transition: border-color ease-in-out .15s, box-shadow
@@ -2070,6 +2070,7 @@ tbody.collapse.in {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 	background-clip: padding-box
 } */
+
 .dropdown-menu-right, .dropdown-menu.pull-right {
 	left: auto;
 	right: 0
@@ -2371,6 +2372,7 @@ tbody.collapse.in {
 	position: absolute;
 	clip: rect(0, 0, 0, 0);
 	pointer-events: none;
+	
 }
 
 .input-group, .input-group-btn, .input-group-btn>.btn {
@@ -4559,19 +4561,14 @@ button.close {
 @media ( min-width :768px) {
 	.modal-dialog {
 		width: 600px;
-		margin: 10px 0 0 500px;
+		margin: 30px auto
 	}
-	#sideModal .modal-content {
+	.modal-content {
 		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-		box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-	}
-	#drinkModal .modal-content {
-		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-		box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-		width: 1000px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
 	}
 	.modal-sm {
-		width: 300px;
+		width: 300px
 	}
 }
 
@@ -5079,11 +5076,7 @@ button.close {
 	float: right !important
 }
 
-.checkbox.checkbox-small .icheckbox, .pull-left, .radio .iradio1 {
-	float: left !important
-}
-
-.checkbox.checkbox-small .icheckbox, .pull-left, .radio .iradio2 {
+.checkbox.checkbox-small .icheckbox, .pull-left, .radio .iradio {
 	float: left !important
 }
 
@@ -6214,6 +6207,8 @@ input[type=number] {
 	border-radius: 0px;
 	height: 35px;
 	padding: 0 22px;
+	
+	
 }
 
 .form-track-order {
@@ -6635,7 +6630,7 @@ input[type=number] {
 .checkbox.checkbox-small .chosen-container-single .chosen-single div b.icheckbox,
 	.checkbox.checkbox-small .fa.icheckbox, .checkbox.checkbox-small .icheckbox.ui-selectmenu-icon,
 	.chosen-container-single .chosen-single div .checkbox.checkbox-small b.icheckbox,
-	.chosen-container-single .chosen-single div .radio b.iradio1, b.iradio2,
+	.chosen-container-single .chosen-single div .radio b.iradio,
 	.chosen-container-single .chosen-single div b.pull-left, .fa.pull-left,
 	.pull-left.ui-selectmenu-icon, .radio .chosen-container-single .chosen-single div b.iradio,
 	.radio .fa.iradio, .radio .iradio.ui-selectmenu-icon {
@@ -8656,8 +8651,8 @@ rotate
 }
 
 .container {
-	min-width: 1400px;
-	max-width: 1400px;
+	min-width: 990px;
+	max-width: 1170px
 }
 
 .breadcrumb {
@@ -8686,10 +8681,8 @@ rotate
 
 .checkbox.checkbox-small .media>.icheckbox, .checkbox.checkbox-small .radio>.icheckbox,
 	.checkbox.checkbox-small>.icheckbox, .checkbox.checkbox-small>.pull-left,
-	.media-left, .media>.pull-left, .radio .checkbox.checkbox-small>.iradio1,
-	.radio .checkbox.checkbox-small>.iradio2
-	.radio .media>.iradio1, .radio>.iradio1, .radio .media>.iradio2, .radio>.iradio2,
-	.radio>.pull-left {
+	.media-left, .media>.pull-left, .radio .checkbox.checkbox-small>.iradio,
+	.radio .media>.iradio, .radio>.iradio, .radio>.pull-left {
 	padding-right: 10px
 }
 
@@ -10030,11 +10023,7 @@ rotate
 	padding: 0
 }
 
-.radio .iradio1 {
-	margin-right: 10px;
-}
-
-.radio .iradio2 {
+.radio .iradio {
 	margin-right: 10px;
 }
 
@@ -10076,12 +10065,10 @@ rotate
 	padding-left: 0
 }
 
-.icheckbox, .iradio1 {
+.icheckbox, .iradio {
 	margin: 0;
 	padding: 0;
-	background:
-		url(https://www.mcdelivery.co.kr/kr/static/1634720129356/assets/00/img/icheck_red2.png)
-		no-repeat;
+	background: url(https://www.mcdelivery.co.kr/kr/static/1634720129356/assets/00/img/icheck_red2.png) no-repeat;
 	border: none;
 	cursor: pointer
 }
@@ -10089,16 +10076,6 @@ rotate
 .icheckbox.disabled+label, .iradio.disabled+label {
 	color: #d2d2d2;
 	cursor: default
-}
-
-.icheckbox, .iradio2 {
-	margin: 0;
-	padding: 0;
-	background:
-		url(https://www.mcdelivery.co.kr/kr/static/1634720129356/assets/00/img/icheck_red2.png)
-		no-repeat;
-	border: none;
-	cursor: pointer
 }
 
 .icheckbox {
@@ -10125,49 +10102,26 @@ rotate
 	background-position: -160px 0
 }
 
-.iradio1 {
+.iradio {
 	width: 20px;
 	height: 20px;
 	background-position: -200px -9px;
 }
 
-.iradio2 {
-	width: 20px;
-	height: 20px;
-	background-position: -200px -9px;
-}
-
-.iradio1.hover {
+.iradio.hover {
 	background-position: -222px -9px
 }
 
-.iradio1.checked {
+.iradio.checked {
 	background-position: -244px -9px
 }
 
-.iradio1.disabled {
+.iradio.disabled {
 	background-position: -266px -9px;
 	cursor: default
 }
 
-.iradio1.checked.disabled {
-	background-position: -288px -9px
-}
-
-.iradio2.hover {
-	background-position: -222px -9px
-}
-
-.iradio2.checked {
-	background-position: -244px -9px
-}
-
-.iradio2.disabled {
-	background-position: -266px -9px;
-	cursor: default
-}
-
-.iradio2.checked.disabled {
+.iradio.checked.disabled {
 	background-position: -288px -9px
 }
 
@@ -12270,7 +12224,7 @@ body.show-configurator .root {
 
 .configurator-body {
 	position: relative;
-	/* 	z-index: 150; */
+/* 	z-index: 150; */
 	padding-top: 80px;
 	padding-bottom: 110px;
 	overflow: auto
@@ -12472,8 +12426,7 @@ body.show-configurator .root {
 }
 
 .table-select-meal .calories-column, .table-select-meal .cost-column,
-	.table-select-meal .tax-column, .table-select-meal .side-column,
-	.table-select-meal .drink-column, .table-select-meal .change-column {
+	.table-select-meal .tax-column {
 	text-align: left;
 	font-weight: 400
 }
@@ -12538,9 +12491,7 @@ body.show-configurator .root {
 }
 
 .table-select-meal th.calories-column, .table-select-meal th.cost-column,
-	.table-select-meal th.tax-column, .table-select-meal th.side-column,
-	.table-select-meal th.drink-column, .table-select-meal th.change-column
-	{
+	.table-select-meal th.tax-column, .table-select-meal th.side-column, .table-select-meal th.drink-column {
 	font-size: 18px;
 	font-size: 1.125rem;
 	text-transform: uppercase;
@@ -12555,17 +12506,13 @@ body.show-configurator .root {
 .table-select-meal .description-column .item-description {
 	color: #6a6a6a
 }
-
 .table-select-meal .calories-column, .table-select-meal .cost-column,
-	.table-select-meal .tax-column, .table-select-meal .side-column,
-	.table-select-meal .drink-column, .table-select-meal .change-column {
+	.table-select-meal .tax-column, .table-select-meal .side-column, .table-select-meal .drink-column{
 	color: #9f9f9f;
 	font-family: "Flama Condensed Medium", sans-serif
 }
 
-.table-select-meal>tbody>.selected .calories-column, .table-select-meal>tbody>.selected .cost-column,
-	.table-select-meal>tbody>.selected .side-column, .table-select-meal>tbody>.selected .drink-column,
-	.table-select-meal>tbody>.selected .change-column {
+.table-select-meal > tbody > .selected .calories-column, .table-select-meal > tbody > .selected .cost-column {
 	color: #44900c;
 }
 
