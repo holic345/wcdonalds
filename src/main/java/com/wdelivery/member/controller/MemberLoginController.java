@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wdelivery.member.service.MailSendService;
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.KakaoUserVO;
 import com.wdelivery.member.vo.NaverUserVO;
@@ -32,7 +33,7 @@ public class MemberLoginController {
 	@Autowired
 	private MemberService memberService; 
 	@Autowired
-	//private MailSendService mss;
+	private MailSendService mss;
 	
 	
 	@PostMapping("memLogin.do")
@@ -104,10 +105,10 @@ public class MemberLoginController {
 		memberService.winMemJoin(userVO);
 		memberService.winAddressJoin(addressVO);
 		memberService.insertAuthData(userVO);
-		//String authKey = mss.sendAuthMail(userVO.getUser_email());
+		String authKey = mss.sendAuthMail(userVO.getUser_email());
 		Map<String,String> map = new HashMap<String,String>();	
 		map.put("user_email", userVO.getUser_email());
-		//map.put("authKey", authKey);
+		map.put("authKey", authKey);
 		memberService.updateAuthKey(map);
 		return "emailConfirm";
 	}

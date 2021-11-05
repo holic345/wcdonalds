@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.wdelivery.menu.drink.vo.DrinkVO" alias="drinkVO"/>
 		<typeAlias type="com.wdelivery.menu.side.vo.SideVO" alias="sideVO"/>
 		<typeAlias type="com.wdelivery.menu.winMorning.vo.WinMorningVO" alias="winMorningVO"/>
+		<typeAlias type="com.wdelivery.menu.dessert.vo.DessertVO" alias="dessertVO"/>
 		
 		<typeAlias type="com.wdelivery.cart.vo.CartVO" alias="cartVO"/>
 		<typeAlias type="com.wdelivery.faq.vo.FaqVO" alias="faqVO"/>
@@ -20,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="wdonaldmappings/drink-mapping.xml"/>
 		<mapper resource="wdonaldmappings/side-mapping.xml"/>
 		<mapper resource="wdonaldmappings/morning-mapping.xml"/>
+		<mapper resource="wdonaldmappings/dessert-mapping.xml"/>
 		
 		<mapper resource="wdonaldmappings/cart-mapping.xml"/>
 		<mapper resource="wdonaldmappings/faq-mapping.xml"/>

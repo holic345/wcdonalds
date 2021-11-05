@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
+import com.wdelivery.menu.dessert.service.DessertService;
+import com.wdelivery.menu.dessert.vo.DessertVO;
 import com.wdelivery.menu.drink.service.DrinkService;
 import com.wdelivery.menu.drink.vo.DrinkVO;
 import com.wdelivery.menu.side.service.SideService;
@@ -30,6 +34,9 @@ public class MenuController {
 	
 	@Autowired
 	public WinMorningService winMorningService;
+	
+	@Autowired
+	public DessertService dessertService;
 	
 	@GetMapping("/burger.do")
 	public String selectBurger(Model model) {
@@ -64,11 +71,37 @@ public class MenuController {
 	@GetMapping("/morning.do")
 	public String selectWinMorning(Model model) {
 		List<WinMorningVO> selectWinMorning = winMorningService.selectWinMorning();
-		model.addAttribute("selectDrink", selectWinMorning);
+		model.addAttribute("selectWinMorning", selectWinMorning);
 		
 		System.out.println("selectWinMorning");
 		
 		return "morning";
 	}
-
+	
+	@GetMapping("/dessert.do")
+	public String selectDessert(Model model) {
+		List<DessertVO> selectDessert = dessertService.selectDessert();
+		model.addAttribute("selectDessert", selectDessert);
+		
+		System.out.println("selectDessert");
+		
+		return "dessert";
+	}
+	
+	@GetMapping("/detail.do")
+	public String detailBurger(Model model, @RequestParam(value = "b_code", required = false) String b_code) {
+		
+		if (b_code != null) {
+			BurgerVO burgerVO = burgerService.detailBurger(b_code);
+			System.out.println("detailBurger : " + burgerVO.getB_code());
+			System.out.println("detailBurger : " + burgerVO.getB_name());
+			System.out.println("detailBurger : " + burgerVO.getB_img_path());
+			model.addAttribute("detailBurger", burgerVO);
+			
+			return "detail";
+		} else {
+			return "redirect:burger.do";
+		}
+	}
+	
 }
