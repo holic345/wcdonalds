@@ -9,7 +9,8 @@ $("#m_email").blur(function(){
     var m_email = $("#m_email").val();
    // alert("1차 성공");
 	   if (isEmailValid($("#m_email"))==false) {
-	        alert('잘못된 이메일주소입니다.');
+	        //alert('잘못된 이메일주소입니다.');
+	         $("#emailchecktxt").html('<small><strong class="text-danger">잘못된 이메일주소입니다.</strong></small>');
 	        $("#m_email").focus();
 	        return false;
         }
@@ -24,6 +25,8 @@ $("#m_email").blur(function(){
 				
 			if(data == 1){
                 $("#emailchecktxt").html('<small><strong class="text-danger">사용할 수 없는 이메일 입니다.</strong></small>');
+                $("#m_email").focus();
+	        	return false;
             }else{
                 $("#emailchecktxt").html('<small><strong class="text-success">사용가능한 이메일 입니다.</strong></small>');
             }
@@ -59,6 +62,54 @@ $("#m_email").blur(function(){
     }); //$("#m_password2").blur
     
     $login_pwd_str_conf = 0;
+    
+     //휴대폰 번호 인증
+		var code2 = "";
+		$("#inputPhone").click(function(){
+			alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
+			var phone = $("#m_mobile3").val();
+			$.ajax({
+		        type:"GET",
+		        url:"check/sendSMS.do?phone=" + phone,
+		        cache : false,
+		       //data : {"numStr" : code2 },
+		        success:function(data){
+		        	if(data == "error"){
+		        		alert("휴대폰 번호가 올바르지 않습니다.")
+						$(".successPhoneChk").text("유효한 번호를 입력해주세요.");
+						$(".successPhoneChk").css("color","red");
+						$("#m_mobile3").attr("autofocus",true);
+		        	}else{	        		
+		        		$("#send_sms").attr("disabled",false);
+		        		$("#inputCertified").css("display","inline-block");
+		        		$(".successPhoneChk").text("인증번호를 입력한 뒤 본인인증을 눌러주십시오.");
+		        		$(".successPhoneChk").css("color","green");
+		        		$("#m_mobile3").attr("readonly",true);
+		        		code2 = data;
+		        		alert("data : " + data);
+		        	}
+		        return code2;
+		        },error : function(){
+		        	alert("실패");
+		        }
+		    });
+		});
+    //휴대폰 인증번호 대조
+	$("#inputCertified").click(function(){
+		if($("#send_sms").val() == code2){
+			$(".successPhoneChk").text("인증번호가 일치합니다.");
+			$(".successPhoneChk").css("color","green");
+			$("#inputCertified").val("true");
+			$("#send_sms").attr("disabled",true);
+		}else{
+			$(".successPhoneChk").text("인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.");
+			$(".successPhoneChk").css("color","red");
+			$("#inputCertified").val("false");
+			$(this).attr("autofocus",true);
+		}
+		
+		return;
+	});
 
 //필수입력사항	
 $("#join_ok").click(function() {
@@ -124,27 +175,14 @@ $("#join_ok").click(function() {
         }
 
         //휴대폰번호
-        /*var m_mobile1 = $("#m_mobile1").val();
-        if (m_mobile1=='') {
-            alert('휴대폰번호 첫째자리를 입력해주세요.');
-            $("#m_mobile1").focus();
-            return false;
-        }
-        
-        var m_mobile2 = $("#m_mobile2").val();
-        if (m_mobile2=='') {
-            alert('휴대폰번호 둘째자리를 입력해주세요.');
-            $("#m_mobile2").focus();
-            return false;
-        }*/
-        
         var m_mobile3 = ($("#m_mobile3").val()).trim;
         if (m_mobile3=="") {
             alert('휴대폰번호를 입력해주세요.');
             $("#m_mobile3").focus();
             return false;
         }
-
+        
+       
         //생년월일
         var m_birth = $("#m_birth").val();
         if (m_birth=="") {

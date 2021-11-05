@@ -1,6 +1,8 @@
 package com.wdelivery.member.controller;
 
 
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.member.service.MemberService;
@@ -102,29 +105,30 @@ public class MemberLoginController {
 	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
 	public int emailChk(UserVO userVO, String user_email) throws Exception{
 		int emailResult = memberService.emailChk(user_email);
-//		System.out.println("email Controller : " + result);
-//		return result;
+
 		System.out.println("controller : " + emailResult);
 		return emailResult;
 		
 	}
 	
-//	@RequestMapping(value = "signup", method = RequestMethod.POST)
-//	public String regPost(UserVO userVO, String user_email) throws Exception{
-//		int emailResult = memberService.emailChk(user_email);
-//		System.out.println("controller : " + emailResult);
-//		try {
-//			if (emailResult == 1) {
-//				return "signup";
-//			}else if (emailResult == 0) {
-//				memberService.winMemJoin(userVO);
-//				return "winMemJoin";
-//			}
-//		} catch (Exception e) {
-//			throw new RuntimeException();
-//		}
-//		return "redirect:/";
-//	}
+	@GetMapping("check/sendSMS.do")
+	@ResponseBody 
+	public String sendSMS(@RequestParam(value="phone", required = false)String user_phone) {
+		
+		Random rand = new Random();
+		String numStr = "";
+		for (int i = 0; i < 4; i++) {
+			String ran = Integer.toString(rand.nextInt(10));
+			numStr += ran;
+		}
+		memberService.certifiedPhoneNumber(user_phone, numStr);
+		System.out.println("수신자 번호 : " + user_phone);
+		System.out.println("인증 번호 : " + numStr);
+		
+		return numStr;
+		
+	}
+	
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
