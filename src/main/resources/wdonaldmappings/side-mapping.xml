@@ -9,5 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT * FROM side
 		]]>
 	</select>
+	<select id="detailSide" resultType="sideVO">
+			SELECT * FROM side WHERE s_code = #{side_code}
+	</select>
 	
 </mapper>
