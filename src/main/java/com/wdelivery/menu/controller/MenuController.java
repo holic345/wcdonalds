@@ -13,6 +13,8 @@ import com.wdelivery.menu.drink.service.DrinkService;
 import com.wdelivery.menu.drink.vo.DrinkVO;
 import com.wdelivery.menu.side.service.SideService;
 import com.wdelivery.menu.side.vo.SideVO;
+import com.wdelivery.menu.winMorning.service.WinMorningService;
+import com.wdelivery.menu.winMorning.vo.WinMorningVO;
 
 @Controller
 public class MenuController {
@@ -25,6 +27,9 @@ public class MenuController {
 	
 	@Autowired
 	public SideService sideService;
+	
+	@Autowired
+	public WinMorningService winMorningService;
 	
 	@GetMapping("/burger.do")
 	public String selectBurger(Model model) {
@@ -54,6 +59,16 @@ public class MenuController {
 		System.out.println("selectSide");
 		
 		return "side";
+	}
+	
+	@GetMapping("/morning.do")
+	public String selectWinMorning(Model model) {
+		List<WinMorningVO> selectWinMorning = winMorningService.selectWinMorning();
+		model.addAttribute("selectDrink", selectWinMorning);
+		
+		System.out.println("selectWinMorning");
+		
+		return "morning";
 	}
 
 }
