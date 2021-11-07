@@ -21,7 +21,6 @@ import com.wdelivery.faq.vo.FaqVO;
 import com.wdelivery.admin.vo.AdminVO;
 
 import com.wdelivery.cart.service.CartService;
-import com.wdelivery.cart.vo.CartVO;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
@@ -52,6 +51,7 @@ public class MemberController {
 
 	@Autowired
 	private BurgerService burgerService;
+	
 	@Autowired
 	private SideService sideService;
 	@Autowired
@@ -64,6 +64,39 @@ public class MemberController {
 	}
 
 
+	@GetMapping("/mypageupdate.do")
+	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
+		
+		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
+		//System.out.println("mypage : " + user_email );
+		
+		userVO = memberService.userSelect(user_email); //세션 아이디 VO에 넣기
+		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
+		
+		return "mypageupdate";
+	}
+	@PostMapping("/mypageUpdate.do")
+	public String mypageUpdate(UserVO userVO, HttpSession session) {
+		System.out.println("����" + userVO.getUser_seq());
+		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
+		memberService.mypageUpdate(userVO);
+		System.out.println("mypageupdate !!controller ");
+		System.out.println(userVO.toString());
+		return "mypageupdate";
+	}
+	 
+	
+
+	@GetMapping("/addressBook.do")
+	public String addressBook() {
+		return "addressBook";
+	}
+
+	@GetMapping("/addressupdate.do")
+	public String addressUpdate() {
+		return "addressupdate";
+	}
 
 	@GetMapping("/order.do")
 	public String orderPage(Model model, @RequestParam(value="b_code", required=false) String b_code, 
@@ -74,7 +107,7 @@ public class MemberController {
 //		model.addAttribute("burgerSetVO", burgerSetVO);
 		
 		if(b_code != null) {
-			BurgerVO burgerVO = burgerService.detailBurger(b_code);
+			BurgerVO burgerVO = burgerService.detailBurger(Integer.parseInt(b_code));
 			System.out.println("burgerVO" + burgerVO.getB_code());
 			System.out.println("burgerVO : " + burgerVO.getB_img_path());
 			System.out.println("burgerVO" + burgerVO.getB_name());
@@ -113,14 +146,14 @@ public class MemberController {
 		}
 		else {
 			if (va.equals("라지세트")) {
-				BurgerVO burgerVO = burgerService.detailBurger(b_code);
+				BurgerVO burgerVO = burgerService.detailBurger(Integer.parseInt(b_code));
 	
 				CartVO cartVO = new CartVO();
 				cartVO.setCart_b_code(burgerVO.getB_code());
 				cartVO.setCart_b_img_path(burgerVO.getB_img_path());
 				cartVO.setCart_b_name(burgerVO.getB_name());
 				cartVO.setCart_b_price(burgerVO.getB_price());
-
+	
 //				List<CartVO> cartList = cartService.cartList();
 				
 				model.addAttribute("cartList", cartList);
