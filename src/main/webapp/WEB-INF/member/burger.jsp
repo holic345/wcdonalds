@@ -26,7 +26,7 @@
 							<ul class="menuList" id="menuList">
 								<c:forEach items="${selectBurger}" var="selectBurger">
 									<li>
-										<a href="javascript:goDetail({seq})" data-seq="{seq}">
+										<a href="javascript:location.href='detail.do?b_code=${selectBurger.b_code}'" data-seq="${selectBurger.b_code}">
 											<div class="thum">
 												<img src="${selectBurger.b_img_path}" alt="${selectBurger.b_name}">
 											</div>

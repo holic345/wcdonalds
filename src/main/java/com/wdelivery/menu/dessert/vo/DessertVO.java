@@ -2,7 +2,7 @@ package com.wdelivery.menu.dessert.vo;
 
 public class DessertVO {
 
-	private String dessert_code;
+	private Integer dessert_code;
 	private String dessert_name;
 	private String dessert_price;
 	private String dessert_img_path;
@@ -14,10 +14,10 @@ public class DessertVO {
 	private int category_code;
 	private String dessert_e_name;
 	
-	public String getDessert_code() {
+	public Integer getDessert_code() {
 		return dessert_code;
 	}
-	public void setDessert_code(String dessert_code) {
+	public void setDessert_code(Integer dessert_code) {
 		this.dessert_code = dessert_code;
 	}
 	public String getDessert_name() {

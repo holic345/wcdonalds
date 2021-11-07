@@ -17,15 +17,14 @@
 			</div>
 			<div class="contArea">
 				<div class="inner">
-					<c:forEach items="${selectBurger}" var="selectBurger">
 					<div class="menuView">
 						<div class="viewTop">
 							<div class="name">
-								<h2 class="ko">${selectBurger.b_name}</h2>
-								<em class="en">${selectBurger.b_e_name}</em>
+								<h2 class="ko">${detailBurger.b_name}</h2>
+								<em class="en">${detailBurger.b_e_name}</em>
 							</div>
 							<div class="info" data-title="슈니언 버거(버거)" data-desc="버거 메뉴">
-								<div class="visual"><img src="https://www.mcdonalds.co.kr/upload/product/pcfile/1624844051863.png" alt="슈니언 버거"></div>
+								<div class="visual"><img src="${detailBurger.b_img_path}" alt="슈니언 버거"></div>
 								<div class="desc">
 									탱~글한 통새우살과 바삭한 어니언의 조화!<br>슈니언 버거<br>
 									<br>
@@ -93,7 +92,6 @@
 									</table>
 								</div>
 							</div>
-						</c:forEach>	
 							<div class="toggle">
 								<h4 class="tit">알레르기 정보</h4>
 								<button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false">알레르기 정보 보기</button><!-- toggle버튼 선택시 aria-selected값 true로 변경 / aria-expanded 값 true로 변경 -->

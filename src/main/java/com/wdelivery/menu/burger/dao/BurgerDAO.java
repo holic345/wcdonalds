@@ -9,7 +9,7 @@ public interface BurgerDAO {
 
 	public List<BurgerVO> selectBurger();
 	
-	BurgerVO detailBurger(String b_code);
+	BurgerVO detailBurger(Integer b_code);
 	
 	void updateBurger(BurgerVO burgerVO);
 	

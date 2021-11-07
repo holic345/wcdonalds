@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class WinMorningVO {
 
-	private String w_code;
+	private Integer w_code;
 	private String w_name;
 	private String w_price;
 	private int w_kcal;
@@ -17,10 +17,10 @@ public class WinMorningVO {
 	private int category_code;
 	private String w_e_name;
 	
-	public int getCategory_code() {
+	public Integer getCategory_code() {
 		return category_code;
 	}
-	public void setCategory_code(int category_code) {
+	public void setCategory_code(Integer category_code) {
 		this.category_code = category_code;
 	}
 	public String getW_e_name() {
@@ -29,10 +29,10 @@ public class WinMorningVO {
 	public void setW_e_name(String w_e_name) {
 		this.w_e_name = w_e_name;
 	}
-	public String getW_code() {
+	public int getW_code() {
 		return w_code;
 	}
-	public void setW_code(String w_code) {
+	public void setW_code(int w_code) {
 		this.w_code = w_code;
 	}
 	public String getW_name() {

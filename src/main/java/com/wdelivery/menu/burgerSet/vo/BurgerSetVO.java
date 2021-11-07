@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class BurgerSetVO {
 	
-	private String b_set_code;
+	private Integer b_set_code;
 	private String b_set_name;
 	private String b_set_price;
 	private int b_set_kcal;
@@ -13,10 +13,10 @@ public class BurgerSetVO {
 	private String b_set_img;
 	private int b_set_status;
 	
-	public String getB_set_code() {
+	public Integer getB_set_code() {
 		return b_set_code;
 	}
-	public void setB_set_code(String b_set_code) {
+	public void setB_set_code(Integer b_set_code) {
 		this.b_set_code = b_set_code;
 	}
 	public String getB_set_name() {
