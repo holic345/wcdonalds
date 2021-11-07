@@ -37,64 +37,70 @@ public class MemberLoginController {
 	@Autowired
 	private MailSendService mss;
 	
+	/**
+	 회원상태 
+	   0 = 탈퇴 / 1 = 정상 / 2 = 회원정지 / 3= 이메일 미인증/ 4= 카카오톡 / 5= 네이버
+	   6 = 아이디 없음 / 7 = 비밀번호 오류/
+	 */
 	
 	@PostMapping("memLogin.do")
 	public String memberLogin(UserVO userVO,HttpSession session,Model model) {
-
-		//status : err1 占쎈툡占쎌뵠占쎈탵 占쎈씨占쎌벉 , err2 占쎄퉱占쎈닚 占쎌깏占쏙옙 占쎌젟筌욑옙占쎈뼣占쎈립 占쎌돳占쎌뜚 ,err3 �뜮袁⑨옙甕곕뜇�깈 占쎌궎�몴占�
-		// err4 : �⑤벉媛� 占쎌뿯占쎌젾�겫�뜃占�
 
 		if(!userVO.getUser_email().equals("")&&userVO.getUser_email()!=null
 				&&userVO.getUser_password()!=null&&!userVO.getUser_password().equals("")) {
 			
 			UserVO findUserVO = memberService.findUser(userVO);
-			//占쎌뿯占쎌젾占쎈립 占쎈툡占쎌뵠占쎈탵占쎈퓠 占쏙옙占쎈립 占쎌젟癰귣떯占� DB占쎈퓠 占쏙옙占쎌삢占쎈┷占쎈선 占쎌뿳占쎌뱽占쎈르
 			
 			if(findUserVO==null) {
-				System.out.println("占쎈툡占쎌뵠占쎈탵 占쎌궎�몴占� ");
-
-				model.addAttribute("status","err1");
-
-				return "main";//占쎌뿯占쎌젾占쎈립 占쎌뵠筌롫뗄�뵬嚥∽옙 占쎈툡�눧�똻�젟癰귣�占쏙옙 揶쏉옙占쎌죬占쎌궎筌욑옙 筌륁궢六쏙옙�뱽野껋럩�뒭
+				model.addAttribute("status", 6);
+				return "main";
 			}
 			if(userVO.getUser_password().equals(findUserVO.getUser_password())) {
-				//db占쎈퓠占쎄퐣 揶쏉옙占쎌죬占쎌궔 占쎈툡占쎌뵠占쎈탵占쏙옙 占쎈솭占쎈뮞占쎌뜖占쎈굡揶쏉옙 占쎄텢占쎌뒠占쎌쁽揶쏉옙 占쎌뿯占쎌젾占쎈립 占쎈솭占쎈뮞占쎌뜖占쎈굡占쏙옙 揶쏆늿�뱽占쎈르
 				if(findUserVO.getUser_status()==1) {
-					//占쎌돳占쎌뜚占쎄맒占쎄묶 /  0 = 占쎄퉱占쎈닚,1 = 占쎌젟占쎄맒, 2 = 占쎌돳占쎌뜚占쎌젟筌욑옙
-					session.setAttribute("userInfo", findUserVO);
-					session.setAttribute("user_email" , findUserVO.getUser_email());
+					session.setAttribute("user_email", findUserVO.getUser_email());
+					model.addAttribute("status" , findUserVO.getUser_status());	
 				}else if(findUserVO.getUser_status()==3){
-					//�씠硫붿씪 誘몄씤利� �쑀��
-					session.setAttribute("userInfo", findUserVO);
-					model.addAttribute("status","err5");
+					session.setAttribute("user_email", findUserVO.getUser_email());
+					model.addAttribute("status" , findUserVO.getUser_status());	
+				}else if(findUserVO.getUser_status()==2){
+					//user_status = 2, 
+					model.addAttribute("status", findUserVO.getUser_status());
 				}else {
-
-					model.addAttribute("status","err2");
-
+					//user_status = 0
+					model.addAttribute("status", findUserVO.getUser_status());
 				}
 				return "main";
 				}else {
-					//占쎈툡占쎌뵠占쎈탵占쎈뮉 占쎈탵�뜮袁⑸퓠 占쎌뿳占쎈뮉占쎈쑓 �뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌궎�몴�꼷�뵬占쎈르
-					System.out.println("�뜮袁⑨옙甕곕뜇�깈 占쎌궎�몴占� : 占쎈탵�뜮袁⑹젔域뱄옙 占쎈뻥占쎌벉");
-
-					model.addAttribute("status","err3");
-
+					//incorrect password
+					model.addAttribute("status", 7);
 					return "main";
 				}
 			}
-		//占쎈툡占쎌뵠占쎈탵 �뜮袁⑨옙甕곕뜇�깈揶쏉옙 �⑤벉媛싷옙�몵嚥∽옙 占쎈굶占쎈선占쎌넅占쎌뱽 野껋럩�뒭
-		System.out.println("�뜮袁⑨옙甕곕뜇�깈 占쎌깏占쏙옙 占쎈툡占쎌뵠占쎈탵 �⑤벉媛� 占쎌젔域뱄옙 : 占쎈퓠占쎌쑎");
-
-		model.addAttribute("status","err4");
-
+		model.addAttribute("status",6);
 		return "main";
-		
 	}
 	
 	@RequestMapping("kakaoLogin.do")
 	public String kakaoLogin(@RequestBody KakaoUserVO kakaoVO,HttpSession session) {
-		session.setAttribute("kakaoSession", kakaoVO);
 		System.out.println(kakaoVO.toString());
+		UserVO kakaoUserVO = memberService.isMemberInService("kakao", "kakao#"+kakaoVO.getEmail());
+		if(kakaoUserVO!=null) {
+		session.setAttribute("kakaoSession", kakaoUserVO);
+		session.setAttribute("status", kakaoUserVO.getUser_status());
+		}else {
+			UserVO userVO = new UserVO();
+			userVO.setUser_email("kakao#"+kakaoVO.getEmail());
+			userVO.setUser_gender((kakaoVO.getGender().equals("male")?"man":"woman"));
+			userVO.setUser_birth(kakaoVO.getBirthday());
+		
+			System.out.println("start socialMemJoin() => "+userVO.toString());
+			
+			memberService.socialMemJoin("kakao",userVO);
+			userVO = memberService.isMemberInService("kakao", "kakao#"+kakaoVO.getEmail());
+			System.out.println(userVO.toString());
+			session.setAttribute("kakaoSession", userVO);
+			session.setAttribute("status", userVO.getUser_status());
+		}
 		return "main";
 	}                                                                                                                                            
 	
@@ -118,9 +124,7 @@ public class MemberLoginController {
 	@ResponseBody
 	@RequestMapping(value = "emailChk.do", method = RequestMethod.GET)
 	public int emailChk(UserVO userVO, String user_email) throws Exception{
-		System.out.println("留ㅽ븨�릺�굹?");
 		int emailResult = memberService.emailChk(user_email);
-
 		System.out.println("controller : " + emailResult);
 		return emailResult;
 		
@@ -147,19 +151,34 @@ public class MemberLoginController {
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
-
-		System.out.println("�뱾�뼱�삤�굹?");
-
 		session.invalidate();
 		return "redirect:main.do";
 	}
 	
 	@RequestMapping("naverLogin.do")
-	@ResponseBody
 	public String naverLogin(@RequestBody NaverUserVO naverVO,HttpSession session) {
-		session.setAttribute("naverSession", naverVO);
-		session.setAttribute("naverAccessKey", naverVO.getAccessToken());
 		System.out.println(naverVO.toString());
+		UserVO naverUserVO = memberService.isMemberInService("naver", "naver#"+naverVO.getEmail());
+		if(naverUserVO!=null) {
+		session.setAttribute("naverSession", naverUserVO);
+		session.setAttribute("status", naverUserVO.getUser_status());
+		}else {
+			UserVO userVO = new UserVO();
+			userVO.setUser_email("naver#"+naverVO.getEmail());
+			userVO.setUser_gender((naverVO.getGender().equals("M")?"man":"woman"));
+			userVO.setUser_birth(naverVO.getBirthday());
+			userVO.setUser_phone(naverVO.getMobile());
+		
+			System.out.println("start socialMemJoin() => "+userVO.toString());
+			
+			memberService.socialMemJoin("naver",userVO);
+			userVO = memberService.isMemberInService("naver", "naver#"+naverVO.getEmail());
+			System.out.println(userVO.toString());
+			session.setAttribute("naverSession", userVO);
+			session.setAttribute("status", userVO.getUser_status());
+		}
+		
+		session.setAttribute("accessToken", naverVO.getAccessToken());
 		return "main";
 	}
 	

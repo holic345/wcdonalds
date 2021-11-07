@@ -20,4 +20,11 @@ public interface MemberDAO {
 	public void updateAuthKey(Map<String, String> map);
 	public void signUpConfirm(String email);
 	public int isAuthKeyAvailable(Map<String, String> emailMap);
+
+	public UserVO isThisKakaoMemberInService(String email);
+	public UserVO isThisNaverMemberInService(String email);
+
+	public void naverMemJoin(UserVO userVO);
+
+	public void kakaoMemJoin(UserVO userVO);
 }

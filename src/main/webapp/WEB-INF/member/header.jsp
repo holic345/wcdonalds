@@ -27,29 +27,29 @@
 <body>
 <c:if test="${!empty status }">
 	<c:choose>
-		<c:when test="${status eq 'err1'}">
+		<c:when test="${status eq 0}">
 		<script>
-			alert('잘못된 아이디입니다');
+			alert('탈퇴한 회원입니다.');
 			</script>
 		</c:when>
-		<c:when test="${status eq 'err2'}">
+		<c:when test="${status eq 2}">
 		<script>
-			alert('탈퇴 혹은 정지당한 회원입니다.');
+			alert('정지당한 회원입니다.');
 			</script>
 		</c:when>
-		<c:when test="${status eq 'err3'}">
-		<script>
-			alert('비밀번호가 틀립니다');
-			</script>
-		</c:when>
-		<c:when test="${status eq 'err5'}">
+		<c:when test="${status eq 3}">
 		<script>
 			alert('이메일 인증을 완료해주세요.');
 			</script>
 		</c:when>
-		<c:when test="${status eq 'err4'}">
+		<c:when test="${status eq 6}">
 		<script>
-			alert('공백은 넣을수 없습니다.');
+			alert('옳바른 아이디를 입력해주세요.');
+			</script>
+		</c:when>
+		<c:when test="${status eq 7}">
+		<script>
+			alert('비밀번호가 옳바르지않습니다.');
 			</script>
 		</c:when>
 	</c:choose>
@@ -109,7 +109,7 @@
 					<div class="util">
 					
 					<c:choose>
-						<c:when test="${not empty sessionScope.userInfo}">
+						<c:when test="${not empty sessionScope.user_email}">
 							<a href="logout.do" class="btn_register" title="로그아웃">로그아웃</a>					
 							<a href="mypageupdate.do" class="btn_register" title="마이페이지">마이페이지</a>
 							<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
@@ -124,7 +124,7 @@
 							<a href="mypageupdate.do" class="btn_register" title="마이페이지">마이페이지</a>
 							<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
 						</c:when>
-						<c:when test="${empty sessionScope.userInfo && empty sessionScope.kakaoSession && empty sessionScope.naverSession}">
+						<c:when test="${empty sessionScope.user_email && empty sessionScope.kakaoSession && empty sessionScope.naverSession}">
 							<a href="#login_pop" class="btn_login" title="로그인으로 이동">로그인</a>					
 						<a href="join.do" class="btn_register" title="회원가입으로 이동">회원가입</a>
 						<a href="order.do" class="btn_cart" title="카트로 이동">카트</a>
