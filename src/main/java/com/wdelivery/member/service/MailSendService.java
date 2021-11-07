@@ -52,7 +52,7 @@ public class MailSendService {
 					.append("&authKey=")
 					.append(authKey)
 					.append("' target='_blenk'>이메일 인증 확인</a>").toString());
-			sendMail.setFrom("darkcp9@naver.com","관리자");
+			sendMail.setFrom("guyri5514@naver.com","관리자");
 			sendMail.setTo(email);
 			sendMail.send();
 			

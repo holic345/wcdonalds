@@ -217,3 +217,4 @@ function naverLogout(accessKey){
 	window.location.href="http://localhost:8080/controller/main.do";
 	//https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=Xh_il_8tTurOD_pU6D37&client_secret=JHDMkT0G7N&access_token=&service_provider=NAVER		
 }
+

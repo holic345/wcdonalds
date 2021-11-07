@@ -18,8 +18,8 @@
     			<div class="contArea">
 					<div class="inner">
 						<ul class="tabType01">
-							<li data-title="사이드" data-desc="사이드메뉴"><a href="side.do" role="button" aria-selected="true">메뉴</a></li><!-- 선택 된 태그에 aria-selected="true" 추가 -->
-							<!-- <li><a href="javascript:gotoMenu(2);" role="button">세트메뉴</a></li> -->
+							<li data-title="사이드" data-desc="사이드메뉴"><a href="side.do" role="button" aria-selected="true">사이드</a></li><!-- 선택 된 태그에 aria-selected="true" 추가 -->
+							<li data-title="디저트" data-desc="디저트메뉴"><a href="dessert.do" role="button">디저트</a></li>
 						</ul>
 						<div class="mcMenu">
 							<p class="count" id="count">8 Products</p>
@@ -44,7 +44,7 @@
 								</c:forEach>
 							</ul>
 							<div class="btnMore" id="btnMore">
-								<button type="button" class="more" onclick="more()">더보기</button>
+								<button type="button" class="more" onclick="more()">더보기</buttona>
 							</div>
 						</div>
 					</div>

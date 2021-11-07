@@ -2,7 +2,7 @@ package com.wdelivery.menu.drink.vo;
 
 public class DrinkVO {
 	
-	private String d_code;
+	private Integer d_code;
 	private String d_name;
 	private String d_price;
 	private String d_hotcold;
@@ -13,11 +13,18 @@ public class DrinkVO {
 	private int d_status;
 	private int category_code;
 	private String d_e_name;
+	private int d_kcal;
 	
-	public String getD_code() {
+	public Integer getD_kcal() {
+		return d_kcal;
+	}
+	public void setD_kcal(Integer d_kcal) {
+		this.d_kcal = d_kcal;
+	}
+	public int getD_code() {
 		return d_code;
 	}
-	public void setD_code(String d_code) {
+	public void setD_code(int d_code) {
 		this.d_code = d_code;
 	}
 	public String getD_name() {

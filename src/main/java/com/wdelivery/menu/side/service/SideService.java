@@ -7,5 +7,7 @@ import com.wdelivery.menu.side.vo.SideVO;
 public interface SideService {
 	
 	public List<SideVO> selectSide();
+	
+	SideVO detailSide(String side_code);
 
 }

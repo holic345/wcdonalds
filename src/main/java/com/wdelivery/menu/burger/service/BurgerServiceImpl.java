@@ -21,7 +21,8 @@ public class BurgerServiceImpl implements BurgerService {
 	}
 
 	@Override
-	public BurgerVO detailBurger(String b_code) {
+	public BurgerVO detailBurger(Integer b_code) {
+		System.out.println("detailBurger");
 		return burgerDAO.detailBurger(b_code);
 	}
 
