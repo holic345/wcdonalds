@@ -120,4 +120,9 @@ public class MemberServiceImpl implements MemberService {
 		}
 
 	}
+
+	@Override
+	public void mypageDelete(UserVO userVO) { //don ÇÏ´Â Áß
+		memberDAO.mypageDelete(userVO);
+	}
 }

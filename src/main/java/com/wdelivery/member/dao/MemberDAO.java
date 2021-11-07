@@ -16,6 +16,7 @@ public interface MemberDAO {
 
 	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
+	public void mypageDelete(UserVO userVO); //don ÇÏ´Â Áß
 	public void insertAuthData(UserVO userVO);
 	public void updateAuthKey(Map<String, String> map);
 	public void signUpConfirm(String email);
