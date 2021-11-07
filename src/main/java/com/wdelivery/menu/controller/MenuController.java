@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wdelivery.menu.burger.service.BurgerService;
@@ -89,13 +88,14 @@ public class MenuController {
 	}
 	
 	@GetMapping("/detail.do")
-	public String detailBurger(Model model, @RequestParam(value = "b_code", required = false) String b_code) {
+	public String detailBurger(Model model, @RequestParam(value = "b_code", required = false) Integer b_code) {
 		
 		if (b_code != null) {
 			BurgerVO burgerVO = burgerService.detailBurger(b_code);
 			System.out.println("detailBurger : " + burgerVO.getB_code());
 			System.out.println("detailBurger : " + burgerVO.getB_name());
 			System.out.println("detailBurger : " + burgerVO.getB_img_path());
+			System.out.println("detailBurger : " + burgerVO.getB_n_img_path());
 			model.addAttribute("detailBurger", burgerVO);
 			
 			return "detail";
