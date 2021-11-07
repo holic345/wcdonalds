@@ -474,7 +474,6 @@
 				alert("뭐냐 " +document.getElementsByName("qa_email").length);
 
 				if(result){ 
-					alert("무야? " + $("#EMAIL").val());
 					var a = $("input[name='qa_agree1']:checked").val();
 					var b = $("input[name='qa_agree2']:checked").val();
 					//alert("동의 a =" + a); ,

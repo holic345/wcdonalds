@@ -146,7 +146,7 @@
 																	for="form_accountsetting_contactno">새로운 비밀번호:</label> 
 																<input type="password"
 																	class="form-control input-lg required number digit-only"
-																	maxlength="11" id="form_accountsetting_contactno"
+																	maxlength="11" id="newPw"
 																	name="user_password" placeholder="새로운 비밀번호"/>
 															</div>
 														</div>
@@ -211,7 +211,11 @@
 <script type="text/javascript">
 
 function updatego() {
-	
+	if(($("#newPw").val()).trim() == ""){
+		var user_password = ${userVO.user_password};
+    	alert("회원이 비번변경안함 : " + user_password);
+ 	}else{
+   		alert("회원이 비번 변경 함"); 
 
 	if(confirm("변경하시겠습니까?")){
 		var mypageUpdateForm = document.getElementById("form_accountsetting");
@@ -223,7 +227,7 @@ function updatego() {
 		return;
 	}
 	//confirm("변경하시겠습니까?");
-	
+ 	}
 }
 
 </script>
