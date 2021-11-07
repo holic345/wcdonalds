@@ -2,7 +2,7 @@ package com.wdelivery.menu.side.vo;
 
 public class SideVO {
 
-	private String s_code;
+	private Integer s_code;
 	private String s_name;
 	private String s_price;
 	private String s_img_path;
@@ -14,10 +14,10 @@ public class SideVO {
 	private int category_code;
 	private String s_e_name;
 	
-	public String getS_code() {
+	public Integer getS_code() {
 		return s_code;
 	}
-	public void setS_code(String s_code) {
+	public void setS_code(Integer s_code) {
 		this.s_code = s_code;
 	}
 	public String getS_name() {

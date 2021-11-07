@@ -49,16 +49,12 @@
 										<th class="calories-column">kcal</th>
 										<th colspan="2" class="side-column">사이드</th>
 										<th colspan="2"class="drink-column">음료</th>
+										<th class="change-column">변경</th>
 									</tr>
 								</thead>
-								<c:if test="${burgerVO != null}">
 								<tbody>
-<<<<<<< HEAD
-									<tr id="row">
-=======
 									<c:if test="${burgerVO != null}">
 									<tr id="row" class="rowCheck">
->>>>>>> parent of f147cd9 (카트)
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
 												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
@@ -75,8 +71,9 @@
 										<td class="calories-column">${burgerVO.b_kcal}</td>
 										<td colspan="2" class="side-column">선택안함</td>
 										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
 									</tr>
-									<tr id="row">
+									<tr id="row" class="rowCheck">
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
 												<input type="checkbox" name="checkbox" value="세트" class="form-controla"/> 
@@ -86,15 +83,16 @@
 											<img src="${burgerVO.b_img_path}" alt="" class="img-block2">
 										</td>
 										<td colspan="2" class="description-column">
-											<h4 class="item2-title">${set.b_set_name}</h4>
+											<h4 class="item2-title">${burgerVO.b_name}</h4>
 											<p class="item-description"></p>
 										</td>
 										<td class="cost-column">${burgerVO.b_price}</td>
 										<td class="calories-column">${burgerVO.b_kcal}</td>
 										<td colspan="2" class="side-column">선택안함</td>
 										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(1)">변경</a></td>
 									</tr>
-									<tr id="row">
+									<tr id="row" class="rowCheck">
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
 												<input type="checkbox" name="checkbox" value="단품" class="form-controla"/> 
@@ -111,7 +109,51 @@
 										<td class="calories-column">${burgerVO.b_kcal}</td>
 										<td colspan="2" class="side-column"></td>
 										<td colspan="2" class="drink-column"></td>
+										<td class="change-column"></td>
 									</tr>
+									</c:if>
+									<c:if test="${sideVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${sideVO.s_name}</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${sideVO.s_price}</td>
+										<td class="calories-column">${sideVO.s_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
+									</tr>
+								</c:if>
+								<c:if test="${drinkVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${drinkVO.d_price}</td>
+										<td class="calories-column">${drinkVO.d_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
+									</tr>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 									</c:if>
@@ -157,9 +199,7 @@
 										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
 									</tr>
 								</c:if>
->>>>>>> parent of f147cd9 (카트)
 								</tbody>
-								</c:if>
 							</table>
 						</form>
 					</div>
@@ -209,8 +249,11 @@
 								<div class="choices-column col-xs-12 column-0">
 									<div>
 										<div class="radio" data-categoryid="">
+<<<<<<< HEAD
 											<div class="iradio checked">
 												<input type="radio" name="select-choice" id="side-label" class="form-radio">
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<div class="iradio1 checked">
 												<input type="radio" name="select-choice" id="side-label1" class="form-radio1"
 													data-cartname="후렌치 후라이 - 라지" style="position: absolute; opacity: 0;"
@@ -221,15 +264,21 @@
 									</div>
 									<div>
 										<div class="radio " data-categoryid="">
+<<<<<<< HEAD
 											<div class="iradio">
 												<input type="radio" name="select-choice" id="choice-6991" class="form-radio">
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<div class="iradio1">
 												<input type="radio" name="select-choice" id="choice-6991" class="form-radio1"
 													value="골든 모짜렐라 치즈스틱 2조각" data-cartname="골든 모짜렐라 치즈스틱 2조각"
 													style="position: absolute; opacity: 0;"
 													aria-invalid="false">
 											</div>
+<<<<<<< HEAD
 											<label class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<label for="side1" class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
 										</div>
 									</div>
@@ -266,327 +315,66 @@
 						</div>
 						<div class="media-body">
 							<div class="available-choices-list row">
+								<c:forEach var="drinkList" items="${drinkList}" varStatus="status">
 								<div class="choices-column col-xs-4 column-0">
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio checked">
-												<input type="radio" name="select-choice" id="choice-1507" class="form-radio"
-													value="코카-콜라 - 라지" data-cartname="코카-콜라 - 라지"
-													aria-invalid="false" 
-													style="position: absolute; opacity: 0;">
+									<c:if test="${status.count eq 1}">
+										<div>
+											<div class="radio " data-categoryid="">
+												<div class="iradio2 checked">
+													<input type="radio" name="select-choice" id="${drinkList.d_code}" class="form-radio"
+														value="${drinkList.d_name}" data-cartname="${drinkList.d_name}"
+														aria-invalid="false" 
+														style="position: absolute; opacity: 0;" checked>
+												</div>
+												<label for="choice-1507" class="radio-label">${drinkList.d_name} </label>
 											</div>
-											<label for="choice-1507" class="radio-label">코카-콜라 - 라지 </label>
 										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1528" class="form-radio"
-													value="스프라이트 - 라지" data-cartname="스프라이트 - 라지"
-													style="position: absolute; opacity: 0;">
+									</c:if>
+									<c:if test="${status.count ne 1}">
+										<div>
+											<div class="radio " data-categoryid="">
+												<div class="iradio2">
+													<input type="radio" name="select-choice" id="${drinkList.d_code}" class="form-radio"
+														value="${drinkList.d_name}" data-cartname="${drinkList.d_name}"
+														aria-invalid="false" 
+														style="position: absolute; opacity: 0;">
+												</div>
+												<label for="choice-1507" class="radio-label">${drinkList.d_name}</label>
 											</div>
-											<label for="choice-1528" class="radio-label">스프라이트 - 라지 </label>
 										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1510" class="form-radio"
-													value="환타 - 라지" data-cartname="환타 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1510" class="radio-label">환타 - 라지</label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1531" class="form-radio"
-													value="코카-콜라 제로 - 라지" data-cartname="코카-콜라 제로 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1531" class="radio-label">코카-콜라 제로 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1853" class="form-radio"
-													value="딸기 칠러 - 라지" data-cartname="딸기 칠러 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1853" class="radio-label">딸기 칠러 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1631" class="form-radio"
-													value="자두 칠러 - 라지" data-cartname="자두 칠러 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1631" class="radio-label">자두 칠러 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1575" class="form-radio"
-													value="아이스 드립커피 (시럽 없음) - 라지" 
-													data-cartname="아이스 드립 커피 (시럽 없음) - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1575" class="radio-label">아이스 드립커피 (시럽 없음) - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1897" class="form-radio"
-													value="아이스 아메리카노 (시럽 없음) - 라지" 
-													data-cartname="아이스 아메리카노 (시럽 없음) - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1897" class="radio-label">아이스 아메리카노 (시럽 없음) - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1574" class="form-radio"
-													value="아이스 카페라떼(시럽 없음) - 라지" 
-													data-cartname="아이스 카페라떼 (시럽 없음) - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1574" class="radio-label">아이스 카페라떼(시럽 없음) - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3216" class="form-radio"
-													value="아이스 바닐라라떼 - 라지" data-cartname="아이스 바닐라 라떼 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3216" class="radio-label">아이스 바닐라라떼 - 라지 </label>
-										</div>
-									</div>
+									</c:if>
 								</div>
-								<div class="choices-column col-xs-4 column-1">
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1660" class="form-radio"
-													value="드립 커피 - 라지" data-cartname="드립 커피 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1660" class="radio-label">드립 커피 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1661" class="form-radio"
-													value="아메리카노 - 라지" data-cartname="아메리카노 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1661" class="radio-label">아메리카노 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1662" class="form-radio"
-													value="카페라떼 - 라지" data-cartname="카페라떼 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1662" class="radio-label">카페라떼 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1663" class="form-radio"
-													value="카푸치노 -	라지" data-cartname="카푸치노 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1663" class="radio-label">카푸치노 -	라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1536" class="form-radio"
-													value="에스프레소" data-cartname="에스프레소"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1536" class="radio-label">에스프레소 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3214" class="form-radio"
-													value="바닐라 라떼 - 라지" data-cartname="바닐라 라떼 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3214" class="radio-label">바닐라 라떼 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3183" class="form-radio"
-													value="디카페인 아이스 아메리카노 (시럽 없음) - 라지" 
-													data-cartname="디카페인 아이스 아메리카노 (시럽 없음) - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3183" class="radio-label">디카페인 아이스 아메리카노 (시럽 없음) - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3188" class="form-radio"
-													value="디카페인 아이스 카페라떼 (시럽 없음) - 라지" data-cartname="디카페인 아이스 카페라떼 (시럽 없음) - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3188" class="radio-label">디카페인 아이스 카페라떼 (시럽 없음) - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3181" class="form-radio"
-													value="디카페인 아메리카노 - 라지" data-cartname="디카페인 아메리카노 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3181" class="radio-label">디카페인 아메리카노 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio"> 
-												<input type="radio" name="select-choice" id="choice-3186" class="form-radio"
-													value="디카페인 카페라떼 - 라지" data-cartname="디카페인 카페라떼 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3186" class="radio-label">디카페인 카페라떼 - 라지 </label>
-										</div>
-									</div>
-								</div>
-								<div class="choices-column col-xs-4 column-2">
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3191" class="form-radio"
-													value="디카페인 카푸치노 - 라지" data-cartname="디카페인 카푸치노 - 라지"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3191" class="radio-label">디카페인 카푸치노 - 라지 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-3192" class="form-radio"
-													value="디카페인 에스프레소" data-cartname="디카페인 에스프레소"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-3192" class="radio-label">디카페인 에스프레소 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1701" class="form-radio"
-													value="딸기 쉐이크 - 미디엄" data-cartname="딸기 쉐이크 - 미디엄"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1701" class="radio-label">딸기 쉐이크 - 미디엄 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1702" class="form-radio"
-													value="초코 쉐이크 - 미디엄" data-cartname="초코 쉐이크 - 미디엄"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1702" class="radio-label">초코 쉐이크 - 미디엄 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1703" class="form-radio"
-													value="바닐라 쉐이크 - 미디엄" data-cartname="바닐라 쉐이크 - 미디엄"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1703" class="radio-label">바닐라 쉐이크 - 미디엄 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1550" class="form-radio"
-													value="오렌지 주스(캔)" data-cartname="오렌지 주스 (캔)"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1550" class="radio-label">오렌지 주스(캔) </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1581" class="form-radio"
-													value="우유" data-cartname="우유"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1581" class="radio-label">우유 </label>
-										</div>
-									</div>
-									<div>
-										<div class="radio " data-categoryid="">
-											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-1591" class="form-radio"
-													value="생수" data-cartname="생수"
-													style="position: absolute; opacity: 0;">
-											</div>
-											<label for="choice-1591" class="radio-label">생수 </label>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer text-center">
 					<button type="button" class="btn btn-red btn-lg btn-submit" id="drinkOkbtn">확인</button>
-				</div>
+				</div>	
 			</div>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+var side = "";
+var drink = "";
+var va = "";
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 
-	//변경 폼
-	$(document).ready(function() {
+//변경 폼
+$(function(){
+	$("#sideOkbtn").click(function() {
+		$("#sideModal").attr("style", "display:none");
 		
-		var side = "";
-		var drink = "";
-		
-		$("#sideOkbtn").click(function() {
-			$("#sideModal").attr("style", "display:none");
-			
-			$('.form-radio').each(function(){
-				if($(this).is(":checked")) {
-					va = $(this).val();
-				} 
-			});
-			
-			$("#drinkModal").slideDown(200);
+		$('.form-radio1').each(function(){
+			if($(this).is(":checked")) {
+				side = $(this).val();
+				console.log(side);
+			} 
 		});
 =======
 var side = "";
@@ -612,13 +400,19 @@ $(function(){
 		$("#drinkModal").attr("style", "display:none");
 >>>>>>> parent of f147cd9 (카트)
 		
-		$(".fas").click(function() {
-			$(".modal").attr("style", "display:none");
-		});
+		$("#drinkModal").slideDown(200);
+	});
+	
+	$("#drinkOkbtn").click(function() {
+		$("#drinkModal").attr("style", "display:none");
 		
-		$("#drinkOkbtn").click(function() {
-			$("#drinkModal").attr("style", "display:none");
+		$('.form-radio').each(function(){
+			if($(this).is(":checked")) {
+				drink = $(this).val();
+				console.log(drink);
+			} 
 		});
+<<<<<<< HEAD
 <<<<<<< HEAD
 		
 		$('#addBtn').click(function(){
@@ -639,41 +433,35 @@ $(function(){
 				alert("메뉴를 선택해주세요");
 				return;
 			}
+=======
+		$('.rowCheck').each(function(){
+			if($(this).hasClass('selected')) {
+				$(this).find('.side-column').html(side);
+				$(this).find('.drink-column').html(drink);
+			} 
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 		});
-		
-		//체크박스 설정
-		$('.form-controla').click(function() {
-			if($(this).prop('checked')) {
-				$('.form-controla').prop('checked', false);
-				$('.form-controla').closest('tr').removeClass("selected");
-				$(this).prop('checked', true); 
-				$(this).closest('tr').addClass("selected");
-			} else { 
-				$(this).closest('tr').removeClass("selected");
-				return;
-			}
-			
-			var va = "";
-			$('.form-controla').each(function(){
-				if($(this).is(":checked")) {
-					va = $(this).val();
-					alert(va);
-					if(va == "라지세트"){ 
-						$('label[for="side"]').text("후렌치 후라이 - 라지");
-						$('#side-label').val("후렌치 후라이 - 라지");
-						console.log($('label[for="side"]').text());
-						$("#sideModal").slideDown(200);
-					} else if(va == "세트"){ 
-						$('label[for="side"]').text("후렌치 후라이 - 미디움");
-						$('#side-label').val("후렌치 후라이 - 미디움");
-						console.log($('label[for="side"]').text());
-						$("#sideModal").slideDown(200);
-					} else if(va == "단품"){ 
-						return;
-					}
-				} 
-			});
+	});
+	
+	$(".fas").click(function() {
+		$(".modal").attr("style", "display:none");
+	});
+	
+	$('#addBtn').click(function(){
+		var va = "";
+		$('.form-controla').each(function(){
+			if($(this).is(":checked")) {
+				va = $(this).val();
+				if(va == "라지세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "단품"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				}
+			} 
 		});
+<<<<<<< HEAD
 =======
 	});
 	
@@ -695,10 +483,13 @@ $(function(){
 				}
 			} 
 		});
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 		if(va == "") {
 			alert("메뉴를 선택해주세요");
 			return;
 		}
+<<<<<<< HEAD
 	});
 	
 	//체크박스 설정
@@ -726,14 +517,41 @@ $(function(){
 			$(this).removeClass("checked");
 		} 
 >>>>>>> parent of f147cd9 (카트)
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 	});
 	
-	//사이브변경 라디오버튼 설정
-	$('.iradio').click(function() {
+	//체크박스 설정
+	$('.form-controla').click(function() {
+		if($(this).prop('checked')) {
+			$('.form-controla').prop('checked', false);
+			$('.form-controla').closest('tr').removeClass("selected");
+			$(this).prop('checked', true); 
+			$(this).closest('tr').addClass("selected");
+		} else { 
+			$(this).closest('tr').removeClass("selected");
+			return;
+		}
+	});
+
+	//사이드변경 라디오버튼 설정
+	$('.iradio1').click(function() {
+		$(this).find('.form-radio1').prop('checked', true);
+		if($(this).find('.form-radio1').prop('checked')) {
+			$('.form-radio1').prop('checked', false);
+			$('.form-radio1').closest('.iradio1').removeClass("checked");
+			$(this).find('.form-radio1').prop('checked', true); 
+			$(this).addClass("checked");
+		} else { 
+			$(this).removeClass("checked");
+		} 
+	});
+	
+	$('.iradio2').click(function() {
 		$(this).find('.form-radio').prop('checked', true);
 		if($(this).find('.form-radio').prop('checked')) {
 			$('.form-radio').prop('checked', false);
-			$('.form-radio').closest('.iradio').removeClass("checked");
+			$('.form-radio').closest('.iradio2').removeClass("checked");
 			$(this).find('.form-radio').prop('checked', true); 
 			$(this).addClass("checked");
 		} else { 
@@ -741,7 +559,10 @@ $(function(){
 		} 
 	});
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 });
 function sideOpen(index) {
 	var val = "";
@@ -785,5 +606,8 @@ function drinkOpen(index) {
 		}
 	});		 
 }
+<<<<<<< HEAD
 >>>>>>> parent of f147cd9 (카트)
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 </script>

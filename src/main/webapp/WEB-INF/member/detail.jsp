@@ -10,8 +10,8 @@
 					<p class="subCopy">빅맥<sub class="reg">®</sub>에서 맥스파이시<sub class="reg">®</sub> 상하이버거까지, <br>주문 즉시 바로 조리해 더욱 맛있는, 맥도날드의 다양한 버거를 소개합니다.</p>
 					<ul class="navPath">
 						<li><a href="/">Home</a></li>
-						<li><a href="javascript:gotoMenu(1);">Menu</a></li>
-						<li><a href="javascript:gotoMenu(1);">버거</a></li>
+						<li><a href="burger.do">Menu</a></li>
+						<li><a href="burger.do">버거</a></li>
 					</ul>
 				</div>
 			</div>
@@ -20,11 +20,11 @@
 					<div class="menuView">
 						<div class="viewTop">
 							<div class="name">
-								<h2 class="ko">슈니언 버거</h2>
-								<em class="en">Shrimp Onion Burger</em>
+								<h2 class="ko">${detailBurger.b_name}</h2>
+								<em class="en">${detailBurger.b_e_name}</em>
 							</div>
 							<div class="info" data-title="슈니언 버거(버거)" data-desc="버거 메뉴">
-								<div class="visual"><img src="https://www.mcdonalds.co.kr/upload/product/pcfile/1624844051863.png" alt="슈니언 버거"></div>
+								<div class="visual"><img src="${detailBurger.b_img_path}" alt="슈니언 버거"></div>
 								<div class="desc">
 									탱~글한 통새우살과 바삭한 어니언의 조화!<br>슈니언 버거<br>
 									<br>
@@ -92,7 +92,6 @@
 									</table>
 								</div>
 							</div>
-						
 							<div class="toggle">
 								<h4 class="tit">알레르기 정보</h4>
 								<button type="button" aria-selected="false" aria-controls="toggle03" aria-expanded="false">알레르기 정보 보기</button><!-- toggle버튼 선택시 aria-selected값 true로 변경 / aria-expanded 값 true로 변경 -->

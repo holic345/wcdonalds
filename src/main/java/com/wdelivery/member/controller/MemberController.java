@@ -14,17 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.wdelivery.cart.service.CartService;
-import com.wdelivery.cart.vo.CartVO;
 import com.wdelivery.cart.vo.CartVO;
 import com.wdelivery.faq.service.FaqService;
 import com.wdelivery.faq.vo.FaqVO;
+
+import com.wdelivery.admin.vo.AdminVO;
+
+import com.wdelivery.cart.service.CartService;
 
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
+import com.wdelivery.menu.drink.service.DrinkService;
 import com.wdelivery.menu.drink.vo.DrinkVO;
+import com.wdelivery.menu.side.service.SideService;
 import com.wdelivery.menu.side.vo.SideVO;
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
@@ -41,21 +45,19 @@ public class MemberController {
 
 	@Autowired
 	private QnaService qnaServie;
-
+	
 	@Autowired
 	private FaqService faqService;
 
 	@Autowired
 	private BurgerService burgerService;
-//	@Autowired
-//	private SideService sideService;
-//	@Autowired
-//	private DrinkService drinkService;
-	private List<CartVO> cartList;
 	
 	@Autowired
-	private CartService cartService;
-
+	private SideService sideService;
+	@Autowired
+	private DrinkService drinkService;
+	private List<CartVO> cartList;
+	
 	@GetMapping("/main.do")
 	public String main() {
 		return "main";
@@ -68,9 +70,9 @@ public class MemberController {
 		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
 		//System.out.println("mypage : " + user_email );
 		
-//		userVO = memberService.userSelect(user_email); //세션 아이디 VO에 넣기
-//		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
-//		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
+		userVO = memberService.userSelect(user_email); //세션 아이디 VO에 넣기
+		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
 		
 		return "mypageupdate";
 	}
@@ -105,16 +107,35 @@ public class MemberController {
 //		model.addAttribute("burgerSetVO", burgerSetVO);
 		
 		if(b_code != null) {
-			BurgerVO burgerVO = burgerService.detailBurger(b_code);
-			System.out.println("vo : " + burgerVO.getB_code());
-			System.out.println("vo : " + burgerVO.getB_img_path());
-			System.out.println("vo : " + burgerVO.getB_name());
-			System.out.println("vo : " + burgerVO.getB_price());
+			BurgerVO burgerVO = burgerService.detailBurger(Integer.parseInt(b_code));
+			System.out.println("burgerVO" + burgerVO.getB_code());
+			System.out.println("burgerVO : " + burgerVO.getB_img_path());
+			System.out.println("burgerVO" + burgerVO.getB_name());
+			System.out.println("burgerVO" + burgerVO.getB_price());
 			model.addAttribute("burgerVO", burgerVO);
 			
-			return "order";
-		} else
-			return "redirect:list.do";
+		} else if(side_code != null) {
+			SideVO sideVO = sideService.detailSide(side_code);
+			System.out.println("sideVO : " + sideVO.getS_code());
+			System.out.println("sideVO : " + sideVO.getS_img_path());
+			System.out.println("sideVO : " + sideVO.getS_name());
+			System.out.println("sideVO : " + sideVO.getS_price());
+			model.addAttribute("sideVO", sideVO);
+			
+		} else if(drink_code != null) {
+			DrinkVO drinkVO = drinkService.detailDrink(drink_code);
+			drinkVO.setD_kcal(500);
+			System.out.println("drinkVO : " + drinkVO.getD_code());
+			System.out.println("drinkVO : " + drinkVO.getD_img_path());
+			System.out.println("drinkVO" + drinkVO.getD_name());
+			System.out.println("drinkVO : " + drinkVO.getD_price());
+			model.addAttribute("drinkVO", drinkVO);
+			
+		} 
+		
+		List<DrinkVO> drinkList = drinkService.selectDrink();
+		model.addAttribute("drinkList", drinkList);
+		return "order";
 	}
 
 	@GetMapping("/cart.do")
@@ -125,7 +146,7 @@ public class MemberController {
 		}
 		else {
 			if (va.equals("라지세트")) {
-				BurgerVO burgerVO = burgerService.detailBurger(b_code);
+				BurgerVO burgerVO = burgerService.detailBurger(Integer.parseInt(b_code));
 	
 				CartVO cartVO = new CartVO();
 				cartVO.setCart_b_code(burgerVO.getB_code());
@@ -133,10 +154,6 @@ public class MemberController {
 				cartVO.setCart_b_name(burgerVO.getB_name());
 				cartVO.setCart_b_price(burgerVO.getB_price());
 	
-				cartService.cartInsert(cartVO);
-				List<CartVO> cartList = cartService.cartList();
-	
-
 //				List<CartVO> cartList = cartService.cartList();
 				
 				model.addAttribute("cartList", cartList);
@@ -150,8 +167,6 @@ public class MemberController {
 				cartVO.setCart_b_name(burgerVO.getB_name());
 				cartVO.setCart_b_price(burgerVO.getB_price());
 	
-				cartService.cartInsert(cartVO);
-				List<CartVO> cartList = cartService.cartList();
 //				cartService.cartInsert(cartVO);
 //				List<CartVO> cartList = cartService.cartList();
 	
@@ -166,9 +181,6 @@ public class MemberController {
 				cartVO.setCart_b_name(burgerVO.getB_name());
 				cartVO.setCart_b_price(burgerVO.getB_price());
 	
-				cartService.cartInsert(cartVO);
-				List<CartVO> cartList = cartService.cartList();
-	
 				cartList.add(cartVO);
 				
 				model.addAttribute("cartList", cartList);
@@ -177,13 +189,21 @@ public class MemberController {
 		}
 	}
 
-	@GetMapping("/detail.do")
-	public String detail() {
-		return "detail";
-	}
+//	@GetMapping("/detail.do")
+//	public String detail() {
+//		return "detail";
+//	}
 
 	@GetMapping("/faq.do")
-	public String faq() {
+	public String faq(Model model) {
+		List<FaqVO> vo = faqService.faqSelect();
+		for(FaqVO vo1 : vo) {
+			System.out.println(vo1.getFaq_seq());
+			System.out.println(vo1.getFaq_name());
+			System.out.println(vo1.getFaq_title());
+			System.out.println(vo1.getFaq_content());
+		}
+		model.addAttribute("vo",vo);
 		return "faq";
 	}
 
@@ -192,49 +212,22 @@ public class MemberController {
 		return "join";
 	}
 
-	@GetMapping("/orderHistory.do")
-	public String orderHistory() {
-		return "orderHistory";
-	}
-
-	//臾몄�� 議고��
+	
+	//qnaselect
 	@PostMapping("/qnaSelect.do")
 	@ResponseBody
 	public QnaVO qna(QnaVO qnaVO, @RequestParam(name="qa_email", defaultValue="1") String qa_email, @RequestParam(name="qa_password", defaultValue="1") String qa_password) throws Exception {
 		QnaVO vo = qnaServie.qnaSelect(qnaVO);
-
-		
-		//if(vo.getQa_email() == null || vo.getQa_password() == null) { //db������ ������������ ������
-		//	System.out.println("search faild");
-	//	}else {	
-		//	System.out.println("search success");
-		//	model.addAttribute("qna", qnaServie.qnaSelect(qnaVO)); �����몄���������������ㅵ��������
-
-		//if(qnaVO.getQa_email().equals(qa_email)|| qnaVO.getQa_password().equals(qa_password)) {
-			System.out.println("search faild");
-		//}else {	
-			System.out.println("search success");
-			//model.addAttribute("qna", qnaServie.qnaSelect(qnaVO));
-
-			
-			/*System.out.println("?" + vo.getQa_seq()); 
-			System.out.println("name?" + vo.getQa_name());
-			System.out.println("title?" + vo.getQa_title());
-			System.out.println("content?" + vo.getQa_content());
-			System.out.println("regDate?" + vo.getQa_regdate());*/
-			 
-			//return vo;
-		//}
 		
 		try {
 			System.out.println(vo.toString());
 			
 		}catch(NullPointerException e) {
-			System.out.println("������������ �������� ������������");
+			System.out.println("NullException");
 		}
 		return vo;
 	}
-
+	
 	@GetMapping("/qna.do")
 	public String qnapage() {
 		return "qna";
@@ -280,8 +273,8 @@ public class MemberController {
 		return "promotion";
 	}
 
-	//臾몄�� insert
-	@PostMapping("/qnaInsert.do")
+	//qna Insert
+	@RequestMapping("/qnaInsert.do")
 	public String qnaInsert(QnaVO qnaVO) {
 		// System.out.println("1 = " + qnaVO.getQa_agree1());
 		// System.out.println("2 = " + qnaVO.getQa_agree2());
@@ -291,6 +284,21 @@ public class MemberController {
 		
 		return "qna";
 	}
+	@GetMapping("/qnaStoreSearch.do")
+	public String qnaStoreSearch() {
+		return "qnaStoreSearch";
+	}
+	@PostMapping("/qnaStoreSearchP.do")
+	@ResponseBody
+	public AdminVO qnaStoreSearchP(AdminVO adminVO, @RequestParam(name = "qa_store") String qa_store) {
+		AdminVO adminVo = qnaServie.storeSelect(adminVO);
+		
+		System.out.println("qnaStoreSerarch : " + adminVo.toString());
+		
+		
+		return adminVo;
+	}
+	
 
 	@GetMapping("/competition.do")
 	public String competition() {
@@ -311,15 +319,10 @@ public class MemberController {
 	public String crew() {
 		return "crew";
 	}
-
-	@GetMapping("/list.do")
-	public String test(Model model) {
-		List<BurgerVO> selectBurger = burgerService.selectBurger();
-		model.addAttribute("selectBurger", selectBurger);
-		
-		System.out.println("selectBurger");
-		
-		return "list";
+	@GetMapping("/paymentWin.do")
+	public String paymentWin() {
+		return "paymentWin";
 	}
+
 
 }

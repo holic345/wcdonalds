@@ -206,122 +206,25 @@
 														</th>
 													</tr>
 													<c:forEach var="vo" items="${vo}" varStatus="status">
-													<tr id="${status.count}"
-														onmouseover="javascript:SELECTED_ROW_IDX[2] = 0 ;rOver(this.id, 0, LIST_DIV,2);"
-														onmouseout="javascript:rOut(this.id,2);"
-														onclick="javascript:changeClass(this.id, LIST_DIV,2);tableClickEvent('LIST_ON_CLICK',1);"
-														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',0);"
+													<tr id="LIST_TR_ID${status.count}"
+														onmouseover="javascript:SELECTED_ROW_IDX[${vo.faq_seq}] = ${status.index} ;rOver(this.id, ${status.index}, LIST_DIV,${status.count});"
+														onmouseout="javascript:rOut(this.id,${status.count});"
+														onclick="javascript:changeClass(this.id, LIST_DIV,${status.count});tableClickEvent('LIST_ON_CLICK',${status.count});"
+														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',${status.index});"
 														style="cursor: pointer" class="">
-														<td width="7%" align="center"><c:out value="${vo.faq_seq}"></c:out></td>
-														<td style="text-align: center; padding-left: 0px;"><c:out value="${vo.faq_name}"></c:out></td>
-														<td style="text-align: left; padding-left: 5px;"><c:out value="${vo.faq_title}"></c:out></td>
+														<td width="7%" align="center">${vo.faq_seq}</td>
+														<td style="text-align: center; padding-left: 0px;">${vo.faq_name}</td>
+														<td style="text-align: left; padding-left: 5px;">${vo.faq_title}</td>
 													</tr>
-													<tr style="display: none" id="LIST_TR_ID1_DT">
+													<tr style="display: none" id="LIST_TR_ID${status.count}_DT">
 														<td style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<img src="/common/images/customer/A.gif">
 														</td>
 														<td colspan="3" style="text-align: left; padding-left: 10px; padding-right: 10px;">
-															<font color="#920000"><c:out value="${vo.faq_content}"></c:out></font>
+															<font color="#920000">${vo.faq_content}</font>
 														</td>
 													</tr>
 													</c:forEach>
-<!-- 													<tr id="LIST_TR_ID2" -->
-<!-- 														onmouseover="javascript:SELECTED_ROW_IDX[2] = 1 ;rOver(this.id, 1, LIST_DIV,2);" -->
-<!-- 														onmouseout="javascript:rOut(this.id,2);" -->
-<!-- 														onclick="javascript:changeClass(this.id, LIST_DIV,2);tableClickEvent('LIST_ON_CLICK',2);" -->
-<!-- 														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',1);" -->
-<!-- 														style="cursor: pointer" class=""> -->
-<!-- 														<td width="7%" align="center">2</td> -->
-<!-- 														<td style="text-align: center; padding-left: 0px;">구매</td> -->
-<!-- 														<td style="text-align: left; padding-left: 5px;">단체 주문이 -->
-<!-- 															가능하나요?</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr style="display: none" id="LIST_TR_ID2_DT"> -->
-<!-- 														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;"><img -->
-<!-- 															src="/common/images/customer/A.gif"></td> -->
-<!-- 														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<font color="#920000">단체 주문의 경우 여러 사정에 따라 가능 여부가 다를 수 -->
-<!-- 																있습니다.<br>단체 배달 서비스를 원하실 경우 맥딜리버리 주문 콜센터 1600-5252를 통해 -->
-<!-- 																확인이 가능하며, 가까운 매장에서 방문 구매를 원하실 경우 매장으로 최소 이틀 전 방문 또는 전화 문의 -->
-<!-- 																주시면 확인이 가능 합니다. (홈페이지 &gt; 매장찾기에서 해당 매장 검색) -->
-<!-- 															</font> -->
-<!-- 														</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr id="LIST_TR_ID3" -->
-<!-- 														onmouseover="javascript:SELECTED_ROW_IDX[2] = 2 ;rOver(this.id, 2, LIST_DIV,2);" -->
-<!-- 														onmouseout="javascript:rOut(this.id,2);" -->
-<!-- 														onclick="javascript:changeClass(this.id, LIST_DIV,2);tableClickEvent('LIST_ON_CLICK',3);" -->
-<!-- 														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',2);" -->
-<!-- 														style="cursor: pointer" class=""> -->
-<!-- 														<td width="7%" align="center">3</td> -->
-<!-- 														<td style="text-align: center; padding-left: 0px;">구매</td> -->
-<!-- 														<td style="text-align: left; padding-left: 5px;">현금 -->
-<!-- 															영수증을 발급받지 못했습니다. 어떻게 해야 하나요?</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr style="display: none" id="LIST_TR_ID3_DT"> -->
-<!-- 														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<img src="/common/images/customer/A.gif"> -->
-<!-- 														</td> -->
-<!-- 														<td colspan="3" style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<font color="#920000"> 매장에서 제품 구매금액 결제 전 고객님이 따로 -->
-<!-- 																요청하시지 않은 경우에는 자동으로 현금영수증 자진발급 처리가 되고 있는 점 고객님의 너그러운 양해 -->
-<!-- 																부탁드립니다. <br>맥도날드에서는 국세청의 자진발급제도에 따라, 거래 당시 현금영수증을 -->
-<!-- 																챙기시지 못한 고객분들도 국세청 홈페이지를 통해 소비자의 거래분으로 전환시키실 수 있기 때문에 고객 -->
-<!-- 																불만을 해소하고 자 맥도날드에서도 현금영수증 자진발급을 시행하고 있습니다. 자진발급을 원하지 않으실 경우 -->
-<!-- 																제품 가격을 결제 전 먼저 현금영수증 발급을 요청해주시면 바로 발급을 해드리고 있습니다.<br>자진발급이 -->
-<!-- 																된 경우 계산 후 수령하신 영수증 내 현금영수증 자동발행 확인번호(010-000-1234)를 국세청 -->
-<!-- 																홈페이지(http://www.taxsave.go.kr )로 접속, <br>자진발급분 사용자등록에 -->
-<!-- 																이 번호를 넣으면 현금영수증 적립이 가능하며,<br>국세청 영수증 상담센터(1544-2020)의 -->
-<!-- 																상담원을 통해서도 전환 요청이 가능하오니 이용에 참조 부탁 드립니다. <br>(현금 영수증 발급 -->
-<!-- 																요청에 대해서는 각 매장 카운터에 위치한 '계산 전 현금영수증 요청'에 대한 안내문을 통해 안내드리고 -->
-<!-- 																있습니다.) -->
-<!-- 															</font> -->
-<!-- 														</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr id="LIST_TR_ID4" -->
-<!-- 														onmouseover="javascript:SELECTED_ROW_IDX[2] = 3 ;rOver(this.id, 3, LIST_DIV,2);" -->
-<!-- 														onmouseout="javascript:rOut(this.id,2);" -->
-<!-- 														onclick="javascript:changeClass(this.id, LIST_DIV,2);tableClickEvent('LIST_ON_CLICK',4);" -->
-<!-- 														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',3);" -->
-<!-- 														style="cursor: pointer" class="tractive"> -->
-<!-- 														<td width="7%" align="center">4</td> -->
-<!-- 														<td style="text-align: center; padding-left: 0px;">구매</td> -->
-<!-- 														<td style="text-align: left; padding-left: 5px;">티 머니, -->
-<!-- 															마이비 카드 결제가 가능한가요?</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr style="display: none;" id="LIST_TR_ID4_DT"> -->
-<!-- 														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<img src="/common/images/customer/A.gif"> -->
-<!-- 														</td> -->
-<!-- 														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<font color="#920000">티머니 카드의 경우, 일부 매장을 제외하고 결제 -->
-<!-- 																가능합니다.마이비 카드는 캐시비로 인수되어 신규 마이비 카드의 경우에는 사용이 불가하며 일부 기존 마이비 -->
-<!-- 																카드(카드 앞면에 마이비 기재)만 사용이 가능합니다.기존 마이비 카드 역시 2018년 7월 21일 -->
-<!-- 																이후에는 사용이 어려울 수 있는 점, 이용에 참고 부탁 드립니다. </font> -->
-<!-- 														</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr id="LIST_TR_ID5" -->
-<!-- 														onmouseover="javascript:SELECTED_ROW_IDX[2] = 4 ;rOver(this.id, 4, LIST_DIV,2);" -->
-<!-- 														onmouseout="javascript:rOut(this.id,2);" -->
-<!-- 														onclick="javascript:changeClass(this.id, LIST_DIV,2);tableClickEvent('LIST_ON_CLICK',5);" -->
-<!-- 														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',4);" -->
-<!-- 														style="cursor: pointer" class=""> -->
-<!-- 														<td width="7%" align="center">5</td> -->
-<!-- 														<td style="text-align: center; padding-left: 0px;">구매</td> -->
-<!-- 														<td style="text-align: left; padding-left: 5px;">맥모닝 -->
-<!-- 															판매시간은 어떻게 되나요?</td> -->
-<!-- 													</tr> -->
-<!-- 													<tr style="display: none" id="LIST_TR_ID5_DT"> -->
-<!-- 														<td	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<img src="/common/images/customer/A.gif"> -->
-<!-- 														</td> -->
-<!-- 														<td colspan="3"	style="text-align: left; padding-left: 10px; padding-right: 10px;"> -->
-<!-- 															<font color="#920000">전국적으로 판매되고 있는 맥모닝 세트와 브렉퍼스트 -->
-<!-- 																메뉴는 보다 맛있고 영양적으로도 우수한 다양한 메뉴를 선보이기 위해 저희 맥도날드가 준비한 아침 메뉴이며 -->
-<!-- 																오전 4시부터 오전 10시30분까지는 언제나 맛보실 수 있습니다. (맥딜리버리 이용 시 오전3시50분 -->
-<!-- 																~오전 10시20분) </font> -->
-<!-- 														</td> -->
-<!-- 													</tr> -->
 												</tbody>
 											</table>
 										</div> <!--button type="button" class="btnMC btnM" onclick="morePage('','S');">

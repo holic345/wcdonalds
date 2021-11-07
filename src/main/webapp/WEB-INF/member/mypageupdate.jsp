@@ -92,11 +92,12 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-xs-12">
-											<form action="mypageUpdate.do" method="post"
+											<form  method="post"
 												role="form" data-form-sync="#form_consentnewnumber"
 												class="form form-register" id="form_accountsetting"
 												name="form_accountsetting" data-required-symbol="*"
 												autocomplete="off">
+												<input type="hidden" name="user_seq"value="${userVO.user_seq }"> <!-- 여기 수정 중 -->
 												<div class="form-register error-container">
 													<p>표시된 필수 항목을 입력해 주세요.</p>
 												</div>
@@ -111,36 +112,30 @@
 																<label class="field-label" for="form_accountsetting_firstname">성함:</label>
 																<input type="text"
 																	class="form-control input-lg required no-special-characters"
-																	id="form_accountsetting_firstname" name="firstName"
-																	value="잉ㅇ" readonly/><%-- ${sessionScope.name} --%>
+																	id="form_accountsetting_firstname" name="user_name"
+																	value="${userVO.user_name }"/>
 															</div>
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-xs-6">
 															<div class="form-group">
-																<label class="field-label"
-																	for="form_accountsetting_gender">성별:</label> <select
-																	name="gender" id="form_accountsetting_gender"
-																	class="select-lg">
-																	<option value="">${gender}</option>
-																	<option value="Male">남</option>
-																	<option selected="selected" value="Female">여</option>
-																	<option value="Do Not Specify">선택 안함</option>
-																</select>
+																<label class="field-label" for="form_accountsetting_gender">성별:</label> 
+																<input type="text"
+																	class="form-control input-lg required no-special-characters"
+																	id="form_accountsetting_firstname" name="user_gender"
+																	value="${userVO.user_gender }" readonly/>
 															</div>
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-xs-12">
 															<div class="form-group">
-																<label class="field-label"
-																	for="form_accountsetting_contactno">휴대전화 번호:</label> <input
-																	type="text"
-																	class="form-control input-lg required number digit-only"
+																<label class="field-label" for="form_accountsetting_contactno">휴대전화 번호:</label> 
+																	<input type="text" class="form-control input-lg required number digit-only"
 																	maxlength="11" id="form_accountsetting_contactno"
-																	name="contactNo" placeholder="숫자만 입력"
-																	value="${sessionScope.phone}" />
+																	name="user_phone" placeholder="숫자만 입력"
+																	value="${userVO.user_phone }" />
 															</div>
 														</div>
 													</div>
@@ -149,10 +144,10 @@
 															<div class="form-group">
 																<label class="field-label"
 																	for="form_accountsetting_contactno">새로운 비밀번호:</label> 
-																<input type="text"
+																<input type="password"
 																	class="form-control input-lg required number digit-only"
-																	maxlength="11" id="form_accountsetting_contactno"
-																	name="contactNo" placeholder="새로운 비밀번호"/>
+																	maxlength="11" id="newPw"
+																	name="user_password" placeholder="새로운 비밀번호"/>
 															</div>
 														</div>
 													</div>
@@ -161,10 +156,10 @@
 															<div class="form-group">
 																<label class="field-label"
 																	for="form_accountsetting_contactno">새로운 비밀번호 재입력:</label> 
-																<input type="text"
+																<input type="password"
 																	class="form-control input-lg required number digit-only"
 																	maxlength="11" id="form_accountsetting_contactno"
-																	name="contactNo" placeholder="새로운 비밀번호 재입력"/>
+																	name="" placeholder="새로운 비밀번호 재입력"/>
 															</div>
 														</div>
 													</div>
@@ -197,7 +192,7 @@
 												</fieldset>
 									<fieldset class="fieldset form-actions">
 									<div class="form-group">
-										<button type="submit" class="btn btn-red btn-xl btn-submit">수정사항 저장</button>	
+										<button type="button" class="btn btn-red btn-xl btn-submit" onclick="updatego()">수정사항 저장</button>	
 										<button id="deleteaccount" class="btn btn-red btn-xl btn-submit">회원 탈퇴</button>		
 									</div>
 							</fieldset>
@@ -212,5 +207,29 @@
 </div>
 <!--  myPage 사이드바 <div> 부분 -->
 
+
+<script type="text/javascript">
+
+function updatego() {
+	if(($("#newPw").val()).trim() == ""){
+		var user_password = ${userVO.user_password};
+    	alert("회원이 비번변경안함 : " + user_password);
+ 	}else{
+   		alert("회원이 비번 변경 함"); 
+
+	if(confirm("변경하시겠습니까?")){
+		var mypageUpdateForm = document.getElementById("form_accountsetting");
+		mypageUpdateForm.action="mypageUpdate.do";
+		mypageUpdateForm.submit();
+		alert("변경 완료되었습니다.");
+	}else{
+		alert("변경실패");
+		return;
+	}
+	//confirm("변경하시겠습니까?");
+ 	}
+}
+
+</script>
 
 <%@ include file="footer.jsp"%>
