@@ -143,6 +143,11 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+
+	@Override
+	public void mypageDelete(UserVO userVO) { //don �ϴ� ��
+		memberDAO.mypageDelete(userVO);
+	}
+
 }

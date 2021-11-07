@@ -41,6 +41,14 @@ public class MypageController {
 		System.out.println(userVO.toString());
 		return "mypageupdate";
 	}
+	@GetMapping("/mypageDelete.do")
+	public String mypageDelete(UserVO userVo, HttpSession session) {
+		System.out.println("mypage delete");
+		
+		memberService.mypageDelete(userVo);
+		session.invalidate();
+		return "main";
+	}
 	 
 	
 

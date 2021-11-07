@@ -15,6 +15,7 @@ public interface MemberService {
 	public void certifiedPhoneNumber(String user_phone, String numStr);
 	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
+	public void mypageDelete(UserVO userVO); //donÇÏ´Â Áß
 	void insertAuthData(UserVO userVO);
 	void updateAuthKey(Map<String, String> map);
 	void signUpConfirm(String email);
