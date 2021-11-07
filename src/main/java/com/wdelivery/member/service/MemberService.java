@@ -21,4 +21,9 @@ public interface MemberService {
 	boolean isAuthKeyAvailable(Map<String, String> emailMap);
 	UserVO isMemberInService(String loginType, String email);
 	void socialMemJoin(String joinType, UserVO userVO);
+	
+	public UserAddressVO addressShow(String user_email);
+	public void addressInsert(UserAddressVO addressVO);
+	public void addressUpdate(UserAddressVO addressVO);
+	public void addressDelete(int address_seq);
 }
