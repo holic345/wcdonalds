@@ -14,13 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-import com.wdelivery.faq.service.FaqService;
-import com.wdelivery.faq.vo.FaqVO;
-
 import com.wdelivery.cart.service.CartService;
 import com.wdelivery.cart.vo.CartVO;
-
+import com.wdelivery.faq.service.FaqService;
+import com.wdelivery.faq.vo.FaqVO;
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
@@ -179,7 +176,21 @@ public class MemberController {
 		model.addAttribute("vo",vo);
 		return "faq";
 	}
-
+	
+	@GetMapping("/faqSelect.do")
+	@ResponseBody
+	public List<FaqVO> faqMenu(@RequestParam(value="MenuSelect" , required=false) String MenuSelect) {
+		List<FaqVO> faqList = faqService.MenuSelect(MenuSelect);
+		for(FaqVO faqList1 : faqList) {
+		System.out.println(faqList1.getFaq_seq());
+		System.out.println(faqList1.getFaq_name());
+		System.out.println(faqList1.getFaq_title());
+		System.out.println(faqList1.getFaq_content());
+		}
+		return faqList;
+	}
+	
+	
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
