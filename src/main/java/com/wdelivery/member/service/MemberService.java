@@ -15,16 +15,10 @@ public interface MemberService {
 	public void certifiedPhoneNumber(String user_phone, String numStr);
 	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
-	public void mypageDelete(UserVO userVO); //donÇÏ´Â Áß
 	void insertAuthData(UserVO userVO);
 	void updateAuthKey(Map<String, String> map);
 	void signUpConfirm(String email);
 	boolean isAuthKeyAvailable(Map<String, String> emailMap);
 	UserVO isMemberInService(String loginType, String email);
 	void socialMemJoin(String joinType, UserVO userVO);
-	
-	public UserAddressVO addressShow(String user_email);
-	public void addressInsert(UserAddressVO addressVO);
-	public void addressUpdate(UserAddressVO addressVO);
-	public void addressDelete(int address_seq);
 }
