@@ -10,4 +10,5 @@ public interface BurgerSetDAO {
 
 	public void insertBurgerSet(BurgerSetVO burgerSetVO);
 	
+	public BurgerSetVO detailBurgerSet(int b_code);
 }
