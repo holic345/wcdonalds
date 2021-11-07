@@ -10,15 +10,15 @@
 						<p class="subCopy">빅맥<sub class="reg">®</sub>에서 맥스파이시<sub class="reg">®</sub> 상하이버거까지, <br>주문 즉시 바로 조리해 더욱 맛있는, 맥도날드의 다양한 버거를 소개합니다.</p>
 						<ul class="navPath">
 							<li><a href="/">Home</a></li>
-							<li><a href="javascript:gotoMenu(1);">Menu</a></li>
-							<li><a href="javascript:gotoMenu(1);">버거</a></li>
+							<li><a href="burger.do">Menu</a></li>
+							<li><a href="burger.do">버거</a></li>
 						</ul>
 					</div>
 				</div>
     			<div class="contArea">
 					<div class="inner">
 						<ul class="tabType01">
-							<li data-title="버거" data-desc="버거메뉴"><a href="javascript:gotoMenu(1);" role="button" aria-selected="true">메뉴</a></li><!-- 선택 된 태그에 aria-selected="true" 추가 -->
+							<li data-title="버거" data-desc="버거메뉴"><a href="burger.do" role="button" aria-selected="true">메뉴</a></li><!-- 선택 된 태그에 aria-selected="true" 추가 -->
 							<!-- <li><a href="javascript:gotoMenu(2);" role="button">세트메뉴</a></li> -->
 						</ul>
 						<div class="mcMenu">
@@ -26,7 +26,7 @@
 							<ul class="menuList" id="menuList">
 								<c:forEach items="${selectBurger}" var="selectBurger">
 									<li>
-										<a href="javascript:goDetail(300)" data-seq="300">
+										<a href="javascript:goDetail({seq})" data-seq="{seq}">
 											<div class="thum">
 												<img src="${selectBurger.b_img_path}" alt="${selectBurger.b_name}">
 											</div>
@@ -49,7 +49,7 @@
 						</div>
 					</div>
 				</div>
-			 <form id="searchForm" method="post">
+			 <form id="searchForm" method="get">
 				<input type="hidden" name="page" id="page" value="1">
 				<input type="hidden" name="seq" id="seq">
 				<input type="hidden" name="sub_category_seq" id="sub_category_seq" value="1">

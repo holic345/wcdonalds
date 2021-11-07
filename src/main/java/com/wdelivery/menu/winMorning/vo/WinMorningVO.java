@@ -14,7 +14,21 @@ public class WinMorningVO {
 	private String w_n_img_path;
 	private String w_n_img;
 	private int w_status;
+	private int category_code;
+	private String w_e_name;
 	
+	public int getCategory_code() {
+		return category_code;
+	}
+	public void setCategory_code(int category_code) {
+		this.category_code = category_code;
+	}
+	public String getW_e_name() {
+		return w_e_name;
+	}
+	public void setW_e_name(String w_e_name) {
+		this.w_e_name = w_e_name;
+	}
 	public String getW_code() {
 		return w_code;
 	}

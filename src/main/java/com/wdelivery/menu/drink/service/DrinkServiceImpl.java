@@ -20,4 +20,10 @@ public class DrinkServiceImpl implements DrinkService {
 		return drinkDAO.selectDrink();
 	}
 
+	@Override
+	public DrinkVO detailDrink(String drink_code) {
+		// TODO Auto-generated method stub
+		return drinkDAO.detailDrink(drink_code); 
+	}
+
 }

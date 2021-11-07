@@ -143,6 +143,11 @@ textarea {
 	display: inline-block;
 }
 
+.dis_ib1 {
+	display: inline-block;
+	margin: 10px 0;
+}
+
 .dis_n {
 	display: none;
 }
