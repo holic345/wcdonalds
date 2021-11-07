@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%@ include file = "mypage.jsp"%>
 <style>
 table{	
@@ -66,19 +65,17 @@ th {
 						<a class="btn btn-red btn-lg" href="main.do">메인화면으로 이동</a>
 					</td>
 				</tfoot>
-				<c:forEach items="addressBook" var="addressBook" varStatus="status"> 
-				
 				<tbody>
 					<tr>
-						<td class="address-number">${status.index}</td>
+						<td class="address-number">1</td>
 						<td class="address-details">
-							<div>${addressBook.address1}</div> <!-- gogogo -->
+							<div>인천 서구 당하동 탑스빌아파트 103동 1801호</div>
 							<!-- <div th:text="${addressEntry.street}">Address Line 2</div>
 							<div th:text="${addressEntry.Unit}">Address Line 3</div>
 							<div th:text="${addressEntry.building}">Address Line 4</div>
 							<div th:text="${addressEntry.zipCode}">Address Line 5</div> -->
 						</td>
-						<!-- <td class="special-instructions"></td> -->
+						<td class="special-instructions"></td>
 						<td class="controls">
 						 <a class="text-gray-light" href="addressupdate.do" title="주소 변경하기"><i class="far fa-edit"></i></a>
 						 
@@ -105,7 +102,6 @@ th {
 						<td class="controls"><a href="/index.php?r=site/page&amp;view=account-edit-address" class="text-gray-light"><i class="fa mcd mcd-edit icon"></i></a> <a href="" class="text-gray-light"><i class="fa mcd mcd-remove icon"></i></a></td>
 					</tr> -->
 				</tbody>
-				</c:forEach>
 			</table>
 		</div>
 	
