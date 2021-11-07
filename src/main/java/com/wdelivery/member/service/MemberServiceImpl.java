@@ -118,11 +118,36 @@ public class MemberServiceImpl implements MemberService {
 		} else if (joinType.equals("kakao")) {
 			memberDAO.kakaoMemJoin(userVO);
 		}
-
 	}
 
 	@Override
-	public void mypageDelete(UserVO userVO) { //don ÇÏ´Â Áß
+	public UserAddressVO addressShow(String user_email) {
+		
+		return memberDAO.addressShow(user_email);
+	}
+
+	@Override
+	public void addressInsert(UserAddressVO addressVO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addressUpdate(UserAddressVO addressVO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addressDelete(int address_seq) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mypageDelete(UserVO userVO) { //don ï¿½Ï´ï¿½ ï¿½ï¿½
 		memberDAO.mypageDelete(userVO);
 	}
+
 }
