@@ -125,7 +125,7 @@
 								</span> 
 								<span id="07" class="srvc" onclick="javascript:search('07','C');changeColor('07');">
 									<input type="checkbox" id="6" value="Y" disabled /> 
-									<label or="6"> 프랜차이즈 
+									<label for="6"> 프랜차이즈 
 										<span class="icon"> 
 											<img src="https://voc.mcd.co.kr/common/images/icon/ic_handshake.png" alt="프랜차이즈" />
 										</span>
@@ -191,7 +191,7 @@
 									<td width="650">
 										<div id="LIST_DIV" class="table03">
 											<table id="LIST_TB" width="100%" class="table01" cellspacing="1">
-												<tbody>
+												<thead>
 													<tr>
 														<th class="colresize" style="cursor: pointer;" width="7%">
 															<span onclick="">NO</span>
@@ -205,6 +205,8 @@
 															onclick="javascript:SELECTED_SORT_IDX[2] = 2 ; reqAll(10, 1);">제목</span>
 														</th>
 													</tr>
+													</thead>
+													<tbody id="ajaxTable">
 													<c:forEach var="vo" items="${vo}" varStatus="status">
 													<tr id="LIST_TR_ID${status.count}"
 														onmouseover="javascript:SELECTED_ROW_IDX[${vo.faq_seq}] = ${status.index} ;rOver(this.id, ${status.index}, LIST_DIV,${status.count});"
@@ -212,13 +214,13 @@
 														onclick="javascript:changeClass(this.id, LIST_DIV,${status.count});tableClickEvent('LIST_ON_CLICK',${status.count});"
 														ondblclick="tableClickEvent('LIST_ON_DBL_CLICK',${status.index});"
 														style="cursor: pointer" class="">
-														<td width="7%" align="center">${vo.faq_seq}</td>
+														<td width="7%" align="center">${status.count}</td>
 														<td style="text-align: center; padding-left: 0px;">${vo.faq_name}</td>
 														<td style="text-align: left; padding-left: 5px;">${vo.faq_title}</td>
 													</tr>
 													<tr style="display: none" id="LIST_TR_ID${status.count}_DT">
 														<td style="text-align: left; padding-left: 10px; padding-right: 10px;">
-															<img src="/common/images/customer/A.gif">
+															<img src="https://kgitmacbucket.s3.ap-northeast-2.amazonaws.com/img/icon/A.gif">
 														</td>
 														<td colspan="3" style="text-align: left; padding-left: 10px; padding-right: 10px;">
 															<font color="#920000">${vo.faq_content}</font>

@@ -168,7 +168,7 @@ public class MemberLoginController {
 			userVO.setUser_gender((naverVO.getGender().equals("M")?"man":"woman"));
 			userVO.setUser_birth(naverVO.getBirthday());
 			userVO.setUser_phone(naverVO.getMobile());
-			userVO.setUser_name(naverVO.getName());
+		
 			System.out.println("start socialMemJoin() => "+userVO.toString());
 			
 			memberService.socialMemJoin("naver",userVO);
