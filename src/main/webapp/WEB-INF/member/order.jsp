@@ -2,6 +2,32 @@
 	pageEncoding="UTF-8"%>
 <%@include file="header.jsp"%>
 <link rel="stylesheet" href="resources/css/menu/menu.css">
+<!-- <div class="configurator-header"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="quantity"> -->
+<!-- 				<span class="added-quantity">0</span> <span -->
+<!-- 					class="small text-ucase show-on-expand">수량</span> -->
+<!-- 			</div> -->
+<!-- 			<div class="picture show-on-expand text-center"> -->
+<!-- 				<img src="{{images.0.imageUrl}}" alt="" /> -->
+<!-- 			</div> -->
+<!-- 			<div class="description"> -->
+<!-- 				<h1 class="item-name">1955 스모키 더블 베이컨</h1> -->
+<!-- 				<div class="clearfix"> -->
+<!-- 					<div class="product-badges show-on-expand"> -->
+<!-- 						{{#each badges}} <span -->
+<!-- 							class="food-icons-sprite ir food-icons-{{this}}"></span> -->
+<!-- 						{{/each}} -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<button type="button" class="close action-cancel" aria-hidden="true"> -->
+<!-- 				<i class="mcd icon mcd-close"></i> -->
+<!-- 			</button> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 
 <h1 class="container" style="padding-top: 40px">ORDER</h1>
 <div class="configurator-body" role="main">
@@ -28,7 +54,6 @@
 								</thead>
 								<tbody>
 									<c:if test="${burgerVO != null}">
-									<input type="hidden" id="b_code" value="${burgerVO.b_code}">
 									<tr id="row" class="rowCheck">
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
@@ -88,49 +113,92 @@
 									</tr>
 									</c:if>
 									<c:if test="${sideVO != null}">
-										<input type="hidden" id="s_code" value="${sideVO.s_code}">
-										<tr id="row" class="rowCheck">
-											<td class="controls-column">
-												<div class="input-group item-quantity item-quantity-picker">
-													<input type="checkbox" name="checkbox" value="사이드" class="form-controla"/> 
-												</div>
-											</td>
-											<td class="picture-column">
-												<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
-											</td>
-											<td colspan="2" class="description-column">
-												<h4 class="item1-title">${sideVO.s_name}</h4>
-												<p class="item-description"></p>
-											</td>
-											<td class="cost-column">${sideVO.s_price}</td>
-											<td class="calories-column">${sideVO.s_kcal}</td>
-											<td colspan="2" class="side-column">선택안함</td>
-											<td colspan="2" class="drink-column">선택안함</td>
-											<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
-										</tr>
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${sideVO.s_name}</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${sideVO.s_price}</td>
+										<td class="calories-column">${sideVO.s_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
+									</tr>
+								</c:if>
+								<c:if test="${drinkVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${drinkVO.d_price}</td>
+										<td class="calories-column">${drinkVO.d_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
+									</tr>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 									</c:if>
-									<c:if test="${drinkVO != null}">
-									<input type="hidden" id="d_code" value="${drinkVO.d_code}">
-										<tr id="row" class="rowCheck">
-											<td class="controls-column">
-												<div class="input-group item-quantity item-quantity-picker">
-													<input type="checkbox" name="checkbox" value="음료" class="form-controla"/> 
-												</div>
-											</td>
-											<td class="picture-column">
-												<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
-											</td>
-											<td colspan="2" class="description-column">
-												<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
-												<p class="item-description"></p>
-											</td>
-											<td class="cost-column">${drinkVO.d_price}</td>
-											<td class="calories-column">${drinkVO.d_kcal}</td>
-											<td colspan="2" class="side-column">선택안함</td>
-											<td colspan="2" class="drink-column">선택안함</td>
-											<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
-										</tr>
-									</c:if>
+									<c:if test="${sideVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${sideVO.s_name}</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${sideVO.s_price}</td>
+										<td class="calories-column">${sideVO.s_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
+									</tr>
+								</c:if>
+								<c:if test="${drinkVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${drinkVO.d_price}</td>
+										<td class="calories-column">${drinkVO.d_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
+									</tr>
+								</c:if>
 								</tbody>
 							</table>
 						</form>
@@ -181,6 +249,11 @@
 								<div class="choices-column col-xs-12 column-0">
 									<div>
 										<div class="radio" data-categoryid="">
+<<<<<<< HEAD
+											<div class="iradio checked">
+												<input type="radio" name="select-choice" id="side-label" class="form-radio">
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<div class="iradio1 checked">
 												<input type="radio" name="select-choice" id="side-label1" class="form-radio1"
 													data-cartname="후렌치 후라이 - 라지" style="position: absolute; opacity: 0;"
@@ -191,12 +264,21 @@
 									</div>
 									<div>
 										<div class="radio " data-categoryid="">
+<<<<<<< HEAD
+											<div class="iradio">
+												<input type="radio" name="select-choice" id="choice-6991" class="form-radio">
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<div class="iradio1">
 												<input type="radio" name="select-choice" id="choice-6991" class="form-radio1"
 													value="골든 모짜렐라 치즈스틱 2조각" data-cartname="골든 모짜렐라 치즈스틱 2조각"
 													style="position: absolute; opacity: 0;"
 													aria-invalid="false">
 											</div>
+<<<<<<< HEAD
+											<label class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 											<label for="side1" class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
 										</div>
 									</div>
@@ -275,22 +357,32 @@
 	</form>
 </div>
 <script type="text/javascript">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+var side = "";
+var drink = "";
+var va = "";
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
+
+//변경 폼
+$(function(){
+	$("#sideOkbtn").click(function() {
+		$("#sideModal").attr("style", "display:none");
+		
+		$('.form-radio1').each(function(){
+			if($(this).is(":checked")) {
+				side = $(this).val();
+				console.log(side);
+			} 
+		});
+=======
 var side = "";
 var drink = "";
 var va = "";
 
-var b_code = $('#b_code').val();
-var s_code = $('#s_code').val();
-var d_code = $('#d_code').val();
-
 //변경 폼
 $(function(){
-	
-	if(b_code == null && s_code == null && d_code == null) {
-		alert("메뉴를 골라라");
-		location.href="main.do";
-	}
-	
 	$("#sideOkbtn").click(function() {
 		$("#sideModal").attr("style", "display:none");
 		
@@ -306,6 +398,13 @@ $(function(){
 	
 	$("#drinkOkbtn").click(function() {
 		$("#drinkModal").attr("style", "display:none");
+>>>>>>> parent of f147cd9 (카트)
+		
+		$("#drinkModal").slideDown(200);
+	});
+	
+	$("#drinkOkbtn").click(function() {
+		$("#drinkModal").attr("style", "display:none");
 		
 		$('.form-radio').each(function(){
 			if($(this).is(":checked")) {
@@ -313,11 +412,34 @@ $(function(){
 				console.log(drink);
 			} 
 		});
+<<<<<<< HEAD
+<<<<<<< HEAD
+		
+		$('#addBtn').click(function(){
+			var va = "";
+			$('.form-controla').each(function(){
+				if($(this).is(":checked")) {
+					va = $(this).val();
+					if(va == "라지세트"){ 
+						location.href="orderConfirm.do?b_code="+${vo.b_code}+"&va="+va+"";
+					} else if(va == "세트"){ 
+						location.href="orderConfirm.do?b_code="+${set.b_set_code}+"&va="+va+"";
+					} else if(va == "단품"){ 
+						location.href="orderConfirm.do?b_code="+${vo.b_code}+"&va="+va+"";
+					}
+				} 
+			});
+			if(va == "") {
+				alert("메뉴를 선택해주세요");
+				return;
+			}
+=======
 		$('.rowCheck').each(function(){
 			if($(this).hasClass('selected')) {
 				$(this).find('.side-column').html(side);
 				$(this).find('.drink-column').html(drink);
 			} 
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 		});
 	});
 	
@@ -330,23 +452,73 @@ $(function(){
 		$('.form-controla').each(function(){
 			if($(this).is(":checked")) {
 				va = $(this).val();
-				if(va == "라지세트"){
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
+				if(va == "라지세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
 				} else if(va == "세트"){ 
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
 				} else if(va == "단품"){ 
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
-				} else if(va == "사이드"){ 
-					location.href="cart.do?&va="+va+"&side="+s_code+"";
-				} else if(va == "음료"){ 
-					location.href="cart.do?&va="+va+"&drink="+d_code+"";
-				} 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				}
 			} 
 		});
+<<<<<<< HEAD
+=======
+	});
+	
+	$(".fas").click(function() {
+		$(".modal").attr("style", "display:none");
+	});
+	
+	$('#addBtn').click(function(){
+		var va = "";
+		$('.form-controla').each(function(){
+			if($(this).is(":checked")) {
+				va = $(this).val();
+				if(va == "라지세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "단품"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				}
+			} 
+		});
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 		if(va == "") {
 			alert("메뉴를 선택해주세요");
 			return;
 		}
+<<<<<<< HEAD
+	});
+	
+	//체크박스 설정
+	$('.form-controla').click(function() {
+		if($(this).prop('checked')) {
+			$('.form-controla').prop('checked', false);
+			$('.form-controla').closest('tr').removeClass("selected");
+			$(this).prop('checked', true); 
+			$(this).closest('tr').addClass("selected");
+		} else { 
+			$(this).closest('tr').removeClass("selected");
+			return;
+		}
+	});
+
+	//사이드변경 라디오버튼 설정
+	$('.iradio1').click(function() {
+		$(this).find('.form-radio1').prop('checked', true);
+		if($(this).find('.form-radio1').prop('checked')) {
+			$('.form-radio1').prop('checked', false);
+			$('.form-radio1').closest('.iradio1').removeClass("checked");
+			$(this).find('.form-radio1').prop('checked', true); 
+			$(this).addClass("checked");
+		} else { 
+			$(this).removeClass("checked");
+		} 
+>>>>>>> parent of f147cd9 (카트)
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 	});
 	
 	//체크박스 설정
@@ -386,6 +558,11 @@ $(function(){
 			$(this).removeClass("checked");
 		} 
 	});
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 });
 function sideOpen(index) {
 	var val = "";
@@ -429,4 +606,8 @@ function drinkOpen(index) {
 		}
 	});		 
 }
+<<<<<<< HEAD
+>>>>>>> parent of f147cd9 (카트)
+=======
+>>>>>>> 71f6fa04eceb81d4f4e3f05ace28a80538fe063e
 </script>
