@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class BurgerVO {
 
-	private String b_code;
+	private Integer b_code;
 	private String b_name;
 	private String b_price;
 	private String b_kcal;
@@ -17,10 +17,10 @@ public class BurgerVO {
 	private int category_code;
 	private String b_e_name;
 	
-	public String getB_code() {
+	public Integer getB_code() {
 		return b_code;
 	}
-	public void setB_code(String b_code) {
+	public void setB_code(Integer b_code) {
 		this.b_code = b_code;
 	}
 	public String getB_name() {
