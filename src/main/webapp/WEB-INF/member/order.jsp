@@ -2,6 +2,32 @@
 	pageEncoding="UTF-8"%>
 <%@include file="header.jsp"%>
 <link rel="stylesheet" href="resources/css/menu/menu.css">
+<!-- <div class="configurator-header"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="quantity"> -->
+<!-- 				<span class="added-quantity">0</span> <span -->
+<!-- 					class="small text-ucase show-on-expand">수량</span> -->
+<!-- 			</div> -->
+<!-- 			<div class="picture show-on-expand text-center"> -->
+<!-- 				<img src="{{images.0.imageUrl}}" alt="" /> -->
+<!-- 			</div> -->
+<!-- 			<div class="description"> -->
+<!-- 				<h1 class="item-name">1955 스모키 더블 베이컨</h1> -->
+<!-- 				<div class="clearfix"> -->
+<!-- 					<div class="product-badges show-on-expand"> -->
+<!-- 						{{#each badges}} <span -->
+<!-- 							class="food-icons-sprite ir food-icons-{{this}}"></span> -->
+<!-- 						{{/each}} -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<button type="button" class="close action-cancel" aria-hidden="true"> -->
+<!-- 				<i class="mcd icon mcd-close"></i> -->
+<!-- 			</button> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 
 <h1 class="container" style="padding-top: 40px">ORDER</h1>
 <div class="configurator-body" role="main">
@@ -28,7 +54,6 @@
 								</thead>
 								<tbody>
 									<c:if test="${burgerVO != null}">
-									<input type="hidden" id="b_code" value="${burgerVO.b_code}">
 									<tr id="row" class="rowCheck">
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
@@ -88,49 +113,47 @@
 									</tr>
 									</c:if>
 									<c:if test="${sideVO != null}">
-										<input type="hidden" id="s_code" value="${sideVO.s_code}">
-										<tr id="row" class="rowCheck">
-											<td class="controls-column">
-												<div class="input-group item-quantity item-quantity-picker">
-													<input type="checkbox" name="checkbox" value="사이드" class="form-controla"/> 
-												</div>
-											</td>
-											<td class="picture-column">
-												<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
-											</td>
-											<td colspan="2" class="description-column">
-												<h4 class="item1-title">${sideVO.s_name}</h4>
-												<p class="item-description"></p>
-											</td>
-											<td class="cost-column">${sideVO.s_price}</td>
-											<td class="calories-column">${sideVO.s_kcal}</td>
-											<td colspan="2" class="side-column">선택안함</td>
-											<td colspan="2" class="drink-column">선택안함</td>
-											<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
-										</tr>
-									</c:if>
-									<c:if test="${drinkVO != null}">
-									<input type="hidden" id="d_code" value="${drinkVO.d_code}">
-										<tr id="row" class="rowCheck">
-											<td class="controls-column">
-												<div class="input-group item-quantity item-quantity-picker">
-													<input type="checkbox" name="checkbox" value="음료" class="form-controla"/> 
-												</div>
-											</td>
-											<td class="picture-column">
-												<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
-											</td>
-											<td colspan="2" class="description-column">
-												<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
-												<p class="item-description"></p>
-											</td>
-											<td class="cost-column">${drinkVO.d_price}</td>
-											<td class="calories-column">${drinkVO.d_kcal}</td>
-											<td colspan="2" class="side-column">선택안함</td>
-											<td colspan="2" class="drink-column">선택안함</td>
-											<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
-										</tr>
-									</c:if>
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${sideVO.s_name}</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${sideVO.s_price}</td>
+										<td class="calories-column">${sideVO.s_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
+									</tr>
+								</c:if>
+								<c:if test="${drinkVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${drinkVO.d_price}</td>
+										<td class="calories-column">${drinkVO.d_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
+									</tr>
+								</c:if>
 								</tbody>
 							</table>
 						</form>
@@ -279,18 +302,8 @@ var side = "";
 var drink = "";
 var va = "";
 
-var b_code = $('#b_code').val();
-var s_code = $('#s_code').val();
-var d_code = $('#d_code').val();
-
 //변경 폼
 $(function(){
-	
-	if(b_code == null && s_code == null && d_code == null) {
-		alert("메뉴를 골라라");
-		location.href="main.do";
-	}
-	
 	$("#sideOkbtn").click(function() {
 		$("#sideModal").attr("style", "display:none");
 		
@@ -330,17 +343,13 @@ $(function(){
 		$('.form-controla').each(function(){
 			if($(this).is(":checked")) {
 				va = $(this).val();
-				if(va == "라지세트"){
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
+				if(va == "라지세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
 				} else if(va == "세트"){ 
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
 				} else if(va == "단품"){ 
-					location.href="cart.do?burger="+b_code+"&va="+va+"&side="+side+"&drink="+drink+"";
-				} else if(va == "사이드"){ 
-					location.href="cart.do?&va="+va+"&side="+s_code+"";
-				} else if(va == "음료"){ 
-					location.href="cart.do?&va="+va+"&drink="+d_code+"";
-				} 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				}
 			} 
 		});
 		if(va == "") {
