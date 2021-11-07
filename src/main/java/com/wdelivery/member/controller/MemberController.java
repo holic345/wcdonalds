@@ -17,6 +17,7 @@ import com.wdelivery.admin.vo.AdminVO;
 import com.wdelivery.cart.vo.CartVO;
 import com.wdelivery.faq.service.FaqService;
 import com.wdelivery.faq.vo.FaqVO;
+
 import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
 import com.wdelivery.menu.burgerSet.service.BurgerSetService;
@@ -198,7 +199,21 @@ public class MemberController {
 		model.addAttribute("vo", vo);
 		return "faq";
 	}
-
+	
+	@GetMapping("/faqSelect.do")
+	@ResponseBody
+	public List<FaqVO> faqMenu(@RequestParam(value="MenuSelect" , required=false) String MenuSelect) {
+		List<FaqVO> faqList = faqService.MenuSelect(MenuSelect);
+		for(FaqVO faqList1 : faqList) {
+		System.out.println(faqList1.getFaq_seq());
+		System.out.println(faqList1.getFaq_name());
+		System.out.println(faqList1.getFaq_title());
+		System.out.println(faqList1.getFaq_content());
+		}
+		return faqList;
+	}
+	
+	
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
