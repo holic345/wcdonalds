@@ -21,7 +21,7 @@ public class DrinkServiceImpl implements DrinkService {
 	}
 
 	@Override
-	public DrinkVO detailDrink(String drink_code) {
+	public DrinkVO detailDrink(int drink_code) {
 		// TODO Auto-generated method stub
 		return drinkDAO.detailDrink(drink_code); 
 	}

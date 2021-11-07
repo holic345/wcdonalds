@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.wdelivery.menu.burger.dao.BurgerDAO">
 	<select id="selectBurger" resultType="burgerVO">
 		<![CDATA[
-			SELECT * FROM burger
+			SELECT * FROM burger ORDER BY burger ASC
 		]]>
 	</select>
 	

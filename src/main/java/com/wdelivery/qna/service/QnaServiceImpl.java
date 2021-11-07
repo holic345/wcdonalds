@@ -18,7 +18,7 @@ public class QnaServiceImpl implements QnaService {
 	public void qnaInsert(QnaVO qnaVO) {
 		qnaDAO.qnaInsert(qnaVO);
 		System.out.println("insertServiceImpl => " + qnaVO.toString());
-		//System.out.println("qna ¼º°ø");
+		//System.out.println("qna ì„±ê³µ");
 	}
 
 	

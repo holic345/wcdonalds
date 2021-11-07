@@ -8,6 +8,6 @@ public interface SideDAO {
 	
 	public List<SideVO> selectSide();
 	
-	SideVO detailSide(String side_code);
+	SideVO detailSide(int side_code);
 
 }

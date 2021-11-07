@@ -37,15 +37,40 @@
 													<i class="far fa-trash-alt"></i></a>
 												</div>
 												</td>
-												<td class="product-name">
-													<div>${cartList.cart_b_name}</div>
-													<ul style="padding-left:3px; padding-top:10px;">
-														<li>단품 - 스파이시 맥앤치즈 버거</li>
-														<li>코카-콜라 - 라지</li>
-														<li>후렌치 후라이 - 라지</li>
-													</ul>
-												</td>
-												<td class="cost">${cartList.cart_b_price}</td>
+												<c:if test="${cartList.cart_b_Lgset_code != null}">
+													<td class="product-name">
+														<div>${cartList.cart_b_Lgset_name}</div>
+														<ul style="padding-left:3px; padding-top:10px;">
+															<li>단품 - ${cartList.cart_b_name}</li>
+															<li>${cartList.cart_d_name}</li>
+															<li>${cartList.cart_s_name}</li>
+														</ul>
+													</td>
+													<td class="cost">${cartList.cart_b_Lgset_price}</td>
+												</c:if>
+												<c:if test="${cartList.cart_b_set_code != null}">
+													<td class="product-name">
+														<div>${cartList.cart_b_set_name}</div>
+														<ul style="padding-left:3px; padding-top:10px;">
+															<li>단품 - ${cartList.cart_b_name}</li>
+															<li>${cartList.cart_d_name}</li>
+															<li>${cartList.cart_s_name}</li>
+														</ul>
+													</td>
+													<td class="cost">${cartList.cart_b_set_price}</td>
+												</c:if>
+												<c:if test="${cartList.cart_s_code != null}">
+													<td class="product-name">
+														<div>${cartList.cart_s_name}</div>
+													</td>
+													<td class="cost">${cartList.cart_s_price}</td>
+												</c:if>
+												<c:if test="${cartList.cart_d_code != null}">
+													<td class="product-name">
+														<div>${cartList.cart_d_name}</div>
+													</td>
+													<td class="cost">${cartList.cart_d_price}</td>
+												</c:if>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -126,7 +151,7 @@
 												</c:when>
 												<c:when test="${cartList != null}">
 													<th scope="row"><span>총 주문합계:</span></th>
-													<td><span>₩ 8,900</span></td>
+													<td><span>₩ </span></td>
 												</c:when>
 											</c:choose>
 										</tr>
@@ -148,7 +173,7 @@
 										</button>
 									</div>
 									<div class="form-group">
-										<a class="action-secondary action-link " href="/kr/menu.html"><i class="fa fa-caret-right"></i> &nbsp; <span>항목 추가</span></a>
+										<a class="action-secondary action-link " href="main.do"><i class="fa fa-caret-right"></i> &nbsp; <span>항목 추가</span></a>
 									</div>
 								</fieldset>
 							</section>

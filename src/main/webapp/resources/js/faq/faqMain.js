@@ -65,8 +65,7 @@ function changeColor(obj){
 	    }
 	}
 }
-
-
+	
 function search(type,type2)
 {	
 	// 더보기 초기화 	

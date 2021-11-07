@@ -38,7 +38,7 @@
 											</div>
 										</a>
 										<button style="background-color:#ffbc0d; color:white; margin-left:150px; border-radius:25px; width:90px; height:30px;" 
-													onclick="javascript:location.href='order.do?b_code=${selectDrink.d_code}'"><h4>주문하기</h4></button>
+													onclick="javascript:location.href='order.do?d_code=${selectDrink.d_code}'"><h4>주문하기</h4></button>
 									</li>
 								</c:forEach>
 							</ul>

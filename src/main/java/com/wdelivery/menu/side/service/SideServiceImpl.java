@@ -21,7 +21,7 @@ public class SideServiceImpl implements SideService {
 	}
 
 	@Override
-	public SideVO detailSide(String side_code) {
+	public SideVO detailSide(int side_code) {
 		
 		return sideDAO.detailSide(side_code);
 	}
