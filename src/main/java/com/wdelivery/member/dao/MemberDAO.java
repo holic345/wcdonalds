@@ -16,6 +16,7 @@ public interface MemberDAO {
 
 	public UserVO userSelect(String user_email);
 	public void mypageUpdate(UserVO userVO);
+	public void mypageDelete(UserVO userVO); //don ÇÏ´Â Áß
 	public void insertAuthData(UserVO userVO);
 	public void updateAuthKey(Map<String, String> map);
 	public void signUpConfirm(String email);
@@ -27,4 +28,9 @@ public interface MemberDAO {
 	public void naverMemJoin(UserVO userVO);
 
 	public void kakaoMemJoin(UserVO userVO);
+	
+	public UserAddressVO addressShow(String user_email);
+	public void addressInsert(UserAddressVO addressVO);
+	public void addressUpdate(UserAddressVO addressVO);
+	public void addressDelete(int address_seq);
 }

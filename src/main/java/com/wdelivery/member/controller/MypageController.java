@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.member.vo.UserAddressVO;
 import com.wdelivery.member.vo.UserVO;
 
 @Controller
@@ -17,14 +18,14 @@ public class MypageController {
 	private MemberService memberService;
 	
 	
-	//È¸¿øÁ¤º¸ ¼öÁ¤
+	//íšŒì›ì •ë³´ ìˆ˜ì •
 	@GetMapping("/mypageupdate.do")
 	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
 		
-		String user_email = (String) session.getAttribute("user_email"); //¼³Á¤ÇÑ session ¾ÆÀÌµð
+		String user_email = (String) session.getAttribute("user_email"); //ì„¤ì •í•œ session ì•„ì´ë””
 		//System.out.println("mypage : " + user_email );
 		
-		userVO = memberService.userSelect(user_email); //¼¼¼Ç ¾ÆÀÌµð VO¿¡ ³Ö±â
+		userVO = memberService.userSelect(user_email); //ì„¸ì…˜ ì•„ì´ë”” VOì— ë„£ê¸°
 		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
 		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
 		
@@ -33,18 +34,32 @@ public class MypageController {
 	@PostMapping("/mypageUpdate.do")
 	public String mypageUpdate(UserVO userVO) {
 		//String user_email = (String) session.getAttribute("user_email");
-		//System.out.println("mypageupdateÇÏ´ÂÁß : " + user_email );
+		//System.out.println("mypageupdateí•˜ëŠ”ì¤‘ : " + user_email );
 		System.out.println("mypageupdateController" + userVO.getUser_seq());
 		//session.setAttribute("userVO", memberService.mypageUpdate(userVO));
 		memberService.mypageUpdate(userVO);
 		System.out.println(userVO.toString());
 		return "mypageupdate";
 	}
+	@GetMapping("/mypageDelete.do")
+	public String mypageDelete(UserVO userVo, HttpSession session) {
+		System.out.println("mypage delete");
+		
+		memberService.mypageDelete(userVo);
+		session.invalidate();
+		return "main";
+	}
 	 
 	
 
 	@GetMapping("/addressBook.do")
-	public String addressBook() {
+	public String addressBook(UserAddressVO addressVO, Model model, HttpSession session) {
+		String user_email = (String) session.getAttribute("user_email");
+
+		addressVO = memberService.addressShow(user_email);
+		System.out.println("ddd " + addressVO.toString());
+		model.addAttribute("addressVO", addressVO);
+		
 		return "addressBook";
 	}
 
@@ -52,7 +67,6 @@ public class MypageController {
 	public String addressUpdate() {
 		return "addressupdate";
 	}
-	
 	
 	@GetMapping("/orderHistory.do")
 	public String orderHistory() {

@@ -14,6 +14,8 @@
 					<div>
 						<form id="orderForm">
 							<table id="table-select-meal" class="table table-select-meal">
+								<c:if test="${burgerVO != null}">
+								<input type="hidden" id="b_code" value="${burgerVO.b_code}">	
 								<thead>
 									<tr>
 										<th class="controls-colum">&nbsp;</th>
@@ -27,8 +29,6 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:if test="${burgerVO != null}">
-									<input type="hidden" id="b_code" value="${burgerVO.b_code}">
 									<tr id="row" class="rowCheck">
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
@@ -36,14 +36,14 @@
 											</div>
 										</td>
 										<td class="picture-column">
-											<img src= "${burgerVO.b_img_path}" alt="" class="img-block1">
+											<img src= "${burgerSetVO.b_set_img_path}" alt="" class="img-block1">
 										</td>
 										<td colspan="2" class="description-column">
-											<h4 class="item1-title">${burgerVO.b_name} 라지세트</h4>
+											<h4 class="item1-title">${burgerSetVO.b_set_name}</h4>
 											<p class="item-description"></p>
 										</td>
-										<td class="cost-column">${burgerVO.b_price}</td>
-										<td class="calories-column">${burgerVO.b_kcal}</td>
+										<td class="cost-column">${burgerSetVO.b_set_price}</td>
+										<td class="calories-column">${burgerSetVO.b_set_kcal}kcal</td>
 										<td colspan="2" class="side-column">선택안함</td>
 										<td colspan="2" class="drink-column">선택안함</td>
 										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
@@ -55,14 +55,14 @@
 											</div>
 										</td>
 										<td class="picture-column">
-											<img src="${burgerVO.b_img_path}" alt="" class="img-block2">
+											<img src="${burgerSetVO.b_set_img_path}" alt="" class="img-block2">
 										</td>
 										<td colspan="2" class="description-column">
-											<h4 class="item2-title">${burgerVO.b_name}</h4>
+											<h4 class="item2-title">${burgerSetVO.b_set_name}</h4>
 											<p class="item-description"></p>
 										</td>
-										<td class="cost-column">${burgerVO.b_price}</td>
-										<td class="calories-column">${burgerVO.b_kcal}</td>
+										<td class="cost-column">${burgerSetVO.b_set_price}</td>
+										<td class="calories-column">${burgerSetVO.b_set_kcal}kcal</td>
 										<td colspan="2" class="side-column">선택안함</td>
 										<td colspan="2" class="drink-column">선택안함</td>
 										<td class="change-column"><a href="#" onclick="sideOpen(1)">변경</a></td>
@@ -81,7 +81,7 @@
 											<p class="item-description"></p>
 										</td>
 										<td class="cost-column">${burgerVO.b_price}</td>
-										<td class="calories-column">${burgerVO.b_kcal}</td>
+										<td class="calories-column">${burgerVO.b_kcal}kcal</td>
 										<td colspan="2" class="side-column"></td>
 										<td colspan="2" class="drink-column"></td>
 										<td class="change-column"></td>
@@ -89,6 +89,19 @@
 									</c:if>
 									<c:if test="${sideVO != null}">
 										<input type="hidden" id="s_code" value="${sideVO.s_code}">
+										<input type="hidden" id="s_name" value="${sideVO.s_name}">
+										<thead>
+											<tr>
+												<th class="controls-colum">&nbsp;</th>
+												<th class="picture-column">&nbsp;</th>
+												<th colspan="2" class="description-column">&nbsp;</th>
+												<th class="cost-column">가격</th>
+												<th class="calories-column">kcal</th>
+												<th colspan="2" class="side-column">사이드</th>
+												<th class="change-column">변경</th>
+											</tr>
+										</thead>
+										<tbody>
 										<tr id="row" class="rowCheck">
 											<td class="controls-column">
 												<div class="input-group item-quantity item-quantity-picker">
@@ -103,14 +116,26 @@
 												<p class="item-description"></p>
 											</td>
 											<td class="cost-column">${sideVO.s_price}</td>
-											<td class="calories-column">${sideVO.s_kcal}</td>
+											<td class="calories-column">${sideVO.s_kcal}kcal</td>
 											<td colspan="2" class="side-column">선택안함</td>
-											<td colspan="2" class="drink-column">선택안함</td>
 											<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
 										</tr>
 									</c:if>
 									<c:if test="${drinkVO != null}">
 									<input type="hidden" id="d_code" value="${drinkVO.d_code}">
+									<input type="hidden" id="d_name" value="${drinkVO.d_name}">
+									<thead>
+										<tr>
+											<th class="controls-colum">&nbsp;</th>
+											<th class="picture-column">&nbsp;</th>
+											<th colspan="2" class="description-column">&nbsp;</th>
+											<th class="cost-column">가격</th>
+											<th class="calories-column">kcal</th>
+											<th colspan="2"class="drink-column">음료</th>
+											<th class="change-column">변경</th>
+										</tr>
+									</thead>
+									<tbody>
 										<tr id="row" class="rowCheck">
 											<td class="controls-column">
 												<div class="input-group item-quantity item-quantity-picker">
@@ -121,12 +146,11 @@
 												<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
 											</td>
 											<td colspan="2" class="description-column">
-												<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+												<h4 class="item1-title">${drinkVO.d_name}</h4>
 												<p class="item-description"></p>
 											</td>
 											<td class="cost-column">${drinkVO.d_price}</td>
-											<td class="calories-column">${drinkVO.d_kcal}</td>
-											<td colspan="2" class="side-column">선택안함</td>
+											<td class="calories-column">${drinkVO.d_kcal}kcal</td>
 											<td colspan="2" class="drink-column">선택안함</td>
 											<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
 										</tr>
@@ -186,18 +210,17 @@
 													data-cartname="후렌치 후라이 - 라지" style="position: absolute; opacity: 0;"
 													aria-invalid="false" checked>
 											</div>
-											<label for="side" class="side-label1"></label>
+											<label for="side1" class="side-label1"></label>
 										</div>
 									</div>
 									<div>
 										<div class="radio " data-categoryid="">
 											<div class="iradio1">
-												<input type="radio" name="select-choice" id="choice-6991" class="form-radio1"
-													value="골든 모짜렐라 치즈스틱 2조각" data-cartname="골든 모짜렐라 치즈스틱 2조각"
-													style="position: absolute; opacity: 0;"
+												<input type="radio" name="select-choice" id="side-label2" class="form-radio1"
+													data-cartname="골든 모짜렐라 치즈스틱 2조각" style="position: absolute; opacity: 0;"
 													aria-invalid="false">
 											</div>
-											<label for="side1" class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
+											<label for="side2" class="side-label2"></label>
 										</div>
 									</div>
 								</div>
@@ -279,29 +302,50 @@ var side = "";
 var drink = "";
 var va = "";
 
-var b_code = $('#b_code').val();
-var s_code = $('#s_code').val();
-var d_code = $('#d_code').val();
-
 //변경 폼
 $(function(){
+	var b_code = $('#b_code').val();
+	var s_code = $('#s_code').val();
+	var d_code = $('#d_code').val();
+	console.log(b_code);
+	console.log(s_code);
+	console.log(d_code);
 	
-	if(b_code == null && s_code == null && d_code == null) {
+ 	if(b_code == null && s_code == null && d_code == null) {
 		alert("메뉴를 골라라");
 		location.href="main.do";
-	}
+	} 
 	
 	$("#sideOkbtn").click(function() {
 		$("#sideModal").attr("style", "display:none");
 		
-		$('.form-radio1').each(function(){
-			if($(this).is(":checked")) {
-				side = $(this).val();
-				console.log(side);
-			} 
-		});
-		
-		$("#drinkModal").slideDown(200);
+		if(b_code != null){
+			$('.form-radio1').each(function(){
+				if($(this).is(":checked")) {
+					side = $(this).val();
+					console.log(side);
+				} 
+			});
+			$("#drinkModal").slideDown(200);
+		} else if(s_code != null) {
+			$('.form-radio1').each(function(){
+				if($(this).is(":checked")) {
+					side = $(this).val();
+					console.log(side);
+					
+					$('.rowCheck').find('.side-column').html(side);
+				} 
+			});
+		} else if(d_code != null) {
+			$('.form-radio1').each(function(){
+				if($(this).is(":checked")) {
+					drink = $(this).val();
+					console.log(side);
+					
+					$('.rowCheck').find('.drink-column').html(drink);
+				} 
+			});
+		}
 	});
 	
 	$("#drinkOkbtn").click(function() {
@@ -395,19 +439,44 @@ function sideOpen(index) {
 		if($(this).find('.form-controla').prop('checked') && i == index){
 			val = $(this).find('.form-controla').val();
 			if(val == "라지세트"){ 
-				$('label[for="side"]').text("후렌치 후라이 - 라지");
+				$('label[for="side1"]').text("후렌치 후라이 - 라지");
 				$('#side-label1').val("후렌치 후라이 - 라지");
-				console.log($('label[for="side"]').text());
+				$('label[for="side2"]').text("골든 모짜렐라 치즈스틱 2조각");
+				$('#side-label2').val("골든 모짜렐라 치즈스틱 2조각");
+				console.log($('label[for="side1"]').text());
 				console.log($('#side-label1').val());
+				console.log($('label[for="side2"]').text());
+				console.log($('#side-label2').val());
 			} else if(val == "세트"){ 
-				$('label[for="side"]').text("후렌치 후라이 - 미디움");
+				$('label[for="side1"]').text("후렌치 후라이 - 미디움");
 				$('#side-label1').val("후렌치 후라이 - 미디움");
-				console.log($('label[for="side"]').text());
-			} else if(val == "단품"){ 
+				$('label[for="side2"]').text("골든 모짜렐라 치즈스틱 2조각");
+				$('#side-label2').val("골든 모짜렐라 치즈스틱 2조각");
+				console.log($('label[for="side1"]').text());
+				console.log($('#side-label1').val());
+				console.log($('label[for="side2"]').text());
+				console.log($('#side-label2').val());
+			} else if(val == "사이드"){ 
+				$('label[for="side1"]').text($('#s_name').val() + " - 라지");
+				$('#side-label1').val($('#s_name').val());
+				$('label[for="side2"]').text($('#s_name').val() + " - 미디움");
+				$('#side-label2').val($('#s_name').val());
+				console.log($('label[for="side1"]').text());
+				console.log($('#side-label1').val());
+				console.log($('label[for="side2"]').text());
+				console.log($('#side-label2').val());
+			} else if(val == "음료"){ 
+				$('label[for="side1"]').text($('#d_name').val() + " - 라지");
+				$('#side-label1').val($('#d_name').val());
+				$('label[for="side2"]').text($('#d_name').val() + " - 미디움");
+				$('#side-label2').val($('#d_name').val());
+				console.log($('label[for="side1"]').text());
+				console.log($('#side-label1').val());
+				console.log($('label[for="side2"]').text());
+				console.log($('#side-label2').val());
+			} else
 				return false;
-			}
-			return false;
-		} 
+		}  
 	});	
 	if(val == "") 
 		alert("메뉴를 선택해주세요");

@@ -8,5 +8,5 @@ public interface DrinkService {
 	
 	public List<DrinkVO> selectDrink();
 	
-	DrinkVO detailDrink(String drink_code);
+	DrinkVO detailDrink(int drink_code);
 }

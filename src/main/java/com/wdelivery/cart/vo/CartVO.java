@@ -3,10 +3,17 @@ package com.wdelivery.cart.vo;
 public class CartVO {
 
 	private int cart_b_code;
-	private String cart_bSet_name;
 	private String cart_b_name;
 	private String cart_b_price;
 	private String cart_b_img_path;
+	private int cart_b_set_code;
+	private String cart_b_set_name;
+	private String cart_b_set_price;
+	private String cart_b_set_img_path;
+	private int cart_b_Lgset_code;
+	private String cart_b_Lgset_name;
+	private String cart_b_Lgset_price;
+	private String cart_b_Lgset_img_path;
 	private int cart_s_code;
 	private String cart_s_price;
 	private String cart_s_img_path;
@@ -15,6 +22,70 @@ public class CartVO {
 	private String cart_d_price;
 	private String cart_d_img_path;
 	private String cart_d_name;
+
+	public int getCart_b_Lgset_code() {
+		return cart_b_Lgset_code;
+	}
+
+	public void setCart_b_Lgset_code(int cart_b_Lgset_code) {
+		this.cart_b_Lgset_code = cart_b_Lgset_code;
+	}
+
+	public String getCart_b_Lgset_name() {
+		return cart_b_Lgset_name;
+	}
+
+	public void setCart_b_Lgset_name(String cart_b_Lgset_name) {
+		this.cart_b_Lgset_name = cart_b_Lgset_name;
+	}
+
+	public String getCart_b_Lgset_price() {
+		return cart_b_Lgset_price;
+	}
+
+	public void setCart_b_Lgset_price(String cart_b_Lgset_price) {
+		this.cart_b_Lgset_price = cart_b_Lgset_price;
+	}
+
+	public String getCart_b_Lgset_img_path() {
+		return cart_b_Lgset_img_path;
+	}
+
+	public void setCart_b_Lgset_img_path(String cart_b_Lgset_img_path) {
+		this.cart_b_Lgset_img_path = cart_b_Lgset_img_path;
+	}
+
+	public int getCart_b_set_code() {
+		return cart_b_set_code;
+	}
+
+	public void setCart_b_set_code(int cart_b_set_code) {
+		this.cart_b_set_code = cart_b_set_code;
+	}
+
+	public String getCart_b_set_name() {
+		return cart_b_set_name;
+	}
+
+	public void setCart_b_set_name(String cart_b_set_name) {
+		this.cart_b_set_name = cart_b_set_name;
+	}
+
+	public String getCart_b_set_price() {
+		return cart_b_set_price;
+	}
+
+	public void setCart_b_set_price(String cart_b_set_price) {
+		this.cart_b_set_price = cart_b_set_price;
+	}
+
+	public String getCart_b_set_img_path() {
+		return cart_b_set_img_path;
+	}
+
+	public void setCart_b_set_img_path(String cart_b_set_img_path) {
+		this.cart_b_set_img_path = cart_b_set_img_path;
+	}
 
 	public int getCart_s_code() {
 		return cart_s_code;
@@ -62,14 +133,6 @@ public class CartVO {
 
 	public void setCart_d_img_path(String cart_d_img_path) {
 		this.cart_d_img_path = cart_d_img_path;
-	}
-
-	public String getCart_bSet_name() {
-		return cart_bSet_name;
-	}
-
-	public void setCart_bSet_name(String cart_bSet_name) {
-		this.cart_bSet_name = cart_bSet_name;
 	}
 
 	public String getCart_s_name() {
