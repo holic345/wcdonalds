@@ -27,4 +27,9 @@ public interface MemberDAO {
 	public void naverMemJoin(UserVO userVO);
 
 	public void kakaoMemJoin(UserVO userVO);
+	
+	public UserAddressVO addressShow(String user_email);
+	public void addressInsert(UserAddressVO addressVO);
+	public void addressUpdate(UserAddressVO addressVO);
+	public void addressDelete(int address_seq);
 }

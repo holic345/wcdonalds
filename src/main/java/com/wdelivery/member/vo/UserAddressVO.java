@@ -14,6 +14,7 @@ public class UserAddressVO {
 	private String address2;
 	private int address_seq;
 	private String d_key;
+	private String order_comment;
 //	public int getUser_seq() {
 //		return user_seq;
 //	}
@@ -44,12 +45,18 @@ public class UserAddressVO {
 	public void setD_key(String d_key) {
 		this.d_key = d_key;
 	}
-	@Override
-	public String toString() {
-		return "UserAddressVO [user_email=" + user_email + ", address1=" + address1
-				+ ", address2=" + address2 + ", address_seq=" + address_seq + ", d_key=" + d_key + "]";
+	
+	public String getOrder_comment() {
+		return order_comment;
+	}
+	public void setOrder_comment(String order_comment) {
+		this.order_comment = order_comment;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "UserAddressVO [user_email=" + user_email + ", address1=" + address1 + ", address2=" + address2
+				+ ", address_seq=" + address_seq + ", d_key=" + d_key + ", order_comment=" + order_comment + "]";
+	}
+		
 }
