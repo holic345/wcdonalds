@@ -41,10 +41,22 @@
 	 <mybatis-spring:scan base-package="com.wdelivery.qna.dao"/>
 	 <mybatis-spring:scan base-package="com.wdelivery.member.dao"/>
 	 <mybatis-spring:scan base-package="com.wdelivery.menu.burger.dao"/>
+<<<<<<< HEAD
+=======
+
+	 <mybatis-spring:scan base-package="com.wdelivery.faq.dao"/>
+
+>>>>>>> parent of f147cd9 (카트)
 	 <mybatis-spring:scan base-package="com.wdelivery.cart.dao"/>
 	 
 	 <context:component-scan base-package="com.wdelivery.qna.service"></context:component-scan>
 	 <context:component-scan base-package="com.wdelivery.member.service"></context:component-scan>
 	 <context:component-scan base-package="com.wdelivery.menu.burger.service"></context:component-scan>
+<<<<<<< HEAD
+=======
+
+	 <context:component-scan base-package="com.wdelivery.faq.service"></context:component-scan>
+
+>>>>>>> parent of f147cd9 (카트)
 	 <context:component-scan base-package="com.wdelivery.cart.service"></context:component-scan>
 </beans>

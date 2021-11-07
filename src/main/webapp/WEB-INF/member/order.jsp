@@ -53,7 +53,12 @@
 								</thead>
 								<c:if test="${burgerVO != null}">
 								<tbody>
+<<<<<<< HEAD
 									<tr id="row">
+=======
+									<c:if test="${burgerVO != null}">
+									<tr id="row" class="rowCheck">
+>>>>>>> parent of f147cd9 (카트)
 										<td class="controls-column">
 											<div class="input-group item-quantity item-quantity-picker">
 												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
@@ -107,6 +112,52 @@
 										<td colspan="2" class="side-column"></td>
 										<td colspan="2" class="drink-column"></td>
 									</tr>
+<<<<<<< HEAD
+=======
+									</c:if>
+									<c:if test="${sideVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${sideVO.s_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${sideVO.s_name}</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${sideVO.s_price}</td>
+										<td class="calories-column">${sideVO.s_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0)">변경</a></td>
+									</tr>
+								</c:if>
+								<c:if test="${drinkVO != null}">
+									<tr id="row" class="rowCheck">
+										<td class="controls-column">
+											<div class="input-group item-quantity item-quantity-picker">
+												<input type="checkbox" name="checkbox" value="라지세트" class="form-controla"/> 
+											</div>
+										</td>
+										<td class="picture-column">
+											<img src= "${drinkVO.b_img_path}" alt="" class="img-block1">
+										</td>
+										<td colspan="2" class="description-column">
+											<h4 class="item1-title">${drinkVO.d_name} 라지세트</h4>
+											<p class="item-description"></p>
+										</td>
+										<td class="cost-column">${drinkVO.d_price}</td>
+										<td class="calories-column">${drinkVO.d_kcal}</td>
+										<td colspan="2" class="side-column">선택안함</td>
+										<td colspan="2" class="drink-column">선택안함</td>
+										<td class="change-column"><a href="#" onclick="sideOpen(0);">변경</a></td>
+									</tr>
+								</c:if>
+>>>>>>> parent of f147cd9 (카트)
 								</tbody>
 								</c:if>
 							</table>
@@ -159,7 +210,9 @@
 									<div>
 										<div class="radio" data-categoryid="">
 											<div class="iradio checked">
-												<input type="radio" name="select-choice" id="side-label" class="form-radio"
+												<input type="radio" name="select-choice" id="side-label" class="form-radio">
+											<div class="iradio1 checked">
+												<input type="radio" name="select-choice" id="side-label1" class="form-radio1"
 													data-cartname="후렌치 후라이 - 라지" style="position: absolute; opacity: 0;"
 													aria-invalid="false" checked>
 											</div>
@@ -169,12 +222,15 @@
 									<div>
 										<div class="radio " data-categoryid="">
 											<div class="iradio">
-												<input type="radio" name="select-choice" id="choice-6991" class="form-radio"
+												<input type="radio" name="select-choice" id="choice-6991" class="form-radio">
+											<div class="iradio1">
+												<input type="radio" name="select-choice" id="choice-6991" class="form-radio1"
 													value="골든 모짜렐라 치즈스틱 2조각" data-cartname="골든 모짜렐라 치즈스틱 2조각"
 													style="position: absolute; opacity: 0;"
 													aria-invalid="false">
 											</div>
 											<label class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
+											<label for="side1" class="side-label2">골든 모짜렐라 치즈스틱 2조각 </label>
 										</div>
 									</div>
 								</div>
@@ -513,6 +569,7 @@
 	</form>
 </div>
 <script type="text/javascript">
+<<<<<<< HEAD
 
 	//변경 폼
 	$(document).ready(function() {
@@ -531,6 +588,29 @@
 			
 			$("#drinkModal").slideDown(200);
 		});
+=======
+var side = "";
+var drink = "";
+var va = "";
+
+//변경 폼
+$(function(){
+	$("#sideOkbtn").click(function() {
+		$("#sideModal").attr("style", "display:none");
+		
+		$('.form-radio1').each(function(){
+			if($(this).is(":checked")) {
+				side = $(this).val();
+				console.log(side);
+			} 
+		});
+		
+		$("#drinkModal").slideDown(200);
+	});
+	
+	$("#drinkOkbtn").click(function() {
+		$("#drinkModal").attr("style", "display:none");
+>>>>>>> parent of f147cd9 (카트)
 		
 		$(".fas").click(function() {
 			$(".modal").attr("style", "display:none");
@@ -539,6 +619,7 @@
 		$("#drinkOkbtn").click(function() {
 			$("#drinkModal").attr("style", "display:none");
 		});
+<<<<<<< HEAD
 		
 		$('#addBtn').click(function(){
 			var va = "";
@@ -593,6 +674,58 @@
 				} 
 			});
 		});
+=======
+	});
+	
+	$(".fas").click(function() {
+		$(".modal").attr("style", "display:none");
+	});
+	
+	$('#addBtn').click(function(){
+		var va = "";
+		$('.form-controla').each(function(){
+			if($(this).is(":checked")) {
+				va = $(this).val();
+				if(va == "라지세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "세트"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				} else if(va == "단품"){ 
+					location.href="cart.do?b_code="+${burgerVO.b_code}+"&va="+va+"&side="+side+"&drink="+drink+"";
+				}
+			} 
+		});
+		if(va == "") {
+			alert("메뉴를 선택해주세요");
+			return;
+		}
+	});
+	
+	//체크박스 설정
+	$('.form-controla').click(function() {
+		if($(this).prop('checked')) {
+			$('.form-controla').prop('checked', false);
+			$('.form-controla').closest('tr').removeClass("selected");
+			$(this).prop('checked', true); 
+			$(this).closest('tr').addClass("selected");
+		} else { 
+			$(this).closest('tr').removeClass("selected");
+			return;
+		}
+	});
+
+	//사이드변경 라디오버튼 설정
+	$('.iradio1').click(function() {
+		$(this).find('.form-radio1').prop('checked', true);
+		if($(this).find('.form-radio1').prop('checked')) {
+			$('.form-radio1').prop('checked', false);
+			$('.form-radio1').closest('.iradio1').removeClass("checked");
+			$(this).find('.form-radio1').prop('checked', true); 
+			$(this).addClass("checked");
+		} else { 
+			$(this).removeClass("checked");
+		} 
+>>>>>>> parent of f147cd9 (카트)
 	});
 	
 	//사이브변경 라디오버튼 설정
@@ -607,4 +740,50 @@
 			$(this).removeClass("checked");
 		} 
 	});
+<<<<<<< HEAD
+=======
+});
+function sideOpen(index) {
+	var val = "";
+	$('.rowCheck').each(function(i){
+		console.log(i);
+		console.log(index);
+		if($(this).find('.form-controla').prop('checked') && i == index){
+			val = $(this).find('.form-controla').val();
+			if(val == "라지세트"){ 
+				$('label[for="side"]').text("후렌치 후라이 - 라지");
+				$('#side-label1').val("후렌치 후라이 - 라지");
+				console.log($('label[for="side"]').text());
+				console.log($('#side-label1').val());
+			} else if(val == "세트"){ 
+				$('label[for="side"]').text("후렌치 후라이 - 미디움");
+				$('#side-label1').val("후렌치 후라이 - 미디움");
+				console.log($('label[for="side"]').text());
+			} else if(val == "단품"){ 
+				return false;
+			}
+			return false;
+		} 
+	});	
+	if(val == "") 
+		alert("메뉴를 선택해주세요");
+	 else
+		$("#sideModal").slideDown(200);
+}
+
+function drinkOpen(index) {
+	$('.rowCheck').each(function(){
+		if($(this).find('a').hasClass('drinkCol'+index)){
+			$('.rowCheck').find('.form-controla').prop('checked', false);
+			$(this).find('.form-controla').prop('checked', true); 
+			
+			$('.rowCheck').removeClass("selected");
+			
+			$(this).addClass("selected");
+			
+			$("#drinkModal").slideDown(200);
+		}
+	});		 
+}
+>>>>>>> parent of f147cd9 (카트)
 </script>

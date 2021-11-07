@@ -16,10 +16,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wdelivery.cart.service.CartService;
 import com.wdelivery.cart.vo.CartVO;
+import com.wdelivery.cart.vo.CartVO;
+import com.wdelivery.faq.service.FaqService;
+import com.wdelivery.faq.vo.FaqVO;
+
 import com.wdelivery.member.service.MemberService;
 import com.wdelivery.member.vo.UserVO;
 import com.wdelivery.menu.burger.service.BurgerService;
 import com.wdelivery.menu.burger.vo.BurgerVO;
+import com.wdelivery.menu.drink.vo.DrinkVO;
+import com.wdelivery.menu.side.vo.SideVO;
 import com.wdelivery.qna.service.QnaService;
 import com.wdelivery.qna.vo.QnaVO;
 
@@ -37,7 +43,15 @@ public class MemberController {
 	private QnaService qnaServie;
 
 	@Autowired
+	private FaqService faqService;
+
+	@Autowired
 	private BurgerService burgerService;
+//	@Autowired
+//	private SideService sideService;
+//	@Autowired
+//	private DrinkService drinkService;
+	private List<CartVO> cartList;
 	
 	@Autowired
 	private CartService cartService;
@@ -49,7 +63,15 @@ public class MemberController {
 
 
 	@GetMapping("/mypageupdate.do")
-	public String mypageupdate() {
+	public String mypageupdate(UserVO userVO, Model model, HttpSession session) {
+		
+		String user_email = (String) session.getAttribute("user_email"); //설정한 session 아이디
+		//System.out.println("mypage : " + user_email );
+		
+//		userVO = memberService.userSelect(user_email); //세션 아이디 VO에 넣기
+//		//System.out.println("mypage !!!!!!!!=>" + userVO.toString());
+//		model.addAttribute("userVO", memberService.userSelect(userVO.getUser_email()));
+		
 		return "mypageupdate";
 	}
 	@PostMapping("/mypageUpdate.do")
@@ -75,7 +97,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/order.do")
-	public String orderPage(Model model, @RequestParam(value="b_code", required=false) String b_code) {
+	public String orderPage(Model model, @RequestParam(value="b_code", required=false) String b_code, 
+			@RequestParam(value="side_code", required=false) String side_code, @RequestParam(value="drink_code", required=false) String drink_code) {
 		//라지세트 디비정보도 가져와야됨(아직 안만들어짐)
 		
 //		BurgerSetVO burgerSetVO = burgerService.detailBurgerSet(b_code);
@@ -95,7 +118,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/cart.do")
-	public String cart(Model model, @RequestParam(value="b_code", required=false) String b_code, @RequestParam(value="va", required=false) String va) {
+	public String cart(Model model, @RequestParam(value="b_code", required=false) String b_code, @RequestParam(value="va", required=false) String va,
+			@RequestParam(value="side", required=false) String side, @RequestParam(value="drink", required=false) String drink, HttpSession session) {
 		if(b_code == null && va == null) {
 			return "orderConfirm";
 		}
@@ -112,6 +136,9 @@ public class MemberController {
 				cartService.cartInsert(cartVO);
 				List<CartVO> cartList = cartService.cartList();
 	
+
+//				List<CartVO> cartList = cartService.cartList();
+				
 				model.addAttribute("cartList", cartList);
 	
 			} else if (va.equals("세트")) {
@@ -125,6 +152,8 @@ public class MemberController {
 	
 				cartService.cartInsert(cartVO);
 				List<CartVO> cartList = cartService.cartList();
+//				cartService.cartInsert(cartVO);
+//				List<CartVO> cartList = cartService.cartList();
 	
 				model.addAttribute("cartList", cartList);
 	
@@ -140,6 +169,8 @@ public class MemberController {
 				cartService.cartInsert(cartVO);
 				List<CartVO> cartList = cartService.cartList();
 	
+				cartList.add(cartVO);
+				
 				model.addAttribute("cartList", cartList);
 			}
 			return "orderConfirm";
