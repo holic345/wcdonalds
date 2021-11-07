@@ -24,7 +24,7 @@
 								<em class="en">${detailBurger.b_e_name}</em>
 							</div>
 							<div class="info" data-title="슈니언 버거(버거)" data-desc="버거 메뉴">
-								<div class="visual"><img src="${detailBurger.b_img_path}" alt="슈니언 버거"></div>
+								<div class="visual"><img src="${detailBurger.b_detail_img_path}" alt="슈니언 버거"></div>
 								<div class="desc">
 									탱~글한 통새우살과 바삭한 어니언의 조화!<br>슈니언 버거<br>
 									<br>

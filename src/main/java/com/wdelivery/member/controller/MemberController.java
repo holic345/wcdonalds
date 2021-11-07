@@ -66,7 +66,7 @@ public class MemberController {
 
 
 	@GetMapping("/order.do")
-	public String orderPage(Model model, @RequestParam(value="b_code", required=false) String b_code, 
+	public String orderPage(Model model, @RequestParam(value="b_code", required=false) Integer b_code, 
 			@RequestParam(value="side_code", required=false) String side_code, @RequestParam(value="drink_code", required=false) String drink_code) {
 		//라지세트 디비정보도 가져와야됨(아직 안만들어짐)
 		
@@ -106,7 +106,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/cart.do")
-	public String cart(Model model, @RequestParam(value="b_code", required=false) String b_code, @RequestParam(value="va", required=false) String va,
+	public String cart(Model model, @RequestParam(value="b_code", required=false) Integer b_code, @RequestParam(value="va", required=false) String va,
 			@RequestParam(value="side", required=false) String side, @RequestParam(value="drink", required=false) String drink, HttpSession session) {
 		if(b_code == null && va == null) {
 			return "orderConfirm";

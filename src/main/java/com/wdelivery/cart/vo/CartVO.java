@@ -2,16 +2,16 @@ package com.wdelivery.cart.vo;
 
 public class CartVO {
 	
-	private String cart_b_code;
+	private Integer cart_b_code;
 	private String cart_b_name;
 	private String cart_b_price;
 	private String cart_b_img_path;
 
-	public String getCart_b_code() {
+	public Integer getCart_b_code() {
 		return cart_b_code;
 	}
 
-	public void setCart_b_code(String cart_b_code) {
+	public void setCart_b_code(Integer cart_b_code) {
 		this.cart_b_code = cart_b_code;
 	}
 
