@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wdelivery.member.service.MemberService;
+import com.wdelivery.member.vo.UserAddressVO;
 import com.wdelivery.member.vo.UserVO;
 
 @Controller
@@ -40,11 +41,25 @@ public class MypageController {
 		System.out.println(userVO.toString());
 		return "mypageupdate";
 	}
+	@GetMapping("/mypageDelete.do")
+	public String mypageDelete(UserVO userVo, HttpSession session) {
+		System.out.println("mypage delete");
+		
+		memberService.mypageDelete(userVo);
+		session.invalidate();
+		return "main";
+	}
 	 
 	
 
 	@GetMapping("/addressBook.do")
-	public String addressBook() {
+	public String addressBook(UserAddressVO addressVO, Model model, HttpSession session) {
+		String user_email = (String) session.getAttribute("user_email");
+
+		addressVO = memberService.addressShow(user_email);
+		System.out.println("ddd " + addressVO.toString());
+		model.addAttribute("addressVO", addressVO);
+		
 		return "addressBook";
 	}
 
@@ -52,7 +67,6 @@ public class MypageController {
 	public String addressUpdate() {
 		return "addressupdate";
 	}
-	
 	
 	@GetMapping("/orderHistory.do")
 	public String orderHistory() {
