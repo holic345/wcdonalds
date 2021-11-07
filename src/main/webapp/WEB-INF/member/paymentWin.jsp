@@ -24,7 +24,15 @@
 					현장 결제<br><br>
 					&nbsp;&nbsp;<input type="radio" id="cash" name="payment_type" value="2">
 					<label for="cash">&nbsp;현금</label><br>
-					<div id="selectedCash"></div>
+					
+					<div id="selectedCash">
+				&nbsp;<label>금액을 선택해주세요.</label>&nbsp;&nbsp;&nbsp;
+					<select name='exactCash'>
+					<option value='won1'>1만원권</option>
+					<option value='won5'>5만원권</option>
+					<option value='exact'>금액에 맞게</option>
+					</select>
+					</div>
 					<br><hr><br>
 					&nbsp;&nbsp;<input type="radio" id="soopyo" name="payment_type" value="3">
 					<label for="soopyo">&nbsp;수표</label>
